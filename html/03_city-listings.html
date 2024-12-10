@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Listing no map</title>
+  <meta content="Chernyh Mihail" name="author">
+  <meta content="Ecata - City Portal" name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="format-detection" content="telephone=no">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="assets/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="assets/css/uikit.min.css">
+  <link rel="stylesheet" href="assets/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/simple-line-icons.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="page-listing">
+  <div class="page-wrapper">
+    <header class="page-header">
+      <div class="page-header__scroll" data-uk-sticky>
+        <div class="uk-container uk-container-xlarge">
+          <div class="page-header__inner">
+            <div class="page-header__left">
+              <div class="page-header__logo logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/logo.svg" alt="Doremi"></a></div>
+              <div class="page-header__search">
+                <form class="uk-search uk-search-default uk-width-1-1"><button class="uk-search-icon-flip" data-uk-search-icon></button><input class="uk-input uk-search-input" type="search" placeholder="I’m looking for a..."></form>
+              </div>
+            </div>
+            <div class="page-header__right">
+              <div class="page-header__mainmenu">
+                <nav class="mainmenu" data-uk-navbar="">
+                  <ul class="uk-navbar-nav">
+                    <li><a href="01_home-1.html"> Home<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                      <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                          <li><a href="01_home.html">Home page 1</a></li>
+                          <li><a href="02_home-header-style.html">Home page 2</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li><a href="03_city-listings">Listings<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                      <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                          <li><a href="03_city-listings.html">City listings map</a></li>
+                          <li><a href="04_city-listings-no-map.html">City listings</a></li>
+                          <li> <a href="05_city-place.html">City place</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li><a href="08_blog-grid.html">Pages<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                      <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                          <li><a href="06_about.html">About</a></li>
+                          <li><a href="08_blog-grid.html">Blog grid</a></li>
+                          <li><a href="07_blog.html">Blog list</a></li>
+                          <li><a href="09_blog-post.html">Blog post</a></li>
+                          <li><a href="10_contact.html">Contacts</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="page-header__sing-in"><a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i><span>Sign in or Register</span></a></div>
+              <div class="page-header__btn"> <a class="uk-button uk-button-danger" href="03_city-listings.html"> <span data-uk-icon="plus"></span><span>ADD A PLACE</span></a></div>
+              <div class="page-header__btn-menu"><a href="#offcanvas" data-uk-toggle data-uk-icon="menu"></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="page-main">
+      <div class="section-banner">
+        <div class="section-banner__bg" style="background-image: url(assets/img/bg-banner-listing.jpg)">
+          <div class="uk-container">
+            <div class="section-banner__content uk-text-center">
+              <div class="section-banner__title">Bangkok</div>
+              <div class="section-banner__text">National Capital City & Chief Port of Thailand</div>
+              <div class="section-banner__info">
+                <div class="uk-grid uk-child-width-1-4@m uk-child-width-1-2 uk-grid-divider" data-uk-grid>
+                  <div>
+                    <div class="info-item">
+                      <div class="info-item__icon"><img src="assets/img/ico-info-listing-1.png" alt="ico-info-listing"></div>
+                      <div class="info-item__label">City Area</div>
+                      <div class="info-item__value">605.7 sq miles</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="info-item">
+                      <div class="info-item__icon"><img src="assets/img/ico-info-listing-2.png" alt="ico-info-listing"></div>
+                      <div class="info-item__label">Language</div>
+                      <div class="info-item__value">Central Thai</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="info-item">
+                      <div class="info-item__icon"><img src="assets/img/ico-info-listing-3.png" alt="ico-info-listing"></div>
+                      <div class="info-item__label">Currency</div>
+                      <div class="info-item__value">Thai Baht</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="info-item">
+                      <div class="info-item__icon"><img src="assets/img/ico-info-listing-4.png" alt="ico-info-listing"></div>
+                      <div class="info-item__label">Population</div>
+                      <div class="info-item__value">8.281 million +</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin-large-bottom uk-grid-collapse" data-uk-grid>
+        <div class="uk-width-2-3@l">
+          <div class="section-filter">
+            <div class="uk-background-muted">
+              <div class="uk-section-small uk-container">
+                <div class="uk-grid uk-child-width-auto@m uk-flex-bottom" data-uk-grid>
+                  <div class="uk-width-expand">
+                    <p>Showing results For <b>“Bangkok Listings”</b> from 1 - 10</p>
+                    <ul class="filter-list">
+                      <li><label class="filter-item"><input type="radio" name="filter" checked><span>Near Me</span></label></li>
+                      <li><label class="filter-item"><input type="radio" name="filter"><span>Open Now</span></label></li>
+                      <li><label class="filter-item"><input type="radio" name="filter"><span>Best Match</span></label></li>
+                      <li><label class="filter-item"><input type="radio" name="filter"><span>Newest First</span></label></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="uk-inline"><button class="uk-button uk-button-default" type="button" data-uk-icon="chevron-down">City: Bangkok</button>
+                      <div data-uk-drop>
+                        <ul class="uk-nav uk-nav-default uk-list-divider">
+                          <li><a href="#!">Restaurants</a></li>
+                          <li><a href="#!">See And Do</a></li>
+                          <li><a href="#!">Entertainment</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="uk-container uk-margin-medium-top">
+              <div class="section-listing-slider uk-margin-medium">
+                <div class="uk-h3">Restaurants</div>
+                <div data-uk-slider="sets: true">
+                  <div class="uk-position-relative" tabindex="-1">
+                    <div class="uk-slider-container">
+                      <ul class="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@xl">
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Planet Museum</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>close</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-2.jpg" alt="ZX Shopping Mall" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                                <div class="listing-card__label"> <span>FEATURED</span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">ZX Shopping Mall</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-3.jpg" alt="Grandsol Hotel" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Grandsol Hotel</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-4.jpg" alt="Fadisy Restaurant" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Fadisy Restaurant</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-5.jpg" alt="Caprid Cinema" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Caprid Cinema</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Planet Museum</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>close</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div><a class="uk-position-top-left" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a><a class="uk-position-top-right" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+                  </div>
+                  <div class="uk-hidden@s">
+                    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top"></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="section-listing-slider uk-margin-medium">
+                <div class="uk-h3">See And Do</div>
+                <div data-uk-slider="sets: true">
+                  <div class="uk-position-relative" tabindex="-1">
+                    <div class="uk-slider-container">
+                      <ul class="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@xl">
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-4.jpg" alt="Fadisy Restaurant" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Fadisy Restaurant</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-5.jpg" alt="Caprid Cinema" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Caprid Cinema</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Planet Museum</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>close</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-2.jpg" alt="ZX Shopping Mall" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                                <div class="listing-card__label"> <span>FEATURED</span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">ZX Shopping Mall</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-3.jpg" alt="Grandsol Hotel" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Grandsol Hotel</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-4.jpg" alt="Fadisy Restaurant" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Fadisy Restaurant</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div><a class="uk-position-top-left" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a><a class="uk-position-top-right" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+                  </div>
+                  <div class="uk-hidden@s">
+                    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top"></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="section-listing-slider uk-margin-medium">
+                <div class="uk-h3">Entertainment</div>
+                <div data-uk-slider="sets: true">
+                  <div class="uk-position-relative" tabindex="-1">
+                    <div class="uk-slider-container">
+                      <ul class="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@xl">
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-2.jpg" alt="ZX Shopping Mall" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                                <div class="listing-card__label"> <span>FEATURED</span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">ZX Shopping Mall</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-3.jpg" alt="Grandsol Hotel" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Grandsol Hotel</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-4.jpg" alt="Fadisy Restaurant" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Fadisy Restaurant</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-5.jpg" alt="Caprid Cinema" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Caprid Cinema</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">Planet Museum</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>close</span></div>
+                                <div class="listing-card__price"><span>$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="listing-card">
+                            <div class="listing-card__box">
+                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="assets/img/listing-thumb-2.jpg" alt="ZX Shopping Mall" /></a>
+                                <div class="listing-card__type"><img src="assets/img/ico-fork.svg" alt="ico-fork" /></div>
+                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                                <div class="listing-card__label"> <span>FEATURED</span></div>
+                              </div>
+                              <div class="listing-card__body">
+                                <div class="listing-card__title"><a href="05_city-place.html">ZX Shopping Mall</a></div>
+                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
+                                <div class="listing-card__location"><span class="icon-location-pin"></span><span>32 Simpson Road, NY 020103</span></div>
+                                <div class="listing-card__phone"><span class="icon-call-in"></span><span>+1 (009) 236 985</span></div>
+                              </div>
+                              <div class="listing-card__info">
+                                <div class="listing-card__rating">
+                                  <div class="rating-box">
+                                    <div class="rating-box__icon"><span class="icon-star"></span></div>
+                                    <div class="rating-box__desc">
+                                      <div class="rating-box__title">Rating<b>4.7</b></div>
+                                      <div class="rating-box__reviews">(5 reviews)</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="listing-card__works"> <span>open</span></div>
+                                <div class="listing-card__price"><span>$$$</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div><a class="uk-position-top-left" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a><a class="uk-position-top-right" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+                  </div>
+                  <div class="uk-hidden@s">
+                    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="uk-width-1-3@l uk-visible@l">
+          <div class="listing-map uk-cover-container uk-height-1-1 uk-background-muted"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26531.049464665928!2d-118.27658807870944!3d33.77665338557302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd35d6a02be983%3A0x2aae7458d5262918!2z0KPQuNC70LzQuNC90LPRgtC-0L0sINCa0LDQu9C40YTQvtGA0L3QuNGPIDkwNzQ0LCDQodCo0JA!5e0!3m2!1sru!2sua!4v1611503673982!5m2!1sru!2sua" data-uk-cover></iframe></div>
+        </div>
+      </div>
+      <div class="section-popular uk-margin-large-bottom">
+        <div class="uk-background-muted">
+          <div class="uk-section-large uk-container">
+            <div class="section-title uk-text-center"><span>Rent Things The Easier Way</span>
+              <h3 class="uk-h3">Popular Cities</h3>
+            </div>
+            <div class="section-content">
+              <div class="uk-child-width-1-2@l uk-grid-medium" uk-grid>
+                <div>
+                  <div class="city-item"><a class="city-item__box" href="03_city-listings.html">
+                      <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="assets/img/img-city-1.jpg" alt="New York" data-uk-cover="data-uk-cover" />
+                        <div class="uk-overlay-primary uk-position-cover"></div>
+                        <div class="city-item__content uk-position-bottom">
+                          <div class="city-item__city">New York</div>
+                          <div class="city-item__country">United States</div>
+                        </div>
+                        <div class="uk-position-top-right">
+                          <div class="city-item__col">20 Listings</div>
+                        </div>
+                      </div>
+                    </a></div>
+                </div>
+                <div>
+                  <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                    <div>
+                      <div class="city-item"><a class="city-item__box" href="03_city-listings.html">
+                          <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="assets/img/img-city-2.jpg" alt="Paris" data-uk-cover="data-uk-cover" />
+                            <div class="uk-overlay-primary uk-position-cover"></div>
+                            <div class="city-item__content uk-position-bottom">
+                              <div class="city-item__city">Paris</div>
+                              <div class="city-item__country">France</div>
+                            </div>
+                            <div class="uk-position-top-right">
+                              <div class="city-item__col">20 Listings</div>
+                            </div>
+                          </div>
+                        </a></div>
+                    </div>
+                    <div>
+                      <div class="city-item"><a class="city-item__box" href="03_city-listings.html">
+                          <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="assets/img/img-city-3.jpg" alt="London" data-uk-cover="data-uk-cover" />
+                            <div class="uk-overlay-primary uk-position-cover"></div>
+                            <div class="city-item__content uk-position-bottom">
+                              <div class="city-item__city">London</div>
+                              <div class="city-item__country">United Kingdom</div>
+                            </div>
+                            <div class="uk-position-top-right">
+                              <div class="city-item__col">20 Listings</div>
+                            </div>
+                          </div>
+                        </a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="page-join-us">
+      <div class="uk-container">
+        <div class="join-us">
+          <div class="join-us__box">
+            <div class="join-us__title">Join Us & Get Listed</div>
+            <div class="join-us__text">Eiusmod tempor incididunt ut labore et dolore magna aliqua <br> exercitation ullamco laboris nisi ut aliquip exa dolor</div>
+            <div class="join-us__btn"><a class="uk-button uk-button-danger" href="10_contact.html">Get started</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <div class="page-footer__top">
+        <div class="uk-container">
+          <div class="uk-grid" data-uk-grid>
+            <div class="uk-width-1-3@m uk-width-1-2@s">
+              <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/logo.svg" alt="Doremi"></a></div>
+              <p>Eiusmod tempora incididunt dolore<br> magna aliqua sed enim lorem ipsum<br> sit amet consectetur.</p>
+              <ul class="uk-list">
+                <li> <span>Email: </span><a href="mailto:support@domain.com">support@domain.com</a></li>
+                <li> <span>Phone: </span><a href="tel:104023513690">+1 (040) 2351 3690</a></li>
+              </ul>
+            </div>
+            <div class="uk-width-1-3@m uk-width-1-2@s uk-flex-last@m">
+              <h3 class="uk-h3">Join Our Community</h3>
+              <p>Continue exploring the great places.</p>
+              <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                <div><img src="assets/img/AppStore.svg" alt="AppStore"></div>
+                <div><img src="assets/img/PlayStore.svg" alt="PlayStore"></div>
+              </div>
+            </div>
+            <div class="uk-width-1-3@m uk-visible@s">
+              <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
+                <div>
+                  <h3 class="uk-h3">About</h3>
+                  <ul class="uk-nav uk-nav-default">
+                    <li> <a href="page-typography.html">Our Company</a></li>
+                    <li> <a href="page-typography.html">Carers</a></li>
+                    <li> <a href="page-typography.html">Support</a></li>
+                    <li> <a href="page-typography.html">How It Works</a></li>
+                    <li> <a href="page-typography.html">Add a Place</a></li>
+                    <li> <a href="page-typography.html">Disclaimers</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="uk-h3">Top Cities</h3>
+                  <ul class="uk-nav uk-nav-default">
+                    <li> <a href="page-typography.html">New York</a></li>
+                    <li> <a href="page-typography.html">Paris</a></li>
+                    <li> <a href="page-typography.html">London</a></li>
+                    <li> <a href="page-typography.html">Singapore</a></li>
+                    <li> <a href="page-typography.html">Bangkok</a></li>
+                    <li> <a href="page-typography.html">Dubai</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer__middle">
+        <div class="uk-container">
+          <div class="uk-grid uk-child-width-1-2@s" data-uk-grid>
+            <div>
+              <h3 class="uk-h3">Signup For Latest News</h3>
+              <div class="subscribe-form">
+                <form>
+                  <!-- Hidden Required Fields -->
+                  <input type="hidden" name="project_name" value="Ecata - City Portal">
+                  <input type="hidden" name="admin_email" value="chernyh.mihail@gmail.com">
+                  <input type="hidden" name="form_subject" value="Form subscribe">
+                  <!-- END Hidden Required Fields -->
+                  <div class="subscribe-form__box"><input class="uk-input" type="email" name="email" placeholder="Enter your email" required><input class="uk-button uk-button-danger" type="submit" value="Subscribe"></div>
+                </form>
+              </div>
+            </div>
+            <div>
+              <h3 class="uk-h3">Connect Socially</h3>
+              <ul class="social">
+                <li><a href="#!"><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
+                <li><a href="#!"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                <li><a href="#!"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                <li><a href="#!"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer__bottom">
+        <div class="uk-container"><span>© 2022 Ecata City Portal - All rights reserved.</span></div>
+      </div>
+      <div id="offcanvas" data-uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between"><button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
+          <div>
+            <div class="uk-margin">
+              <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/logo.svg" alt="Doremi"></a></div>
+            </div>
+            <div class="uk-margin-medium">
+              <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+                <li class="uk-parent"><a href="#!">Home</a>
+                  <ul class="uk-nav-sub">
+                    <li><a href="01_home.html">Home page 1</a></li>
+                    <li><a href="02_home-header-style.html">Home page 2</a></li>
+                  </ul>
+                </li>
+                <li class="uk-parent"><a href="#!">Listings</a>
+                  <ul class="uk-nav-sub">
+                    <li><a href="03_city-listings.html">City listings map</a></li>
+                    <li><a href="04_city-listings-no-map.html">City listings</a></li>
+                    <li> <a href="05_city-place.html">City place</a></li>
+                  </ul>
+                </li>
+                <li class="uk-parent"><a href="#!">Pages</a>
+                  <ul class="uk-nav-sub">
+                    <li><a href="06_about.html">About</a></li>
+                    <li><a href="08_blog-grid.html">Blog grid</a></li>
+                    <li><a href="07_blog.html">Blog list</a></li>
+                    <li><a href="09_blog-post.html">Blog post</a></li>
+                    <li><a href="10_contact.html">Contacts</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="uk-margin uk-text-center"><a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i><span>Sign in or Register</span></a></div>
+            <div class="uk-margin"> <a class="uk-button uk-button-danger" href="#!"> <span data-uk-icon="plus"></span><span>List An Item</span></a></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/uikit.min.js"></script>
+  <script src="assets/js/uikit-icons.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

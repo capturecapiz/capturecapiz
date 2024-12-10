@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>City place</title>
+    <meta content="Chernyh Mihail" name="author">
+    <meta content="Ecata - City Portal" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="assets/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="assets/css/uikit.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="page-listing-post">
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="page-header__scroll" data-uk-sticky>
+                <div class="uk-container uk-container-xlarge">
+                    <div class="page-header__inner">
+                        <div class="page-header__left">
+                            <div class="page-header__logo logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/logo.svg" alt="Doremi"></a></div>
+                            <div class="page-header__search">
+                                <form class="uk-search uk-search-default uk-width-1-1"><button class="uk-search-icon-flip" data-uk-search-icon></button><input class="uk-input uk-search-input" type="search" placeholder="I’m looking for a..."></form>
+                            </div>
+                        </div>
+                        <div class="page-header__right">
+                            <div class="page-header__mainmenu">
+                                <nav class="mainmenu" data-uk-navbar="">
+                                    <ul class="uk-navbar-nav">
+                                        <li><a href="01_home-1.html"> Home<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                                            <div class="uk-navbar-dropdown">
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a href="01_home.html">Home page 1</a></li>
+                                                    <li><a href="02_home-header-style.html">Home page 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li><a href="03_city-listings">Listings<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                                            <div class="uk-navbar-dropdown">
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a href="03_city-listings.html">City listings map</a></li>
+                                                    <li><a href="04_city-listings-no-map.html">City listings</a></li>
+                                                    <li> <a href="05_city-place.html">City place</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li><a href="08_blog-grid.html">Pages<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                                            <div class="uk-navbar-dropdown">
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a href="06_about.html">About</a></li>
+                                                    <li><a href="08_blog-grid.html">Blog grid</a></li>
+                                                    <li><a href="07_blog.html">Blog list</a></li>
+                                                    <li><a href="09_blog-post.html">Blog post</a></li>
+                                                    <li><a href="10_contact.html">Contacts</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="page-header__sing-in"><a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i><span>Sign in or Register</span></a></div>
+                            <div class="page-header__btn"> <a class="uk-button uk-button-danger" href="03_city-listings.html"> <span data-uk-icon="plus"></span><span>ADD A PLACE</span></a></div>
+                            <div class="page-header__btn-menu"><a href="#offcanvas" data-uk-toggle data-uk-icon="menu"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="page-main">
+            <div class="section-banner">
+                <div class="section-banner__bg" style="background-image: url(assets/img/bg-banner-listing-item.jpg)">
+                    <div class="uk-container">
+                        <div class="section-banner__content">
+                            <div class="uk-grid uk-child-width-auto@m uk-flex-bottom" data-uk-grid>
+                                <div class="uk-width-expand@m">
+                                    <div class="section-banner__breadcrumb">
+                                        <ul class="uk-breadcrumb">
+                                            <li><a href="#">Bangkok</a></li>
+                                            <li><span>Restaurants</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-banner__title">Dine In The Light</div>
+                                    <div class="section-banner__rating"> <span class="icon-star"></span><span>Rating</span><b>4.7</b><small>(5 Reviews)</small><span class="uk-margin-small-left">| $$$</span></div>
+                                </div>
+                                <div>
+                                    <div class="section-banner__links">
+                                        <ul>
+                                            <li><a class="link-share" href="#!"><i class="fas fa-share-alt"></i></a></li>
+                                            <li><a class="link-bookmark" href="#!"><i class="far fa-bookmark"></i></a></li>
+                                            <li><a class="link-comment" href="#!"><i class="far fa-comment-alt"></i></a></li>
+                                            <li><a class="link-img" href="#!"><i class="far fa-images"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="uk-section-large uk-container">
+                    <div class="uk-grid uk-grid-medium" data-uk-grid>
+                        <div class="uk-width-2-3@m">
+                            <div class="section-city-place">
+                                <div class="uk-h3"><span class="icon-picture"></span>Photo Gallery</div>
+                                <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                    <div class="uk-position-relative">
+                                        <ul class="uk-slideshow-items uk-child-width-1-1" data-uk-lightbox="animation: scale">
+                                            <li class="uk-border-rounded"><a href="assets/img/img-article-intro-1.jpg"><img class="uk-width-1-1" src="assets/img/img-article-intro-1.jpg" alt="img-gallery" data-uk-cover></a></li>
+                                            <li class="uk-border-rounded"><a href="assets/img/img-article-intro-2.jpg"><img class="uk-width-1-1" src="assets/img/img-article-intro-2.jpg" alt="img-gallery" data-uk-cover></a></li>
+                                            <li class="uk-border-rounded"><a href="assets/img/img-article-intro-3.jpg"><img class="uk-width-1-1" src="assets/img/img-article-intro-3.jpg" alt="img-gallery" data-uk-cover></a></li>
+                                            <li class="uk-border-rounded"><a href="assets/img/img-article-intro-4.jpg"><img class="uk-width-1-1" src="assets/img/img-article-intro-4.jpg" alt="img-gallery" data-uk-cover></a></li>
+                                            <li class="uk-border-rounded"><a href="assets/img/img-article-intro-2.jpg"><img class="uk-width-1-1" src="assets/img/img-article-intro-2.jpg" alt="img-gallery" data-uk-cover></a></li>
+                                        </ul><a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a><a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
+                                    </div>
+                                    <div class="uk-margin-top" data-uk-slider>
+                                        <ul class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                            <li data-uk-slideshow-item="0"><a href="#"><img class="uk-border-rounded" src="assets/img/img-article-intro-1.jpg" alt="img-gallery"></a></li>
+                                            <li data-uk-slideshow-item="1"><a href="#"><img class="uk-border-rounded" src="assets/img/img-article-intro-2.jpg" alt="img-gallery"></a></li>
+                                            <li data-uk-slideshow-item="2"><a href="#"><img class="uk-border-rounded" src="assets/img/img-article-intro-3.jpg" alt="img-gallery"></a></li>
+                                            <li data-uk-slideshow-item="3"><a href="#"><img class="uk-border-rounded" src="assets/img/img-article-intro-4.jpg" alt="img-gallery"></a></li>
+                                            <li data-uk-slideshow-item="4"><a href="#"><img class="uk-border-rounded" src="assets/img/img-article-intro-2.jpg" alt="img-gallery"></a></li>
+                                        </ul>
+                                        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-large">
+                            <div class="section-city-place">
+                                <div class="uk-h3"><span class="icon-diamond"></span>Main Features</div>
+                                <div class="city-place-features">
+                                    <div class="uk-grid uk-grid-small uk-child-width-1-5@m uk-child-width-1-2 uk-grid-divider" data-uk-grid>
+                                        <div>
+                                            <div class="city-place-feature">
+                                                <div class="city-place-feature__item">
+                                                    <div class="city-place-feature__icon"><img src="assets/img/ico-city-place-1.png" alt="ico-city-place"></div>
+                                                    <div class="city-place-feature__title">Free Parking</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="city-place-feature">
+                                                <div class="city-place-feature__item">
+                                                    <div class="city-place-feature__icon"><img src="assets/img/ico-city-place-2.png" alt="ico-city-place"></div>
+                                                    <div class="city-place-feature__title">Credit Cards</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="city-place-feature">
+                                                <div class="city-place-feature__item">
+                                                    <div class="city-place-feature__icon"><img src="assets/img/ico-city-place-3.png" alt="ico-city-place"></div>
+                                                    <div class="city-place-feature__title">Swimming Pool</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="city-place-feature">
+                                                <div class="city-place-feature__item">
+                                                    <div class="city-place-feature__icon"><img src="assets/img/ico-city-place-4.png" alt="ico-city-place"></div>
+                                                    <div class="city-place-feature__title">24 Hrs Service</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-visible@m">
+                                            <div class="uk-flex uk-flex-middle uk-flex-center uk-height-1-1"><img src="assets/img/ico-city-place-5.png" alt="ico-city-place"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-large">
+                            <div class="section-city-place">
+                                <div class="uk-h3"><span class="icon-folder"></span>Brief Description</div>
+                                <p>Eiusmod temporl incididunt utys labore dolore magna aliqua sed enim audy. Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip exea consequat. Duis aute irure dolor in reprehenderit.</p>
+                                <p>Voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+                            </div>
+                            <hr class="uk-margin-large">
+                            <div class="section-city-place">
+                                <div class="uk-h3"><span class="icon-control-play"></span>Intro Video</div>
+                                <div class="video" data-uk-lightbox="video-autoplay:true; index: 1"><a href="https://youtu.be/IUYs3mYgEPI" data-attrs="width: 1280; height: 720;" data-caption="YouTube"><img class="uk-width-1-1" src="./assets/img/img-article-intro-2.jpg" alt="img-article"></a></div>
+                            </div>
+                            <hr class="uk-margin-large">
+                            <div class="section-city-place">
+                                <div class="uk-h3"><span class="icon-map"></span>Location Map</div>
+                                <div><iframe class="uk-width-1-1 uk-height-large uk-border-rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26531.049464665928!2d-118.27658807870944!3d33.77665338557302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd35d6a02be983%3A0x2aae7458d5262918!2z0KPQuNC70LzQuNC90LPRgtC-0L0sINCa0LDQu9C40YTQvtGA0L3QuNGPIDkwNzQ0LCDQodCo0JA!5e0!3m2!1sru!2sua!4v1611503673982!5m2!1sru!2sua"></iframe></div>
+                            </div>
+                            <hr class="uk-margin-large">
+                            <div class="section-city-place">
+                                <div class="uk-h3"><span class="icon-earphones-alt"></span>Contact Information</div>
+                                <ul class="contact-list">
+                                    <li>
+                                        <div class="contact-item">
+                                            <div class="contact-item__icon icon-location-pin"></div>
+                                            <div class="contact-item__value">32 Simpson Rd, CanalView Park, Bangkok 02010, Thailand</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-item">
+                                            <div class="contact-item__icon icon-call-in"></div>
+                                            <div class="contact-item__value">+1 (009) 236 985 | +1 (009) 236 986</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-item">
+                                            <div class="contact-item__icon icon-envelope-open"></div>
+                                            <div class="contact-item__value">dinewithus@restaurant-daylight.com</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-item">
+                                            <div class="contact-item__icon icon-globe"></div>
+                                            <div class="contact-item__value">www.restaurant-daylight.com</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <hr class="uk-margin-large">
+                            <div class="section-city-place">
+                                <div class="uk-flex-middle uk-margin-medium-bottom" data-uk-grid>
+                                    <div class="uk-width-expand@m">
+                                        <h3 class="uk-h3"><span class="icon-star icon-accent"></span>Reviews<small>(Rating <b>4.7</b> Based on 260 Reviews)</small></h3>
+                                    </div>
+                                    <div><a class="uk-button uk-button-danger" href="#add-reviews" data-uk-scroll="offset: 90">ADD A REVIEW</a></div>
+                                </div>
+                                <div class="uk-comment">
+                                    <div class="uk-comment-header">
+                                        <div class="uk-grid-medium uk-flex-middle" data-uk-grid>
+                                            <div class="uk-width-auto"><img class="uk-comment-avatar" src="assets/img/avatar-1.png" width="60" height="60" alt="avatar"></div>
+                                            <div class="uk-width-expand">
+                                                <div data-uk-grid>
+                                                    <div>
+                                                        <h4 class="uk-comment-title uk-margin-small-bottom">Linus William</h4>
+                                                        <div class="uk-comment-meta">1 day Ago</div>
+                                                    </div>
+                                                    <div>
+                                                        <ul class="stars-list">
+                                                            <li><i class="far fa-star"></i></li>
+                                                            <li><i class="far fa-star"></i></li>
+                                                            <li><i class="far fa-star"></i></li>
+                                                            <li><i class="far fa-star"></i></li>
+                                                            <li><i class="far fa-star"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-comment-body">
+                                        <p>It was indeed very good and fantastic to dine here and stay. The atmosphere electrifying. Prices was also very reasonable and service was awesome.</p>
+                                    </div>
+                                </div>
+                                <div class="uk-comment">
+                                    <div class="uk-comment-header">
+                                        <div class="uk-grid-medium uk-flex-middle" data-uk-grid>
+                                            <div class="uk-width-auto"><img class="uk-comment-avatar" src="assets/img/avatar-2.png" width="60" height="60" alt="avatar"></div>
+                                            <div class="uk-width-expand">
+                                                <div data-uk-grid>
+                                                    <div>
+                                                        <h4 class="uk-comment-title uk-margin-small-bottom">Ameda Hilson</h4>
+                                                        <div class="uk-comment-meta">1 day Ago</div>
+                                                    </div>
+                                                    <div>
+                                                        <ul class="stars-list">
+                                                            <li><i class="far fa-star"></i></li>
+                                                            <li><i class="far fa-star"></i></li>
+                                                            <li><i class="far fa-star"></i></li>
+                                                            <li><i class="far fa-star"></i></li>
+                                                            <li><i class="far fa-star"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-comment-body">
+                                        <p>It was indeed very good and fantastic to dine here and stay. The atmosphere electrifying. Prices was also very reasonable and service was awesome.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-large">
+                            <div class="section-city-place" id="add-reviews">
+                                <div class="uk-h3"><span class="icon-star icon-accent"></span>Add Review & Rate</div>
+                                <div class="block-rating"><span class="block-rating__text">Your Rating</span><img class="block-rating__stars" src="assets/img/ico-stars.svg" alt="ico-stars"><span class="block-rating__numb">5.0</span></div>
+                                <form>
+                                    <!-- Hidden Required Fields -->
+                                    <input type="hidden" name="project_name" value="Ecata - City Portal">
+                                    <input type="hidden" name="admin_email" value="chernyh.mihail@gmail.com">
+                                    <input type="hidden" name="form_subject" value="Add Review">
+                                    <!-- END Hidden Required Fields -->
+                                    <div class="uk-grid uk-grid-medium uk-child-width-1-1" data-uk-grid>
+                                        <div><textarea class="uk-textarea" name="review" placeholder="Write your review..." required></textarea></div>
+                                        <div><input class="uk-input" type="text" name="fio" placeholder="Your Name *" required></div>
+                                        <div><input class="uk-input" type="text" name="email" placeholder="Your Email *" required></div>
+                                        <div><label> <input class="uk-checkbox" type="checkbox" checked><span class="uk-margin-small-left">Save my name and email details for future use</span></label></div>
+                                        <div><button class="uk-button uk-button-danger uk-button-large" type="submit">Send comment</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-3@m">
+                            <aside class="sidebar">
+                                <div class="widjet widjet-form">
+                                    <h4 class="widjet__title">Booking Online</h4>
+                                    <form>
+                                        <!-- Hidden Required Fields -->
+                                        <input type="hidden" name="project_name" value="Ecata - City Portal">
+                                        <input type="hidden" name="admin_email" value="chernyh.mihail@gmail.com">
+                                        <input type="hidden" name="form_subject" value="Booking Online">
+                                        <!-- END Hidden Required Fields -->
+                                        <div class="uk-margin-small"><input class="uk-input" type="text" name="No._of_Guests" placeholder="No. of Guests"></div>
+                                        <div class="uk-margin-small"><input class="uk-input" type="text" name="Select_Date" placeholder="Select Date"></div>
+                                        <div class="uk-margin-small"><input class="uk-input" type="text" name="Select_Time" placeholder="Select Time"></div>
+                                        <div class="uk-margin-small"><input class="uk-button uk-button-danger uk-width-1-1" type="submit" value="Book Online"></div>
+                                        <div class="uk-margin-small-top uk-text-center">
+                                            <div class="uk-text-meta">Powered By “Restaurant-Hub”</div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="widjet widjet-auhtor">
+                                    <h4 class="widjet__title">Author Information</h4>
+                                    <div class="auhtor">
+                                        <div class="auhtor__icon"><img src="assets/img/img-auhtor.png" alt="img-auhtor"></div>
+                                        <div class="auhtor__desc">
+                                            <div class="auhtor__name">Oliver Zendu</div>
+                                            <div class="auhtor__member">Member from last 2 years</div>
+                                        </div>
+                                    </div>
+                                    <ul class="contact-list">
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-location-pin"></div>
+                                                <div class="contact-item__value">5 Canon Rd, CanalView Park, Bangkok 02010, Thailand</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-call-in"></div>
+                                                <div class="contact-item__value">+1 (009) 236 985</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-envelope-open"></div>
+                                                <div class="contact-item__value">oliver@gmail-email.com</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="social-list uk-margin-medium-top uk-grid-small" data-uk-grid>
+                                        <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#!"><i class="fab fa-behance"></i></a></li>
+                                        <li><a href="#!"><i class="fab fa-facebook"></i></a></li>
+                                        <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#!"><i class="fab fa-pinterest-p"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="widjet widjet-time-work">
+                                    <h4 class="widjet__title">Today’s Business Hours</h4>
+                                    <div class="time-work-btn">Now: Open 10:30am - 01:00am</div>
+                                    <div class="uk-text-center">
+                                        <div class="uk-text-meta">- Show All Week’s Timing</div>
+                                    </div>
+                                    <ul class="time-work-list">
+                                        <li><span>Monday</span><span>10:30am - 01:00am</span></li>
+                                        <li><span>Tuesday</span><span>10:30am - 01:00am</span></li>
+                                        <li><span>Wednesday</span><span>11:00am - 01:00am</span></li>
+                                        <li><span>Thursday</span><span>09:00 am - 12:00am</span></li>
+                                        <li><span>Friday</span><span class="accent">Open 24 Hrs</span></li>
+                                        <li><span>Monday</span><span class="accent">Open 24 Hrs</span></li>
+                                        <li><span>Monday</span><span class="accent">Open 24 Hrs</span></li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer">
+            <div class="page-footer__top">
+                <div class="uk-container">
+                    <div class="uk-grid" data-uk-grid>
+                        <div class="uk-width-1-3@m uk-width-1-2@s">
+                            <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/logo.svg" alt="Doremi"></a></div>
+                            <p>Eiusmod tempora incididunt dolore<br> magna aliqua sed enim lorem ipsum<br> sit amet consectetur.</p>
+                            <ul class="uk-list">
+                                <li> <span>Email: </span><a href="mailto:support@domain.com">support@domain.com</a></li>
+                                <li> <span>Phone: </span><a href="tel:104023513690">+1 (040) 2351 3690</a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-width-1-3@m uk-width-1-2@s uk-flex-last@m">
+                            <h3 class="uk-h3">Join Our Community</h3>
+                            <p>Continue exploring the great places.</p>
+                            <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                                <div><img src="assets/img/AppStore.svg" alt="AppStore"></div>
+                                <div><img src="assets/img/PlayStore.svg" alt="PlayStore"></div>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-3@m uk-visible@s">
+                            <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
+                                <div>
+                                    <h3 class="uk-h3">About</h3>
+                                    <ul class="uk-nav uk-nav-default">
+                                        <li> <a href="page-typography.html">Our Company</a></li>
+                                        <li> <a href="page-typography.html">Carers</a></li>
+                                        <li> <a href="page-typography.html">Support</a></li>
+                                        <li> <a href="page-typography.html">How It Works</a></li>
+                                        <li> <a href="page-typography.html">Add a Place</a></li>
+                                        <li> <a href="page-typography.html">Disclaimers</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="uk-h3">Top Cities</h3>
+                                    <ul class="uk-nav uk-nav-default">
+                                        <li> <a href="page-typography.html">New York</a></li>
+                                        <li> <a href="page-typography.html">Paris</a></li>
+                                        <li> <a href="page-typography.html">London</a></li>
+                                        <li> <a href="page-typography.html">Singapore</a></li>
+                                        <li> <a href="page-typography.html">Bangkok</a></li>
+                                        <li> <a href="page-typography.html">Dubai</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer__middle">
+                <div class="uk-container">
+                    <div class="uk-grid uk-child-width-1-2@s" data-uk-grid>
+                        <div>
+                            <h3 class="uk-h3">Signup For Latest News</h3>
+                            <div class="subscribe-form">
+                                <form>
+                                    <!-- Hidden Required Fields -->
+                                    <input type="hidden" name="project_name" value="Ecata - City Portal">
+                                    <input type="hidden" name="admin_email" value="chernyh.mihail@gmail.com">
+                                    <input type="hidden" name="form_subject" value="Form subscribe">
+                                    <!-- END Hidden Required Fields -->
+                                    <div class="subscribe-form__box"><input class="uk-input" type="email" name="email" placeholder="Enter your email" required><input class="uk-button uk-button-danger" type="submit" value="Subscribe"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="uk-h3">Connect Socially</h3>
+                            <ul class="social">
+                                <li><a href="#!"><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
+                                <li><a href="#!"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="#!"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                                <li><a href="#!"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer__bottom">
+                <div class="uk-container"><span>© 2022 Ecata City Portal - All rights reserved.</span></div>
+            </div>
+            <div id="offcanvas" data-uk-offcanvas="overlay: true">
+                <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between"><button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
+                    <div>
+                        <div class="uk-margin">
+                            <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/logo.svg" alt="Doremi"></a></div>
+                        </div>
+                        <div class="uk-margin-medium">
+                            <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+                                <li class="uk-parent"><a href="#!">Home</a>
+                                    <ul class="uk-nav-sub">
+                                        <li><a href="01_home.html">Home page 1</a></li>
+                                        <li><a href="02_home-header-style.html">Home page 2</a></li>
+                                    </ul>
+                                </li>
+                                <li class="uk-parent"><a href="#!">Listings</a>
+                                    <ul class="uk-nav-sub">
+                                        <li><a href="03_city-listings.html">City listings map</a></li>
+                                        <li><a href="04_city-listings-no-map.html">City listings</a></li>
+                                        <li> <a href="05_city-place.html">City place</a></li>
+                                    </ul>
+                                </li>
+                                <li class="uk-parent"><a href="#!">Pages</a>
+                                    <ul class="uk-nav-sub">
+                                        <li><a href="06_about.html">About</a></li>
+                                        <li><a href="08_blog-grid.html">Blog grid</a></li>
+                                        <li><a href="07_blog.html">Blog list</a></li>
+                                        <li><a href="09_blog-post.html">Blog post</a></li>
+                                        <li><a href="10_contact.html">Contacts</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-margin uk-text-center"><a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i><span>Sign in or Register</span></a></div>
+                        <div class="uk-margin"> <a class="uk-button uk-button-danger" href="#!"> <span data-uk-icon="plus"></span><span>List An Item</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/uikit.min.js"></script>
+    <script src="assets/js/uikit-icons.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

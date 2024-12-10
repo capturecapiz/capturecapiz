@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Grid results</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" href="assets/libraries/font-awesome/css/font-awesome.min.css" />
+        <!-- Start BOOTSTRAP -->
+        <link rel="stylesheet" href="assets/libraries/tether/dist/css/tether.min.css" />
+        <link rel="stylesheet" href="assets/libraries/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" />
+        <link rel="stylesheet" href="assets/libraries/bootstrap-colorpicker-master/dist/css/bootstrap-colorpicker.min.css" />
+        <!-- End Bootstrap -->
+        <!-- Start Template files -->
+        <link rel="stylesheet" href="assets/css/winter-flat.css" />
+        <link rel="stylesheet" href="assets/css/custom.css" />
+        <!-- End  Template files -->
+        <!-- Start owl-carousel -->
+        <link rel="stylesheet" href="assets/libraries/owl.carousel/assets/owl.carousel.css" />
+        <!-- End owl-carousel -->
+        <!-- Start JS MAP  -->
+        <link rel="stylesheet" href="assets/css/map.css" />
+        <!-- End JS MAP  -->
+        <!-- Start blueimp  -->
+        <link rel="stylesheet" href="assets/css/blueimp-gallery.min.css" />
+        <!-- End blueimp  -->
+        <script src="assets/js/modernizr.custom.js"></script>
+        <!-- Start custom template style  -->
+        <link rel="stylesheet" href="assets/css/custom_template_style.css" /> 
+        <!-- End custom template style   -->
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet" />
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    #main-map {
+    width: 100%;
+    height: 500px; /* Adjust the height as needed */
+}
+
+.top-box {
+    background-color: #00b4d0 !important; /* Changes the background color of the top box */
+}
+
+.header-inner {
+    background-color: #00b4d0 !important; /* Changes the background color of the header inner section */
+
+
+.container-fluid {
+    width: 100%;
+    padding-left: 10%;        /* Inner left padding */
+    padding-right: 10%;       /* Inner right padding */
+    max-width: 100%;          /* Ensure it does not exceed screen width */
+    box-sizing: border-box;   /* Includes padding in the width calculation */
+}
+
+
+
+.property-card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+</style>
+
+
+     <style>
+/* General container styling */
+.itinerary-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #007BFF, #6c63ff);
+    padding: 50px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    width: 134%;
+    min-height: 200px; /* Set a minimum height if necessary */
+    margin: 50px auto; /* Center horizontally */
+    text-align: center; /* Center align text */
+}
+
+/* Header styling */
+.itinerary-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    word-wrap: break-word; /* Ensure long words break */
+    hyphens: auto; /* Word breaking for long text */
+}
+
+/* Subtitle styling */
+.itinerary-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+    text-align: center; /* Center the subtitle text */
+}
+
+/* Radio button container styling */
+.itinerary-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Radio button input (hidden by default) */
+.itinerary-options input[type="radio"] {
+    display: none;
+}
+
+/* Radio button labels styling */
+.itinerary-radio-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    padding: 12px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+.itinerary-radio-label:hover {
+    background-color: #ff7b5a;
+    color: #fff;
+    border-color: #ff7b5a;
+}
+
+/* Selected radio button styling */
+.itinerary-options input[type="radio"]:checked + .itinerary-radio-label {
+    background-color: #ff7b5a;
+    color: #fff;
+    border-color: #ff7b5a;
+    box-shadow: 0 6px 15px rgba(255, 123, 90, 0.4);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .itinerary-section {
+        padding: 30px 10px; /* Adjust padding for smaller screens */
+        width: 100%; /* Ensure it fits on smaller screens */
+        margin: 20px auto; /* Adjust margins for mobile */
+    }
+
+    .itinerary-header {
+        font-size: 1.8rem; /* Adjust header size for mobile */
+    }
+
+    .itinerary-radio-label {
+        font-size: 0.9rem; /* Adjust font size of the radio labels */
+        padding: 10px 15px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .itinerary-header {
+        font-size: 1.5rem; /* Further reduce font size for small devices */
+        line-height: 1.4; /* Adjust line-height for better spacing */
+        padding: 0 15px; /* Add padding for mobile */
+    }
+
+    .itinerary-subtitle {
+        font-size: 0.9rem; /* Adjust subtitle font size */
+    }
+}
+
+
+
+
+    </style>
+    </head>
+    <body class="">
+        <div id="fb-root"></div>
+        <div class="container container-wrapper">
+            <header class="header">
+                <div class="top-box" data-toggle="sticky-onscroll">
+                    <div class="container">
+                        <div  class="top-bar color-primary">
+                        </div><!-- /.top-bar-->
+                        <section class="header-inner">
+                            <div class="container">
+                                <div class="pull-left menu"> 
+                                    <div class="box-navigaion clearfix">
+                                        <div class="navbar-header">
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <nav class="navbar text-color-primary">
+                                        <div class="text-right">
+                                            <button class="navbar-toggler hidden" type="button" data-toggle="collapse" data-target="#main-menu">
+                                                &#9776;
+                                            </button>
+                                        </div>
+                                        <!-- Links -->
+                                        <div class="collapse navbar-collapse" id="main-menu">
+                                            <ul class="nav navbar-nav clearfix">
+                                                <li class="nav-item dropdown">
+                                                </li>
+                                                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Categories<i class="icon-dropdown"></i></a>
+    <div class="dropdown-menu" id="categoryDropdown">
+        <a class="dropdown-item" href="#" data-category="all">All</a>
+        <a class="dropdown-item" href="#" data-category="christmas">Christmas Villages</a>
+        <a class="dropdown-item" href="#" data-category="tourist">Tourist Attractions</a>
+    </div>
+</li>
+
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </section><!-- /.menu-->
+                    </div> 
+                </div>
+                <div class="top-box-mask"></div>
+                <div class="container">
+                    <section class="header-slider header-map">
+                        <h2 class="hidden">Map</h2>
+                        <div class="main-map" id="main-map" style='height:650px'></div>
+                    </section><!-- /.header-video-->
+
+                </div>
+            </header><!-- /.header--> 
+            <main class="main section-color-primary">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="h-side top-pad h-side-slim clearfix">
+                                <div class="properties-filter">
+                                    <div class="form-group">
+                                    </div>
+
+
+                                        <!-- /. BUTANGAN TITLE DI -->
+
+
+
+
+
+
+    <div class="container-fluid1 py-5 itinerary-section">
+        <div class="row">
+            <!-- Header -->
+            <div class="col-12 text-center mb-4">
+                <h2 class="itinerary-header">Choose Your Preferred Tour Itinerary</h2>
+                <h2 class="itinerary-subtitle">Select the duration that suits your schedule best.</h2>
+            </div>
+
+            <!-- Filter Radio Buttons -->
+<div class="col-12 d-flex justify-content-center">
+    <div class="itinerary-options">
+
+
+        <input type="radio" id="showAll" name="tourDuration" value="showAll" />
+        <label for="showAll" class="itinerary-radio-label">Show All</label>
+
+        <input type="radio" id="halfDay" name="tourDuration" value="halfDay" />
+        <label for="halfDay" class="itinerary-radio-label">Half Day</label>
+
+        <input type="radio" id="oneDay" name="tourDuration" value="oneDay" />
+        <label for="oneDay" class="itinerary-radio-label">1 Day</label>
+
+        <input type="radio" id="twoDays" name="tourDuration" value="twoDays" />
+        <label for="twoDays" class="itinerary-radio-label">2 Days</label>
+
+        <input type="radio" id="threeDays" name="tourDuration" value="threeDays" />
+        <label for="threeDays" class="itinerary-radio-label">3 Days</label>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+
+
+                                </div>
+                            </div> <!-- /. content-header --> 
+</div>
+</div></div></main>
+
+
+ 
+<div class="container-fluid">
+    <div class="row">
+        <!-- Card 1 -->
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 property-card" data-duration="halfDay">
+            <div class="property-card card">
+                <div class="property-card-header image-box">
+
+
+                                <!-- Bootstrap Carousel -->
+            <div id="carouselHalfDay" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/img/markers/baybay.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/markers/cadimahan.jpg" class="d-block w-100" alt="...">
+                    </div>
+                                        <div class="carousel-item">
+                        <img src="assets/img/markers/museum.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHalfDay" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHalfDay" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+                    <div class="budget"><i class="fa fa-star"></i></div>
+                    <a href="listing.html" class="property-card-hover">
+                        <img src="assets/img/property-hover-arrow.png" alt="" class="left-icon" />
+                        <img src="assets/img/plus.png" alt="" class="center-icon" />
+                        <img src="assets/img/icon-notice.png" alt="" class="right-icon" />
+                    </a>
+                </div>
+                <div class="property-card-tags">
+                    <span class="label label-default label-tag-warning">rent</span>
+                </div>
+                <div class="property-card-box card-box card-block">
+                    <h3 class="property-card-title"><a href="ptcao_half day.html">Half Day Tour</a></h3>
+                    <div class="property-card-descr">
+                        This is simply dummy text of the printing and typesetting industry. That has been the industry standard ...
+                    </div>
+                    <div class="property-preview-footer clearfix">
+                        <div class="property-preview-f-left text-color-primary">
+                            <span class="property-card-value"><i class="fa fa-home"></i>Restaurant</span>
+                            <span class="property-card-value"><i class="fa fa-tint"></i>6</span>
+                            <span class="property-card-value"><i class="fa fa-square-o"></i>350m</span>
+                            <span class="property-card-value"><i class="fa fa-eur"></i>20 000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 property-card" data-duration="oneDay">
+            <div class="property-card card">
+                <div class="property-card-header image-box">
+                    <img src="assets/img/placeholders/395x250.png" alt="" class="" />
+                    <div class="budget"><i class="fa fa-star"></i></div>
+                    <a href="listing.html" class="property-card-hover">
+                        <img src="assets/img/property-hover-arrow.png" alt="" class="left-icon" />
+                        <img src="assets/img/plus.png" alt="" class="center-icon" />
+                        <img src="assets/img/icon-notice.png" alt="" class="right-icon" />
+                    </a>
+                </div>
+                <div class="property-card-tags">
+                    <span class="label label-default label-tag-warning">rent</span>
+                </div>
+                <div class="property-card-box card-box card-block">
+                    <h3 class="property-card-title"><a href="listing.html">1 Day Tour</a></h3>
+                    <div class="property-card-descr">
+                        This is simply dummy text of the printing and typesetting industry. That has been the industry standard ...
+                    </div>
+                    <div class="property-preview-footer clearfix">
+                        <div class="property-preview-f-left text-color-primary">
+                            <span class="property-card-value"><i class="fa fa-home"></i>Restaurant</span>
+                            <span class="property-card-value"><i class="fa fa-tint"></i>6</span>
+                            <span class="property-card-value"><i class="fa fa-square-o"></i>350m</span>
+                            <span class="property-card-value"><i class="fa fa-eur"></i>20 000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 property-card" data-duration="twoDays">
+            <div class="property-card card">
+                <div class="property-card-header image-box">
+                    <img src="assets/img/placeholders/395x250.png" alt="" class="" />
+                    <a href="listing.html" class="property-card-hover">
+                        <img src="assets/img/property-hover-arrow.png" alt="" class="left-icon" />
+                        <img src="assets/img/plus.png" alt="" class="center-icon" />
+                        <img src="assets/img/icon-notice.png" alt="" class="right-icon" />
+                    </a>
+                </div>
+                <div class="property-card-tags">
+                    <span class="label label-default label-tag-warning">rent</span>
+                </div>
+                <div class="property-card-box card-box card-block">
+                    <h3 class="property-card-title"><a href="listing.html">2 Day Tour</a></h3>
+                    <div class="property-card-descr">
+                        This is simply dummy text of the printing and typesetting industry. That has been the industry standard ...
+                    </div>
+                    <div class="property-preview-footer clearfix">
+                        <div class="property-preview-f-left text-color-primary">
+                            <span class="property-card-value"><i class="fa fa-home"></i>Villa</span>
+                            <span class="property-card-value"><i class="fa fa-tint"></i>7</span>
+                            <span class="property-card-value"><i class="fa fa-square-o"></i>370m</span>
+                            <span class="property-card-value"><i class="fa fa-eur"></i>650 000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 (optional extra card to fill space) -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 property-card" data-duration="threeDays">
+            <div class="property-card card">
+                <div class="property-card-header image-box">
+                    <img src="assets/img/placeholders/395x250.png" alt="" class="" />
+                    <a href="listing.html" class="property-card-hover">
+                        <img src="assets/img/property-hover-arrow.png" alt="" class="left-icon" />
+                        <img src="assets/img/plus.png" alt="" class="center-icon" />
+                        <img src="assets/img/icon-notice.png" alt="" class="right-icon" />
+                    </a>
+                </div>
+                <div class="property-card-tags">
+                    <span class="label label-default label-tag-primary">new</span>
+                </div>
+                <div class="property-card-box card-box card-block">
+                    <h3 class="property-card-title"><a href="listing.html">3 Day Tour</a></h3>
+                    <div class="property-card-descr">
+                        More placeholder text describing the property. Perfect for testing layouts and responsiveness!
+                    </div>
+                    <div class="property-preview-footer clearfix">
+                        <div class="property-preview-f-left text-color-primary">
+                            <span class="property-card-value"><i class="fa fa-home"></i>Apartment</span>
+                            <span class="property-card-value"><i class="fa fa-tint"></i>3</span>
+                            <span class="property-card-value"><i class="fa fa-square-o"></i>120m</span>
+                            <span class="property-card-value"><i class="fa fa-eur"></i>150 000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                                </div><!-- /.properties -->
+
+
+        <!-- Footer Section -->
+        <section class="section section-ads">
+            <div class="container">
+                <img src="assets/img/placeholders/730x90.png" alt="Ad" class="center-block" />
+            </div>
+        </section>
+
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="assets/js/jquery-2.2.1.min.js"></script>
+    <script src="assets/libraries/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/libraries/owl.carousel/owl.carousel.min.js"></script>
+
+    <!-- Mapbox JS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZ2lub3BhdWxvdGFnb2MiLCJhIjoiY200NnNrYXdlMTdseDJscXhheW0zYW0yciJ9.uNmzhNUOyASSnP8l_LmUug'; // Replace with your own Mapbox token
+    const map = new mapboxgl.Map({
+        container: 'main-map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [122.7559, 11.5762],
+        zoom: 10
+    });
+
+    // Adding fullscreen control
+    const fullscreenControl = new mapboxgl.FullscreenControl();
+    map.addControl(fullscreenControl, 'top-right');
+
+
+
+
+
+
+    // Locations and markers
+    const locations = [
+        { lng: 122.756930, lat: 11.576974, title: 'Provincial Park', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A historic government building.' },
+        { lng: 122.997311, lat: 11.487673, title: 'Pilar Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A charming Christmas village.' },
+        { lng: 122.832822, lat: 11.481827, title: 'Pontevedra Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A festive Christmas village.' },
+        { lng: 122.793372, lat: 11.555308, title: 'Panay Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png', videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A historic government building.' },
+        { lng: 122.924866, lat: 11.429486, title: 'President Roxas Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A charming Christmas village.' },
+        { lng: 122.781377, lat: 11.387298, title: 'Maayon Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A festive Christmas village.' },
+        { lng: 122.768934, lat: 11.463563, title: 'Panitan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A historic government building.' },
+        { lng: 122.693341, lat: 11.521167, title: 'Ivisan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A charming Christmas village.' },
+        { lng: 122.604256, lat: 11.494049, title: 'Sapian Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A festive Christmas village.' },
+        { lng: 122.665676, lat: 11.422294, title: 'Sigma Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A historic government building.' },
+        { lng: 122.685370, lat: 11.394267, title: 'Dao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A charming Christmas village.' },
+        { lng: 122.669591, lat: 11.341235, title: 'Cuartero Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A festive Christmas village.' },
+        { lng: 122.687837, lat: 11.263027, title: 'Dumarao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A historic government building.' },
+        { lng: 122.622843, lat: 11.306680, title: 'Dumalag Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A charming Christmas village.' },
+        { lng: 122.596636, lat: 11.430046, title: 'Mambusao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A festive Christmas village.' },
+        { lng: 122.510311, lat: 11.408626, title: 'Jamindan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A charming Christmas village.' },
+        { lng: 122.537210, lat: 11.260867, title: 'Tapaz Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/c13vTNKUG5U', details: 'A festive Christmas village.' },
+
+
+
+
+        { lng: 122.736224, lat: 11.606975, title: 'Baybay Beach ', category: 'tourist', icon: 'assets/img/markers/baybay.jpg', details: 'A historic government building.' },
+
+
+        { lng: 122.752169, lat: 11.583648, title: 'Ang Panublion Museum ', category: 'tourist', icon: 'assets/img/markers/museum.jpg', details: 'A historic government building.' },
+
+
+        { lng: 122.698215, lat: 11.336787, title: 'Capiz Ecology Park & Cultural Village ', category: 'tourist', icon: 'assets/img/markers/ecopark.jpg', details: 'A historic government building.' },
+
+        { lng: 122.793926, lat: 11.555463, title: '𝗦𝗮𝗻𝘁𝗮 𝗠𝗼𝗻𝗶𝗰𝗮 𝗖𝗵𝘂𝗿𝗰𝗵 ', category: 'tourist', icon: 'assets/img/markers/stamonica.jpg', details: 'A historic government building.' },
+
+        { lng: 122.712960, lat: 11.575706, title: 'Palina Greenbelt Eco-park ', category: 'tourist', icon: 'assets/img/markers/palina.jpg', details: 'A historic government building.' },
+
+        { lng: 122.749828, lat: 11.582943, title: 'Birthplace of President Manuel A. Roxas ', category: 'tourist', icon: 'assets/img/markers/birthplace.jpg', details: 'A historic government building.' },
+
+        { lng: 122.753006, lat: 11.583235, title: 'Immaculate Conception Metropolitan Cathedral ', category: 'tourist', icon: 'assets/img/markers/immaculate.jpg', details: 'A historic government building.' },
+
+        { lng: 122.753476, lat: 11.582884, title: 'Rizal Monument', category: 'tourist', icon: 'assets/img/markers/rizal.jpg', details: 'A historic government building.' },
+
+        { lng: 122.753764, lat: 11.582871, title: 'Capiz Provincial Capitol', category: 'tourist', icon: 'assets/img/markers/capitol.jpg', details: 'A historic government building.' },
+
+        { lng: 122.753156, lat: 11.582896, title: 'Roxas City Fountain', category: 'tourist', icon: 'assets/img/markers/fountain.jpg', details: 'A historic government building.' },
+
+        { lng: 122.753117, lat: 11.582412, title: 'Capiz Bridge', category: 'tourist', icon: 'assets/img/markers/bridge.jpg', details: 'A historic government building.' },
+
+        { lng: 122.742151, lat: 11.615956, title: 'Mantalinga Island', category: 'tourist', icon: 'assets/img/markers/mantalinga.jpg', details: 'A historic government building.' },
+
+        { lng: 122.834538, lat: 11.633107, title: 'Olotayan Island', category: 'tourist', icon: 'assets/img/markers/olotayan.jpg', details: 'A historic government building.' },
+
+        { lng: 122.551885, lat: 11.288649, title: 'Marugo Island', category: 'tourist', icon: 'assets/img/markers/marugo.jpg', details: 'A historic government building.' },
+
+        { lng: 122.756930, lat: 11.576974, title: 'Provincial Park', category: 'tourist', icon: 'assets/img/markers/park.jpg', details: 'A historic government building.' },
+
+        { lng: 122.727673, lat: 11.548652, title: 'Sanctuary of the Sacred Heart of Jesus', category: 'tourist', icon: 'assets/img/markers/sacred.jpg', details: 'A historic government building.' },
+
+        { lng: 122.588176, lat: 11.478575, title: 'Meditation Hills', category: 'tourist', icon: 'assets/img/markers/meditation.jpg', details: 'A historic government building.' },
+
+        { lng: 122.964969, lat: 11.461532, title: 'Agtalin Shrine', category: 'tourist', icon: 'assets/img/markers/agtalin.jpg', details: 'A historic government building.' },
+
+        { lng: 122.664718, lat: 11.539026, title: 'Agustin Navarra Mangroves and Bird Sanctuary', category: 'tourist', icon: 'assets/img/markers/agustin.jpg', details: 'A historic government building.' },
+
+        { lng: 123.011183, lat: 11.483382, title: 'Balisong Cave', category: 'tourist', icon: 'assets/img/markers/balisong.jpg', details: 'A historic government building.' },
+
+        { lng: 123.010438, lat: 11.423689, title: 'Kawa-kawa Falls', category: 'tourist', icon: 'assets/img/markers/kawa.jpg', details: 'A historic government building.' },
+
+        { lng: 123.028181, lat: 11.398999, title: 'Hinulugan Falls', category: 'tourist', icon: 'assets/img/markers/hinulugan.jpg', details: 'A historic government building.' },
+
+
+        { lng: 122.970976, lat: 11.392534, title: 'Liktinon Falls', category: 'tourist', icon: 'assets/img/markers/liktinon.jpg', details: 'A historic government building.' },
+
+        { lng: 122.913291, lat: 11.451952, title: 'Madulano Mangroves and Aquamarine Park', category: 'tourist', icon: 'assets/img/markers/madulano.jpg', details: 'A historic government building.' },
+
+        { lng: 122.709644, lat: 11.252721, title: 'Ati Indigenous Peoples Community of Dumarao', category: 'tourist', icon: 'assets/img/markers/ati.jpg', details: 'A historic government building.' },
+
+        { lng: 122.619646, lat: 11.292048, title: 'Suhot Cave and Spring', category: 'tourist', icon: 'assets/img/markers/suhot.jpg', details: 'A historic government building.' },
+
+        { lng: 122.685425, lat: 11.393687, title: 'Sto. Tomas de Villanueva Parish Church', category: 'tourist', icon: 'assets/img/markers/tomas.jpg', details: 'A historic government building.' },
+
+
+
+
+
+        { lng: 122.446821, lat: 11.390812, title: 'Pan-ayanon/ Panay Bukidnon Indigenous Peoples Community', category: 'tourist', icon: 'assets/img/markers/panaybukidnon.jpg', details: 'A historic government building.' },
+
+        { lng: 122.554715, lat: 11.339523, title: 'Pangabit-Kabiton Falls', category: 'tourist', icon: 'assets/img/markers/kabiton.jpg', details: 'A historic government building.' },
+
+        { lng: 122.543487, lat: 11.460021, title: 'Kipot Cave', category: 'tourist', icon: 'assets/img/markers/kipotcave.jpg', details: 'A historic government building.' },
+
+        { lng: 122.584682, lat: 11.549955, title: 'Sapian Bay', category: 'tourist', icon: 'assets/img/markers/sapian.jpg', details: 'A historic government building.' },
+
+        { lng: 122.728106, lat: 11.601517, title: 'Cadimahan River Tour', category: 'tourist', icon: 'assets/img/markers/cadimahan.jpg', details: 'A historic government building.' },
+    ];
+
+// Create a marker for each location with enhanced popup design
+const markers = locations.map(location => {
+    // Determine marker color based on category
+    const markerColor = location.category === 'christmas' ? 'red' : 'green';
+
+    // Create the marker
+    const marker = new mapboxgl.Marker({ color: markerColor, draggable: false })
+        .setLngLat([location.lng, location.lat])
+        .addTo(map);
+
+    // Define the HTML content for the pop-up with enhanced design
+    let popupContent = `
+        <div style="width: 220px; font-family: 'Arial', sans-serif; background: #fff; border-radius: 1px; overflow: hidden; color: #333;">
+            <!-- Title -->
+            <div style="color: black; padding: 12px; text-align: center; font-size: 18px; font-weight: bold;">
+                ${location.title}
+            </div>
+
+
+                
+                <!-- Conditional Content: Video for Christmas category, Image for Tourist category -->
+                ${location.category === 'christmas' && location.videoUrl ? `
+                    <div style="margin-bottom: 15px;">
+                        <iframe 
+                            src="${location.videoUrl}" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            style="width: 100%; height: 180px; border-radius: 8px;">
+                        </iframe>
+                    </div>
+                ` : ''}
+                
+                ${location.category === 'tourist' && !location.videoUrl ? `
+                    <div style="margin-bottom: 15px;">
+                        <img 
+                            src="${location.icon}"  <!-- This will use the image path from location.icon -->
+                    </div>
+                ` : ''}
+
+                            <!-- Content -->
+            <div style="padding: 15px;">
+                <p style="font-size: 14px; margin-bottom: 15px; line-height: 1.6;">
+                    ${location.details}
+                </p>
+
+                <!-- Button to open Google Maps with directions -->
+                <button style="
+                    display: block;
+                    width: 100%;
+                    padding: 12px;
+                    background-color: #007BFF;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                    text-align: center;
+                "
+                onmouseover="this.style.backgroundColor='#0056b3';"
+                onmouseout="this.style.backgroundColor='#007BFF';"
+                onclick="openGoogleMapsDirections(${location.lng}, ${location.lat});">
+                    Get Directions
+                </button>
+            </div>
+        </div>
+    `;
+
+    const popup = new mapboxgl.Popup({
+        offset: 35, // Popup offset from the marker
+        closeButton: true,
+        closeOnClick: true
+    }).setHTML(popupContent);
+
+    marker.setPopup(popup);
+
+    return { marker, category: location.category }; // Store marker and its category
+});
+
+// Function to open Google Maps with directions
+function openGoogleMapsDirections(destLng, destLat) {
+    // Check if geolocation is available in the browser
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            const userLat = position.coords.latitude;
+            const userLng = position.coords.longitude;
+
+            // Generate the Google Maps URL with directions from the user's location
+            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${destLat},${destLng}&travelmode=driving`;
+
+            // Open the Google Maps URL in a new tab
+            window.open(googleMapsUrl, '_blank');
+        }, function() {
+            alert('Unable to retrieve your location. Please enable location services.');
+        });
+    } else {
+        alert('Geolocation is not supported by this browser.');
+    }
+}
+
+// Category filtering logic
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = e.target.getAttribute('data-category');
+
+        // Show or hide markers based on selected category
+        markers.forEach(({ marker, category: markerCategory }) => {
+            if (category === 'all' || markerCategory === category) {
+                marker.getElement().style.display = 'block';  // Show the marker
+            } else {
+                marker.getElement().style.display = 'none';   // Hide the marker
+            }
+        });
+    });
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const radioButtons = document.querySelectorAll('input[name="tourDuration"]');
+    const propertyCards = document.querySelectorAll(".property-card[data-duration]");
+
+    function filterCards(selectedValue) {
+        console.log("Filtering for selected value:", selectedValue); // Debugging log
+        propertyCards.forEach((card) => {
+            const duration = card.getAttribute("data-duration");
+            console.log(`Card Duration: ${duration}, Selected: ${selectedValue}`); // Debugging log
+
+            // Show the card only if its data-duration matches the selected value
+            if (duration === selectedValue) {
+                card.style.display = "block"; // Show card
+            } else {
+                card.style.display = "none"; // Hide card
+            }
+        });
+    }
+
+    // Event listeners for radio buttons
+    radioButtons.forEach((radio) => {
+        radio.addEventListener("change", (event) => {
+            const selectedValue = event.target.value;
+            console.log("Radio button selected:", selectedValue); // Debugging log
+            filterCards(selectedValue);
+        });
+    });
+
+    // Default behavior: hide all cards until a duration is selected
+    filterCards(""); // Pass empty string to hide all cards initially
+});
+
+
+    
+</script>
+
+<script type="text/javascript">
+    
+document.addEventListener("DOMContentLoaded", function () {
+    const radioButtons = document.querySelectorAll('input[name="tourDuration"]');
+    const propertyCards = document.querySelectorAll(".property-card[data-duration]");
+
+    function filterCards(selectedValue) {
+        propertyCards.forEach((card) => {
+            const duration = card.getAttribute("data-duration");
+
+            // Show all cards if "showAll" is selected or if no filter is applied
+            if (selectedValue === "showAll" || selectedValue === "" || duration === selectedValue) {
+                card.style.display = "block"; // Show card
+            } else {
+                card.style.display = "none"; // Hide card
+            }
+        });
+    }
+
+    // Event listeners for radio buttons
+    radioButtons.forEach((radio) => {
+        radio.addEventListener("change", (event) => {
+            const selectedValue = event.target.value;
+            filterCards(selectedValue);
+        });
+    });
+
+    // Default behavior: show all cards initially
+    filterCards("showAll");
+});
+
+
+</script>
+
+
+
+
+        <!-- End JS MAP  -->
+        <!-- Start blueimp  -->
+        <script src="assets/js/blueimp-gallery.min.js" type="text/javascript"></script>
+        <!-- End blueimp  -->
+        <!-- Start custom template style  -->
+        <script src="assets/js/custom_template_style.js" type="text/javascript"></script>
+        <!-- End custom template style   -->
+        <script src="assets/js/facebook.js" type="text/javascript"></script>
+    </body>
+</html>
