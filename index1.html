@@ -757,7 +757,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+    <script>
+        function isWebView() {
+            return /wv|WebView/.test(navigator.userAgent);
+        }
 
+        if (isWebView()) {
+            let fullscreenButton = document.querySelector(".mapboxgl-ctrl-fullscreen");
+            if (fullscreenButton) {
+                fullscreenButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent fullscreen action on WebView
+                    alert("Fullscreen is not supported in this view.");
+                });
+            }
+        }
+    </script>
 
 
         <!-- End JS MAP  -->
