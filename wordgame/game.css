@@ -1,10 +1,11 @@
 .choice-container {
   display: flex;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem; /* Increased margin */
   width: 100%;
-  font-size: 1.8rem;
+  font-size: clamp(1.6rem, 4vw, 1.8rem); /* Responsive font size */
   border: 0.1rem solid rgb(86, 165, 235, 0.25);
   background-color: white;
+  border-radius: 4px; /* Added for a modern look */
 }
 
 .choice-container:hover {
@@ -37,7 +38,15 @@
 
 #hud {
   display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
   justify-content: space-between;
+  gap: 2rem; /* Add gap between items */
+}
+
+.hud-item {
+  flex-basis: 45%; /* Allow two items per row on larger screens */
+  min-width: 20rem; /* Ensure items have a minimum width */
+  text-align: center;
 }
 
 .hud-prefix {
@@ -50,10 +59,13 @@
 }
 
 #progressBar {
-  width: 20rem;
+  width: 100%; /* Make progress bar responsive */
+  max-width: 20rem; /* Maintain max-width */
   height: 4rem;
   border: 0.3rem solid #56a5eb;
   margin-top: 1.5rem;
+  margin-left: auto; /* Center it */
+  margin-right: auto; /* Center it */
 }
 
 #progressBarFull {
@@ -61,6 +73,7 @@
   background-color: #56a5eb;
   width: 0%;
 }
+
 /* Modal styles */
 .modal {
     display: none; /* Hidden by default */
@@ -71,7 +84,6 @@
     width: 100%;
     height: 100%;
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
 }
@@ -81,9 +93,10 @@
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 90%; /* Responsive width */
     max-width: 800px; /* Max width of the modal */
     position: relative;
+    border-radius: 8px; /* Added for a modern look */
 }
 
 /* Close button */
@@ -105,21 +118,22 @@
 .modal-img {
     width: 100%; /* Responsive width */
     height: auto; /* Maintain aspect ratio */
-    max-height: 400px; /* Limit maximum height */
+    max-height: 40vh; /* Use viewport height for max height */
     object-fit: contain; /* Ensure the image is contained within the bounds */
+    margin-bottom: 1rem;
 }
 
 /* Explanation text styling */
 #feedbackText {
-    font-size: 1.6em; /* Increase font size */
-    line-height: 1.5; /* Improve readability with line height */
-    margin-top: 20px; /* Add space above the explanation text */
-    padding: 10px; /* Add padding inside the text container */
-    text-align: center; /* Center the text */
-    color: #333; /* Change text color for better contrast */
+    font-size: clamp(1.4rem, 4vw, 1.6rem); /* Responsive font size */
+    line-height: 1.6; /* Improve readability */
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    color: #333;
 }
 
-    /* Hide the timer element but keep it active */
-    #timer {
-      display: none;
-    }
+/* Hide the timer element but keep it active */
+#timer {
+  display: none;
+}
