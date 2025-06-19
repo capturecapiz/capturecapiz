@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Add this for better layout control */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -11,13 +12,15 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    color: #292929;
 }
 
 .main {
     display: flex;
-    justify-content: center; /* Centers content vertically */
-    align-items: center; /* Centers content horizontally */
-    height: 100vh; /* Full viewport height */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    min-height: 100vh; /* Use min-height to allow content to grow */
+    padding: 20px; /* Add some padding for smaller screens */
     flex-direction: column; /* Stack content vertically */
 }
 
@@ -30,18 +33,20 @@ body {
     background-color: #ffff;
     padding: 30px;
     border-radius: 15px;
-    width: 700px;
+    width: 100%; /* Make container responsive */
+    max-width: 700px; /* Set a max-width for larger screens */
 }
 
 .container > h1 {
-    font-size: 50px;
-    color: #292929;
+    /* Responsive font size */
+    font-size: clamp(2rem, 8vw, 3.125rem); /* 50px is approx 3.125rem */
+    text-align: center; /* Center align title */
 }
 
 button {
-    font-size: 24px;
-    padding: 5px 25px;
-    margin-top: 10px;
+    font-size: clamp(1rem, 5vw, 1.5rem); /* Responsive font size */
+    padding: 10px 20px;
+    margin-top: 15px;
     border: none;
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -57,25 +62,80 @@ button:hover {
 .puzzle-container {
     margin-top: 20px;
     display: flex;
-}
-
-.puzzle-container img {
-    width: 122px;
+    flex-direction: column; /* Stack puzzle and side info on smaller screens */
+    align-items: center;
+    width: 100%;
 }
 
 .puzzle {
     display: grid;
-    width: 25em;
-    height: 25em;
+    /* Use aspect-ratio to maintain a square shape */
+    width: 100%;
+    max-width: 400px; /* Limit max size */
+    aspect-ratio: 1 / 1; 
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 8em;
+    grid-template-rows: repeat(3, 1fr); /* Use fr units for rows too */
+    gap: 5px; /* Add a small gap between pieces */
 }
 
+.puzzle .image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.puzzle .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the area without distortion */
+}
+
+
+.side {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.main-image p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.main-image img {
+    width: 100px; /* Smaller preview image */
+    height: 100px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.moves, .timer {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+    margin-top: 15px;
+}
+
+
+/* Adjust layout for larger screens */
+@media (min-width: 768px) {
+    .puzzle-container {
+        flex-direction: row; /* Side-by-side layout */
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .side {
+        margin-top: 0;
+        text-align: left;
+    }
+}
+
+
+/* Modal styles */
 body.no-scroll {
     overflow: hidden;
 }
 
-/* Modal container */
 .modal {
     display: none;
     position: fixed;
@@ -90,7 +150,6 @@ body.no-scroll {
     align-items: center;
 }
 
-/* Modal content */
 .modal-content {
     background-color: #fff;
     padding: 20px;
@@ -98,9 +157,10 @@ body.no-scroll {
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.5s;
+    width: 90%;
+    max-width: 400px;
 }
 
-/* Modal button */
 #modalOkButton {
     margin-top: 20px;
     padding: 10px 20px;
@@ -117,24 +177,20 @@ body.no-scroll {
     background-color: #e2c045;
 }
 
-/* Fade in animation */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Redirect Button Styling */
-.redirect-button {
+/* Button styles */
+.redirect-button, .landing-page {
     display: flex;
-    justify-content: center; /* Centers the button horizontally */
-    margin-top: 20px; /* Adds spacing between the container and the button */
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-#backToIndex {
+#backToIndex, #selectImageButton {
     padding: 10px 20px;
     font-size: 16px;
     color: white;
@@ -143,8 +199,29 @@ body.no-scroll {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    max-width: 250px;
 }
 
-#backToIndex:hover {
+#backToIndex:hover, #selectImageButton:hover {
     background-color: #45a049;
+}
+
+/* Image selection styles */
+.image-selection-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.image-selection-container img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+.image-selection-container img:hover {
+    border-color: #f9d423;
 }
