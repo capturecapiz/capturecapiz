@@ -1,6 +1,6 @@
 :root {
   background-color: #ecf5ff;
-  font-size: 62.5%;
+  font-size: 62.5%; /* This allows for easy rem unit scaling */
 }
 
 * {
@@ -16,35 +16,36 @@ h2,
 h3,
 h4 {
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 h1 {
-  font-size: 5.4rem;
+  font-size: clamp(3.5rem, 10vw, 5.4rem); /* Responsive font size */
   color: #56a5eb;
   margin-bottom: 5rem;
 }
 
 h1 > span {
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 5vw, 2.4rem); /* Responsive font size */
   font-weight: 500;
 }
 
 h2 {
-  font-size: 4.2rem;
+  font-size: clamp(3rem, 8vw, 4.2rem); /* Responsive font size */
   margin-bottom: 4rem;
   font-weight: 700;
 }
 
 h3 {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 6vw, 2.8rem); /* Responsive font size */
   font-weight: 500;
 }
 
 /* UTILITIES */
 
 .container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh; /* Use min-height to allow content to grow */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,15 +82,17 @@ h3 {
 
 /* BUTTONS */
 .btn {
-  font-size: 1.8rem;
-  padding: 1rem 0;
-  width: 20rem;
+  font-size: clamp(1.6rem, 4vw, 1.8rem); /* Responsive font size */
+  padding: 1.5rem 0; /* Increased padding for better touch targets */
+  width: 100%; /* Make buttons full width on mobile */
+  max-width: 30rem; /* Set a max-width for larger screens */
   text-align: center;
   border: 0.1rem solid #56a5eb;
   margin-bottom: 1rem;
   text-decoration: none;
   color: #56a5eb;
   background-color: white;
+  border-radius: 4px; /* Added for a modern look */
 }
 
 .btn:hover {
@@ -115,7 +118,8 @@ form {
 
 input {
   margin-bottom: 1rem;
-  width: 20rem;
+  width: 100%;
+  max-width: 30rem; /* Set a max-width */
   padding: 1.5rem;
   font-size: 1.8rem;
   border: none;
