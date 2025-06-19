@@ -22,14 +22,27 @@
   <style type="text/css">
     @font-face {
       font-family: 'Barabara';
-      src: 
-           url('fonts/BARABARA.otf') format('opentype');
+      src:      
+          url('fonts/BARABARA.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
 
+    /* --- CSS FOR RESPONSIVE MAP --- */
+    #responsive-image {
+      width: 100%; /* Make the image take the full width of its container */
+      height: auto; /* Maintain the aspect ratio */
+      max-width: 100%; /* Ensure it never overflows */
+    }
+
+    .map-container {
+      width: 100%; /* Make the container responsive */
+      max-width: 800px; /* Optional: you can set a max size for very large screens */
+      margin: 0 auto; /* Center the container */
+    }
+    
     .modal-lg {
-      max-width: 100vw; 
+      max-width: 100vw;  
       max-height: 100vh;
       margin: 0;
       padding: 0;
@@ -43,8 +56,9 @@
     .modal-content {
       height: 100%;
       border-radius: 0;
-}
-          /* Game Title Styles */
+    }
+
+    /* Game Title Styles */
     .game-title {
       text-align: center;
       margin: 20px 0;
@@ -52,19 +66,18 @@
 
     .game-title h1 {
       font-family: 'Barabara', sans-serif;
-      font-size: 3rem;
+      /* --- RESPONSIVE FONT SIZE --- */
+      /* This will scale the font, but not smaller than 2rem or larger than 4rem */
+      font-size: clamp(2rem, 10vw, 4rem); 
       color: #ffffff;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .game-title p {
       font-family: 'ROBOTO', sans-serif;
-      font-size: 1.2rem;
+      /* --- RESPONSIVE FONT SIZE --- */
+      font-size: clamp(0.9rem, 4vw, 1.2rem);
       color: #ffffff;
-    }
-
-    .map-container {
-      position: relative;
     }
 
     #question-container {
@@ -73,30 +86,30 @@
     }
 
 
-#question-container h2, 
-#question-container #question-text,
-#question-container #feedback {
-    color: white; /* Set text color to black for readability */
+    #question-container h2, 
+    #question-container #question-text,
+    #question-container #feedback {
+      color: white; /* Set text color to white for readability */
       font-weight: bold;
-       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
-}
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+      /* --- RESPONSIVE FONT SIZE --- */
+      font-size: clamp(1rem, 5vw, 1.5rem);
+    }
 
-#question-container strong {
-    color: black; /* Ensure bold text is also black */
-}
+    #question-container strong {
+      color: black; /* Ensure bold text is also black */
+    }
     
-
+    /* --- MODIFIED: Styles for the start button container --- */
     #start-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       text-align: center;
+      margin-top: 30px; /* Add space between the map and the button */
     }
 
     #start-button {
       font-family: 'ROBOTO', sans-serif;
-      font-size: 2rem;
+      /* --- RESPONSIVE FONT SIZE --- */
+      font-size: clamp(1.5rem, 8vw, 2.5rem);
       padding: 15px 30px;
       background-color: #2c3e50;
       color: white;
@@ -117,39 +130,40 @@
       box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
     }
 
-        /* Hide the audio controls */
+    /* Hide the audio controls */
     #background-audio {
       display: none;
     }
 
-#back-button {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  background-color: #1778a3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s, transform 0.3s;
-  margin-top: 20px; /* Add margin above the button */
-}
+    #back-button {
+      font-family: 'Poppins', sans-serif;
+      /* --- RESPONSIVE FONT SIZE --- */
+      font-size: clamp(0.8rem, 4vw, 1.2rem);
+      padding: 10px 20px;
+      background-color: #1778a3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, transform 0.3s;
+      margin-top: 20px; /* Add margin above the button */
+    }
 
 
-  #back-button:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
-  }
+    #back-button:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+    }
 
-  #back-button:active {
-    background-color: #1c598a;
-  }
+    #back-button:active {
+      background-color: #1c598a;
+    }
 
-.button-container {
-  margin-top: 20px; /* Add margin above the container */
-  text-align: left; /* Optional: Align button to the left */
-}
+    .button-container {
+      margin-top: 20px; /* Add margin above the container */
+      text-align: left; /* Optional: Align button to the left */
+    }
 
   </style>
 </head>
@@ -163,27 +177,17 @@
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
           <div class="button-container">
-  <button id="back-button" class="btn btn-primary">Go Back</button>
-</div>
-          <script>
-  document.getElementById('back-button').addEventListener('click', function() {
-    window.history.back();
-  });
-</script>
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets2/img/logo.png" alt=""> 
-          <h1 class="sitename">Impact</h1>
-          <span>.</span>-->
+            <button id="back-button" class="btn btn-primary">Go Back</button>
+          </div>
         </a>
 
-       <a href="index.html" class="active"> 
+        <a href="index.html" class="active">  
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="index.html" class="active">Home<br></a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
       </div>
 
     </div>
@@ -192,83 +196,46 @@
 
   <main class="main">
 
-
-
-
     <!-- Hero Section -->
     <section id="hero" class="hero section accent-background">
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-5 justify-content-center">
           <div class="col-lg-12 text-center">
-                        <div class="game-title">
-              <h1>MAP QUIZ CHALLENGE</h1>
-              <p>Test your knowledge by identifying the 16 municipalities and 1 component city in the province of Capiz!</p>
-
-            </div>
-            <div class="map-container">
-
-
-              <img src="assets2/img/map1 - Copy (3).png" alt="Map Quiz" usemap="#map-quiz" id="responsive-image">
-              <map name="map-quiz">
- 
-
-      <area target="" alt="Tapaz" data-answer="Tapaz" href="#" id="area-Tapaz" coords="377,281,366,285,346,256,331,258,322,264,298,254,279,272,250,292,170,314,77,385,30,394,39,413,78,434,138,362,207,399,258,386,309,403,340,392,363,380,374,352,393,318" shape="poly">
-
-
-    <area target="" alt="Jamindan" data-answer="Jamindan" href="#" id="area-Jamindan" coords="383,260,370,270,352,249,339,238,325,245,309,242,293,234,285,252,233,281,165,302,70,375,25,385,10,312,194,238,204,178,233,126,295,134,322,144,362,206,362,231,366,250,371,258" shape="poly">
-
-
-    <area target="" alt="Dumalag" data-answer="Dumalag" href="#" id="area-Jamindan" coords="420,245,394,261,390,276,405,308,400,350,421,358,466,327,462,314,460,297,474,289,474,265,458,251,437,255" shape="poly">
-
-
-    <area target="" alt="Mambusao" data-answer="Mambusao" href="#" id="area-Jamindan" coords="438,135,442,177,386,252,377,227,377,206,328,134,360,150" shape="poly">
-
-
-    <area target="" alt="Sapian" data-answer="Sapian" href="#" id="area-Jamindan" coords="473,120,457,123,446,130,433,124,369,136,336,123,382,62,398,95,452,97" shape="poly">
-
-
-
-    <area target="" alt="Sigma" data-answer="Sigma" href="#" id="area-Jamindan"  coords="530,114,517,122,507,125,497,121,463,138,449,150,454,182,410,238,446,229,457,206,478,194,502,192,533,146" shape="poly">
-
-
-    <area target="" alt="Dao" data-answer="Dao" href="#" id="area-Jamindan"  coords="532,172,509,202,478,209,462,222,474,242,494,243,516,249,549,262,558,251,549,235,553,201" shape="poly">
-
-
-    <area target="" alt="Cuartero" data-answer="Cuartero" href="#" id="area-Jamindan" coords="574,265,560,274,551,275,523,270,501,258,481,254,488,270,489,286,523,290,556,308,591,306,619,312,628,318,654,300,643,285,624,281,602,282" shape="poly">
-
-
-    <area target="" alt="Dumarao" data-answer="Dumarao" href="#" id="area-Jamindan" coords="510,304,482,298,473,313,479,330,445,357,479,377,526,374,554,358,587,362,610,398,662,398,699,309,663,309,618,338,598,317,551,324" shape="poly">
-
-
-    <area target="" alt="Ivisan" data-answer="Ivisan" href="#" id="area-Jamindan"  coords="462,39,451,47,453,55,463,62,464,70,458,76,457,87,483,118,498,113,518,110,530,102,537,99,540,86,529,73,513,66,515,74,483,76,482,65,473,66,468,54,459,50" shape="poly">
-
-
-    <area target="" alt="Panitan" data-answer="Panitan" href="#" id="area-Jamindan"  coords="632,182,625,146,608,130,596,131,582,114,578,123,564,128,543,128,543,142,539,160,560,190,558,230,567,214,572,197,571,182,587,186,606,187" shape="poly">
-
-
-    <area target="" alt="Maayon" data-answer="Maayon" href="#" id="area-Jamindan" coords="632,194,582,196,572,226,572,253,610,266,630,267,656,280,665,291,682,300,732,296,746,290,736,266,748,232,735,218,702,234,689,223,674,223,666,222,640,212" shape="poly">
-
-
-    <area target="" alt="Roxas City" data-answer="Roxas City" href="#" id="area-Jamindan"  coords="610,4,524,3,529,26,524,33,510,41,501,44,511,61,531,68,544,83,547,101,541,112,555,121,574,112,574,96,583,82,579,63,580,45" shape="poly">
-
-
-    <area target="" alt="Panay" data-answer="Panay" href="#" id="area-Jamindan" coords="636,6,618,3,589,50,589,70,594,80,583,102,597,114,611,118,646,105,670,96,687,105,706,110,732,91,700,82,686,67,674,77,665,49,642,23" shape="poly">
-
-
-    <area target="" alt="Pontevedra" data-answer="Pontevedra"  href="#"  id="area-Jamindan" coords="684,120,674,104,659,113,639,118,618,126,635,144,642,183,643,201,654,207,677,211,694,216,702,223,734,212,712,192,710,180,699,174,690,163,668,165,650,166,646,150" shape="poly">
-
-
-    <area target="" alt="President Roxas" data-answer="President Roxas" href="#" id="area-Jamindan" coords="747,138,715,173,732,202,753,220,766,226,814,210,786,189,799,173,770,166,751,155" shape="poly">
-
-
-    <area target="" alt="Pilar" data-answer="Pilar" href="#" id="area-Jamindan" coords="759,128,754,137,760,150,799,164,806,177,802,184,822,204,848,187,840,164,889,80,852,93,814,118,790,130" shape="poly">
-      <!-- Add more regions with accurate coordinates as needed -->
-              </map>
-            </div>
-            <h3><strong><div id="question-container">
-             <strong><h2> <p id="question-text">Which region is ?</p></h2></strong>
-              <div id="feedback"></div></h3></strong>
-            </div>
+                  <div class="game-title">
+                  <h1>MAP QUIZ CHALLENGE</h1>
+                  <p>Test your knowledge by identifying the 16 municipalities and 1 component city in the province of Capiz!</p>
+                </div>
+                <div class="map-container">
+                  <img src="assets2/img/map1 - Copy (3).png" alt="Map Quiz" usemap="#map-quiz" id="responsive-image">
+                  <map name="map-quiz">
+                    <area target="" alt="Tapaz" data-answer="Tapaz" href="#" id="area-Tapaz" coords="377,281,366,285,346,256,331,258,322,264,298,254,279,272,250,292,170,314,77,385,30,394,39,413,78,434,138,362,207,399,258,386,309,403,340,392,363,380,374,352,393,318" shape="poly">
+                    <area target="" alt="Jamindan" data-answer="Jamindan" href="#" id="area-Jamindan" coords="383,260,370,270,352,249,339,238,325,245,309,242,293,234,285,252,233,281,165,302,70,375,25,385,10,312,194,238,204,178,233,126,295,134,322,144,362,206,362,231,366,250,371,258" shape="poly">
+                    <area target="" alt="Dumalag" data-answer="Dumalag" href="#" id="area-Dumalag" coords="420,245,394,261,390,276,405,308,400,350,421,358,466,327,462,314,460,297,474,289,474,265,458,251,437,255" shape="poly">
+                    <area target="" alt="Mambusao" data-answer="Mambusao" href="#" id="area-Mambusao" coords="438,135,442,177,386,252,377,227,377,206,328,134,360,150" shape="poly">
+                    <area target="" alt="Sapian" data-answer="Sapian" href="#" id="area-Sapian" coords="473,120,457,123,446,130,433,124,369,136,336,123,382,62,398,95,452,97" shape="poly">
+                    <area target="" alt="Sigma" data-answer="Sigma" href="#" id="area-Sigma"  coords="530,114,517,122,507,125,497,121,463,138,449,150,454,182,410,238,446,229,457,206,478,194,502,192,533,146" shape="poly">
+                    <area target="" alt="Dao" data-answer="Dao" href="#" id="area-Dao"  coords="532,172,509,202,478,209,462,222,474,242,494,243,516,249,549,262,558,251,549,235,553,201" shape="poly">
+                    <area target="" alt="Cuartero" data-answer="Cuartero" href="#" id="area-Cuartero" coords="574,265,560,274,551,275,523,270,501,258,481,254,488,270,489,286,523,290,556,308,591,306,619,312,628,318,654,300,643,285,624,281,602,282" shape="poly">
+                    <area target="" alt="Dumarao" data-answer="Dumarao" href="#" id="area-Dumarao" coords="510,304,482,298,473,313,479,330,445,357,479,377,526,374,554,358,587,362,610,398,662,398,699,309,663,309,618,338,598,317,551,324" shape="poly">
+                    <area target="" alt="Ivisan" data-answer="Ivisan" href="#" id="area-Ivisan"  coords="462,39,451,47,453,55,463,62,464,70,458,76,457,87,483,118,498,113,518,110,530,102,537,99,540,86,529,73,513,66,515,74,483,76,482,65,473,66,468,54,459,50" shape="poly">
+                    <area target="" alt="Panitan" data-answer="Panitan" href="#" id="area-Panitan"  coords="632,182,625,146,608,130,596,131,582,114,578,123,564,128,543,128,543,142,539,160,560,190,558,230,567,214,572,197,571,182,587,186,606,187" shape="poly">
+                    <area target="" alt="Maayon" data-answer="Maayon" href="#" id="area-Maayon" coords="632,194,582,196,572,226,572,253,610,266,630,267,656,280,665,291,682,300,732,296,746,290,736,266,748,232,735,218,702,234,689,223,674,223,666,222,640,212" shape="poly">
+                    <area target="" alt="Roxas City" data-answer="Roxas City" href="#" id="area-Roxas-City"  coords="610,4,524,3,529,26,524,33,510,41,501,44,511,61,531,68,544,83,547,101,541,112,555,121,574,112,574,96,583,82,579,63,580,45" shape="poly">
+                    <area target="" alt="Panay" data-answer="Panay" href="#" id="area-Panay" coords="636,6,618,3,589,50,589,70,594,80,583,102,597,114,611,118,646,105,670,96,687,105,706,110,732,91,700,82,686,67,674,77,665,49,642,23" shape="poly">
+                    <area target="" alt="Pontevedra" data-answer="Pontevedra"  href="#"  id="area-Pontevedra" coords="684,120,674,104,659,113,639,118,618,126,635,144,642,183,643,201,654,207,677,211,694,216,702,223,734,212,712,192,710,180,699,174,690,163,668,165,650,166,646,150" shape="poly">
+                    <area target="" alt="President Roxas" data-answer="President Roxas" href="#" id="area-President-Roxas" coords="747,138,715,173,732,202,753,220,766,226,814,210,786,189,799,173,770,166,751,155" shape="poly">
+                    <area target="" alt="Pilar" data-answer="Pilar" href="#" id="area-Pilar" coords="759,128,754,137,760,150,799,164,806,177,802,184,822,204,848,187,840,164,889,80,852,93,814,118,790,130" shape="poly">
+                  </map>
+                </div>
+                <!-- Start Container -->
+                <div id="start-container" data-aos="fade-up" data-aos-delay="200">
+                  <button id="start-button">Start Quiz</button>
+                </div>
+                
+                <div id="question-container">
+                  <h2><p id="question-text">Which region is ?</p></h2>
+                  <div id="feedback"></div>
+                </div>
           </div>
         </div>
       </div>
@@ -280,11 +247,6 @@
     <source src="assets2/sound/wondrous-waters-119518.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
-
-    <!-- Start Container -->
-    <div id="start-container" data-aos="fade-up" data-aos-delay="200">
-      <button id="start-button">Start Quiz</button>
-    </div>
 
     <!-- Modals -->
     <!-- Correct Answer Modal -->
@@ -313,11 +275,8 @@
             <h5 class="modal-title" id="incorrectModalLabel">Incorrect Answer!</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            
           <div class="modal-body" id="incorrectModal-body">
-        <!-- Dynamic content will be injected here -->
-          </div>
+            <!-- Dynamic content will be injected here -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -369,9 +328,15 @@
   <script src="assets2/js/main.js"></script>
 
   
-  <script>
+<script>
 document.addEventListener("DOMContentLoaded", function() {
   $('#responsive-image').rwdImageMaps(); // Make the image map responsive
+
+  // --- FIX: Moved the back button script here for reliability ---
+  document.getElementById('back-button').addEventListener('click', function() {
+    window.history.back();
+  });
+  // --- END OF FIX ---
 
   const questionContainer = document.getElementById("question-container");
   const feedback = document.getElementById("feedback");
