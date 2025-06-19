@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h1>Puzzle Game</h1>
+            <div class="puzzle-container">
+                <div class="puzzle"></div>
+                <div class="side">
+                    <div class="main-image">
+                        <p>Original Image:</p>
+                        <img id="mainImage" src="" alt="Selected Image">
+                    </div>
+                    <div class="moves">Moves: 0</div>
+                    <div class="timer">Time Left: 3:00</div>
+                </div>
+                
+                <!-- Time's Up Modal -->
+                <div id="timesUpModal" class="modal">
+                    <div class="modal-content">
+                        <h2>Time's up!</h2>
+                        <button id="modalOkButton">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<br>
+        <!-- Redirect Button -->
+        <div class="redirect-button">
+            <button id="backToIndex">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QUIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        </div>
+    </div>
+    
+    <script src="puzzle.js"></script>
+    <script>
+let inactivityTime = 1 * 60 * 1000; 
+let timer;
+
+function resetTimer() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        console.log("Redirecting due to inactivity..."); // Debugging log
+        window.location.href = "index.html"; // Redirect to index.html after inactivity
+    }, inactivityTime);
+}
+
+// Reset timer on user activity
+document.addEventListener("mousemove", resetTimer);
+document.addEventListener("keypress", resetTimer);
+document.addEventListener("touchstart", resetTimer);
+document.addEventListener("scroll", resetTimer);
+
+// Start the timer when the page loads
+resetTimer();
+</script>
+</body>
+</html>

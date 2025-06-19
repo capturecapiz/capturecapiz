@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quick Quiz - Play</title>
+    <link rel="stylesheet" href="./../wordgame/app.css" />
+    <link rel="stylesheet" href="./../wordgame/game.css" />
+</head>
+<body>
+    <div class="container">
+        <div id="game" class="justify-center flex-column">
+            <div id="hud">
+                <div id="hud-item">
+                    <p id="progressText" class="hud-prefix">Question</p>
+                    <div id="progressBar">
+                        <div id="progressBarFull"></div>
+                    </div>
+                </div>
+                <div id="hud-item">
+                    <p class="hud-prefix">Score</p>
+                    <h1 class="hud-main-text" id="score">0</h1>
+                </div>
+            </div>
+            <h2 id="question">What is the answer to this question?</h2>
+            <div class="choice-container">
+                <p class="choice-prefix">A</p>
+                <p class="choice-text" data-number="1">Choice 1</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">B</p>
+                <p class="choice-text" data-number="2">Choice 2</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">C</p>
+                <p class="choice-text" data-number="3">Choice 3</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">D</p>
+                <p class="choice-text" data-number="4">Choice 4</p>
+            </div>
+        </div>
+        <div id="timer">Time Left: 8</div> <!-- Hidden timer -->
+    </div>
+    </div>
+    <!-- Modal for feedback -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="feedbackImg" class="modal-img" src="" alt="Answer Image"/>
+            <h2 id="feedbackTitle"></h2>
+            <p id="feedbackText"></p>
+        </div>
+    </div>
+
+    <audio id="correctSound" src="./../wordgame/correct.mp3"></audio>
+    <audio id="incorrectSound" src="./../wordgame/incorrect.mp3"></audio>
+    <audio id="1" src="./../wordgame/1.mp3"></audio>
+    <audio id="2" src="./../wordgame/2.mp3"></audio>
+    <audio id="3" src="./../wordgame/3.mp3"></audio>
+    <audio id="4" src="./../wordgame/4.mp3"></audio>
+    <audio id="5" src="./../wordgame/5.mp3"></audio>
+    <audio id="6" src="./../wordgame/6.mp3"></audio>
+    <audio id="7" src="./../wordgame/7.mp3"></audio>
+    <audio id="8" src="./../wordgame/8.mp3"></audio>
+    <audio id="9" src="./../wordgame/9.mp3"></audio>
+    <audio id="10" src="./../wordgame/10.mp3"></audio>
+    <audio id="11" src="./../wordgame/11.mp3"></audio>
+    <audio id="12" src="./../wordgame/12.mp3"></audio>
+    <audio id="13" src="./../wordgame/13.mp3"></audio>
+    <audio id="14" src="./../wordgame/14.mp3"></audio>
+    <audio id="15" src="./../wordgame/15.mp3"></audio>
+    <audio id="16" src="./../wordgame/16.mp3"></audio>
+    <audio id="17" src="./../wordgame/17.mp3"></audio>
+    <audio id="18" src="./../wordgame/18.mp3"></audio>
+    <audio id="19" src="./../wordgame/19.mp3"></audio>
+    <audio id="20" src="./../wordgame/20.mp3"></audio>
+    <audio id="21" src="./../wordgame/21.mp3"></audio>
+    <audio id="22" src="./../wordgame/22.mp3"></audio>
+    <audio id="23" src="./../wordgame/23.mp3"></audio>
+    <audio id="24" src="./../wordgame/24.mp3"></audio>
+    <audio id="25" src="./../wordgame/25.mp3"></audio>
+    <audio id="26" src="./../wordgame/26.mp3"></audio>
+    <audio id="27" src="./../wordgame/27.mp3"></audio>
+    <audio id="28" src="./../wordgame/28.mp3"></audio>
+    <audio id="29" src="./../wordgame/29.mp3"></audio>
+    <audio id="30" src="./../wordgame/30.mp3"></audio>
+    <audio id="timerSound" src="./../wordgame/timer.mp3"></audio>
+
+    <script src="./../wordgame/game.js"></script>
+    
+          <script>
+let inactivityTime = 1 * 60 * 1000; 
+let timer;
+
+function resetTimer() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        console.log("Redirecting due to inactivity..."); // Debugging log
+        window.location.href = "../index.html"; // Redirect to index.html after inactivity
+    }, inactivityTime);
+}
+
+// Reset timer on user activity
+document.addEventListener("mousemove", resetTimer);
+document.addEventListener("keypress", resetTimer);
+document.addEventListener("touchstart", resetTimer);
+document.addEventListener("scroll", resetTimer);
+
+// Start the timer when the page loads
+resetTimer();
+</script>
+  </body>
+</html>

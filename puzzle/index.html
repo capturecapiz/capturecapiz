@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Puzzle Game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <img src="./../puzzle/icon.png" usemap="#image-map">
+            <h1>Sliding Puzzle Game</h1>
+            <div class="landing-page">
+                <button id="selectImageButton">Select Image</button>
+                <button id="backToIndex">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QUIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const selectImageButton = document.querySelector('#selectImageButton');
+        selectImageButton.addEventListener('click', () => {
+            window.location.href = 'select-image.html';
+        });
+
+                // Redirection for "QUIT" button
+        const quitButton = document.querySelector('#backToIndex');
+        quitButton.addEventListener('click', () => {
+            window.location.href = '../index.html';
+        });
+    </script>
+    
+    
+    <script>
+let inactivityTime = 15 * 60 * 1000; 
+let timer;
+
+function resetTimer() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        console.log("Redirecting due to inactivity..."); // Debugging log
+        window.location.href = "../index.html"; // Redirect to index.html after inactivity
+    }, inactivityTime);
+}
+
+// Reset timer on user activity
+document.addEventListener("mousemove", resetTimer);
+document.addEventListener("keypress", resetTimer);
+document.addEventListener("touchstart", resetTimer);
+document.addEventListener("scroll", resetTimer);
+
+// Start the timer when the page loads
+resetTimer();
+</script>
+</body>
+</html>
+
+

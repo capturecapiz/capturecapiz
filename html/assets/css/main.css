@@ -344,6 +344,11 @@ body {
   padding-bottom: 60px;
 }
 
+.uk-section-small {
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
 .uk-background-muted {
   background-color: #f2f7fb;
 }
@@ -1283,6 +1288,22 @@ body {
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
 }
 
+.join-us__btn1 {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  display: block;
+  z-index: 1;
+  position: absolute;
+  bottom: -185px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.join-us__btn .uk-button1 {
+  -webkit-box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
 .checkbox-custome {
   --background: #fff;
   --border: #000000;
@@ -1610,6 +1631,26 @@ body {
     text-shadow: 1px 1px 1px black;
 }
 
+.city-item__city1 {
+  color: #FFFFFF;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.38;
+  text-align: center;
+  text-shadow: 2px 2px 3px black;
+}
+
+.city-item__country1 {
+  color: #FFFFFF;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+    text-shadow: 1px 1px 1px black;
+}
+
 .city-item__col {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
@@ -1772,19 +1813,52 @@ body {
 
 .section-banner__title {
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 38px;
   color: #ffffff;
   font-family: Nunito;
-  font-size: 60px;
+  font-size: 90px;
   font-weight: bold;
   letter-spacing: -0.025em;
-  line-height: 1.37;
+  line-height: .9;
+  text-align: center;
+}
+
+.section-banner__2 {
+  margin-top: 0;
+  margin-bottom: 40px;
+  color: #000000;
+  font-family: Nunito;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: -0.025em;
+  line-height: .1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section-banner__1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #000000;
+  font-family: Nunito;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: -0.005em;
+  line-height: .1;
+  text-align: center;
 }
 
 .section-banner__text {
   color: #ffffff;
   font-size: 18px;
   line-height: 1.2;
+}
+
+.section-banner__text1 {
+  color: #000000;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .section-banner__form {
@@ -1844,7 +1918,7 @@ body {
 }
 
 .section-banner.section-banner--home .section-banner__bg {
-  padding: 161px 0 335px;
+  padding: 121px 0 335px;
   background-position: right bottom;
 }
 
@@ -1872,7 +1946,7 @@ body {
 }
 
 .section-banner.section-banner--home-2 .section-banner__bg {
-  padding: 150px 0 300px;
+  padding: 10px 0 300px;
   background-position: right bottom;
 }
 
@@ -2208,7 +2282,7 @@ body {
 .listing-card__body {
   display: block;
   position: relative;
-  padding: 30px;
+  padding: 10px;
 }
 
 .listing-card__title {
@@ -2237,6 +2311,44 @@ body {
   color: #F44153;
   text-decoration: none;
 }
+
+
+
+
+
+
+.listing-card__title1 {
+  margin-bottom: 5px;
+  color: #222222;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.38;
+}
+
+.listing-card__title1 a {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  color: #222222;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.38;
+  transition: 0.5s;
+}
+
+.listing-card__title1 a:hover,
+.listing-card__title1 a:focus,
+.listing-card__title1 a:active {
+  color: #F44153;
+  text-decoration: none;
+}
+
+
+
+
+
+
 
 .listing-card__intro {
   -o-text-overflow: ellipsis;
@@ -2418,6 +2530,16 @@ body {
   color: #FFFFFF;
   font-family: Nunito;
   font-size: 60px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.37;
+}
+
+.section-download__content .u1-h3 {
+  margin: 0;
+  color: #FFFFFF;
+  font-family: Nunito;
+  font-size: 11160px;
   font-style: normal;
   font-weight: bold;
   line-height: 1.37;
@@ -3775,6 +3897,89 @@ body {
   color: #F44153;
 }
 
+
+
+.section-city-place .uk1-h3 {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  font-size: calc(15px + 10.2 * ((100vw - 320px) / 1920));
+}
+
+
+.section-city-place .uk1-h3 > span:first-of-type {
+  margin-right: 10px;
+  color: #F44153;
+}
+
+.section-city-place1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* space between items */
+}
+
+.section-city-place1 .uk1-h3 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(12px + 10.2 * ((100vw - 320px) / 1920));
+}
+
+
+
+.icon {
+  margin-right: 10px;
+  color: #F44153;
+}
+
+.icon-adult::before {
+  content: '\f183'; /* example: Font Awesome user icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.icon-children::before {
+  content: '\f1ae'; /* example: child icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.icon-features::before {
+  content: '\f0ad'; /* example: cogs icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.icon-size::before {
+  content: '\f1b2'; /* example: cube icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.icon-amenities::before {
+  content: '\f013'; /* example: gear/settings icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.icon-bed::before {
+  content: '\f236'; /* example: bed icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+
+
+
+
+
 .city-place-feature__item {
   display: block;
   position: relative;
@@ -4169,6 +4374,14 @@ body {
   .listing-card__title a {
     font-size: calc(20px + 4 * (100vw / 1920));
   }
+  
+    .listing-card__title1 {
+    font-size: calc(20px + 4 * (100vw / 1920));
+  }
+
+  .listing-card__title1 a {
+    font-size: calc(20px + 4 * (100vw / 1920));
+  }
 
   .listing-card__location {
     font-size: calc(13px + 3 * (100vw / 1920));
@@ -4290,7 +4503,7 @@ body {
   }
 
   .page-header__sing-in {
-    margin-right: 25px;
+    margin-right: 95px;
   }
 
   .page-header__btn {
@@ -4506,6 +4719,14 @@ body {
   }
 
   .listing-card__title a {
+    font-size: calc(20px + 6.8 * ((100vw - 320px) / 1920));
+  }
+  
+   .listing-card__title1 {
+    font-size: calc(20px + 6.8 * ((100vw - 320px) / 1920));
+  }
+
+  .listing-card__title1 a {
     font-size: calc(20px + 6.8 * ((100vw - 320px) / 1920));
   }
 
