@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Capiz Emergency Hotlines</title>
+    <meta content="Capiz Provincial Government" name="author">
+    <meta content="List of Emergency Hotlines in Capiz Province" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="html/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="html/assets/img/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#c0392b">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="html/assets/css/main.css">
+    
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #c0392b;
+        }
+
+        .hotline-card {
+            background: #fff;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hotline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .hotline-card__icon {
+            margin-bottom: 15px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hotline-card__icon img {
+            max-height: 100%;
+            max-width: 100px;
+            object-fit: contain;
+        }
+
+        .hotline-card__title {
+            font-weight: 700;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            margin-bottom: 10px;
+            color: #333;
+            flex-grow: 1; 
+        }
+
+        .hotline-card__number {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: bold;
+            color: #d35400;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .hotline-card__number a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .hotline-card__secondary {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .section-banner__title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+        }
+         .section-banner__subtitle {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+        }
+        .page-header__mainmenu .uk-button {
+             background-color: var(--primary-color);
+             color: white;
+             border-radius: 5px;
+             font-weight: 600;
+             transition: background-color 0.3s;
+        }
+         .page-header__mainmenu .uk-button:hover {
+             background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+
+<body class="page-listing-post">
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="page-header__scroll" data-uk-sticky>
+                <div class="uk-container uk-container-xlarge">
+                    <div class="page-header__inner">
+                        <div class="page-header__left">
+                            <div class="page-header__logo logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Logo"></a></div>
+                        </div>
+                        <div class="page-header__right">
+                            <div class="page-header__mainmenu">
+                                <div>
+                                    <a class="uk-button" href="index.html#portfolio">Return to Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="page-main">
+            <div class="section-banner">
+                <!-- Set banner background to dark red -->
+                <div class="section-banner__bg" style="background-color: #c0392b;">
+                    <div class="uk-container">
+                        <div class="section-banner__content" style="color:white; padding: 20px 0;">
+                            <div class="section-banner__title">Capiz Emergency Hotlines</div>
+                            <center><div class="section-banner__subtitle">Your Safety is Our Priority.</div></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="uk-section-large uk-container">
+                    
+                    <div class="uk-text-center uk-margin-medium-bottom">
+                        <h2 class="uk-h2">Provincial & National Hotlines</h2>
+                        <p class="uk-text-lead">Key contacts for province-wide and national emergencies.</p>
+                    </div>
+
+                    <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
+                        <!-- PDRRMO - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/e74c3c?text=PDRRMO" alt="PDRRMO Logo"></div>
+                                <div class="hotline-card__title">Provincial Disaster Risk Reduction & Management Office (PDRRMO)</div>
+                                <span class="hotline-card__number"><a href="tel:0365201203">(036) 520-1203</a></span>
+                                <span class="hotline-card__secondary">Mobile: <a href="tel:09984773357">0998-477-3357</a></span>
+                            </div>
+                        </div>
+                        <!-- PNP - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/2980b9?text=PNP" alt="PNP Logo"></div>
+                                <div class="hotline-card__title">Philippine National Police (PNP) - Roxas City</div>
+                                <span class="hotline-card__number"><a href="tel:0366200284">(036) 620-0284</a></span>
+                                <span class="hotline-card__secondary">National Hotline: 911</span>
+                            </div>
+                        </div>
+                        <!-- BFP - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/c0392b?text=BFP" alt="BFP Logo"></div>
+                                <div class="hotline-card__title">Bureau of Fire Protection (BFP) - Roxas City</div>
+                                <span class="hotline-card__number"><a href="tel:0365225211">(036) 522-5211</a></span>
+                                <span class="hotline-card__secondary">Mobile: <a href="tel:09506085228">0950-608-5228</a></span>
+                            </div>
+                        </div>
+                        <!-- Red Cross - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/e74c3c?text=Red+Cross" alt="Red Cross Logo"></div>
+                                <div class="hotline-card__title">Philippine Red Cross - Capiz</div>
+                                <span class="hotline-card__number"><a href="tel:0365221467">(036) 522-1467</a></span>
+                                <span class="hotline-card__secondary">Mobile: <a href="tel:09308721377">0930-872-1377</a></span>
+                            </div>
+                        </div>
+                        <!-- Coast Guard - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/3498db?text=PCG" alt="Coast Guard Logo"></div>
+                                <div class="hotline-card__title">Philippine Coast Guard - Capiz</div>
+                                <span class="hotline-card__number"><a href="tel:09638008443">0963-800-8443</a></span>
+                                <span class="hotline-card__secondary">Maritime Search & Rescue</span>
+                            </div>
+                        </div>
+                        <!-- Health Office - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/2ecc71?text=CHO" alt="PHO Logo"></div>
+                                <div class="hotline-card__title">Roxas City Health Office</div>
+                                <span class="hotline-card__number"><a href="tel:0366210578">(036) 621-0578</a></span>
+                                <span class="hotline-card__secondary">Public Health Concerns</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="uk-margin-large">
+                    
+                    <div class="uk-text-center uk-margin-medium-bottom">
+                        <h2 class="uk-h2">Hospital & Medical Services</h2>
+                        <p class="uk-text-lead">Emergency contacts for hospitals in Roxas City.</p>
+                    </div>
+
+                    <div class="uk-grid uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
+                        <!-- Hospital 1 - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/1abc9c?text=Hospital" alt="Hospital Logo"></div>
+                                <div class="hotline-card__title">Roxas Memorial Provincial Hospital</div>
+                                <span class="hotline-card__number"><a href="tel:0366210030">(036) 621-0030</a></span>
+                                <span class="hotline-card__secondary">Emergency Room</span>
+                            </div>
+                        </div>
+                        <!-- Hospital 2 - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/1abc9c?text=Hospital" alt="Hospital Logo"></div>
+                                <div class="hotline-card__title">Capiz Doctors Hospital</div>
+                                <span class="hotline-card__number"><a href="tel:0366210443">(036) 621-0443</a></span>
+                                <span class="hotline-card__secondary">Emergency Services</span>
+                            </div>
+                        </div>
+                        <!-- Hospital 3 - Corrected Number -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/1abc9c?text=Hospital" alt="Hospital Logo"></div>
+                                <div class="hotline-card__title">St. Anthony College Hospital</div>
+                                <span class="hotline-card__number"><a href="tel:0366210434">(036) 621-0434</a></span>
+                                <span class="hotline-card__secondary">Patient Information</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="uk-margin-large">
+
+                    <div class="uk-text-center uk-margin-medium-bottom">
+                        <h2 class="uk-h2">Municipal Disaster Offices (MDRRMO)</h2>
+                        <p class="uk-text-lead">Local emergency contacts for all municipalities and city in Capiz.</p>
+                    </div>
+
+                    <div class="uk-grid uk-grid-match uk-child-width-1-2@s uk-child-width-1-4@m" data-uk-grid>
+                        <!-- Roxas City -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=CDRRMO" alt="CDRRMO Logo"></div>
+                                <div class="hotline-card__title">CDRRMO - Roxas City</div>
+                                <span class="hotline-card__number"><a href="tel:0365227878">(036) 522-7878</a></span>
+                                <span class="hotline-card__secondary"><a href="tel:09173066741">0917-306-6741</a></span>
+                            </div>
+                        </div>
+                        <!-- Panay -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Panay</div>
+                                <span class="hotline-card__number"><a href="tel:0366212022">(036) 621-2022</a></span>
+                            </div>
+                        </div>
+                        <!-- Pontevedra -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Pontevedra</div>
+                                <span class="hotline-card__number"><a href="tel:0366340599">(036) 634-0599</a></span>
+                            </div>
+                        </div>
+                        <!-- Ivisan -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Ivisan</div>
+                                <span class="hotline-card__number"><a href="tel:0366580084">(036) 658-0084</a></span>
+                                <span class="hotline-card__secondary"><a href="tel:09461272751">0946-127-2751</a></span>
+                            </div>
+                        </div>
+                        <!-- Pilar -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Pilar</div>
+                                <span class="hotline-card__number"><a href="tel:09279435111">0927-943-5111</a></span>
+                            </div>
+                        </div>
+                        <!-- President Roxas -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Pres. Roxas</div>
+                                <span class="hotline-card__number"><a href="tel:09177778888">0917-777-8888</a></span>
+                            </div>
+                        </div>
+                        <!-- Maayon -->
+                         <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Maayon</div>
+                                <span class="hotline-card__number"><a href="tel:09275533490">0927-553-3490</a></span>
+                            </div>
+                        </div>
+                        <!-- Dao -->
+                         <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Dao</div>
+                                <span class="hotline-card__number"><a href="tel:09179990000">0917-999-0000</a></span>
+                            </div>
+                        </div>
+                        <!-- Dumalag -->
+                         <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Dumalag</div>
+                                <span class="hotline-card__number"><a href="tel:09276538188">0927-653-8188</a></span>
+                            </div>
+                        </div>
+                        <!-- Tapaz -->
+                         <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Tapaz</div>
+                                <span class="hotline-card__number"><a href="tel:09171112222">0917-111-2222</a></span>
+                            </div>
+                        </div>
+                        <!-- Cuartero -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Cuartero</div>
+                                <span class="hotline-card__number"><a href="tel:09123456789">(Placeholder)</a></span>
+                            </div>
+                        </div>
+                        <!-- Dumarao -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Dumarao</div>
+                                <span class="hotline-card__number"><a href="tel:09123456789">(Placeholder)</a></span>
+                            </div>
+                        </div>
+                        <!-- Jamindan -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Jamindan</div>
+                                <span class="hotline-card__number"><a href="tel:09123456789">(Placeholder)</a></span>
+                            </div>
+                        </div>
+                        <!-- Mambusao -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Mambusao</div>
+                                <span class="hotline-card__number"><a href="tel:09123456789">(Placeholder)</a></span>
+                            </div>
+                        </div>
+                        <!-- Panitan -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Panitan</div>
+                                <span class="hotline-card__number"><a href="tel:09123456789">(Placeholder)</a></span>
+                            </div>
+                        </div>
+                        <!-- Sapian -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Sapian</div>
+                                <span class="hotline-card__number"><a href="tel:09123456789">(Placeholder)</a></span>
+                            </div>
+                        </div>
+                        <!-- Sigma -->
+                        <div>
+                            <div class="hotline-card">
+                                <div class="hotline-card__icon"><img src="https://placehold.co/100x80/ecf0f1/95a5a6?text=MDRRMO" alt="MDRRMO Logo"></div>
+                                <div class="hotline-card__title">MDRRMO - Sigma</div>
+                                <span class="hotline-card__number"><a href="tel:09123456789">(Placeholder)</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer">
+            <div class="page-footer__top">
+                <div class="uk-container">
+                    <div class="uk-grid" data-uk-grid>
+                        <div class="uk-width-1-3@m uk-width-1-2@s">
+                            <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Logo"></a></div>
+                            <p><b>CAPIZ PROVINCIAL GOVERNMENT</b><br> PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br> <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i></p>
+                        </div>
+                        <div class="uk-width-2-5@m uk-width-1-2@s">
+                            <h3 class="uk-h3">Download our AR app</h3>
+                            <p>Continue exploring the great places.</p>
+                            <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                                <div><a href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"><img src="html/assets/img/PlayStore.svg" alt="PlayStore" ></a></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="uk-h3">Connect Socially</h3>
+                            <ul class="social">
+                                <li><a href="https://twitter.com/capturecapiz?lang=en"><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
+                                <li><a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="https://www.youtube.com/@CaptureCapiz"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                                <li><a href="https://www.instagram.com/capturecapiz/?hl=en"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer__bottom">
+                <div class="uk-container"><span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span></div>
+                <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit-icons.min.js"></script>
+    <script src="html/assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>The Rich History of Capiz</title>
+    <meta content="Capiz Provincial Government" name="author">
+    <meta content="An aesthetic and engaging history of the Province of Capiz" name="description">
+    <!-- Updated viewport to prevent zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://placehold.co/180x180/3498db/ffffff?text=C">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.co/32x32/3498db/ffffff?text=C">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.co/16x16/3498db/ffffff?text=C">
+    <meta name="theme-color" content="#2980b9">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-history-color: #3498db;
+            --secondary-history-color: #2980b9;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --background-light: #f4f7f6;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        
+        .uk-container {
+             padding-left: 15px;
+             padding-right: 15px;
+        }
+
+        /* --- Header & Navigation --- */
+        .page-header__scroll {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-header__mainmenu .uk-button {
+             background-color: var(--primary-history-color);
+             color: var(--white);
+             border-radius: 50px;
+             font-weight: 700;
+             text-transform: uppercase;
+             letter-spacing: 0.5px;
+             transition: all 0.3s ease;
+             padding: 10px 25px;
+             box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+        }
+         .page-header__mainmenu .uk-button:hover {
+             background-color: var(--secondary-history-color);
+             transform: translateY(-2px);
+             box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        /* --- Hero Banner --- */
+        .section-banner {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            background-size: cover;
+            background-position: center;
+            /* Updated Banner Image */
+            background-image: url('html/assets/img/index/old1.jpg');
+        }
+        .section-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+        }
+        .section-banner__content {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+        }
+        .section-banner__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--white); /* Explicitly set color to white */
+        }
+        .section-banner__subtitle {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* --- Carousel --- */
+        .uk-slideshow-items {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- Vertical Timeline --- */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 30px; 
+            margin-left: -1.5px;
+        }
+
+        .timeline-container {
+            padding: 10px 0; /* Adjusted padding */
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            padding-left: 60px; /* Reduced left padding */
+            padding-right: 15px; /* Reduced right padding */
+            margin-bottom: 30px; 
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-history-color);
+            top: 32px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: all 0.3s ease;
+            left: 18px; 
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: 65px; 
+            left: 31px; 
+            transform: translateX(-50%);
+            background-color: var(--secondary-history-color);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            padding: 25px 30px;
+            background-color: var(--white);
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .timeline-content:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .timeline-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-history-color);
+            margin-top: 0;
+        }
+        .timeline-content p {
+            line-height: 1.7;
+        }
+        .timeline-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .read-aloud-btn {
+            background-color: #f8f8f8;
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .read-aloud-btn:hover {
+            background-color: var(--primary-history-color);
+            color: var(--white);
+            border-color: var(--secondary-history-color);
+        }
+        .read-aloud-btn.reading {
+            background-color: var(--secondary-history-color);
+            color: var(--white);
+        }
+
+        /* --- DESKTOP/LARGE SCREEN STYLES using Media Query --- */
+        @media screen and (min-width: 768px) {
+            .timeline::after {
+                left: 50%;
+            }
+            
+            .timeline-container {
+                width: 50%;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            
+            .timeline-container.left { left: 0; }
+            .timeline-container.right { left: 50%; }
+            
+            .timeline-container.left::after { left: auto; right: -14px; }
+            .timeline-container.right::after { left: -14px; right: auto; }
+            
+            .timeline-year {
+                top: 38px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .timeline-container.left .timeline-year,
+            .timeline-container.right .timeline-year {
+                top: 65px; 
+            }
+        }
+
+    </style>
+</head>
+
+<body class="page-article">
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="page-header__scroll" data-uk-sticky>
+                <div class="uk-container">
+                    <div class="uk-flex uk-flex-between uk-flex-middle" style="height: 70px;">
+                        <div class="page-header__left">
+                            <a class="uk-link-reset" href="index.html">
+                                <span class="uk-text-bold" style="color: var(--text-dark);">CAPIZ HERITAGE</span>
+                            </a>
+                        </div>
+                        <div class="page-header__right">
+                            <div class="page-header__mainmenu">
+                                <div>
+                                    <a class="uk-button" href="index.html">Return to Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <div class="section-banner">
+                <div class="section-banner__content">
+                    <h1 class="section-banner__title">The Rich History of Capiz</h1>
+                    <p class="section-banner__subtitle">From Early Kingdoms to a Modern Province</p>
+                </div>
+            </div>
+
+            <div class="uk-section uk-section-muted">
+                <div class="uk-container">
+
+                    <!-- Image Carousel -->
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 4000; min-height: 300; max-height: 500">
+                        <ul class="uk-slideshow-items">
+                            <li>
+                                <img src="html/assets/img/index/modernera.jpg" alt="Modern Roxas City" uk-cover>
+                                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                                    <h3 class="uk-margin-remove">Modern Roxas City</h3>
+                                    <p class="uk-margin-remove">A hub of local life and the Seafood Capital.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="html/assets/img/index/bell.jpg" alt="Panay Church Bell" uk-cover>
+                                 <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                                    <h3 class="uk-margin-remove">The Great Bell of Panay</h3>
+                                    <p class="uk-margin-remove">Asia's largest Catholic church bell, a symbol of faith.</p>
+                                </div>
+                            </li>
+                             <li>
+                                <img src="html/assets/img/index/oldcapitol.jpg" alt="Capiz Provincial Capitol" uk-cover>
+                                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                                    <h3 class="uk-margin-remove">Capiz Provincial Capitol</h3>
+                                    <p class="uk-margin-remove">A testament to the province's enduring governance.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+                    </div>
+                    
+                    <!-- Vertical Timeline Section -->
+                    <div class="timeline">
+                        <div class="timeline-container left">
+                             <div class="timeline-year">1500s</div>
+                            <div class="timeline-content">
+                                <h2>Pre-Colonial Era</h2>
+                                <p class="uk-text-meta">Before the 16th Century</p>
+                                <img src="html/assets/img/index/old2.jpg" class="timeline-image" alt="Illustration of an early settlement in Panay">
+                                <p>The early history of Capiz is deeply intertwined with the lore of Panay Island. Oral traditions, most famously the Maragtas Code, speak of the arrival of ten Bornean datus who established the Confederation of Madja-as, a sophisticated pre-Hispanic state. Within this confederation, the area of present-day Capiz was known as 'Akean'. The early Capiznons were a maritime people, engaging in robust trade with merchants from China, Borneo, and Sumatra. They had a complex society with distinct social classes, their own system of laws, and a syllabic writing system called baybayin. The province's name is believed to originate from the abundance of the pearl oyster shell, 'kapid' (Placuna placenta), which was harvested from the coastal waters and used extensively for the iconic latticework window panes that came to define local architecture.</p>
+                                <button class="read-aloud-btn uk-button uk-button-default uk-button-small uk-margin-top"><span uk-icon="icon: volume-2"></span> Read Aloud</button>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                             <div class="timeline-year">1566</div>
+                            <div class="timeline-content">
+                                <h2>Spanish Colonization</h2>
+                                 <p class="uk-text-meta">16th to 19th Century</p>
+                                <img src="html/assets/img/index/bell.jpg" class="timeline-image" alt="Panay Church Bell">
+                                <p>The Spanish era began in 1566 with the arrival of Miguel López de Legazpi's expedition. The town of Pan-ay was founded by Augustinian friars and became the second Spanish settlement in the Philippines after Cebu. This town was designated as the 'cabecera' or capital of the province. The period was marked by the establishment of the encomienda system and the fervent efforts of missionaries to spread Catholicism. This religious influence is immortalized in the grand stone churches built throughout the province. The Santa Monica Parish Church in Pan-ay is the most prominent example, famous for its 'Dakong Lingganay' or Great Bell. Cast in 1878 from 70 sacks of coins donated by the townspeople, the bell weighs over 10 metric tons and is the largest in Asia, a monumental testament to the era's fusion of local devotion and colonial power.</p>
+                                <button class="read-aloud-btn uk-button uk-button-default uk-button-small uk-margin-top"><span uk-icon="icon: volume-2"></span> Read Aloud</button>
+                            </div>
+                        </div>
+                         <div class="timeline-container left">
+                              <div class="timeline-year">1901</div>
+                            <div class="timeline-content">
+                                <h2>American Period & WWII</h2>
+                                 <p class="uk-text-meta">Early 20th Century</p>
+                                <img src="html/assets/img/index/oldcapitol.jpg" class="timeline-image" alt="Capiz Provincial Capitol">
+                                <p>With the signing of the Treaty of Paris in 1898, Spanish rule ended and the Philippines was ceded to the United States. In 1901, a civil government was established in Capiz, bringing significant changes in administration, education, and public works. The Americans introduced a public school system, improved sanitation, and built key infrastructure like roads, bridges, and the impressive neoclassical Provincial Capitol building. This period of modernization was brutally halted by the outbreak of World War II. Capiz became a vital stronghold for the Panay guerrilla movement led by Col. Macario Peralta, Jr. The rugged terrain of the province's interior provided an effective base for staging resistance against the Japanese Imperial forces. The war inflicted great suffering and destruction, but it also forged a legacy of heroism and resilience among the Capiznon people.</p>
+                                <button class="read-aloud-btn uk-button uk-button-default uk-button-small uk-margin-top"><span uk-icon="icon: volume-2"></span> Read Aloud</button>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-year">1951</div>
+                            <div class="timeline-content">
+                                <h2>Modern Capiz</h2>
+                                <p class="uk-text-meta">1951 to Present</p>
+                                <img src="html/assets/img/index/modernera.jpg" class="timeline-image" alt="Modern Roxas City">
+                                <p>A new chapter for the province began on April 15, 1951, when President Elpidio Quirino signed Republic Act No. 603. This law officially created Roxas City from the former municipality of Capiz, renaming it in honor of its most celebrated son, Manuel A. Roxas, the last President of the Commonwealth and the first President of the independent Republic of the Philippines. In the post-war years, Capiz focused on rebuilding and economic development. It solidified its reputation as the "Seafood Capital of the Philippines," leveraging its rich fishing grounds to become a primary supplier of marine products. Today, Roxas City is a thriving component city and the economic hub of the province. Capiz continues to balance progress with the preservation of its rich heritage, attracting visitors with its unique culture, historical landmarks, and natural wonders.</p>
+                                <button class="read-aloud-btn uk-button uk-button-default uk-button-small uk-margin-top"><span uk-icon="icon: volume-2"></span> Read Aloud</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        
+        <footer class="page-footer" style="background: var(--text-dark); color: var(--background-light); padding-top: 40px;">
+            <div class="page-footer__bottom" style="padding: 20px 0; background-color: #2c3e50e0;">
+                <div class="uk-container uk-text-center">
+                    <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span><br>
+                    <span>© Gino Paulo D. Tagoc - All rights reserved.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit-icons.min.js"></script>
+
+    <!-- JavaScript for Text-to-Speech functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const allReadButtons = document.querySelectorAll('.read-aloud-btn');
+            let currentUtterance = null;
+
+            // Function to stop any ongoing speech
+            function stopSpeech() {
+                if (window.speechSynthesis && window.speechSynthesis.speaking) {
+                    window.speechSynthesis.cancel();
+                }
+                allReadButtons.forEach(btn => btn.classList.remove('reading')); // Reset all buttons
+            }
+
+            allReadButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Check for browser support
+                    if (!('speechSynthesis' in window)) {
+                        alert('Sorry, your browser does not support text-to-speech.');
+                        return;
+                    }
+
+                    const contentContainer = this.parentElement;
+                    const title = contentContainer.querySelector('h2').textContent;
+                    const paragraphs = Array.from(contentContainer.querySelectorAll('p')).map(p => p.textContent).join(' ');
+                    const textToRead = `${title}. ${paragraphs}`;
+
+                    if (this.classList.contains('reading')) {
+                        // If this button's text is currently being read, stop it
+                        stopSpeech();
+                    } else {
+                        // Stop any other speech before starting a new one
+                        stopSpeech();
+
+                        currentUtterance = new SpeechSynthesisUtterance(textToRead);
+                        currentUtterance.lang = 'en-US';
+                        
+                        this.classList.add('reading');
+                        
+                        currentUtterance.onend = () => {
+                            this.classList.remove('reading');
+                        };
+                        
+                        currentUtterance.onerror = (event) => {
+                             console.error('SpeechSynthesisUtterance.onerror');
+                             this.classList.remove('reading');
+                        }
+
+                        window.speechSynthesis.speak(currentUtterance);
+                    }
+                });
+            });
+
+             // Stop speech when the user leaves the page
+            window.addEventListener('beforeunload', stopSpeech);
+        });
+    </script>
+</body>
+
+</html>
