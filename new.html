@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>What's New - Province of Capiz</title>
+    <meta content="Capiz Provincial Government" name="author">
+    <meta content="The latest news, programs, and activities from the Capiz Provincial Tourism and Cultural Affairs Office." name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://placehold.co/180x180/27ae60/ffffff?text=C">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.co/32x32/27ae60/ffffff?text=C">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.co/16x16/27ae60/ffffff?text=C">
+    <meta name="theme-color" content="#27ae60">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-news-color: #27ae60; /* Nephritis */
+            --secondary-news-color: #2ecc71; /* Emerald */
+            --text-dark: #2c3e50;
+            --text-light: #828282;
+            --background-light: #f7f9f9;
+            --white: #ffffff;
+            --border-color: #eaf0f1;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        /* --- Header & Navigation --- */
+        .page-header__scroll {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-header__mainmenu .uk-button {
+             background-color: var(--primary-news-color);
+             color: var(--white);
+             border-radius: 8px;
+             font-weight: 700;
+             text-transform: uppercase;
+             letter-spacing: 0.5px;
+             transition: all 0.3s ease;
+             padding: 10px 25px;
+             border: none;
+        }
+         .page-header__mainmenu .uk-button:hover {
+             background-color: #1e8449;
+             transform: translateY(-2px);
+             box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        /* --- Hero Banner --- */
+        .section-banner {
+            position: relative;
+            height: 45vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            background-size: cover;
+            background-position: center;
+            background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop');
+        }
+        .section-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+        }
+        .section-banner__content {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .section-banner__title {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: var(--white);
+            text-transform: uppercase;
+        }
+        
+        /* --- News Card Link Wrapper --- */
+        .news-card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .news-card-link:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+         .news-card-link .news-card {
+            transition: all 0.3s ease;
+        }
+        .news-card-link:hover .news-card {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- News Card --- */
+        .news-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        .news-card__image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px 12px 0 0;
+        }
+        .news-card__content {
+            padding: 25px;
+        }
+        .news-card__date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .news-card__title {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+        .news-card-link:hover .news-card__title {
+             color: var(--primary-news-color);
+        }
+        .news-card__excerpt {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .news-card__readmore {
+            color: var(--primary-news-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="page-news">
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="page-header__scroll" data-uk-sticky>
+                <div class="uk-container">
+                    <div class="uk-flex uk-flex-between uk-flex-middle" style="height: 70px;">
+                        <div class="page-header__left">
+                            <a class="uk-link-reset" href="index.html">
+                                <span class="uk-text-bold" style="color: var(--text-dark); font-family: 'Roboto Slab', serif;">WHAT'S NEW IN CAPIZ</span>
+                            </a>
+                        </div>
+                        <div class="page-header__right">
+                            <div class="page-header__mainmenu">
+                              <!--  <div><a class="uk-button" href="index.html#portfolio">Return to Home</a></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <div class="section-banner">
+                <div class="section-banner__content">
+                    <h1 class="section-banner__title">Latest Updates</h1>
+                </div>
+            </div>
+
+            <div class="uk-section">
+                <div class="uk-container">
+                    <div class="uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
+
+                        <!-- News Item 1 -->
+                        <div>
+                             <!-- The fb://post/{post_id} URL scheme is used to open the native Facebook app. -->
+                            <a href="fb://post/10160000000000001" class="news-card-link">
+                                <div class="news-card">
+                                    <div class="news-card__image" style="background-image: url('https://placehold.co/600x400/27ae60/ffffff?text=New+Program')"></div>
+                                    <div class="news-card__content">
+                                        <p class="news-card__date">June 20, 2025</p>
+                                        <h3 class="news-card__title">Launch of Capiz Heritage Trail Program</h3>
+                                        <p class="news-card__excerpt">The Provincial Tourism Office officially launches the Capiz Heritage Trail, a new program aimed at promoting the province's historical sites.</p>
+                                        <span class="news-card__readmore">View on Facebook &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- News Item 2 -->
+                        <div>
+                            <a href="fb://post/10160000000000002" class="news-card-link">
+                                <div class="news-card">
+                                    <div class="news-card__image" style="background-image: url('https://placehold.co/600x400/3498db/ffffff?text=Workshop')"></div>
+                                    <div class="news-card__content">
+                                        <p class="news-card__date">June 18, 2025</p>
+                                        <h3 class="news-card__title">Free Digital Marketing Workshop for Tourism Stakeholders</h3>
+                                        <p class="news-card__excerpt">Join our free workshop designed to help local businesses adapt to the new digital landscape and attract more visitors online.</p>
+                                        <span class="news-card__readmore">View on Facebook &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- News Item 3 -->
+                        <div>
+                            <a href="fb://post/10160000000000003" class="news-card-link">
+                                <div class="news-card">
+                                    <div class="news-card__image" style="background-image: url('https://placehold.co/600x400/e74c3c/ffffff?text=Festival+Prep')"></div>
+                                    <div class="news-card__content">
+                                        <p class="news-card__date">June 15, 2025</p>
+                                        <h3 class="news-card__title">Preparations Underway for Sinadya sa Halaran 2025</h3>
+                                        <p class="news-card__excerpt">Planning and preparations for this year's grand Sinadya sa Halaran festival have officially begun. Exciting new events are coming soon!</p>
+                                        <span class="news-card__readmore">View on Facebook &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- News Item 4 -->
+                        <div>
+                           <a href="fb://post/10160000000000004" class="news-card-link">
+                                <div class="news-card">
+                                    <div class="news-card__image" style="background-image: url('https://placehold.co/600x400/9b59b6/ffffff?text=Art+Exhibit')"></div>
+                                    <div class="news-card__content">
+                                        <p class="news-card__date">June 10, 2025</p>
+                                        <h3 class="news-card__title">New Art Exhibit Opens at the Provincial Gallery</h3>
+                                        <p class="news-card__excerpt">"Colors of Capiz," a new exhibit featuring the works of ten emerging local artists, is now open to the public until the end of the month.</p>
+                                        <span class="news-card__readmore">View on Facebook &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                         <!-- News Item 5 -->
+                        <div>
+                            <a href="fb://post/10160000000000005" class="news-card-link">
+                                <div class="news-card">
+                                    <div class="news-card__image" style="background-image: url('https://placehold.co/600x400/f1c40f/ffffff?text=Culinary+Event')"></div>
+                                    <div class="news-card__content">
+                                        <p class="news-card__date">June 5, 2025</p>
+                                        <h3 class="news-card__title">Capiz Food Fair: A Success!</h3>
+                                        <p class="news-card__excerpt">This year's Capiz Food Fair was a resounding success, attracting thousands of locals and tourists to celebrate our province's rich culinary heritage.</p>
+                                         <span class="news-card__readmore">View on Facebook &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                         <!-- News Item 6 -->
+                        <div>
+                            <a href="fb://post/10160000000000006" class="news-card-link">
+                                <div class="news-card">
+                                    <div class="news-card__image" style="background-image: url('https://placehold.co/600x400/1abc9c/ffffff?text=Tourism+Award')"></div>
+                                    <div class="news-card__content">
+                                        <p class="news-card__date">May 28, 2025</p>
+                                        <h3 class="news-card__title">Capiz Bags National Tourism Award</h3>
+                                        <p class="news-card__excerpt">The Province of Capiz was recently recognized at the national level for its outstanding efforts in sustainable tourism development.</p>
+                                         <span class="news-card__readmore">View on Facebook &rarr;</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="page-footer" style="background: var(--text-dark); color: var(--background-light); padding-top: 40px;">
+            <div class="page-footer__bottom" style="padding: 20px 0; background-color: #2c3e50e0;">
+                <div class="uk-container uk-text-center">
+                    <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span><br>
+                    <span>© Gino Paulo D. Tagoc - All rights reserved.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit-icons.min.js"></script>
+</body>
+</html>

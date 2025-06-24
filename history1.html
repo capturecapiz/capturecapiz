@@ -322,7 +322,7 @@
                                 <p class="uk-text-meta">Before the 16th Century</p>
                                 <img src="html/assets/img/index/old2.jpg" class="timeline-image" alt="Illustration of an early settlement in Panay">
                                 <p>The early history of Capiz is deeply intertwined with the lore of Panay Island. Oral traditions, most famously the Maragtas Code, speak of the arrival of ten Bornean datus who established the Confederation of Madja-as, a sophisticated pre-Hispanic state. Within this confederation, the area of present-day Capiz was known as 'Akean'. The early Capiznons were a maritime people, engaging in robust trade with merchants from China, Borneo, and Sumatra. They had a complex society with distinct social classes, their own system of laws, and a syllabic writing system called baybayin. The province's name is believed to originate from the abundance of the pearl oyster shell, 'kapid' (Placuna placenta), which was harvested from the coastal waters and used extensively for the iconic latticework window panes that came to define local architecture.</p>
-                                <button class="read-aloud-btn uk-button uk-button-default uk-button-small uk-margin-top"><span uk-icon="icon: volume-2"></span> Read Aloud</button>
+
                             </div>
                         </div>
                         <div class="timeline-container right">
@@ -332,7 +332,7 @@
                                  <p class="uk-text-meta">16th to 19th Century</p>
                                 <img src="html/assets/img/index/bell.jpg" class="timeline-image" alt="Panay Church Bell">
                                 <p>The Spanish era began in 1566 with the arrival of Miguel López de Legazpi's expedition. The town of Pan-ay was founded by Augustinian friars and became the second Spanish settlement in the Philippines after Cebu. This town was designated as the 'cabecera' or capital of the province. The period was marked by the establishment of the encomienda system and the fervent efforts of missionaries to spread Catholicism. This religious influence is immortalized in the grand stone churches built throughout the province. The Santa Monica Parish Church in Pan-ay is the most prominent example, famous for its 'Dakong Lingganay' or Great Bell. Cast in 1878 from 70 sacks of coins donated by the townspeople, the bell weighs over 10 metric tons and is the largest in Asia, a monumental testament to the era's fusion of local devotion and colonial power.</p>
-                                <button class="read-aloud-btn uk-button uk-button-default uk-button-small uk-margin-top"><span uk-icon="icon: volume-2"></span> Read Aloud</button>
+
                             </div>
                         </div>
                          <div class="timeline-container left">
@@ -342,7 +342,7 @@
                                  <p class="uk-text-meta">Early 20th Century</p>
                                 <img src="html/assets/img/index/oldcapitol.jpg" class="timeline-image" alt="Capiz Provincial Capitol">
                                 <p>With the signing of the Treaty of Paris in 1898, Spanish rule ended and the Philippines was ceded to the United States. In 1901, a civil government was established in Capiz, bringing significant changes in administration, education, and public works. The Americans introduced a public school system, improved sanitation, and built key infrastructure like roads, bridges, and the impressive neoclassical Provincial Capitol building. This period of modernization was brutally halted by the outbreak of World War II. Capiz became a vital stronghold for the Panay guerrilla movement led by Col. Macario Peralta, Jr. The rugged terrain of the province's interior provided an effective base for staging resistance against the Japanese Imperial forces. The war inflicted great suffering and destruction, but it also forged a legacy of heroism and resilience among the Capiznon people.</p>
-                                <button class="read-aloud-btn uk-button uk-button-default uk-button-small uk-margin-top"><span uk-icon="icon: volume-2"></span> Read Aloud</button>
+
                             </div>
                         </div>
                         <div class="timeline-container right">
@@ -352,7 +352,7 @@
                                 <p class="uk-text-meta">1951 to Present</p>
                                 <img src="html/assets/img/index/modernera.jpg" class="timeline-image" alt="Modern Roxas City">
                                 <p>A new chapter for the province began on April 15, 1951, when President Elpidio Quirino signed Republic Act No. 603. This law officially created Roxas City from the former municipality of Capiz, renaming it in honor of its most celebrated son, Manuel A. Roxas, the last President of the Commonwealth and the first President of the independent Republic of the Philippines. In the post-war years, Capiz focused on rebuilding and economic development. It solidified its reputation as the "Seafood Capital of the Philippines," leveraging its rich fishing grounds to become a primary supplier of marine products. Today, Roxas City is a thriving component city and the economic hub of the province. Capiz continues to balance progress with the preservation of its rich heritage, attracting visitors with its unique culture, historical landmarks, and natural wonders.</p>
-                                <button class="read-aloud-btn uk-button uk-button-default uk-button-small uk-margin-top"><span uk-icon="icon: volume-2"></span> Read Aloud</button>
+
                             </div>
                         </div>
                     </div>
@@ -375,63 +375,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit-icons.min.js"></script>
 
-    <!-- JavaScript for Text-to-Speech functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const allReadButtons = document.querySelectorAll('.read-aloud-btn');
-            let currentUtterance = null;
-
-            // Function to stop any ongoing speech
-            function stopSpeech() {
-                if (window.speechSynthesis && window.speechSynthesis.speaking) {
-                    window.speechSynthesis.cancel();
-                }
-                allReadButtons.forEach(btn => btn.classList.remove('reading')); // Reset all buttons
-            }
-
-            allReadButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    // Check for browser support
-                    if (!('speechSynthesis' in window)) {
-                        alert('Sorry, your browser does not support text-to-speech.');
-                        return;
-                    }
-
-                    const contentContainer = this.parentElement;
-                    const title = contentContainer.querySelector('h2').textContent;
-                    const paragraphs = Array.from(contentContainer.querySelectorAll('p')).map(p => p.textContent).join(' ');
-                    const textToRead = `${title}. ${paragraphs}`;
-
-                    if (this.classList.contains('reading')) {
-                        // If this button's text is currently being read, stop it
-                        stopSpeech();
-                    } else {
-                        // Stop any other speech before starting a new one
-                        stopSpeech();
-
-                        currentUtterance = new SpeechSynthesisUtterance(textToRead);
-                        currentUtterance.lang = 'en-US';
-                        
-                        this.classList.add('reading');
-                        
-                        currentUtterance.onend = () => {
-                            this.classList.remove('reading');
-                        };
-                        
-                        currentUtterance.onerror = (event) => {
-                             console.error('SpeechSynthesisUtterance.onerror');
-                             this.classList.remove('reading');
-                        }
-
-                        window.speechSynthesis.speak(currentUtterance);
-                    }
-                });
-            });
-
-             // Stop speech when the user leaves the page
-            window.addEventListener('beforeunload', stopSpeech);
-        });
-    </script>
+    
 </body>
 
 </html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>May in Capiz - Calendar of Activities</title>
+        <meta content="Capiz Provincial Government" name="author" />
+        <meta content="Details on festivals and celebrations happening in Capiz during May." name="description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/css/uikit.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap"
+            rel="stylesheet" />
+        <style>
+            :root {
+                --month-primary-color: #1abc9c; /* Teal for May */
+                --month-secondary-color: #16a085;
+                --text-dark: #2c3e50;
+                --text-light: #7f8c8d;
+                --background-light: #f9f9f9;
+                --white: #ffffff;
+                --border-color: #ecf0f1;
+            }
+            body {
+                font-family: "Poppins", sans-serif;
+                background-color: var(--background-light);
+                color: var(--text-dark);
+                overflow-x: hidden;
+            }
+            .page-header__scroll {
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(8px);
+                border-bottom: 1px solid var(--border-color);
+            }
+            .header-title {
+                color: var(--text-dark);
+                font-family: "Montserrat", serif;
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+            .section-banner {
+                position: relative;
+                height: 50vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: var(--white);
+                background-size: cover;
+                background-position: center;
+            }
+            .section-banner::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            }
+            .section-banner__content {
+                position: relative;
+                z-index: 1;
+                text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+            }
+            .section-banner__title {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 800;
+                font-size: clamp(2.8rem, 8vw, 5rem);
+                color: var(--white);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            .event-detail-card {
+                background: var(--white);
+                border-left: 5px solid var(--month-primary-color);
+                padding: 25px;
+                margin-bottom: 30px;
+                border-radius: 0 8px 8px 0;
+            }
+            .event-detail__title {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 700;
+                font-size: 1.6rem;
+                color: var(--text-dark);
+                margin-top: 0;
+            }
+            .event-detail__meta {
+                color: var(--text-light);
+                margin-bottom: 15px;
+            }
+            .event-detail__meta span {
+                margin-right: 20px;
+            }
+            .event-detail__description {
+                line-height: 1.7;
+            }
+            .section-title {
+                font-family: "Montserrat", serif;
+                font-weight: 700;
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 40px;
+                position: relative;
+                color: var(--text-dark);
+            }
+            .section-title::after {
+                content: "";
+                display: block;
+                width: 80px;
+                height: 3px;
+                background-color: var(--month-primary-color);
+                margin: 15px auto 0;
+            }
+        </style>
+    </head>
+    <body class="page-event-details">
+        <div class="page-wrapper">
+            <header class="page-header">
+                <div class="page-header__scroll" data-uk-sticky>
+                    <div class="uk-container">
+                        <div class="uk-flex uk-flex-between uk-flex-middle" style="height: 70px">
+                            <div class="page-header__left">
+                                <span class="header-title">ACTIVITIES FOR THE MONTH OF MAY</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="page-main">
+                <div class="section-banner" style="background-image: url(&quot;html/assets/img/celeb/may.jpg&quot;)">
+                    <div class="section-banner__content"><h1 class="section-banner__title">May in Capiz</h1></div>
+                </div>
+                <div class="uk-section">
+                    <div class="uk-container">
+                        <div class="event-detail-card">
+                            <h2 class="event-detail__title">Sinaot Festival</h2>
+                            <div class="event-detail__meta">
+                                <span><i class="fas fa-map-marker-alt"></i> President Roxas, Capiz</span>
+                            </div>
+                            <p class="event-detail__description">
+                                A vibrant festival celebrating the local culture and bountiful harvest of President
+                                Roxas, featuring street dancing and cultural presentations.
+                            </p>
+                        </div>
+                        <div class="event-detail-card">
+                            <h2 class="event-detail__title">Lingga-anay Festival</h2>
+                            <div class="event-detail__meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Panay, Capiz</span>
+                            </div>
+                            <p class="event-detail__description">
+                                A festival centered around the town's famous giant bell, featuring vibrant street
+                                dancing competitions that narrate its history.
+                            </p>
+                        </div>
+                        <div class="event-detail-card">
+                            <h2 class="event-detail__title">Guyum-Guyuman Festival</h2>
+                            <div class="event-detail__meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Pontevedra, Capiz</span>
+                            </div>
+                            <p class="event-detail__description">
+                                Celebrates the town's primary products like crabs and shrimps with colorful parades and
+                                culinary events.
+                            </p>
+                        </div>
+                        <div class="event-detail-card">
+                            <h2 class="event-detail__title">Kaadlawan Festival</h2>
+                            <div class="event-detail__meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Roxas City</span>
+                            </div>
+                            <p class="event-detail__description">
+                                The charter anniversary of Roxas City, marked by various civic events, cultural
+                                programs, and celebrations throughout the city.
+                            </p>
+                        </div>
+                        <div class="event-detail-card">
+                            <h2 class="event-detail__title">National Heritage Month</h2>
+                            <div class="event-detail__meta">
+                                <span><i class="fas fa-landmark"></i> Province-wide</span>
+                            </div>
+                            <p class="event-detail__description">
+                                A month-long celebration of Filipino heritage, as per Proclamation No. 439, s.2003, with
+                                various activities highlighting Capiz's historical sites and cultural traditions.
+                            </p>
+                        </div>
+                        <div class="event-detail-card">
+                            <h2 class="event-detail__title">Tagbuan Festival</h2>
+                            <div class="event-detail__meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Pilar, Capiz</span>
+                            </div>
+                            <p class="event-detail__description">
+                                A festival that celebrates the meeting and convergence of cultures ("tagbuan") in the
+                                historic town of Pilar.
+                            </p>
+                        </div>
+                        <div class="uk-margin-large-top">
+                            <h2 class="section-title">May Photo Gallery</h2>
+                            <div
+                                class="uk-grid-small uk-child-width-1-2 uk-child-width-1-4@m"
+                                uk-grid
+                                uk-lightbox="animation: slide">
+                                <div>
+                                    <a
+                                        href="html/assets/img/celeb/may1.jpg"
+                                        data-caption="Sinaot Festival"
+                                        class="uk-inline"
+                                        ><img
+                                            src="html/assets/img/celeb/may1.jpg"
+                                            alt="Sinaot Festival"
+                                    /></a>
+                                </div>
+                                <div>
+                                    <a
+                                        href="html/assets/img/celeb/may2.jpg"
+                                        data-caption="Lingga-anay Festival"
+                                        class="uk-inline"
+                                        ><img
+                                            src="html/assets/img/celeb/may2.jpg"
+                                            alt="Lingga-anay Festival"
+                                    /></a>
+                                </div>
+                                <div>
+                                    <a
+                                        href="html/assets/img/celeb/may3.jpg"
+                                        data-caption="Kaadlawan Festival"
+                                        class="uk-inline"
+                                        ><img
+                                            src="html/assets/img/celeb/may3.jpg"
+                                            alt="Kaadlawan Festival"
+                                    /></a>
+                                </div>
+                                <div>
+                                    <a
+                                        href="html/assets/img/celeb/may4.jpg"
+                                        data-caption="Tagbuan Festival"
+                                        class="uk-inline"
+                                        ><img
+                                            src="html/assets/img/celeb/may4.jpg"
+                                            alt="Tagbuan Festival"
+                                    /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer
+                class="page-footer"
+                style="background: var(--text-dark); color: var(--background-light); padding-top: 40px">
+                <div class="page-footer__bottom" style="padding: 20px 0; background-color: #2c3e50e0">
+                    <div class="uk-container uk-text-center">
+                        <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span
+                        ><br /><span>© Gino Paulo D. Tagoc - All rights reserved.</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit-icons.min.js"></script>
+    </body>
+</html>

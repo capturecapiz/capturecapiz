@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Maragtas Tourist Info & Pasalubong Center</title>
+        <meta content="Capiz Provincial Government" name="author" />
+        <meta
+            content="Explore the Maragtas Tourist Info and Pasalubong Center, your gateway to Capiz."
+            name="description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="https://placehold.co/180x180/3498db/ffffff?text=M" />
+        <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.co/32x32/3498db/ffffff?text=M" />
+        <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.co/16x16/3498db/ffffff?text=M" />
+        <meta name="theme-color" content="#3498db" />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/css/uikit.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
+            rel="stylesheet" />
+
+        <style>
+            :root {
+                --primary-maragtas-color: #3498db; /* Light Blue */
+                --secondary-maragtas-color: #2980b9; /* Darker Blue */
+                --text-dark: #2c3e50;
+                --text-light: #7f8c8d;
+                --background-light: #f4f7f6;
+                --white: #ffffff;
+                --border-color: #e0e0e0;
+            }
+
+            body {
+                font-family: "Lato", sans-serif;
+                background-color: var(--background-light);
+                color: var(--text-dark);
+                overflow-x: hidden;
+            }
+
+            /* --- Header & Navigation --- */
+            .page-header__scroll {
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(8px);
+                border-bottom: 1px solid var(--border-color);
+            }
+            .page-header__mainmenu .uk-button {
+                background-color: var(--primary-maragtas-color);
+                color: var(--white);
+                border-radius: 8px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                transition: all 0.3s ease;
+                padding: 10px 25px;
+                border: none;
+            }
+            .page-header__mainmenu .uk-button:hover {
+                background-color: var(--secondary-maragtas-color);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+            }
+
+            /* --- Hero Banner --- */
+            .section-banner {
+                position: relative;
+                height: 50vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: var(--white);
+                background-size: cover;
+                background-position: center;
+                background-image: url("html/assets/img/celeb/maragtascover.jpg");
+            }
+            .section-banner::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            }
+            .section-banner__content {
+                position: relative;
+                z-index: 1;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+            }
+            .section-banner__title {
+                font-family: "Playfair Display", serif;
+                font-size: clamp(2.5rem, 8vw, 4.5rem);
+                color: var(--white);
+            }
+
+            /* --- Section Styling --- */
+            .section-title {
+                font-family: "Playfair Display", serif;
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 40px;
+                position: relative;
+                color: var(--text-dark);
+            }
+            .section-title::after {
+                content: "";
+                display: block;
+                width: 80px;
+                height: 3px;
+                background-color: var(--primary-maragtas-color);
+                margin: 15px auto 0;
+            }
+
+            .about-text p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                color: var(--text-dark);
+                text-align: center;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            /* --- Photo Gallery Carousel --- */
+            .gallery-carousel .uk-slideshow-items {
+                border-radius: 8px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            }
+            .gallery-carousel .uk-slideshow-items li img {
+                object-fit: cover;
+            }
+
+            /* --- Service Icons --- */
+            .service-card {
+                text-align: center;
+            }
+            .service-icon {
+                font-size: 3rem;
+                color: var(--primary-maragtas-color);
+                margin-bottom: 15px;
+                display: inline-block;
+            }
+            .service-title {
+                font-family: "Playfair Display", serif;
+                font-size: 1.3rem;
+                font-weight: 700;
+                margin: 0;
+            }
+
+            /* --- Product Gallery --- */
+            .product-card-link {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+            }
+            .product-card {
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+                transition: all 0.3s ease;
+            }
+            .product-card-link:hover .product-card {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            .product-card figcaption {
+                background: var(--white);
+                padding: 15px;
+                font-weight: 600;
+                text-align: center;
+                color: var(--text-dark);
+            }
+
+            /* --- Map Container --- */
+            .map-container {
+                height: 400px;
+                width: 100%;
+                border-radius: 8px;
+                border: 1px solid var(--border-color);
+                overflow: hidden;
+            }
+            .map-container iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+            /* Modal Styles */
+            .uk-modal-dialog {
+                border-radius: 8px;
+                overflow: hidden;
+                background: var(--background-light);
+            }
+            .uk-modal-title {
+                font-family: "Playfair Display", serif;
+                color: var(--text-dark);
+                font-size: 1.8rem;
+            }
+            .uk-modal-body {
+                padding: 25px;
+            }
+            .modal-product-image {
+                width: 100%;
+                height: auto;
+                max-height: 50vh;
+                object-fit: cover;
+            }
+            .modal-price {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--secondary-maragtas-color);
+            }
+        </style>
+    </head>
+
+    <body class="page-maragtas">
+        <div class="page-wrapper">
+            <header class="page-header">
+                <div class="page-header__scroll" data-uk-sticky>
+                    <div class="uk-container">
+                        <div class="uk-flex uk-flex-between uk-flex-middle" style="height: 70px">
+                            <div class="page-header__left">
+                                <a class="uk-link-reset" href="index.html">
+                                    <span
+                                        class="uk-text-bold"
+                                        style="
+                                            color: var(--text-dark);
+                                            font-family: &quot;Playfair Display&quot;, serif;
+                                        "
+                                        >MARAGTAS CENTER</span
+                                    >
+                                </a>
+                            </div>
+                            <div class="page-header__right">
+                                <div class="page-header__mainmenu">
+                                    <div><a class="uk-button" href="index.html#portfolio">Return to Home</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="page-main">
+                <div class="section-banner">
+                    <div class="section-banner__content">
+                        <h1 class="section-banner__title"></h1>
+                    </div>
+                </div>
+
+                <div class="uk-section">
+                    <div class="uk-container">
+                        <div class="uk-margin-large-bottom about-text">
+                            <h2 class="section-title">Your Gateway to Capiz</h2>
+                            <p>
+                                Welcome to the Maragtas Tourist Information and Pasalubong Center, your first stop in
+                                discovering the wonders of the province. Named after the legendary Maragtas epic, our
+                                center is dedicated to providing visitors with valuable information and a taste of local
+                                craftsmanship and delicacies. Whether you need tour assistance or want to find the
+                                perfect souvenir, our friendly staff is here to help.
+                            </p>
+                        </div>
+
+                        <!-- Photo Gallery Carousel Section -->
+                        <div class="uk-margin-large-bottom">
+                            <h2 class="section-title">Gallery</h2>
+                            <div
+                                class="uk-position-relative uk-visible-toggle uk-light gallery-carousel"
+                                tabindex="-1"
+                                uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 5000">
+                                <ul class="uk-slideshow-items" uk-height-match="target: > li > img">
+                                    <li>
+                                        <a href="#gallery-modal-1" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/3498db/ffffff?text=Center+Facade"
+                                                alt="Center Facade"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-2" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/2980b9/ffffff?text=Interior"
+                                                alt="Center Interior"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-3" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/3498db/ffffff?text=Crafts+Display"
+                                                alt="Crafts Display"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-4" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/2980b9/ffffff?text=Delicacies"
+                                                alt="Delicacies Display"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-5" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/3498db/ffffff?text=Weaving"
+                                                alt="Weaving Demo"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-6" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/2980b9/ffffff?text=Staff"
+                                                alt="Friendly Staff"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-7" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/3498db/ffffff?text=Tourists"
+                                                alt="Happy Tourists"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-8" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/2980b9/ffffff?text=Products"
+                                                alt="Products Shelf"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-9" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/3498db/ffffff?text=Capiz+Lantern"
+                                                alt="Capiz Lantern"
+                                        /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#gallery-modal-10" uk-toggle
+                                            ><img
+                                                src="https://placehold.co/1200x800/2980b9/ffffff?text=Pasalubong"
+                                                alt="Pasalubong Items"
+                                        /></a>
+                                    </li>
+                                </ul>
+                                <a
+                                    class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                    href="#"
+                                    uk-slidenav-previous
+                                    uk-slideshow-item="previous"></a>
+                                <a
+                                    class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                    href="#"
+                                    uk-slidenav-next
+                                    uk-slideshow-item="next"></a>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin-large-bottom">
+                            <h2 class="section-title">Our Services</h2>
+                            <div class="uk-grid-divider uk-child-width-1-1@s uk-child-width-1-3@m" uk-grid>
+                                <div class="service-card">
+                                    <i class="fas fa-info-circle service-icon"></i>
+                                    <h3 class="service-title">Tourist Information</h3>
+                                    <p>
+                                        Get maps, brochures, and expert advice on destinations, festivals, and
+                                        accommodations.
+                                    </p>
+                                </div>
+                                <div class="service-card">
+                                    <i class="fas fa-shopping-bag service-icon"></i>
+                                    <h3 class="service-title">Pasalubong & Souvenirs</h3>
+                                    <p>
+                                        Shop for the best local delicacies, from dried seafood to sweet treats, to take
+                                        home to your loved ones.
+                                    </p>
+                                </div>
+                                <div class="service-card">
+                                    <i class="fas fa-palette service-icon"></i>
+                                    <h3 class="service-title">Local Crafts & Arts</h3>
+                                    <p>
+                                        Discover and purchase unique handicrafts, woven products, and artworks made by
+                                        talented Capiznon artisans.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin-large-top">
+                            <h2 class="section-title">Featured Products</h2>
+                            <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
+                                <!-- Products -->
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-1" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Dried+Fish"
+                                                alt="Dried Fish" />
+                                            <figcaption>Dried Seafood</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-2" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Piaya"
+                                                alt="Piaya" />
+                                            <figcaption>Local Delicacies</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-3" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Woven+Bag"
+                                                alt="Woven Bag" />
+                                            <figcaption>Handwoven Crafts</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-4" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Capiz+Shells"
+                                                alt="Capiz Shells" />
+                                            <figcaption>Capiz Shell Decor</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-5" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Barquillos"
+                                                alt="Barquillos" />
+                                            <figcaption>Barquillos</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-6" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=T-Shirt"
+                                                alt="Souvenir T-Shirt" />
+                                            <figcaption>Souvenir T-Shirt</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-7" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Keychains"
+                                                alt="Keychains" />
+                                            <figcaption>Keychains</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-8" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Bagoong"
+                                                alt="Shrimp Paste" />
+                                            <figcaption>Shrimp Paste</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-9" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Shell+Windchime"
+                                                alt="Shell Windchime" />
+                                            <figcaption>Shell Windchime</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-10" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Table+Runner"
+                                                alt="Woven Table Runner" />
+                                            <figcaption>Woven Table Runner</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-11" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Tuyo"
+                                                alt="Gourmet Tuyo" />
+                                            <figcaption>Gourmet Tuyo</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-12" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Biscotti"
+                                                alt="Biscotti" />
+                                            <figcaption>Biscotti</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-13" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Coffee+Beans"
+                                                alt="Local Coffee Beans" />
+                                            <figcaption>Local Coffee Beans</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-14" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Wood+Carving"
+                                                alt="Wood Carving" />
+                                            <figcaption>Wood Carving</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-15" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Pottery"
+                                                alt="Local Pottery" />
+                                            <figcaption>Local Pottery</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-16" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Muscovado"
+                                                alt="Muscovado Sugar" />
+                                            <figcaption>Muscovado Sugar</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-17" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Hand+Fan"
+                                                alt="Woven Hand Fan" />
+                                            <figcaption>Woven Hand Fan</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-18" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Ref+Magnet"
+                                                alt="Ref Magnet" />
+                                            <figcaption>Ref Magnet</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-19" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/3498db/ffffff?text=Lamp"
+                                                alt="Capiz Lamp" />
+                                            <figcaption>Capiz Lamp</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                                <div>
+                                    <a class="product-card-link" href="#product-modal-20" uk-toggle
+                                        ><figure class="product-card">
+                                            <img
+                                                src="https://placehold.co/600x400/2980b9/ffffff?text=Painting"
+                                                alt="Local Painting" />
+                                            <figcaption>Local Painting</figcaption>
+                                        </figure></a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin-large-top">
+                            <h2 class="section-title">Visit Us</h2>
+                            <div class="uk-grid-large" uk-grid>
+                                <div class="uk-width-1-1 uk-width-1-3@m">
+                                    <h3>Contact & Hours</h3>
+                                    <dl class="uk-description-list">
+                                        <dt>Address</dt>
+                                        <dd>Roxas City Provincial Capitol Grounds, Roxas City, Capiz</dd>
+                                        <dt>Hours</dt>
+                                        <dd>Mon - Sat, 9:00 AM - 6:00 PM</dd>
+                                        <dt>Email</dt>
+                                        <dd>tourism@capiz.gov.ph</dd>
+                                    </dl>
+                                </div>
+                                <div class="uk-width-1-1 uk-width-2-3@m">
+                                    <h3>Our Location</h3>
+                                    <div class="map-container">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.647184285786!2d122.7506941153448!3d11.58348989187178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a5f36e8b1d6e57%3A0x44268e37937e295a!2sCapiz%20Provincial%20Capitol!5e0!3m2!1sen!2sph!4v1621500000000"
+                                            allowfullscreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer
+                class="page-footer"
+                style="background: var(--text-dark); color: var(--background-light); padding-top: 40px">
+                <div class="page-footer__bottom" style="padding: 20px 0; background-color: #2c3e50e0">
+                    <div class="uk-container uk-text-center">
+                        <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span><br />
+                        <span>© Gino Paulo D. Tagoc - All rights reserved.</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- MODALS for Products -->
+        <div id="product-modal-1" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Dried+Fish"
+                    alt="Dried Fish" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Dried Seafood</h2>
+                    <p>
+                        A staple of Capiz, our selection of dried fish and other seafood are naturally processed and
+                        packed with flavor.
+                    </p>
+                    <p class="modal-price">Price starts at ₱150.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-2" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Piaya"
+                    alt="Piaya" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Local Delicacies</h2>
+                    <p>
+                        Indulge in a variety of Capiznon sweet treats like the flaky piaya. Perfect for snacks and
+                        gifts.
+                    </p>
+                    <p class="modal-price">Price starts at ₱100.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-3" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Woven+Bag"
+                    alt="Woven Bag" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Handwoven Crafts</h2>
+                    <p>
+                        Beautifully crafted bags, hats, and home decor made from indigenous materials like buri and
+                        abaca.
+                    </p>
+                    <p class="modal-price">Price starts at ₱350.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-4" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Capiz+Shells"
+                    alt="Capiz Shells" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Capiz Shell Decor</h2>
+                    <p>
+                        Bring home the iconic symbol of the province. Our collection includes lamps, chandeliers, and
+                        other decor.
+                    </p>
+                    <p class="modal-price">Price starts at ₱250.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-5" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Barquillos"
+                    alt="Barquillos" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Barquillos</h2>
+                    <p>Crispy and delicate wafer rolls, a classic Filipino pasalubong that's loved by all ages.</p>
+                    <p class="modal-price">Price starts at ₱80.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-6" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=T-Shirt"
+                    alt="T-Shirt" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Souvenir T-Shirt</h2>
+                    <p>High-quality cotton t-shirts with unique Capiz-themed designs. Available in all sizes.</p>
+                    <p class="modal-price">Price starts at ₱300.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-7" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Keychains"
+                    alt="Keychains" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Keychains</h2>
+                    <p>
+                        Take a small piece of Capiz with you. Our keychains feature miniature local symbols and crafts.
+                    </p>
+                    <p class="modal-price">Price starts at ₱50.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-8" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Bagoong"
+                    alt="Bagoong" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Shrimp Paste (Bagoong)</h2>
+                    <p>
+                        Authentic and flavorful shrimp paste made from the freshest catch, a perfect condiment for many
+                        Filipino dishes.
+                    </p>
+                    <p class="modal-price">Price starts at ₱120.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-9" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Shell+Windchime"
+                    alt="Shell Windchime" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Shell Windchime</h2>
+                    <p>
+                        Create a relaxing coastal ambiance at home with these beautiful wind chimes made from assorted
+                        local shells.
+                    </p>
+                    <p class="modal-price">Price starts at ₱400.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-10" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Table+Runner"
+                    alt="Table Runner" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Woven Table Runner</h2>
+                    <p>
+                        Elegant and durable table runners, handwoven by local artisans, perfect for adding a touch of
+                        Filipino culture to your dining room.
+                    </p>
+                    <p class="modal-price">Price starts at ₱500.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-11" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Tuyo"
+                    alt="Gourmet Tuyo" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Gourmet Tuyo</h2>
+                    <p>Sun-dried herring soaked in olive oil and spices. A delicious and ready-to-eat delicacy.</p>
+                    <p class="modal-price">Price starts at ₱180.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-12" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Biscotti"
+                    alt="Biscotti" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Biscotti</h2>
+                    <p>Locally made twice-baked cookies perfect for pairing with a cup of hot coffee or chocolate.</p>
+                    <p class="modal-price">Price starts at ₱150.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-13" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Coffee+Beans"
+                    alt="Local Coffee Beans" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Local Coffee Beans</h2>
+                    <p>
+                        Experience the rich taste of coffee grown in the highlands of Capiz. Available in whole beans or
+                        ground.
+                    </p>
+                    <p class="modal-price">Price starts at ₱250.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-14" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Wood+Carving"
+                    alt="Wood Carving" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Wood Carving</h2>
+                    <p>
+                        Intricate miniature wood carvings depicting local scenes and folklore, handcrafted by skilled
+                        artisans.
+                    </p>
+                    <p class="modal-price">Price starts at ₱600.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-15" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Pottery"
+                    alt="Local Pottery" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Local Pottery</h2>
+                    <p>
+                        Unique and functional pottery pieces, from pots to decorative vases, made with traditional
+                        techniques.
+                    </p>
+                    <p class="modal-price">Price starts at ₱300.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-16" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Muscovado"
+                    alt="Muscovado Sugar" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Muscovado Sugar</h2>
+                    <p>
+                        Pure, unrefined cane sugar with a rich molasses flavor, a healthier alternative for your
+                        sweetening needs.
+                    </p>
+                    <p class="modal-price">Price starts at ₱90.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-17" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Hand+Fan"
+                    alt="Woven Hand Fan" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Woven Hand Fan (Abaniko)</h2>
+                    <p>Stay cool with these traditional hand fans, expertly woven from anahaw leaves.</p>
+                    <p class="modal-price">Price starts at ₱100.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-18" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Ref+Magnet"
+                    alt="Ref Magnet" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Ref Magnet</h2>
+                    <p>Colorful and creative refrigerator magnets showcasing Capiz landmarks and festivals.</p>
+                    <p class="modal-price">Price starts at ₱75.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-19" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/3498db/ffffff?text=Lamp"
+                    alt="Capiz Lamp" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Capiz Lamp</h2>
+                    <p>An elegant table lamp made from authentic Capiz shells, casting a warm and beautiful glow.</p>
+                    <p class="modal-price">Price starts at ₱1,200.00</p>
+                </div>
+            </div>
+        </div>
+        <div id="product-modal-20" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-1-1 uk-width-1-2@m uk-margin-auto-vertical">
+                <button class="uk-modal-close-default" type="button" uk-close></button
+                ><img
+                    class="modal-product-image"
+                    src="https://placehold.co/800x600/2980b9/ffffff?text=Painting"
+                    alt="Local Painting" />
+                <div class="uk-modal-body">
+                    <h2 class="uk-modal-title">Local Painting</h2>
+                    <p>Original paintings from Capiznon artists depicting the beauty and culture of the province.</p>
+                    <p class="modal-price">Price upon request</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODALS for Gallery -->
+        <div id="gallery-modal-1" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/3498db/ffffff?text=Center+Facade" alt="Center Facade" />
+            </div>
+        </div>
+        <div id="gallery-modal-2" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/2980b9/ffffff?text=Interior" alt="Center Interior" />
+            </div>
+        </div>
+        <div id="gallery-modal-3" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/3498db/ffffff?text=Crafts+Display" alt="Crafts Display" />
+            </div>
+        </div>
+        <div id="gallery-modal-4" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/2980b9/ffffff?text=Delicacies" alt="Delicacies Display" />
+            </div>
+        </div>
+        <div id="gallery-modal-5" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/3498db/ffffff?text=Weaving" alt="Weaving Demo" />
+            </div>
+        </div>
+        <div id="gallery-modal-6" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/2980b9/ffffff?text=Staff" alt="Friendly Staff" />
+            </div>
+        </div>
+        <div id="gallery-modal-7" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/3498db/ffffff?text=Tourists" alt="Happy Tourists" />
+            </div>
+        </div>
+        <div id="gallery-modal-8" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/2980b9/ffffff?text=Products" alt="Products Shelf" />
+            </div>
+        </div>
+        <div id="gallery-modal-9" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/3498db/ffffff?text=Capiz+Lantern" alt="Capiz Lantern" />
+            </div>
+        </div>
+        <div id="gallery-modal-10" class="uk-flex-top" uk-modal>
+            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                <button class="uk-modal-close-outside" type="button" uk-close></button
+                ><img src="https://placehold.co/1200x800/2980b9/ffffff?text=Pasalubong" alt="Pasalubong Items" />
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit-icons.min.js"></script>
+    </body>
+</html>
