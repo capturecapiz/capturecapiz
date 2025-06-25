@@ -1,197 +1,405 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SANDOK, ILOS: Documentation of Capisnon Native Foods</title>
+    <meta charset="utf-8">
+    <title>Calendar of Activities - Province of Capiz</title>
+    <meta content="Capiz Provincial Government" name="author">
+    <meta content="A calendar of festivals and monthly celebrations in the Province of Capiz." name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter & Playfair Display -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://placehold.co/180x180/2980b9/ffffff?text=C">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.co/32x32/2980b9/ffffff?text=C">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.co/16x16/2980b9/ffffff?text=C">
+    <meta name="theme-color" content="#2980b9">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Custom styles for the theme */
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #d1d5db; /* Default text color to light gray */
+        :root {
+            --primary-festival-color: #3498db; /* Default Blue */
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --background-light: #f9f9f9;
+            --white: #ffffff;
+            --border-color: #ecf0f1;
         }
 
-        /* Background setup */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            z-index: -1;
-            /* UPDATED: Changed background image to the user-provided path */
-            background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('html/assets/img/celeb/banana.jpg');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        /* --- Header & Navigation --- */
+        .page-header__scroll {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-header__mainmenu .uk-button {
+             background-color: #e74c3c; /* Consistent Red Button */
+             color: var(--white);
+             border-radius: 8px;
+             font-weight: 700;
+             text-transform: uppercase;
+             letter-spacing: 0.5px;
+             transition: all 0.3s ease;
+             padding: 10px 25px;
+             border: none;
+        }
+         .page-header__mainmenu .uk-button:hover {
+             background-color: #c0392b;
+             transform: translateY(-2px);
+             box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        /* --- Hero Banner --- */
+        .section-banner {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            filter: blur(2px) brightness(0.7); /* Subtle blur and darkening */
+            /* New Festive Image */
+            background-image: url('html/assets/img/celeb/cover.jpg?q=80&w=1070&auto=format&fit=crop');
         }
-
-        .font-serif {
-            font-family: 'Playfair Display', serif;
+        .section-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+        }
+        .section-banner__content {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+        }
+        .section-banner__title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
-        /* Style for the play icon overlay */
-        .video-tile:hover .play-icon-overlay {
-            opacity: 1;
+        /* Clickable Card Link Style */
+        .month-card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .month-card-link:hover {
+            text-decoration: none;
+            color: inherit;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(44, 62, 80, 0.15);
         }
 
-        /* Prevent scrolling when modal is open */
-        .no-scroll {
+        /* --- Month Card --- */
+        .month-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.1);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 5px solid; /* For colored bottom border */
+            height: 100%;
         }
+        .month-card__header {
+            padding: 20px;
+            color: var(--white);
+        }
+        .month-card__title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin: 0;
+            text-align: center;
+        }
+        .month-card__body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        .event-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+         .event-item:last-child {
+            margin-bottom: 0;
+        }
+        .event-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        .event-details__title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0 0 5px 0;
+            color: var(--text-dark);
+        }
+         .event-details__description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+        
+        /* Festive Color Palette for each month */
+        .month-jan { border-color: #3498db; } .month-jan .month-card__header { background: #3498db; } .month-jan .event-icon { color: #3498db; }
+        .month-feb { border-color: #9b59b6; } .month-feb .month-card__header { background: #9b59b6; } .month-feb .event-icon { color: #9b59b6; }
+        .month-mar { border-color: #2ecc71; } .month-mar .month-card__header { background: #2ecc71; } .month-mar .event-icon { color: #2ecc71; }
+        .month-apr { border-color: #e74c3c; } .month-apr .month-card__header { background: #e74c3c; } .month-apr .event-icon { color: #e74c3c; }
+        .month-may { border-color: #1abc9c; } .month-may .month-card__header { background: #1abc9c; } .month-may .event-icon { color: #1abc9c; }
+        .month-jun { border-color: #e67e22; } .month-jun .month-card__header { background: #e67e22; } .month-jun .event-icon { color: #e67e22; }
+        .month-jul { border-color: #00cec9; } .month-jul .month-card__header { background: #00cec9; } .month-jul .event-icon { color: #00cec9; }
+        .month-aug { border-color: #d63031; } .month-aug .month-card__header { background: #d63031; } .month-aug .event-icon { color: #d63031; }
+        .month-sep { border-color: #6c5ce7; } .month-sep .month-card__header { background: #6c5ce7; } .month-sep .event-icon { color: #6c5ce7; }
+        .month-oct { border-color: #fd79a8; } .month-oct .month-card__header { background: #fd79a8; } .month-oct .event-icon { color: #fd79a8; }
+        .month-nov { border-color: #f0932b; } .month-nov .month-card__header { background: #f0932b; } .month-nov .event-icon { color: #f0932b; }
+        .month-dec { border-color: #e84393; } .month-dec .month-card__header { background: #e84393; } .month-dec .event-icon { color: #e84393; }
 
-        /* Glassmorphism effect for tiles */
-        .glass-effect {
-            background-color: rgba(17, 24, 39, 0.6); /* Semi-transparent dark bg */
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+
     </style>
 </head>
-<body class="bg-gray-900">
 
-    <!-- Header Section -->
-    <header class="text-center py-12 md:py-16 px-4">
-        <h1 class="font-serif text-4xl md:text-6xl font-bold text-gray-50" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">SANDOK, ILOS</h1>
-        <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">An Interactive Documentation of Capisnon Native Foods</p>
-    </header>
-
-    <!-- Main Content: Video Grid -->
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div id="video-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            <!-- Video tiles will be dynamically inserted here by JavaScript -->
-        </div>
-    </main>
-
-    <!-- Modal for Video Playback -->
-    <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50 hidden">
-        <!-- Close button -->
-        <button id="close-modal-btn" class="absolute top-4 right-4 text-white text-5xl hover:text-gray-300 transition-colors duration-300 z-50 leading-none">&times;</button>
-        
-        <!-- Video container -->
-        <div class="w-full max-w-4xl bg-black rounded-lg shadow-2xl overflow-hidden">
-            <div class="aspect-w-16 aspect-h-9">
-                <iframe id="youtube-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // --- DATA: List of Capisnon Foods and their YouTube Video IDs ---
-        // Replace these with your actual video titles and YouTube video IDs.
-        const foodVideos = [
-            { title: 'Diwal (Angel Wing Clams)', videoId: 'U-KeG7s9Q3I' },
-            { title: 'Tinolang Tatus (Coconut-based Snail Soup)', videoId: 'L-d8S9p3qGI' },
-            { title: 'KBL (Kadyos, Baboy, Langka)', videoId: 'T850B3kC1g8' },
-            { title: 'Linutik (Squash and Coconut Milk)', videoId: '802k7CqSkvI' },
-            { title: 'Laswa (Vegetable Soup)', videoId: 'oNZeYcEihNM' },
-            { title: 'Baye-Baye (Sweet Rice Cake)', videoId: '1LHTLgXb27g' },
-            { title: 'Ibos (Steamed Rice Cake in Coconut Leaves)', videoId: '5k8eWnC4d_Q' },
-            { title: 'Chicken Binakol', videoId: 'DqOQY_omYDA' },
-            { title: 'Sinugba nga Isda (Grilled Fish)', videoId: 'n_kMGFQ_3rA' },
-            { title: 'Kinilaw na Tanigue', videoId: 'Wz9hA2GDB3s' },
-            { title: 'Pangat (Fish in Sour Broth)', videoId: 'yO-b7i_iN7w' },
-            { title: 'Suman sa Lihiya', videoId: 't6lV2s13oao' },
-            { title: 'Adobong Taklong (Sea Snails)', videoId: 'xU2qjhgKe34' },
-            { title: 'Nilagpang na Manok', videoId: 'l1r403A6tqU' },
-            { title: 'Puso ng Saging Salad', videoId: 'z-jD0a-j2vY' },
-            { title: 'Kansi (Beef Shank Soup)', videoId: 'y6nZ_2p5i2M' },
-            { title: 'Alupi (Cassava Suman)', videoId: 'e8c_Y_Y7c0o' }
-        ];
-
-        // --- DOM Elements ---
-        const videoGrid = document.getElementById('video-grid');
-        const modal = document.getElementById('video-modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        const youtubePlayer = document.getElementById('youtube-player');
-        const body = document.body;
-
-        // --- Functions ---
-
-        /**
-         * Creates and populates the video grid with tiles.
-         */
-        function populateGrid() {
-            videoGrid.innerHTML = ''; // Clear any existing content
-            foodVideos.forEach(video => {
-                const thumbnailUrl = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
-                
-                const tile = document.createElement('div');
-                tile.className = 'video-tile group cursor-pointer glass-effect rounded-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300';
-                tile.setAttribute('data-video-id', video.videoId);
-
-                tile.innerHTML = `
-                    <div class="relative">
-                        <img src="${thumbnailUrl}" alt="Thumbnail for ${video.title}" class="w-full h-32 md:h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Video+Not+Found';">
-                        <div class="play-icon-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg class="w-12 h-12 md:w-16 md:h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+<body class="page-events">
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="page-header__scroll" data-uk-sticky>
+                <div class="uk-container">
+                    <div class="uk-flex uk-flex-between uk-flex-middle" style="height: 70px;">
+                        <div class="page-header__left">
+                            <a class="uk-link-reset" href="index.html">
+                                <span class="uk-text-bold" style="color: var(--text-dark); font-family: 'Montserrat', serif;">CAPIZ FESTIVALS</span>
+                            </a>
+                        </div>
+                        <div class="page-header__right">
+                            <div class="page-header__mainmenu">
+                            </div>
                         </div>
                     </div>
-                    <div class="p-3">
-                        <h3 class="font-semibold text-sm text-gray-100 truncate">${video.title}</h3>
+                </div>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <div class="section-banner">
+                <div class="section-banner__content">
+                    <h1 class="section-banner__title">Calendar of Activities</h1>
+                </div>
+            </div>
+
+            <div class="uk-section">
+                <div class="uk-container">
+                    <div class="uk-grid-large uk-child-width-1-1 uk-child-width-1-2@m" data-uk-grid="{masonry: true}">
+
+                        <!-- JANUARY -->
+                        <div>
+                             <a href="2-jan.html" class="month-card-link">
+                                <div class="month-card month-jan">
+                                    <div class="month-card__header"><h2 class="month-card__title">January</h2></div>
+                                    <div class="month-card__body">
+                                        <div class="event-item"><i class="fas fa-church event-icon"></i><div class="event-details"><h3 class="event-details__title">Binuligay Festival</h3><p class="event-details__description">Municipality of Jamindan</p></div></div>
+                                        <div class="event-item"><i class="fas fa-fire event-icon"></i><div class="event-details"><h3 class="event-details__title">Hil-o Hil-o Festival</h3><p class="event-details__description">Municipality of Maayon</p></div></div>
+                                        <div class="event-item"><i class="fas fa-water event-icon"></i><div class="event-details"><h3 class="event-details__title">Dinagsa Festival</h3><p class="event-details__description">Municipality of Dumalag</p></div></div>
+                                        <div class="event-item"><i class="fas fa-music event-icon"></i><div class="event-details"><h3 class="event-details__title">Sirinadya Festival</h3><p class="event-details__description">Municipality of Tapaz</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- FEBRUARY -->
+                        <div>
+                            <a href="2-feb.html" class="month-card-link">
+                                <div class="month-card month-feb">
+                                    <div class="month-card__header"><h2 class="month-card__title">February</h2></div>
+                                    <div class="month-card__body">
+                                         <div class="event-item"><i class="fas fa-paint-brush event-icon"></i><div class="event-details"><h3 class="event-details__title">National Arts Month</h3><p class="event-details__description">A province-wide celebration based on Proclamation No. 683, s.1991.</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- MARCH -->
+                        <div>
+                             <a href="2-march.html" class="month-card-link">
+                                <div class="month-card month-mar">
+                                    <div class="month-card__header"><h2 class="month-card__title">March</h2></div>
+                                    <div class="month-card__body">
+                                        <div class="event-item"><i class="fas fa-female event-icon"></i><div class="event-details"><h3 class="event-details__title">National Women’s Month</h3><p class="event-details__description">A month-long observance based on Proclamation No. 227, s.1988.</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- APRIL -->
+                        <div>
+                            <a href="2-april.html" class="month-card-link">
+                                <div class="month-card month-apr">
+                                    <div class="month-card__header"><h2 class="month-card__title">April</h2></div>
+                                    <div class="month-card__body">
+                                        <div class="event-item"><i class="fas fa-star event-icon"></i><div class="event-details"><h3 class="event-details__title">Capiztahan</h3><p class="event-details__description">The founding anniversary of the Civil Government of the Province of Capiz.</p></div></div>
+                                        <div class="event-item"><i class="fas fa-utensils event-icon"></i><div class="event-details"><h3 class="event-details__title">National Filipino Food Month</h3><p class="event-details__description">Based on Proclamation No. 469, s.2018.</p></div></div>
+                                        <div class="event-item"><i class="fas fa-book-open event-icon"></i><div class="event-details"><h3 class="event-details__title">National Literature Month</h3></div></div>
+                                        <div class="event-item"><i class="fas fa-shoe-prints event-icon"></i><div class="event-details"><h3 class="event-details__title">International Dance Day</h3></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- MAY -->
+                        <div>
+                             <a href="2-may.html" class="month-card-link">
+                                <div class="month-card month-may">
+                                    <div class="month-card__header"><h2 class="month-card__title">May</h2></div>
+                                    <div class="month-card__body">
+                                        <div class="event-item"><i class="fas fa-theater-masks event-icon"></i><div class="event-details"><h3 class="event-details__title">Sinaot Festival</h3><p class="event-details__description">Municipality of President Roxas</p></div></div>
+                                        <div class="event-item"><i class="fas fa-bell event-icon"></i><div class="event-details"><h3 class="event-details__title">Lingga-anay Festival</h3><p class="event-details__description">Municipality of Panay</p></div></div>
+                                        <div class="event-item"><i class="fas fa-crab event-icon"></i><div class="event-details"><h3 class="event-details__title">Guyum-Guyuman Festival</h3><p class="event-details__description">Municipality of Pontevedra</p></div></div>
+                                        <div class="event-item"><i class="fas fa-city event-icon"></i><div class="event-details"><h3 class="event-details__title">Kaadlawan Festival</h3><p class="event-details__description">City of Roxas</p></div></div>
+                                        <div class="event-item"><i class="fas fa-landmark event-icon"></i><div class="event-details"><h3 class="event-details__title">National Heritage Month</h3><p class="event-details__description">Based on Proclamation No. 439, s.2003.</p></div></div>
+                                        <div class="event-item"><i class="fas fa-handshake event-icon"></i><div class="event-details"><h3 class="event-details__title">Tagbuan Festival</h3><p class="event-details__description">Municipality of Pilar</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- JUNE -->
+                        <div>
+                            <a href="2-june.html" class="month-card-link">
+                                <div class="month-card month-jun">
+                                    <div class="month-card__header"><h2 class="month-card__title">June</h2></div>
+                                    <div class="month-card__body">
+                                        <div class="event-item"><i class="fas fa-hand-holding-heart event-icon"></i><div class="event-details"><h3 class="event-details__title">Agdahanay Festival</h3><p class="event-details__description">Municipality of Cuartero</p></div></div>
+                                        <div class="event-item"><i class="fas fa-hands-helping event-icon"></i><div class="event-details"><h3 class="event-details__title">Hil-o-hanay Festival</h3><p class="event-details__description">Municipality of Sigma</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- JULY -->
+                        <div>
+                            <a href="2-july.html" class="month-card-link">
+                                <div class="month-card month-jul">
+                                    <div class="month-card__header"><h2 class="month-card__title">July</h2></div>
+                                    <div class="month-card__body">
+                                         <div class="event-item"><i class="fas fa-apple-alt event-icon"></i><div class="event-details"><h3 class="event-details__title">Nutrition Month</h3><p class="event-details__description">Based on Presidential Decree No. 491, s.1974.</p></div></div>
+                                         <div class="event-item"><i class="fas fa-leaf event-icon"></i><div class="event-details"><h3 class="event-details__title">Tilibyugan Festival</h3><p class="event-details__description">Municipality of Sapian</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- AUGUST -->
+                        <div>
+                             <a href="2-aug.html" class="month-card-link">
+                                <div class="month-card month-aug">
+                                    <div class="month-card__header"><h2 class="month-card__title">August</h2></div>
+                                    <div class="month-card__body">
+                                        <div class="event-item"><i class="fas fa-language event-icon"></i><div class="event-details"><h3 class="event-details__title">Buwan ng Wikang Pambansa</h3><p class="event-details__description">Based on Proklamasyon Blg. 1041, s.1997.</p></div></div>
+                                        <div class="event-item"><i class="fas fa-history event-icon"></i><div class="event-details"><h3 class="event-details__title">National History Month</h3><p class="event-details__description">Based on Proclamation No. 339, s.2012.</p></div></div>
+                                        <div class="event-item"><i class="fas fa-walking event-icon"></i><div class="event-details"><h3 class="event-details__title">Padagyaw Festival</h3><p class="event-details__description">Municipality of Dumarao</p></div></div>
+                                        <div class="event-item"><i class="fas fa-award event-icon"></i><div class="event-details"><h3 class="event-details__title">Pagpasidungog Festival</h3><p class="event-details__description">Municipality of Panitan</p></div></div>
+                                        <div class="event-item"><i class="fas fa-dove event-icon"></i><div class="event-details"><h3 class="event-details__title">Ninoy Aquino Day</h3></div></div>
+                                        <div class="event-item"><i class="fas fa-fist-raised event-icon"></i><div class="event-details"><h3 class="event-details__title">Hinugyaw Festival</h3><p class="event-details__description">Municipality of Cuartero</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- SEPTEMBER -->
+                        <div>
+                            <a href="2-sept.html" class="month-card-link">
+                                <div class="month-card month-sep">
+                                    <div class="month-card__header"><h2 class="month-card__title">September</h2></div>
+                                    <div class="month-card__body">
+                                        <div class="event-item"><i class="fas fa-plane event-icon"></i><div class="event-details"><h3 class="event-details__title">Tourism Month Celebration</h3></div></div>
+                                        <div class="event-item"><i class="fas fa-lightbulb event-icon"></i><div class="event-details"><h3 class="event-details__title">Philippine Creative Industries Month</h3><p class="event-details__description">Based on Republic Act No. 11904.</p></div></div>
+                                        <div class="event-item"><i class="fas fa-users event-icon"></i><div class="event-details"><h3 class="event-details__title">Buyloganay Festival</h3><p class="event-details__description">Municipality of Ivisan</p></div></div>
+                                        <div class="event-item"><i class="fas fa-hands event-icon"></i><div class="event-details"><h3 class="event-details__title">Pasalamat Festival</h3><p class="event-details__description">Municipality of Dao</p></div></div>
+                                        <div class="event-item"><i class="fas fa-people-carry event-icon"></i><div class="event-details"><h3 class="event-details__title">Patabang Festival</h3><p class="event-details__description">Municipality of Tapaz</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- OCTOBER -->
+                        <div>
+                             <a href="2-oct.html" class="month-card-link">
+                                <div class="month-card month-oct">
+                                    <div class="month-card__header"><h2 class="month-card__title">October</h2></div>
+                                    <div class="month-card__body">
+                                        <div class="event-item"><i class="fas fa-university event-icon"></i><div class="event-details"><h3 class="event-details__title">Museum and Galleries Month</h3><p class="event-details__description">Based on Proclamation No. 798, s.1991.</p></div></div>
+                                        <div class="event-item"><i class="fas fa-feather-alt event-icon"></i><div class="event-details"><h3 class="event-details__title">National Indigenous Peoples Month</h3><p class="event-details__description">Based on Proclamation No. 1906, s.2009.</p></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- NOVEMBER -->
+                        <div>
+                             <a href="2-nov.html" class="month-card-link">
+                                 <div class="month-card month-nov">
+                                    <div class="month-card__header"><h2 class="month-card__title">November</h2></div>
+                                    <div class="month-card__body">
+                                         <div class="event-item"><i class="fas fa-place-of-worship event-icon"></i><div class="event-details"><h3 class="event-details__title">Annual Religious Fiesta</h3><p class="event-details__description">Municipality of Dumalag</p></div></div>
+                                         <div class="event-item"><i class="fas fa-utensil-spoon event-icon"></i><div class="event-details"><h3 class="event-details__title">Inilusan Festival</h3><p class="event-details__description">Municipality of Mambusao</p></div></div>
+                                         <div class="event-item"><i class="fas fa-monument event-icon"></i><div class="event-details"><h3 class="event-details__title">Bonifacio Day</h3></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- DECEMBER -->
+                        <div>
+                             <a href="2-dec.html" class="month-card-link">
+                                 <div class="month-card month-dec">
+                                    <div class="month-card__header"><h2 class="month-card__title">December</h2></div>
+                                    <div class="month-card__body">
+                                         <div class="event-item"><i class="fas fa-gifts event-icon"></i><div class="event-details"><h3 class="event-details__title">Sinadya Festival</h3><p class="event-details__description">City of Roxas</p></div></div>
+                                         <div class="event-item"><i class="fas fa-sleigh event-icon"></i><div class="event-details"><h3 class="event-details__title">Paskwa sang Maragtas</h3><p class="event-details__description">Capiz Christmas Festival</p></div></div>
+                                         <div class="event-item"><i class="fas fa-medal event-icon"></i><div class="event-details"><h3 class="event-details__title">Anniversary of the Liberation of Capiz and Veterans Memorial Day</h3></div></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
                     </div>
-                `;
-
-                videoGrid.appendChild(tile);
-            });
-        }
-
-        /**
-         * Opens the modal and plays the selected video.
-         * @param {string} videoId - The YouTube video ID to play.
-         */
-        function openModal(videoId) {
-            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&color=white&modestbranding=1`;
-            youtubePlayer.setAttribute('src', embedUrl);
-            modal.classList.remove('hidden');
-            body.classList.add('no-scroll'); // Prevent background scrolling
-        }
-
-        /**
-         * Closes the modal and stops the video.
-         */
-        function closeModal() {
-            youtubePlayer.setAttribute('src', ''); // Important: stops the video
-            modal.classList.add('hidden');
-            body.classList.remove('no-scroll');
-        }
-
-        // --- Event Listeners ---
-        videoGrid.addEventListener('click', (event) => {
-            const tile = event.target.closest('.video-tile');
-            if (tile) {
-                const videoId = tile.dataset.videoId;
-                openModal(videoId);
-            }
-        });
-
-        closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
-
-        // --- Initial Load ---
-        document.addEventListener('DOMContentLoaded', populateGrid);
-
-    </script>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="page-footer" style="background: var(--text-dark); color: var(--background-light); padding-top: 40px;">
+            <div class="page-footer__bottom" style="padding: 20px 0; background-color: #2c3e50e0;">
+                <div class="uk-container uk-text-center">
+                    <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span><br>
+                    <span>© Gino Paulo D. Tagoc - All rights reserved.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit-icons.min.js"></script>
 </body>
 </html>
