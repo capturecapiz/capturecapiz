@@ -5,7 +5,7 @@
 <head>
     <!-- <base href="/capturecapiz/" /> -->
     <meta charset="utf-8">
-    <title>Capiz Bridge</title>
+    <title>Capitol</title>
     <meta content="Chernyh Mihail" name="author">
     <meta content="Ecata - City Portal" name="description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +24,29 @@
     <link rel="stylesheet" href="html/assets/css/all.min.css">
     <link rel="stylesheet" href="html/assets/css/simple-line-icons.css">
     <link rel="stylesheet" href="html/assets/css/main.css">
+    
+        <style>
+            
+                .responsive-banner-title {
+            /* Min size: 32px, Ideal size: 5vw, Max size: 48px */
+            font-size: clamp(32px, 5vw, 48px);
+        }
+        .responsive-banner-subtitle {
+            /* Min size: 18px, Ideal size: 3vw, Max size: 24px */
+            font-size: clamp(18px, 3vw, 24px);
+        }
+            
+        .responsive-title {
+            /* Min size: 24px, Ideal size: 4vw, Max size: 36px */
+            font-size: clamp(24px, 4vw, 36px);
+        }
+        .responsive-paragraph {
+            /* Min size: 16px, Ideal size: 2.5vw, Max size: 22px */
+            font-size: clamp(16px, 1.2rem, 22px);
+            line-height: 1.6; /* Improve readability */
+        }
+    </style>
+    
 </head>
 
 <body class="page-listing-post">
@@ -56,8 +79,8 @@
                                 <div class="uk-width-expand@m">
                                     <div class="section-banner__breadcrumb">
                                     </div>
-                                    <div class="section-banner__title">Capiz Bridge</div>
-                                     <div class="city-item__country1">Roxas City, Capiz</div>
+                                    <div class="section-banner__title responsive-banner-title">Capiz Bridge</div>
+                                     <div class="city-item__country1 responsive-banner-subtitle">Roxas City, Capiz</div>
                                 </div>
                                 <div>
 
@@ -108,11 +131,12 @@
   
                             <hr class="uk-margin-large">
                             <div class="section-city-place">
-                                <div class="uk1-h3" style="font-size:2.5vw"><span class="icon-folder"></span>Capiz Bridge: The Enduring Heart of Roxas City</div>
-                                <p style="font-size:2vw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standing firm and proud over the gentle currents of the Panay River, the Capiz Bridge is more than just a crossing—it is the enduring heart of Roxas City. Since its construction in 1909, this old and imposing structure has been a silent witness to over a century of history, progress, and the daily lives of the Capiznon people.</p>
-                                <p style="font-size:2vw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What began as a humble wooden carpenter bridge was transformed into the classic European architectural design that stands today. Its strong arches and timeless form connect the bustling commercial center of the city to the main thoroughfare, making it a vital artery for trade and travel. For generations, it has been the thread weaving together the different parts of the city into a single, vibrant community.</p>
+                                <div class="uk1-h3 responsive-title"><span class="icon-folder"></span>Capiz Bridge: The Enduring Heart of Roxas City</div>
                                 
-                                <p style="font-size:2vw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As you stand on the bridge, you can feel the pulse of Roxas City. Below, the huge stretch of the Panay River flows calmly, its waters reflecting the sky and the surrounding cityscape. This alluring river, which traverses the very heart of the city, adds to the bridge's scenic charm, creating a picturesque view that has captivated locals and visitors alike. The bridge is not just a path for vehicles; it's a vantage point for watching the world go by, a place where the city's past and present meet. It has watched as Roxas City grew and developed, remaining a steadfast symbol of strength, connection, and the resilient spirit of Capiz.</p>
+                               <p class="responsive-paragraph">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standing firm and proud over the gentle currents of the Panay River, the Capiz Bridge is more than just a crossing—it is the enduring heart of Roxas City. Since its construction in 1909, this old and imposing structure has been a silent witness to over a century of history, progress, and the daily lives of the Capiznon people.</p>
+                                <p class="responsive-paragraph">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What began as a humble wooden carpenter bridge was transformed into the classic European architectural design that stands today. Its strong arches and timeless form connect the bustling commercial center of the city to the main thoroughfare, making it a vital artery for trade and travel. For generations, it has been the thread weaving together the different parts of the city into a single, vibrant community.</p>
+                                
+                                <p class="responsive-paragraph">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As you stand on the bridge, you can feel the pulse of Roxas City. Below, the huge stretch of the Panay River flows calmly, its waters reflecting the sky and the surrounding cityscape. This alluring river, which traverses the very heart of the city, adds to the bridge's scenic charm, creating a picturesque view that has captivated locals and visitors alike. The bridge is not just a path for vehicles; it's a vantage point for watching the world go by, a place where the city's past and present meet. It has watched as Roxas City grew and developed, remaining a steadfast symbol of strength, connection, and the resilient spirit of Capiz.</p>
                                 
                                 
                                 
@@ -128,7 +152,21 @@
                             </div>
                             <hr class="uk-margin-large">
 
-
+                            <!-- NEW SECTION FOR TOUR GUIDES -->
+                            <div class="section-city-place uk-text-center">
+                                <div class="uk-h3 responsive-title"><span class="icon-users"></span>Find Your Guide to Capiz</div>
+                                <p class="responsive-paragraph">Enhance your experience by hiring an accredited guide. Choose from regional experts or knowledgeable community locals to show you the best of Capiz.</p>
+                                <div class="uk-grid uk-child-width-1-2@s uk-flex-center uk-grid-medium" data-uk-grid>
+                                    <div>
+                                        <a href="0_region.html" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Regional Tour Guides</a>
+                                    </div>
+                                    <div>
+                                        <a href="0_comm.html" class="uk-button uk-button-secondary uk-button-large uk-width-1-1">Community Guides</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-large">
+                            <!-- END OF NEW SECTION -->
                         </div>
 
                     </div>
