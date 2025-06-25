@@ -255,7 +255,7 @@
                 <div class="container">
                     <section class="header-slider header-map">
                         <h2 class="hidden">Map</h2>
-                        <div class="main-map" id="main-map" style='height:350px'></div>
+                        <div class="main-map" id="main-map" style='height:550px'></div>
                     </section><!-- /.header-video-->
 
                 </div>
@@ -467,97 +467,122 @@
 
     // Locations and markers
     const locations = [
-        { lng: 122.756930, lat: 11.576974, title: 'Provincial Park', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/KP4W9fGzJcY?si=esezfsmtsF_4tsU3', details: 'A historic government building.' },
-        { lng: 122.997311, lat: 11.487673, title: 'Pilar Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/d6xByGw6PTs?si=_H9E3QL-Amb_cgTl', details: 'A charming Christmas village.' },
-        { lng: 122.832822, lat: 11.481827, title: 'Pontevedra Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/BFnwHDHSIsg?si=wv4BslXhg3kAWk8v', details: 'A festive Christmas village.' },
-        { lng: 122.793372, lat: 11.555308, title: 'Panay Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png', videoUrl: 'https://www.youtube.com/embed/WwSpJyZ1TPs?si=8-NyXdv9-1fK9lje', details: 'A historic government building.' },
-        { lng: 122.924866, lat: 11.429486, title: 'President Roxas Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/05DqIGS_koU?si=Zx5PM4FDF2ZYu02-', details: 'A charming Christmas village.' },
-        { lng: 122.781377, lat: 11.387298, title: 'Maayon Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/05DqIGS_koU?si=Zx5PM4FDF2ZYu02-', details: 'A festive Christmas village.' },
-        { lng: 122.768934, lat: 11.463563, title: 'Panitan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/1WTwVsDsb5U?si=iJy2X6Ocdby0yv_S', details: 'A historic government building.' },
-        { lng: 122.693341, lat: 11.521167, title: 'Ivisan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/QeEs12aUyj4?si=dTuO__Uz_ea6opnf', details: 'A charming Christmas village.' },
-        { lng: 122.604256, lat: 11.494049, title: 'Sapian Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/KEBnFxYBiJ8?si=jUf3DA2VUrZ8FI3g', details: 'A festive Christmas village.' },
-        { lng: 122.665676, lat: 11.422294, title: 'Sigma Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/Iu664xWf6WI?si=pOJU65L1ayU7Quiz', details: 'A historic government building.' },
-        { lng: 122.685370, lat: 11.394267, title: 'Dao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/fa01xz2XgjU?si=61AOGW-OgK9oojbe', details: 'A charming Christmas village.' },
-        { lng: 122.669591, lat: 11.341235, title: 'Cuartero Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/ljOBWl9pL_8?si=sxTzKijfG23hwNI7', details: 'A festive Christmas village.' },
-        { lng: 122.687837, lat: 11.263027, title: 'Dumarao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/IVXi4K-j8-I?si=f3-1gS8GJ9vLnwrL', details: 'A historic government building.' },
-        { lng: 122.622843, lat: 11.306680, title: 'Dumalag Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/L24T3mSFbR4?si=3gE1Op9_mfrCQn9d', details: 'A charming Christmas village.' },
-        { lng: 122.596636, lat: 11.430046, title: 'Mambusao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/iSXeqawp2Qc?si=jyDPlqakiUTh5FT-', details: 'A festive Christmas village.' },
-        { lng: 122.510311, lat: 11.408626, title: 'Jamindan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/DxqqxnkZLTI?si=R3K4PdTiqvSMxTZh', details: 'A charming Christmas village.' },
-        { lng: 122.537210, lat: 11.260867, title: 'Tapaz Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/nrqLdz-HBnE?si=f9Glbf8DkMI_itR9', details: 'A festive Christmas village.' },
+        { lng: 122.756930, lat: 11.576974, title: 'Provincial Park', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/KP4W9fGzJcY?si=esezfsmtsF_4tsU3', details: 'The Capiz Provincial Park is a scenic and relaxing green space in Roxas City, ideal for leisurely walks, cultural events, and connecting with nature in the heart of the province.' },
+        
+        { lng: 122.997311, lat: 11.487673, title: 'Pilar Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/d6xByGw6PTs?si=_H9E3QL-Amb_cgTl', details: 'The Pilar Christmas Village is a festive wonderland in Capiz, enchanting visitors with dazzling lights, holiday displays, and a joyful celebration of Christmas spirit for all ages.' },
+        
+        { lng: 122.832822, lat: 11.481827, title: 'Pontevedra Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/BFnwHDHSIsg?si=wv4BslXhg3kAWk8v', details: 'The Pontevedra Christmas Village is a vibrant holiday attraction in Capiz, featuring colorful light displays, festive decorations, and a cheerful atmosphere that brings the community together in celebration.' },
+        { lng: 122.793372, lat: 11.555308, title: 'Panay Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png', videoUrl: 'https://www.youtube.com/embed/WwSpJyZ1TPs?si=8-NyXdv9-1fK9lje', details: 'The Panay Christmas Village is a magical holiday destination in Capiz, showcasing dazzling lights, creative installations, and a joyful ambiance that captures the true spirit of the season.' },
+        
+        
+        { lng: 122.924866, lat: 11.429486, title: 'President Roxas Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/05DqIGS_koU?si=Zx5PM4FDF2ZYu02-', details: 'The President Roxas Christmas Village in Capiz transforms into a sparkling holiday haven, filled with vibrant lights, festive decorations, and heartwarming displays that delight visitors of all ages.' },
+        
+        
+        { lng: 122.781377, lat: 11.387298, title: 'Maayon Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/05DqIGS_koU?si=Zx5PM4FDF2ZYu02-', details: 'The Maayon Christmas Village in Capiz comes alive with brilliant lights, creative holiday setups, and a festive atmosphere that brings joy and unity to the local community and visitors alike.' },
+        
+        
+        { lng: 122.768934, lat: 11.463563, title: 'Panitan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/1WTwVsDsb5U?si=iJy2X6Ocdby0yv_S', details: 'The Panitan Christmas Village in Capiz glows with festive lights, charming decorations, and a warm holiday spirit that invites families and visitors to celebrate the season together.' },
+        
+        
+        { lng: 122.693341, lat: 11.521167, title: 'Ivisan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/QeEs12aUyj4?si=dTuO__Uz_ea6opnf', details: 'The Ivisan Christmas Village in Capiz sparkles with vibrant lights, whimsical decorations, and a joyful ambiance that captures the heart of the holiday season for locals and tourists alike.' },
+        
+        
+        { lng: 122.604256, lat: 11.494049, title: 'Sapian Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/KEBnFxYBiJ8?si=jUf3DA2VUrZ8FI3g', details: 'The Sapian Christmas Village in Capiz shines with enchanting lights, creative displays, and a festive spirit that brings holiday cheer to visitors and the local community.' },
+        
+        
+        { lng: 122.665676, lat: 11.422294, title: 'Sigma Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/Iu664xWf6WI?si=pOJU65L1ayU7Quiz', details: 'The Sigma Christmas Village in Capiz radiates holiday magic with its colorful lights, festive decorations, and a cheerful atmosphere that brings people together in joyful celebration.' },
+        
+        
+        { lng: 122.685370, lat: 11.394267, title: 'Dao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/fa01xz2XgjU?si=61AOGW-OgK9oojbe', details: 'The Dao Christmas Village in Capiz lights up the season with dazzling displays, vibrant decorations, and a heartwarming festive spirit that delights both locals and visitors.' },
+        
+        
+        { lng: 122.669591, lat: 11.341235, title: 'Cuartero Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/ljOBWl9pL_8?si=sxTzKijfG23hwNI7', details: 'The Cuartero Christmas Village in Capiz glows with festive brilliance, featuring colorful lights, creative holiday scenes, and a joyful atmosphere that celebrates the spirit of Christmas in the community.' },
+        
+        
+        { lng: 122.687837, lat: 11.263027, title: 'Dumarao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/IVXi4K-j8-I?si=f3-1gS8GJ9vLnwrL', details: 'The Dumarao Christmas Village in Capiz comes alive with twinkling lights, festive decorations, and a merry atmosphere that brings families and visitors together in the true spirit of the holiday season.' },
+        
+        
+        { lng: 122.622843, lat: 11.306680, title: 'Dumalag Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/L24T3mSFbR4?si=3gE1Op9_mfrCQn9d', details: 'The Dumalag Christmas Village in Capiz sparkles with vibrant lights, festive ornaments, and heartwarming displays that create a magical holiday experience for all who visit.' },
+        
+        
+        { lng: 122.596636, lat: 11.430046, title: 'Mambusao Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/iSXeqawp2Qc?si=jyDPlqakiUTh5FT-', details: 'The Mambusao Christmas Village in Capiz dazzles with brilliant lights, festive décor, and a joyful ambiance that captures the warmth and spirit of the Christmas season.' },
+        
+        
+        { lng: 122.510311, lat: 11.408626, title: 'Jamindan Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/DxqqxnkZLTI?si=R3K4PdTiqvSMxTZh', details: 'The Jamindan Christmas Village in Capiz glimmers with colorful lights, creative holiday displays, and a festive spirit that brings joy and togetherness to the community.' },
+        
+        
+        { lng: 122.537210, lat: 11.260867, title: 'Tapaz Christmas Village', category: 'christmas', icon: 'assets/img/markers/xmas.png',videoUrl: 'https://www.youtube.com/embed/nrqLdz-HBnE?si=f9Glbf8DkMI_itR9', details: 'The Tapaz Christmas Village in Capiz lights up the town with stunning displays, vibrant decorations, and a festive atmosphere that celebrates the warmth and joy of the holiday season.' },
 
 
 
 
-        { lng: 122.736224, lat: 11.606975, title: 'Baybay Beach ', category: 'tourist', icon: 'assets/img/markers/baybay.JPG', details: 'A historic government building.' },
+        { lng: 122.736224, lat: 11.606975, title: 'Baybay Beach ', category: 'tourist', icon: 'assets/img/markers/baybay.JPG', details: 'Baybay Beach in Roxas City, Capiz is a popular seaside destination known for its long stretch of gray sand, gentle waves, vibrant local food stalls, and stunning sunsets that offer a perfect coastal escape.' },
 
 
-        { lng: 122.752169, lat: 11.583648, title: 'Ang Panublion Museum ', category: 'tourist', icon: 'assets/img/markers/museum.JPG', details: 'A historic government building.' },
+        { lng: 122.752169, lat: 11.583648, title: 'Ang Panublion Museum ', category: 'tourist', icon: 'assets/img/markers/museum.JPG', details: 'Ang Panublion Museum sa Roxas City, Capiz ay isang makasaysayang pook na dating water tank at ngayo’y tahanan ng mga antigong kagamitan, larawan, at kasaysayan ng lalawigan—isang sulyap sa mayamang kultura at pamana ng Capiznon.' },
 
 
-        { lng: 122.698215, lat: 11.336787, title: 'Capiz Ecology Park & Cultural Village ', category: 'tourist', icon: 'assets/img/markers/ecopark.JPG', details: 'A historic government building.' },
+        { lng: 122.698215, lat: 11.336787, title: 'Capiz Ecology Park & Cultural Village ', category: 'tourist', icon: 'assets/img/markers/ecopark.JPG', details: 'The Capiz Ecology Park & Cultural Village is a tranquil sanctuary that blends environmental conservation with cultural preservation, offering visitors an immersive experience through nature trails, native architecture, and exhibits that showcase Capiznon heritage and sustainable living.' },
 
-        { lng: 122.793926, lat: 11.555463, title: '𝗦𝗮𝗻𝘁𝗮 𝗠𝗼𝗻𝗶𝗰𝗮 𝗖𝗵𝘂𝗿𝗰𝗵 ', category: 'tourist', icon: 'assets/img/markers/stamonica.jpg', details: 'A historic government building.' },
+        { lng: 122.793926, lat: 11.555463, title: '𝗦𝗮𝗻𝘁𝗮 𝗠𝗼𝗻𝗶𝗰𝗮 𝗖𝗵𝘂𝗿𝗰𝗵 ', category: 'tourist', icon: 'assets/img/markers/stamonica.jpg', details: 'The Santa Monica Church in Panay, Capiz is a historic landmark and architectural treasure, renowned for housing the largest Catholic church bell in Asia and reflecting centuries of religious devotion and cultural heritage.' },
 
-        { lng: 122.712960, lat: 11.575706, title: 'Palina Greenbelt Eco-park ', category: 'tourist', icon: 'assets/img/markers/palina.jpg', details: 'A historic government building.' },
+        { lng: 122.712960, lat: 11.575706, title: 'Palina Greenbelt Eco-park ', category: 'tourist', icon: 'assets/img/markers/palina.jpg', details: 'Palina Greenbelt Eco-Park in Roxas City, Capiz is a peaceful riverside attraction offering scenic floating cottages, eco-friendly tours, and rich mangrove landscapes—perfect for relaxing, learning, and experiencing the natural beauty of Capiz.' },
 
-        { lng: 122.749828, lat: 11.582943, title: 'Birthplace of President Manuel A. Roxas ', category: 'tourist', icon: 'assets/img/markers/birthplace.jpg', details: 'A historic government building.' },
+        { lng: 122.749828, lat: 11.582943, title: 'Birthplace of President Manuel A. Roxas ', category: 'tourist', icon: 'assets/img/markers/birthplace.jpg', details: 'The Birthplace of President Manuel A. Roxas in Roxas City, Capiz is a preserved ancestral home that honors the legacy of the first President of the independent Republic of the Philippines, offering visitors a glimpse into his early life and the history of the nation.' },
 
-        { lng: 122.753006, lat: 11.583235, title: 'Immaculate Conception Metropolitan Cathedral ', category: 'tourist', icon: 'assets/img/markers/immaculate.jpg', details: 'A historic government building.' },
+        { lng: 122.753006, lat: 11.583235, title: 'Immaculate Conception Metropolitan Cathedral ', category: 'tourist', icon: 'assets/img/markers/immaculate.jpg', details: 'The Immaculate Conception Metropolitan Cathedral in Roxas City, Capiz is a majestic and historic church known for its elegant architecture, deep spiritual significance, and central role in the religious life of Capizeños.' },
+        
 
-        { lng: 122.753476, lat: 11.582884, title: 'Rizal Monument', category: 'tourist', icon: 'assets/img/markers/rizal.jpg', details: 'A historic government building.' },
+        { lng: 122.753476, lat: 11.582884, title: 'Rizal Monument', category: 'tourist', icon: 'assets/img/markers/rizal.jpg', details: 'The Rizal Monument in Roxas City, Capiz stands as a tribute to Dr. José Rizal, the Philippine national hero, symbolizing patriotism and serving as a historical landmark in the heart of the city.' },
 
-        { lng: 122.753764, lat: 11.582871, title: 'Capiz Provincial Capitol', category: 'tourist', icon: 'assets/img/markers/capitol.jpg', details: 'A historic government building.' },
+        { lng: 122.753764, lat: 11.582871, title: 'Capiz Provincial Capitol', category: 'tourist', icon: 'assets/img/markers/capitol.jpg', details: 'The Capiz Provincial Capitol in Roxas City is a grand neoclassical building that serves as the seat of the provincial government, symbolizing Capiz’s rich political history and its commitment to public service and progress.' },
 
-        { lng: 122.753156, lat: 11.582896, title: 'Roxas City Fountain', category: 'tourist', icon: 'assets/img/markers/fountain.jpg', details: 'A historic government building.' },
+        { lng: 122.753156, lat: 11.582896, title: 'Roxas City Fountain', category: 'tourist', icon: 'assets/img/markers/fountain.jpg', details: 'The Roxas City Fountain, located at the heart of the city plaza, is a charming landmark that comes alive at night with colorful lights and water displays, serving as a popular gathering spot and symbol of civic pride in Capiz.' },
 
-        { lng: 122.753117, lat: 11.582412, title: 'Capiz Bridge', category: 'tourist', icon: 'assets/img/markers/bridge.jpg', details: 'A historic government building.' },
+        { lng: 122.753117, lat: 11.582412, title: 'Capiz Bridge', category: 'tourist', icon: 'assets/img/markers/bridge.jpg', details: 'The Capiz Bridge, also known as the Roxas City Bridge, is a historic structure that spans the Panay River, offering scenic views and connecting key areas of the city—an enduring symbol of progress and heritage in Capiz.' },
 
-        { lng: 122.742151, lat: 11.615956, title: 'Mantalinga Island', category: 'tourist', icon: 'assets/img/markers/mantalinga.jpg', details: 'A historic government building.' },
+        { lng: 122.742151, lat: 11.615956, title: 'Mantalinga Island', category: 'tourist', icon: 'assets/img/markers/mantalinga.jpg', details: 'Mantalinga Island, located off the coast of Baybay Beach in Roxas City, Capiz, is a small, scenic islet known for its rich marine life, clear waters, and popularity among swimmers, divers, and local folklore enthusiasts.' },
 
-        { lng: 122.834538, lat: 11.633107, title: 'Olotayan Island', category: 'tourist', icon: 'assets/img/markers/olotayan.JPGG', details: 'A historic government building.' },
+        { lng: 122.834538, lat: 11.633107, title: 'Olotayan Island', category: 'tourist', icon: 'assets/img/markers/olotayan.JPG', details: 'Olotayan Island is a serene paradise in Capiz known for its crystal-clear waters, white coral beaches, and peaceful fishing village charm.' },
 
-        { lng: 122.551885, lat: 11.288649, title: 'Marugo Island', category: 'tourist', icon: 'assets/img/markers/marugo.JPG', details: 'A historic government building.' },
+        { lng: 122.551885, lat: 11.288649, title: 'Marugo Island', category: 'tourist', icon: 'assets/img/markers/marugo.JPG', details: 'Marugo Island in Sapian, Capiz is a serene and lesser-known paradise featuring pristine beaches, crystal-clear waters, and rich marine biodiversity—perfect for nature lovers and those seeking a peaceful coastal escape.' },
 
-        { lng: 122.756930, lat: 11.576974, title: 'Provincial Park', category: 'tourist', icon: 'assets/img/markers/park.jpg', details: 'A historic government building.' },
+        { lng: 122.756930, lat: 11.576974, title: 'Provincial Park', category: 'tourist', icon: 'assets/img/markers/park.jpg', details: 'The Capiz Provincial Park in Roxas City is a lush, green sanctuary in the heart of the city, offering a peaceful space for relaxation, community gatherings, and a deeper appreciation of Capiz’s natural and cultural charm.' },
 
-        { lng: 122.727673, lat: 11.548652, title: 'Sanctuary of the Sacred Heart of Jesus', category: 'tourist', icon: 'assets/img/markers/sacred.JPG', details: 'A historic government building.' },
+        { lng: 122.727673, lat: 11.548652, title: 'Sanctuary of the Sacred Heart of Jesus', category: 'tourist', icon: 'assets/img/markers/sacred.JPG', details: 'The Sanctuary of the Sacred Heart of Jesus in Roxas City, Capiz is a sacred pilgrimage site known for its towering statue of Jesus, peaceful surroundings, and spiritual ambiance, drawing devotees and visitors seeking reflection and prayer.' },
 
-        { lng: 122.588176, lat: 11.478575, title: 'Meditation Hills', category: 'tourist', icon: 'assets/img/markers/meditation.JPG', details: 'A historic government building.' },
+        { lng: 122.588176, lat: 11.478575, title: 'Meditation Hills', category: 'tourist', icon: 'assets/img/markers/meditation.JPG', details: 'Meditation Hills in Sapian, Capiz is a serene spiritual retreat nestled amidst rolling landscapes, offering a peaceful environment for prayer, reflection, and panoramic views that inspire calmness and inner peace.' },
 
-        { lng: 122.964969, lat: 11.461532, title: 'Agtalin Shrine', category: 'tourist', icon: 'assets/img/markers/agtalin.jpg', details: 'A historic government building.' },
+        { lng: 122.964969, lat: 11.461532, title: 'Agtalin Shrine', category: 'tourist', icon: 'assets/img/markers/agtalin.jpg', details: 'The Agtalin Shrine in Pilar, Capiz is a revered pilgrimage site featuring a towering statue of the Blessed Virgin Mary—one of the tallest in Asia—set amidst a tranquil hillside that invites prayer, devotion, and breathtaking views.' },
 
-        { lng: 122.664718, lat: 11.539026, title: 'Agustin Navarra Mangroves and Bird Sanctuary', category: 'tourist', icon: 'assets/img/markers/agustin.JPG', details: 'A historic government building.' },
+        { lng: 122.664718, lat: 11.539026, title: 'Agustin Navarra Mangroves and Bird Sanctuary', category: 'tourist', icon: 'assets/img/markers/agustin.JPG', details: 'The Agustin Navarra Mangroves and Bird Sanctuary in Ivisan, Capiz is a thriving coastal habitat that protects diverse bird species and rich mangrove forests, offering visitors a chance to explore nature through eco-tours, birdwatching, and educational experiences.' },
 
-        { lng: 123.011183, lat: 11.483382, title: 'Balisong Cave', category: 'tourist', icon: 'assets/img/markers/balisong.jpg', details: 'A historic government building.' },
+        { lng: 123.011183, lat: 11.483382, title: 'Balisong Cave', category: 'tourist', icon: 'assets/img/markers/balisong.jpg', details: 'Balisong Cave in Pilar, Capiz is a natural wonder featuring impressive limestone formations, cool chambers, and an air of mystery—perfect for adventure seekers and nature lovers eager to explore Capiz’s hidden gems.' },
 
-        { lng: 123.010438, lat: 11.423689, title: 'Kawa-kawa Falls', category: 'tourist', icon: 'assets/img/markers/kawa.jpg', details: 'A historic government building.' },
+        { lng: 123.010438, lat: 11.423689, title: 'Kawa-kawa Falls', category: 'tourist', icon: 'assets/img/markers/kawa.jpg', details: 'Kawa-Kawa Falls in Brgy. Artuz, Tapaz, Capiz is a refreshing natural escape known for its cascading waters, lush surroundings, and inviting pools—an ideal spot for relaxation, picnics, and nature adventures.' },
 
-        { lng: 123.028181, lat: 11.398999, title: 'Hinulugan Falls', category: 'tourist', icon: 'assets/img/markers/hinulugan.jpg', details: 'A historic government building.' },
-
-
-        { lng: 122.970976, lat: 11.392534, title: 'Liktinon Falls', category: 'tourist', icon: 'assets/img/markers/liktinon.JPG', details: 'A historic government building.' },
-
-        { lng: 122.913291, lat: 11.451952, title: 'Madulano Mangroves and Aquamarine Park', category: 'tourist', icon: 'assets/img/markers/madulano.jpg', details: 'A historic government building.' },
-
-        { lng: 122.709644, lat: 11.252721, title: 'Ati Indigenous Peoples Community of Dumarao', category: 'tourist', icon: 'assets/img/markers/ati.jpg', details: 'A historic government building.' },
-
-        { lng: 122.619646, lat: 11.292048, title: 'Suhot Cave and Spring', category: 'tourist', icon: 'assets/img/markers/suhot.JPG', details: 'A historic government building.' },
-
-        { lng: 122.685425, lat: 11.393687, title: 'Sto. Tomas de Villanueva Parish Church', category: 'tourist', icon: 'assets/img/markers/tomas.JPG', details: 'A historic government building.' },
+        { lng: 123.028181, lat: 11.398999, title: 'Hinulugan Falls', category: 'tourist', icon: 'assets/img/markers/hinulugan.jpg', details: 'Hinulugan Falls in Sigma, Capiz is a hidden gem nestled in a tranquil forest setting, featuring cool, cascading waters and a serene ambiance that offers visitors a peaceful retreat and a refreshing connection with nature.' },
 
 
+        { lng: 122.970976, lat: 11.392534, title: 'Liktinon Falls', category: 'tourist', icon: 'assets/img/markers/liktinon.JPG', details: 'Liktinon Falls in Jamindan, Capiz is a breathtaking natural attraction known for its multi-tiered cascades, crystal-clear waters, and lush forest surroundings—perfect for hiking, swimming, and nature exploration.' },
 
+        { lng: 122.913291, lat: 11.451952, title: 'Madulano Mangroves and Aquamarine Park', category: 'tourist', icon: 'assets/img/markers/madulano.jpg', details: 'The Madulano Mangroves and Aquamarine Park in Sigma, Capiz is a vibrant eco-tourism destination that showcases the beauty of coastal biodiversity through scenic mangrove trails, fish sanctuaries, and educational experiences promoting marine conservation.' },
 
+        { lng: 122.709644, lat: 11.252721, title: 'Ati Indigenous Peoples Community of Dumarao', category: 'tourist', icon: 'assets/img/markers/ati.jpg', details: 'The Ati Indigenous Peoples Community of Dumarao, Capiz offers a rich cultural experience where visitors can learn about the traditions, crafts, and way of life of one of the Philippines’ earliest ethnic groups, fostering respect for indigenous heritage and sustainable living.' },
 
-        { lng: 122.446821, lat: 11.390812, title: 'Pan-ayanon/ Panay Bukidnon Indigenous Peoples Community', category: 'tourist', icon: 'assets/img/markers/panaybukidnon.jpg', details: 'A historic government building.' },
+        { lng: 122.619646, lat: 11.292048, title: 'Suhot Cave and Spring', category: 'tourist', icon: 'assets/img/markers/suhot.JPG', details: 'Suhot Cave and Spring in Dumalag, Capiz is a popular eco-adventure destination featuring a fascinating cave system and a cool, clear spring—perfect for spelunking, swimming, and immersing in the natural beauty of the province.' },
 
-        { lng: 122.554715, lat: 11.339523, title: 'Pangabit-Kabiton Falls', category: 'tourist', icon: 'assets/img/markers/kabiton.JPG', details: 'A historic government building.' },
+        { lng: 122.685425, lat: 11.393687, title: 'Sto. Tomas de Villanueva Parish Church', category: 'tourist', icon: 'assets/img/markers/tomas.JPG', details: 'The Sto. Tomas de Villanueva Parish Church in Dao, Capiz is a centuries-old Catholic church known for its striking façade, historical significance, and enduring role as a spiritual and cultural cornerstone of the local community.' },
 
-        { lng: 122.543487, lat: 11.460021, title: 'Kipot Cave', category: 'tourist', icon: 'assets/img/markers/kipotcave.jpg', details: 'A historic government building.' },
+        { lng: 122.446821, lat: 11.390812, title: 'Pan-ayanon/ Panay Bukidnon Indigenous Peoples Community', category: 'tourist', icon: 'assets/img/markers/panaybukidnon.jpg', details: 'The Pan-ayanon or Panay Bukidnon Indigenous Peoples Community in Capiz is a living repository of rich traditions, oral literature, and ancestral customs, offering a deep cultural experience rooted in centuries-old practices and the preservation of indigenous heritage.' },
 
-        { lng: 122.584682, lat: 11.549955, title: 'Sapian Bay', category: 'tourist', icon: 'assets/img/markers/sapian.JPG', details: 'A historic government building.' },
+        { lng: 122.554715, lat: 11.339523, title: 'Pangabit-Kabiton Falls', category: 'tourist', icon: 'assets/img/markers/kabiton.JPG', details: 'Pangabit-Kabiton Falls in Tapaz, Capiz is a twin cascade nestled in a lush, forested area, offering a refreshing retreat for nature lovers with its cool waters, scenic beauty, and peaceful atmosphere perfect for hiking and relaxation.' },
 
-        { lng: 122.728106, lat: 11.601517, title: 'Cadimahan River Tour', category: 'tourist', icon: 'assets/img/markers/cadimahan.jpg', details: 'A historic government building.' },
+        { lng: 122.543487, lat: 11.460021, title: 'Kipot Cave', category: 'tourist', icon: 'assets/img/markers/kipotcave.jpg', details: 'Kipot Cave in Mambusao, Capiz is a fascinating natural attraction known for its narrow entrance, intriguing rock formations, and cool underground chambers—ideal for adventurous spelunkers and nature enthusiasts seeking off-the-beaten-path experiences.' },
+
+        { lng: 122.584682, lat: 11.549955, title: 'Sapian Bay', category: 'tourist', icon: 'assets/img/markers/sapian.JPG', details: 'Sapian Bay is a tranquil coastal inlet known for its rich marine biodiversity and vibrant fishing communities.' },
+
+        { lng: 122.728106, lat: 11.601517, title: 'Cadimahan River Tour', category: 'tourist', icon: 'assets/img/markers/cadimahan.jpg', details: 'The Cadimahan River Tour in Roxas City offers a relaxing bamboo raft cruise featuring local seafood, cultural entertainment, and eco-friendly activities.' },
     ];
 
 // Create a marker for each location with enhanced popup design

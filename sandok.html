@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANDOK, ILOS: Documentation of Capisnon Native Foods</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- YouTube IFrame API Script -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <style>
+        /* Custom styles for the theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #d1d5db; /* Default text color to light gray */
+        }
+
+        /* Background setup */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            /* Using a reliable public URL for the background */
+            background-image: url('html/assets/img/banana.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Adjusted brightness for readability */
+            filter: blur(2px) brightness(0.5); 
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Style for the play icon overlay */
+        .video-tile:hover .play-icon-overlay {
+            opacity: 1;
+        }
+
+        /* Prevent scrolling when modal is open */
+        .no-scroll {
+            overflow: hidden;
+        }
+
+        /* Glassmorphism effect for tiles */
+        .glass-effect {
+            background-color: rgba(17, 24, 39, 0.6); /* Semi-transparent dark bg */
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom class for aspect ratio */
+        .aspect-video {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .aspect-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Header Section -->
+    <header class="text-center py-12 md:py-16 px-4">
+        <h1 class="font-serif text-4xl md:text-6xl font-bold text-gray-50" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">SANDOK, ILOS</h1>
+        <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">An Interactive Documentation of Capisnon Native Foods</p>
+    </header>
+
+    <!-- Main Content: Video Grid -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div id="video-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <!-- Video tiles will be dynamically inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Modal for Video Playback -->
+    <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-2 sm:p-4 z-50 hidden">
+        <!-- Close button -->
+        <button id="close-modal-btn" class="absolute top-2 right-2 sm:top-4 sm:right-4 text-white text-5xl hover:text-gray-300 transition-colors duration-300 z-50 leading-none">&times;</button>
+        
+        <!-- Video container -->
+        <div class="w-11/12 md:w-full md:max-w-4xl lg:max-w-6xl bg-black rounded-lg shadow-2xl overflow-hidden">
+            <div class="aspect-video">
+                <!-- This div will be replaced by the YouTube IFrame Player -->
+                <div id="youtube-player"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900/70 backdrop-blur-sm text-gray-300 mt-16 border-t border-gray-700">
+      <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+          <!-- Column 1: Contact Info -->
+          <div class="space-y-3">
+            <p class="font-bold text-base">CAPIZ PROVINCIAL GOVERNMENT</p>
+            <p class="text-sm">PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE</p>
+            <p class="text-sm mt-2">2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</p>
+            <div class="pt-2">
+                <p class="text-sm"><a href="mailto:capiz.tourism@gmail.com" class="hover:text-white transition-colors">capiz.tourism@gmail.com</a></p>
+                <p class="text-sm"><a href="tel:0366212935" class="hover:text-white transition-colors">(036) 621-2935</a></p>
+            </div>
+          </div>
+          <!-- Column 2: Rate Us -->
+          <div class="space-y-3">
+            <h3 class="font-bold tracking-wider text-white text-lg mb-4 uppercase">Rate Us</h3>
+            <p class="mb-4 text-sm">Your insights matter. Help us make this the best guide for Capiz.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">
+              Rate on Google Play
+            </a>
+          </div>
+          <!-- Column 3: Social Links -->
+          <div>
+            <h3 class="font-bold tracking-wider text-white text-lg mb-4 uppercase">Connect Socially</h3>
+            <div class="flex justify-center md:justify-start space-x-6">
+              <a href="https://twitter.com/capturecapiz?lang=en" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a>
+              <a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a>
+              <a href="https://www.youtube.com/@CaptureCapiz" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="YouTube"><i class="fab fa-youtube text-2xl"></i></a>
+              <a href="https://www.instagram.com/capturecapiz/?hl=en" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Bar: Copyright -->
+        <div class="border-t border-gray-700/50 mt-10 pt-6 text-center text-xs space-y-1">
+          <p>&copy; 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</p>
+          <p>&copy; Gino Paulo D. Tagoc - All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+
+    <script>
+        // --- DATA: List of Capisnon Foods and their YouTube Video IDs ---
+        const foodVideos = [
+            { title: 'TAPAZ TINAGBAKAN NGA MANOK', videoId: 'cOklmQOqNAk' },
+            { title: 'TINUOM NGA BISAYA NGA MANOK NGA MAY KUTSAY', videoId: 'ZJCQSslx-nE' },
+            { title: 'GINAT AN NGA GUTAW NGA MAY BANAG', videoId: 'oaTcSHq1Bt4' },
+            { title: 'ADOBO BISAYA', videoId: 'usacXlPbjA0' },
+            { title: 'GINAT AN NGA UBOD', videoId: '22Y3cLHzQog' },
+            { title: 'SARDINAS', videoId: 'Y7MCARTc7cA' },
+            { title: 'PANITAN PANTAT NGA PINUTOS SA DAHON SANG ABALONG', videoId: 'F00Jqjhvvks' },
+            { title: 'PRESIDENT ROXAS GINAT AN NGA TAKLONG', videoId: 'R94ELYA7gj8' },
+            { title: 'ROXAS CITY BINAKOL SA DAHON', videoId: 'dD4eFH1XRvk' },
+            { title: 'SAPIAN LASWA NGA MAY SINALAY', videoId: 'kENk2EEBfdg' },
+            { title: 'SIGMA GINAT AN NGA BATUD', videoId: 'ltt1n-PEkKg' },
+            { title: 'TAPAZ TINAGBAKAN NGA MANOK', videoId: 'cOklmQOqNAk' },
+            { title: 'BINAKOL NGA ALIMANGO', videoId: 'QUyqIAI72uM' },
+            { title: 'TINUM ANAN NGA PAKINHASON', videoId: 'a-3Tt-5LmT8' },
+            { title: 'PUTO NGA MAY TUBA', videoId: 'GAQOcbjjsP0' },
+            { title: 'PUSO', videoId: '0OampLKWc8g' },
+            { title: 'BAYE BAYE', videoId: 'q-22UHk2Qu4' },
+            { title: 'DUMARAO GINAT AN NGA PUYO NGA MAY ISTIWITIS', videoId: 'mmbBnlQGPbw' },
+            { title: 'LITSON NGA ITIK', videoId: '5cZqxzJI1vg' },
+            { title: 'TINUBAAN NGA MANOK', videoId: 'JcmlP20qt-g' },
+            { title: 'LAUYA', videoId: 'DdB3DBSAKEI' }
+        ];
+
+        // --- DOM Elements ---
+        const videoGrid = document.getElementById('video-grid');
+        const modal = document.getElementById('video-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const body = document.body;
+        
+        // --- YouTube Player API ---
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '100%',
+                width: '100%',
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 1,
+                    'rel': 0
+                }
+            });
+        }
+
+        // --- Functions ---
+        
+        /**
+         * Creates and populates the video grid with tiles.
+         */
+        function populateGrid() {
+            videoGrid.innerHTML = ''; // Clear any existing content
+            foodVideos.forEach(video => {
+                const thumbnailUrl = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
+                
+                const tileHTML = `
+                    <div class="video-tile group cursor-pointer glass-effect rounded-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300 flex flex-col" data-video-id="${video.videoId}">
+                        <div class="relative">
+                            <img src="${thumbnailUrl}" alt="Thumbnail for ${video.title}" class="w-full h-32 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/d1d5db?text=Video+Not+Found';">
+                            <div class="play-icon-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <svg class="w-12 h-12 md:w-16 md:h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                        </div>
+                        <div class="p-3 flex-grow flex items-center">
+                            <h3 class="font-semibold text-sm text-gray-100 leading-tight">${video.title}</h3>
+                        </div>
+                    </div>
+                `;
+                videoGrid.innerHTML += tileHTML;
+            });
+        }
+
+        /**
+         * Opens the modal and plays the selected video using the YouTube API.
+         * @param {string} videoId - The YouTube video ID to play.
+         */
+        function openModal(videoId) {
+            modal.classList.remove('hidden');
+            body.classList.add('no-scroll');
+            // Use the API to load and play the video
+            if (player && player.loadVideoById) {
+                 player.loadVideoById(videoId);
+            }
+        }
+
+        /**
+         * Closes the modal and stops the video using the YouTube API.
+         */
+        function closeModal() {
+            modal.classList.add('hidden');
+            body.classList.remove('no-scroll');
+            // Use the API to stop the video
+            if (player && player.stopVideo) {
+                player.stopVideo();
+            }
+        }
+
+        // --- Event Listeners ---
+        videoGrid.addEventListener('click', (event) => {
+            const tile = event.target.closest('.video-tile');
+            if (tile) {
+                const videoId = tile.dataset.videoId;
+                openModal(videoId);
+            }
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', populateGrid);
+
+    </script>
+</body>
+</html>
