@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  
+<head>
+<!-- <base href="/capturecapiz/" /> -->
+  <meta charset="utf-8">
+  <title>Lagaw Capiz</title>
+  <meta content="Chernyh Mihail" name="author">
+  <meta content="Ecata - City Portal" name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="format-detection" content="telephone=no">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="html/assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="html/assets/img/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="html/assets/css/uikit.min.css">
+  <link rel="stylesheet" href="html/assets/css/all.min.css">
+  <link rel="stylesheet" href="html/assets/css/simple-line-icons.css">
+  <link rel="stylesheet" href="html/assets/css/main.css">
+  <style>
+    
+  .uk-button-danger {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.uk-button-danger:hover {
+  transform: scale(1.1);
+}
+
+.pulse-animation {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(217, 83, 79, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 10px rgba(217, 83, 79, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(217, 83, 79, 0.5);
+  }
+}
+</style>
+  
+  
+  
+  
+  
+  
+<script src="assets2/js/bootstrap.bundle.min.js"></script>
+
+
+
+  <!-- Favicons -->
+  <link href="assets2/img/favicon.png" rel="icon">
+  <link href="assets2/img/apple-touch-icon.png" rel="apple-touch-icon">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets2/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets2/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets2/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets2/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets2/css/main.css" rel="stylesheet">
+  <script src="assets2/js/jquery.min.js"></script>
+<script src="assets2/js/jquery.rwdImageMaps.min.js"></script>
+<script src="asset2/js/plyr.js"></script>
+<script src="assets2/js/plyr.css"></script>
+    <link rel="stylesheet" href="assets2/css/plyr.css">
+
+
+  <style type="text/css">
+    @font-face {
+    font-family: 'Barabara';
+    src: url('fonts/BARABARA.woff2') format('woff2'),
+         url('fonts/BARABARA.woff') format('woff'),
+         url('fonts/BARABARA.ttf') format('truetype'),
+         url('fonts/BARABARA.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.modal-lg {
+  max-width: 100vw; /* Take full width of the viewport */
+  max-height: 100vh; /* Take full height of the viewport */
+  margin: 0; /* Remove margins */
+  padding: 0; /* Remove padding */
+}
+
+.modal-body {
+  padding: 0; /* Remove padding */
+  height: 100%; /* Full height */
+}
+
+.modal-content {
+  height: 100%; /* Full height */
+  border-radius: 0; /* Remove border radius */
+}
+
+video {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Ensure the video covers the modal area */
+}
+
+
+.icon-box {
+    padding: 5px; /* Increase padding to make boxes bigger */
+    min-height: 50px; /* Set a minimum height */
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.icon-box .icon {
+    font-size: 2rem; /* Increase icon size */
+    margin-bottom: 5px;
+}
+
+
+  /* Assign distinct background colors */
+  .box-red { background-color: #134a98; } /* Red */
+  .box-blue { background-color: #134a98; } /* Blue */
+  .box-yellow { background-color: #134a98; color: black; } /* Yellow */
+  .box-green { background-color: #134a98; } /* Green */
+  .box-purple { background-color: #134a98; } /* Purple */
+  .box-orange { background-color: #134a98; } /* Orange */
+  .box-brown { background-color: #134a98; } /* Brown */
+  .box-gray { background-color: #134a98; } /* Gray */
+  .box-pink { background-color: #134a98; } /* Pink */
+
+
+    
+.icon-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, transparent 40%);
+    animation: shimmer 6s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+    
+    
+  </style>
+  
+</head>
+
+<body class="page-home">
+  <div class="page-wrapper">
+    <header class="page-header">
+            <div class="page-header__scroll" data-uk-sticky>
+                <div class="uk-container uk-container-xlarge">
+                    <div class="page-header__inner">
+                        <div class="page-header__left">
+                            <div class="page-header__logo logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
+                        </div>
+                        <div class="page-header__right">
+                            <div class="page-header__mainmenu">
+                                <nav class="mainmenu" data-uk-navbar="">
+                                    <ul class="uk-navbar-nav">
+                                        <li><a href="index1.html"> Home<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                                            <div class="uk-navbar-dropdown">
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a href="index1.html">Tourist Map</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li><a href="">LGU<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                                            <div class="uk-navbar-dropdown">
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a href="t-roxas.html">Roxas City</a></li>
+                                                    <li><a href="t-roxas.html">Panay</a></li>
+                                                    <li><a href="t-Pontevedra.html">Pontevedra</a></li>
+                                                    <li><a href="t-pres.html">Pres. Roxas</a></li>
+                                                    <li><a href="t-pilar.html">Pilar</a></li>
+                                                    <li><a href="t-panitan.html">Panitan</a></li>
+                                                    <li><a href="t-maayon.html">Maayon</a></li>
+                                                    <li><a href="t-cuartero.html">Cuartero</a></li>
+                                                    <li><a href="t-dao.html">Dao</a></li>
+                                                    <li><a href="t-sigma.html">Sigma</a></li>
+                                                    <li><a href="t-ivisan.html">Ivisan</a></li>
+                                                    <li><a href="t-sapian.html">Sapian</a></li>
+                                                    <li><a href="t-dumalag.html">Dumalag</a></li>
+                                                    <li><a href="t-dumarao.html">Dumarao</a></li>
+                                                    <li><a href="t-mambusao.html">Mambusao</a></li>
+                                                    <li><a href="t-jamindan.html">Jamindan</a></li>
+                                                    <li><a href="t-tapaz.html">Tapaz</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li><a href="">Paskwa sang Maragtas Christmas Village<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
+                                            <div class="uk-navbar-dropdown">
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a href="xmas_roxas.html">Roxas City</a></li>
+                                                    <li><a href="xmas_roxas.html">Panay</a></li>
+                                                    <li><a href="xmas_Pontevedra.html">Pontevedra</a></li>
+                                                    <li><a href="xmas_pres.html">Pres. Roxas</a></li>
+                                                    <li><a href="xmas_pilar.html">Pilar</a></li>
+                                                    <li><a href="xmas_panitan.html">Panitan</a></li>
+                                                    <li><a href="xmas_maayon.html">Maayon</a></li>
+                                                    <li><a href="xmas_cuartero.html">Cuartero</a></li>
+                                                    <li><a href="xmas_dao.html">Dao</a></li>
+                                                    <li><a href="xmas_sigma.html">Sigma</a></li>
+                                                    <li><a href="xmas_ivisan.html">Ivisan</a></li>
+                                                    <li><a href="xmas_sapian.html">Sapian</a></li>
+                                                    <li><a href="xmas_dumalag.html">Dumalag</a></li>
+                                                    <li><a href="xmas_dumarao.html">Dumarao</a></li>
+                                                    <li><a href="xmas_mambusao.html">Mambusao</a></li>
+                                                    <li><a href="xmas_jamindan.html">Jamindan</a></li>
+                                                    <li><a href="xmas_tapaz.html">Tapaz</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <main class="page-main">
+      <div class="section-banner section-banner--home">
+        <div class="section-banner__bg" style="background-image: url(html/assets/img/bg-banner-home-1.jpg)">
+          <div class="uk-container">
+            <div class="section-banner__content">
+              <div class="section-banner__title">Lagaw Capiz E-Guide: <br> Your Ultimate Travel Companion</div>
+              <div class="section-banner__text">Discover top destinations, dining spots, local events, and helpful travel tips — all in one convenient app.</div>
+<div class="section-banner__form">
+  <br> <br> <br>
+  <div class="join-us__btn">
+    <a class="uk-button uk-button-danger pulse-animation" href="index1.html">Get Started</a>
+  </div>
+</div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<!-- insert here -->
+
+
+
+
+
+
+<div class="container position-relative">
+    <div class="row gy-4 mt-5">
+      <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-red">
+          <div class="icon"><i class="bi bi-pin-map text-white"></i></div>
+          <h4 class="title"><a href="#portfolio" class="stretched-link text-white">Featured Destinations</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+      <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-blue">
+          <div class="icon"><i class="bi bi-gem text-white"></i></div>
+          <h4 class="title"><a href="acc_list.html" class="stretched-link text-white">Accredited Tourism-Related Establishments</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+      <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-yellow">
+          <div class="icon"><i class="bi bi-info-square text-white"></i>&nbsp;&nbsp;<i class="bi bi-cart4 text-white"></i></div>
+          <h4 class="title"><a href="maragtas.html" class="stretched-link text-white">Maragtas <br>Tourist Info & Pasalubong Center</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+      <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-green">
+          <div class="icon"><i class="bi bi-telephone-outbound text-white"></i></div>
+          <h4 class="title"><a href="hotline.html" class="stretched-link text-white">Emergency Hotline</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+      <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-purple">
+                    <div class="icon"><i class="bi bi-cup-hot text-white"></i></div>
+          <h4 class="title"><a href="dine.html" class="stretched-link text-white">Where to Dine</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+      <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-orange">
+          <div class="icon"><i class="bi bi-people text-white"></i></div>
+          <h4 class="title"><a href="history1.html" class="stretched-link text-white">Our History</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+            <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-orange">
+          <div class="icon"><i class="bi bi-apple text-white"></i></div>
+          <h4 class="title"><a href="sandok.html" class="stretched-link text-white">Traditional Cuisines & Native Delicacies</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+      <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-brown">
+          
+          
+          
+          <div class="icon"><i class="bi bi-map text-white"></i>&nbsp;&nbsp;<i class="bi bi-rocket-takeoff text-white"></i></div>
+          <h4 class="title"><a href="celeb.html" class="stretched-link text-white">Calendar of Activities & Monthly Celebration</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+      <div class="col-xl-4 col-md-4">
+        <div class="icon-box box-gray">
+
+          
+                    <div class="icon"><i class="bi bi-puzzle text-white"></i>&nbsp;&nbsp;<i class="bi bi-rocket-takeoff text-white"></i></div>
+          <h4 class="title"><a href="new.html" class="stretched-link text-white">What's New</a></h4>
+        </div>
+      </div><!-- End Icon Box -->
+    </div>
+  </div>
+</div>
+  </div>
+
+</section>
+      
+      
+    
+      
+      <div class="section-featured">
+        <div class="uk-background-muted">
+          <div class="uk-section-large uk-container uk-container-expand">
+            <div class="section-title uk-text-center"><span>🎯 Discover Capiz with a Twist!🎯</span>
+              <h3 class="uk-h4">Swipe through exciting games and helpful guides that make discovering Capiz even more fun.</h3>
+            </div>
+            <div class="section-content">
+              <div data-uk-slider="sets: true">
+                <div class="uk-position-relative" tabindex="-1">
+                  <div class="uk-slider-container">
+                  <ul class="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-child-width-1-5@xl">
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="map edit.html"><img src="html/assets/img/map.jpg" alt="Planet Museum" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="map edit.html">MAP Challenge</a></div>
+                            <div class="listing-card">Test your knowledge of Capiz’s geography—can you ace it?</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="puzzle/index.html"><img src="html/assets/img/slide.jpg" alt="ZX Shopping Mall" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="puzzle/index.html">Puzzle Game</a></div>
+                            <div class="listing-card">A fun way to piece together iconic Capiz sights!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="wordgame/index.html"><img src="html/assets/img/pontevedra2.jpg" alt="Grandsol Hotel" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="wordgame/index.html">Quiz Bee</a></div>
+                            <div class="listing-card__">How well do you know Capiz? Take the quiz and find out!
+
+</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                  <a class="uk-position-top-left" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a><a class="uk-position-top-right" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+                </div>
+                  <div class="uk-hidden@s">
+                <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top"></ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+            <div class="section-featured">
+        <div class="uk-background-muted">
+          <div class="uk-section-large uk-container uk-container-expand">
+            <div class="section-title uk-text-center"><span>Capiz Christmas Festival 2024</span>
+              <h3 class="uk-h3">Paskwa sang Maragtas Christmas Village</h3>
+            </div>
+            <div class="section-content" >
+              <div data-uk-slider="sets: true">
+                <div class="uk-position-relative" tabindex="-1">
+                  <ul class="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-child-width-1-5@xl">
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_roxas.html"><img src="html/assets/img/roxas1.jpg" alt="Planet Museum" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_roxas.html">Roxas City</a></div>
+                            <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_panay.html"><img src="html/assets/img/panay1.jpg" alt="ZX Shopping Mall" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_panay.html">Panay</a></div>
+                            <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_pontevedra.html"><img src="html/assets/img/pontevedra1.jpg" alt="Grandsol Hotel" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_pontevedra.html">Pontevedra</a></div>
+                            <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_pres.html"><img src="html/assets/img/pres2.JPG" alt="Fadisy Restaurant" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_pres.html">President Roxas</a></div>
+                           <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_pilar.html"><img src="html/assets/img/pilar1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_pilar.html">Pilar</a></div>
+                            <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_panitan.html"><img src="html/assets/img/panitan1.jpg" alt="Planet Museum" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_panitan.html">Panitan</a></div>
+                            <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_maayon.html"><img src="html/assets/img/maayonban2.jpg" alt="ZX Shopping Mall" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_maayon.html">Maayon</a></div>
+                         <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_ivisan.html"><img src="html/assets/img/ivisan.jpg" alt="Grandsol Hotel" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_ivisan.html">Ivisan</a></div>
+                      <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_sigma.html"><img src="html/assets/img/sigma.jpg" alt="Fadisy Restaurant" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_sigma.html">Sigma</a></div>
+                         <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_dao.html"><img src="html/assets/img/dao1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_dao.html">Dao</a></div>
+                        <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                  <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_cuartero.html"><img src="html/assets/img/cuartero1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_cuartero.html">Cuartero</a></div>
+                          <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  
+                  <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_dumarao.html"><img src="html/assets/img/dumarao1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_dumarao.html">Dumarao</a></div>
+                     <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_dumalag.html"><img src="html/assets/img/dumalag1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_dumalag.html">Dumalag</a></div>
+                          <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_mambusao.html"><img src="html/assets/img/mambusao1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_mambusao.html">Mambusao</a></div>
+                      <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_sapian.html"><img src="html/assets/img/sapian1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_sapian.html">Sapian</a></div>
+                  <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_jamindan.html"><img src="html/assets/img/jamindan1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_jamindan.html">Jamindan</a></div>
+                       <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li>
+                      <div class="listing-card">
+                        <div class="listing-card__box">
+                          <div class="listing-card__media shine"><a href="xmas_tapaz.html"><img src="html/assets/img/tapaz1.jpg" alt="Caprid Cinema" /></a>
+
+                            <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
+                          </div>
+                          <div class="listing-card__body">
+                            <div class="listing-card__title"><a href="xmas_tapaz.html">Tapaz</a></div>
+                       <div class="listing-card__intro">Click here to know more!</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top" id="portfolio"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-popular"  >
+        <div class="uk-container uk-margin-large-bottom">
+          <div class="section-title uk-text-center" ><span><i>"Uncover the local treasures that make Capiz’s municipalities stand out, from natural wonders to rich traditions."</i></span>
+            <h3 class="uk-h3">Explore Capiz's Vibrant <br>Municipalities & Cities</h3>
+          </div>
+          <div class="section-content">
+            <div class="uk-child-width-1-2@l uk-grid-medium" uk-grid>
+              <div>
+                <div class="city-item city-item--roxas"><a class="city-item__box" href="50.html">
+                    <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/top50.JPG" alt="Roxas" data-uk-cover="data-uk-cover" />
+                      <div class="uk-overlay-primary uk-position-cover"></div>
+                      <div class="city-item__content uk-position-bottom">
+                        <div class="city-item__city">TOP TOURIST ATTRACTIONS</div>
+                        <div class="city-item__country">in the Province of Capiz</div>
+                      </div>
+                    </div>
+                  </a></div>
+              </div>
+              
+              <div class="section-title uk-text-center" >
+          </div>
+              
+              <div>
+                <div class="city-item city-item--roxas"><a class="city-item__box" href="t-roxas.html">
+                    <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/baybay.JPG" alt="Roxas" data-uk-cover="data-uk-cover" />
+                      <div class="uk-overlay-primary uk-position-cover"></div>
+                      <div class="city-item__content uk-position-bottom">
+                        <div class="city-item__city">Roxas City</div>
+                        <div class="city-item__country">Province of Capiz</div>
+                      </div>
+                    </div>
+                  </a></div>
+              </div>
+              <div>
+                <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-panay.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/panay1.jpg" alt="Paris" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Panay</div>
+                            <div class="city-item__country">Municipality of Panay, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-pontevedra.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/ponte1.jpg" alt="London" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Pontevedra</div>
+                            <div class="city-item__country">Municipality of Pontevedra, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="uk-child-width-1-2@l uk-grid-medium" uk-grid>
+              <div>
+                <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-pres.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/pres3.jpg" alt="Bangkok" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">President Roxas</div>
+                            <div class="city-item__country">Municipality of Pres. Roxas, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-pilar.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/pilar1.jpg" alt="Dubai" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Pilar</div>
+                            <div class="city-item__country">Municipality of Pilar, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-panitan.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/panitan2.jpg" alt="Paris" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Panitan</div>
+                            <div class="city-item__country">Municipality of Panitan, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-maayon.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/maayon1.JPG" alt="London" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Maayon</div>
+                            <div class="city-item__country">Municipality of Maayon, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="section-popular">
+        <div class="uk-container uk-margin-large-bottom">
+
+          <div class="section-content">
+            <div class="uk-child-width-1-2@l uk-grid-medium" uk-grid>
+              <div>
+                <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-ivisan.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/ivisan5.jpg" alt="Paris" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Ivisan</div>
+                            <div class="city-item__country">Municipality of Ivisan, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-sigma.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/sigma3.jpg" alt="London" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Sigma</div>
+                            <div class="city-item__country">Municipality of Sigma, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="uk-child-width-1-2@l uk-grid-medium" uk-grid>
+              <div>
+                <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-dao.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/dao1.jpg" alt="Bangkok" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Dao</div>
+                            <div class="city-item__country">Municipality of Dao, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-cuartero.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/ecopark2.jpg" alt="Dubai" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Cuartero</div>
+                            <div class="city-item__country">Municipality of Cuartero, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                    
+                </div>
+              </div>
+              <div>
+                <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-dumarao.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/dumarao2.jpg" alt="Paris" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Dumarao</div>
+                            <div class="city-item__country">Municipality of Dumarao, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-dumalag.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/dumalag3.jpg" alt="London" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Dumalag</div>
+                            <div class="city-item__country">Municipality of Dumalag, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                  <div>
+                    <div class="city-item city-item--sapian">
+                      <a class="city-item__box" href="t-sapian.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded">
+                          <img
+                            class="city-item__img"
+                            src="html/assets/img/index/sapian.JPG"
+                            alt="Sapian"
+                            data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Sapian</div>
+                            <div class="city-item__country">Municipality of Sapian, Capiz</div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+
+                  </div>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-mambusao.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/mambusao1.JPG" alt="London" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Mambusao</div>
+                            <div class="city-item__country">Municipality of Mambusao, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-jamindan.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/kabiton.JPG" alt="Paris" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Jamindan</div>
+                            <div class="city-item__country">Municipality of Jamindan, Capiz</div>
+                          </div>
+
+                        </div>
+                      </a></div>
+                  </div>
+                  <div>
+                    <div class="city-item"><a class="city-item__box" href="t-tapaz.html">
+                        <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/index/tapaz4.JPG" alt="London" data-uk-cover="data-uk-cover" />
+                          <div class="uk-overlay-primary uk-position-cover"></div>
+                          <div class="city-item__content uk-position-bottom">
+                            <div class="city-item__city">Tapaz</div>
+                            <div class="city-item__country">Municipality of Tapaz, Capiz</div>
+                          </div>
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <div class="section-blog">
+        <div class="uk-section-large uk-container">
+          <div class="section-title uk-text-center"><span>Places & Cities Must Visit This Summer</span>
+            <h3 class="uk-h3">Travel Guides </h3>
+          </div>
+          <div class="section-content">
+            <div data-uk-slider>
+              <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                <ul class="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m">
+                  <li>
+                    <div class="blog-card">
+                      <div class="blog-card__box">
+                        <div class="blog-card__media shine"><a href="ptcao_half day.html"><img src="html/assets/img/blog-thumb-1.jpg" alt="How To Spend Vacations" /></a></div>
+                        <div class="blog-card__body">
+                          <div class="blog-card__info">
+                            <div class="blog-card__category">Vacations, Break</div>
+                          </div>
+                          <div class="blog-card__title"> <a href="ptcao_half day.html">Half Day Tour</a></div>
+                          <div class="blog-card__intro">
+                            <p>Eiusmod temporl incididunt utys labore dolore magna aliqua sed enim audy</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="blog-card">
+                      <div class="blog-card__box">
+                        <div class="blog-card__media shine"><a href="ptcao_day 1.html"><img src="html/assets/img/blog-thumb-2.jpg" alt="Going Around Fun-Time" /></a></div>
+                        <div class="blog-card__body">
+                          <div class="blog-card__info">
+                            <div class="blog-card__category">Road Trips, Traveling</div>
+
+                          </div>
+                          <div class="blog-card__title"> <a href="ptcao_day 1.html">1 Day Tour</a></div>
+                          <div class="blog-card__intro">
+                            <p>Eiusmod temporl incididunt utys labore dolore magna aliqua sed enim audy</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="blog-card">
+                      <div class="blog-card__box">
+                        <div class="blog-card__media shine"><a href="ptcao_day 2.html"><img src="html/assets/img/blog-thumb-3.jpg" alt="Watch Movies Drama in NY" /></a></div>
+                        <div class="blog-card__body">
+                          <div class="blog-card__info">
+                            <div class="blog-card__category">Entertainment</div>
+
+                          </div>
+                          <div class="blog-card__title"> <a href="ptcao_day 2.html">2 Days Tour</a></div>
+                          <div class="blog-card__intro">
+                            <p>Eiusmod temporl incididunt utys labore dolore magna aliqua sed enim audy</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                <li>
+                    <div class="blog-card">
+                      <div class="blog-card__box">
+                        <div class="blog-card__media shine"><a href="ptcao_day 3.html"><img src="html/assets/img/blog-thumb-3.jpg" alt="Watch Movies Drama in NY" /></a></div>
+                        <div class="blog-card__body">
+                          <div class="blog-card__info">
+                            <div class="blog-card__category">Entertainment</div>
+
+                          </div>
+                          <div class="blog-card__title"> <a href="ptcao_day 3.html">3 Days Tour</a></div>
+                          <div class="blog-card__intro">
+                            <p>Eiusmod temporl incididunt utys labore dolore magna aliqua sed enim audy</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+    <div class="page-join-us">
+      <div class="uk-container">
+        <div class="join-us">
+          <div class="join-us__box">
+            <div class="join-us__title">Your Adventure Awaits</div>
+            <div class="join-us__text">Discover exciting destinations and plan your next adventure with a single click.</div>  
+            <div class="join-us__btn">
+              <a class="uk-button uk-button-danger pulse-animation" href="index1.html">Get Started</a>
+            </div>
+            <div class="section-banner__form">
+              <br />
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <div class="page-footer__top">
+        <div class="uk-container">
+          <div class="uk-grid" data-uk-grid>
+                        <div class="uk-width-1-3@m uk-width-1-2@s">
+                            <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
+                            <p><b>CAPIZ PROVINCIAL GOVERNMENT</b><br> PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br> <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i></p>
+                            <ul class="uk-list">
+                                <li> <span>Email: </span><a href="mailto:support@domain.com">support@domain.com</a></li>
+                                <li> <span>Phone: </span><a href="tel:104023513690">+1 (040) 2351 3690</a></li>
+                            </ul>
+                        </div>
+            <div class="uk-width-1-3@m uk-width-1-2@s uk-flex-last@m">
+              <h3 class="uk-h3">Downlaod our AR app Now!</h3>
+              <p>Continue exploring the great places.</p>
+              <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                <div><a href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"><img src="html/assets/img/PlayStore.svg" alt="PlayStore"></a></div>
+              </div>
+            </div>
+
+            <div class="uk-width-1-3@m uk-width-1-2@s uk-flex-last@m"> <p></p>
+              <h3 class="uk-h3">About the Developers</h3>
+
+              <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                <div><a href="06_about.html"><img src="html/assets/img/ico-info-listing-4.png" alt="PlayStore"></a></div>
+              </div>
+            </div>
+            <div class="uk-width-1-3@m uk-visible@s">
+              <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer__middle">
+        <div class="uk-container">
+          <div class="uk-grid uk-child-width-1-2@s" data-uk-grid>
+            <div>
+            </div>
+            <div>
+              <h3 class="uk-h3">Connect Socially</h3>
+              <ul class="social">
+                <li><a href="#!"><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
+                <li><a href="#!"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                <li><a href="#!"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                <li><a href="#!"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+            <div class="page-footer__bottom">
+                <div class="uk-container"><span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span></div>
+                <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
+            </div>
+      <div id="offcanvas" data-uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between"><button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
+          <div>
+            <div class="uk-margin">
+              <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
+            </div>
+            <div class="uk-margin-medium">
+              <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+                <li class="uk-parent"><a href="#!">Tourist Map</a>
+                  <ul class="uk-nav-sub">
+                    <li><a href="index1.html">Tourist Map</a></li>
+                  </ul>
+                </li>
+                <li class="uk-parent"><a href="#!">LGU</a>
+                  <ul class="uk-nav-sub">
+                                                    <li><a href="t-roxas.html">Roxas City</a></li>
+                                                    <li><a href="t-roxas.html">Panay</a></li>
+                                                    <li><a href="t-Pontevedra.html">Pontevedra</a></li>
+                                                    <li><a href="t-pres.html">Pres. Roxas</a></li>
+                                                    <li><a href="t-pilar.html">Pilar</a></li>
+                                                    <li><a href="t-panitan.html">Panitan</a></li>
+                                                    <li><a href="t-maayon.html">Maayon</a></li>
+                                                    <li><a href="t-cuartero.html">Cuartero</a></li>
+                                                    <li><a href="t-dao.html">Dao</a></li>
+                                                    <li><a href="t-sigma.html">Sigma</a></li>
+                                                    <li><a href="t-ivisan.html">Ivisan</a></li>
+                                                    <li><a href="t-sapian.html">Sapian</a></li>
+                                                    <li><a href="t-dumalag.html">Dumalag</a></li>
+                                                    <li><a href="t-dumarao.html">Dumarao</a></li>
+                                                    <li><a href="t-mambusao.html">Mambusao</a></li>
+                                                    <li><a href="t-jamindan.html">Jamindan</a></li>
+                                                    <li><a href="t-tapaz.html">Tapaz</a></li>
+                  </ul>
+                </li>
+                <li class="uk-parent"><a href="#!">Paskwa sang Maragtas Christmas Village</a>
+                  <ul class="uk-nav-sub">
+                    <li><a href="xmas_roxas.html">Roxas City</a></li>
+                                                    <li><a href="xmas_roxas.html">Panay</a></li>
+                                                    <li><a href="xmas_Pontevedra.html">Pontevedra</a></li>
+                                                    <li><a href="xmas_pres.html">Pres. Roxas</a></li>
+                                                    <li><a href="xmas_pilar.html">Pilar</a></li>
+                                                    <li><a href="xmas_panitan.html">Panitan</a></li>
+                                                    <li><a href="xmas_maayon.html">Maayon</a></li>
+                                                    <li><a href="xmas_cuartero.html">Cuartero</a></li>
+                                                    <li><a href="xmas_dao.html">Dao</a></li>
+                                                    <li><a href="xmas_sigma.html">Sigma</a></li>
+                                                    <li><a href="xmas_ivisan.html">Ivisan</a></li>
+                                                    <li><a href="xmas_sapian.html">Sapian</a></li>
+                                                    <li><a href="xmas_dumalag.html">Dumalag</a></li>
+                                                    <li><a href="xmas_dumarao.html">Dumarao</a></li>
+                                                    <li><a href="xmas_mambusao.html">Mambusao</a></li>
+                                                    <li><a href="xmas_jamindan.html">Jamindan</a></li>
+                                                    <li><a href="xmas_tapaz.html">Tapaz</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="html/assets/js/jquery.min.js"></script>
+  <script src="html/assets/js/uikit.min.js"></script>
+  <script src="html/assets/js/uikit-icons.min.js"></script>
+  <script src="html/assets/js/main.js"></script>
+</body>
+
+</html>
