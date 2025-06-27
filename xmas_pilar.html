@@ -1,450 +1,605 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-
-<head>
-    <base href="/capturecapiz/" />
-    <meta charset="utf-8">
-    <title>City place</title>
-    <meta content="Chernyh Mihail" name="author">
-    <meta content="Ecata - City Portal" name="description">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="format-detection" content="telephone=no">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="html/assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="html/assets/img/favicon/favicon-16x16.png">
-    <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="html/assets/css/uikit.min.css">
-    <link rel="stylesheet" href="html/assets/css/all.min.css">
-    <link rel="stylesheet" href="html/assets/css/simple-line-icons.css">
-    <link rel="stylesheet" href="html/assets/css/main.css">
+    <head>
+        <meta charset="utf-8" />
+        <title>City place</title>
+        <meta content="Chernyh Mihail" name="author" />
+        <meta content="Ecata - City Portal" name="description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="html/assets/img/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="html/assets/img/favicon/favicon-16x16.png" />
+        <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#2b5797" />
+        <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="html/assets/css/uikit.min.css" />
+        <link rel="stylesheet" href="html/assets/css/all.min.css" />
+        <link rel="stylesheet" href="html/assets/css/simple-line-icons.css" />
+        <link rel="stylesheet" href="html/assets/css/main.css" />
         <style>
-    /* styles.css */
-.container {
-  background: white;
-  border: 1px solid #ddd;
-  width: 360px;
-  text-align: center;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: auto;
-}
+                /* styles.css */
+            .container {
+              background: white;
+              border: 1px solid #ddd;
+              width: 360px;
+              text-align: center;
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              margin: auto;
+            }
 
-.browser-bar {
-  display: flex;
-  padding: 8px 16px;
-  background: #f5f5f5;
-}
+            .browser-bar {
+              display: flex;
+              padding: 8px 16px;
+              background: #f5f5f5;
+            }
 
-.circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
+            .circle {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              margin-right: 8px;
+            }
 
-.red {
-  background: #ff5f57;
-}
+            .red {
+              background: #ff5f57;
+            }
 
-.yellow {
-  background: #ffbd2e;
-}
+            .yellow {
+              background: #ffbd2e;
+            }
 
-.green {
-  background: #28c840;
-}
+            .green {
+              background: #28c840;
+            }
 
-.content {
-  padding: 32px 16px;
-}
+            .content {
+              padding: 32px 16px;
+            }
 
-h1 {
-  font-size: 72px;
-  color: #2c3e50;
-  margin: 0;
-}
+            h1 {
+              font-size: 72px;
+              color: #2c3e50;
+              margin: 0;
+            }
 
-p {
-  margin: 16px 0 24px;
-  color: #7f8c8d;
-  font-size: 18px;
-}
+            p {
+              margin: 16px 0 24px;
+              color: #7f8c8d;
+              font-size: 18px;
+            }
 
-.sad-face {
-  font-size: 48px;
-  margin-top: 16px;
-  color: #3498db;
-  animation: shake 1.5s infinite ease-in-out;
-}
+            .sad-face {
+              font-size: 48px;
+              margin-top: 16px;
+              color: #3498db;
+              animation: shake 1.5s infinite ease-in-out;
+            }
 
-/* Animation for the sad face */
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-}
-</style>
-    
-</head>
+            /* Animation for the sad face */
+            @keyframes shake {
+              0% { transform: translateX(0); }
+              25% { transform: translateX(-5px); }
+              50% { transform: translateX(5px); }
+              75% { transform: translateX(-5px); }
+              100% { transform: translateX(0); }
+            }
+            }
+        </style>
+    </head>
 
-<body class="page-listing-post">
-    <div class="page-wrapper">
-        <header class="page-header">
-            <div class="page-header__scroll" data-uk-sticky>
-                <div class="uk-container uk-container-xlarge">
-                    <div class="page-header__inner">
-                        <div class="page-header__left">
-                            <div class="page-header__logo logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
-                        </div>
-                     <div class="page-header__right">
-                            <div class="page-header__mainmenu">
-                                <nav class="mainmenu" data-uk-navbar="">
-                                    <ul class="uk-navbar-nav">
-                                        <li><a href=""> Home<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
-                                            <div class="uk-navbar-dropdown">
-                                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                    <li><a href="index1.html">Tourist Map</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="">LGU<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
-                                            <div class="uk-navbar-dropdown">
-                                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                    <li><a href="t-roxas.html">Roxas City</a></li>
-                                                    <li><a href="t-roxas.html">Panay</a></li>
-                                                    <li><a href="t-Pontevedra.html">Pontevedra</a></li>
-                                                    <li><a href="t-pres.html">Pres. Roxas</a></li>
-                                                    <li><a href="t-pilar.html">Pilar</a></li>
-                                                    <li><a href="t-panitan.html">Panitan</a></li>
-                                                    <li><a href="t-maayon.html">Maayon</a></li>
-                                                    <li><a href="t-cuartero.html">Cuartero</a></li>
-                                                    <li><a href="t-dao.html">Dao</a></li>
-                                                    <li><a href="t-sigma.html">Sigma</a></li>
-                                                    <li><a href="t-ivisan.html">Ivisan</a></li>
-                                                    <li><a href="t-sapian.html">Sapian</a></li>
-                                                    <li><a href="t-dumalag.html">Dumalag</a></li>
-                                                    <li><a href="t-dumarao.html">Dumarao</a></li>
-                                                    <li><a href="t-mambusao.html">Mambusao</a></li>
-                                                    <li><a href="t-jamindan.html">Jamindan</a></li>
-                                                    <li><a href="t-tapaz.html">Tapaz</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="">Paskwa sang Maragtas Christmas Village<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
-                                            <div class="uk-navbar-dropdown">
-                                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                   <li><a href="xmas_roxas.html">Roxas City</a></li>
-                                                    <li><a href="xmas_roxas.html">Panay</a></li>
-                                                    <li><a href="xmas_Pontevedra.html">Pontevedra</a></li>
-                                                    <li><a href="xmas_pres.html">Pres. Roxas</a></li>
-                                                    <li><a href="xmas_pilar.html">Pilar</a></li>
-                                                    <li><a href="xmas_panitan.html">Panitan</a></li>
-                                                    <li><a href="xmas_maayon.html">Maayon</a></li>
-                                                    <li><a href="xmas_cuartero.html">Cuartero</a></li>
-                                                    <li><a href="xmas_dao.html">Dao</a></li>
-                                                    <li><a href="xmas_sigma.html">Sigma</a></li>
-                                                    <li><a href="xmas_ivisan.html">Ivisan</a></li>
-                                                    <li><a href="xmas_sapian.html">Sapian</a></li>
-                                                    <li><a href="xmas_dumalag.html">Dumalag</a></li>
-                                                    <li><a href="xmas_dumarao.html">Dumarao</a></li>
-                                                    <li><a href="xmas_mambusao.html">Mambusao</a></li>
-                                                    <li><a href="xmas_jamindan.html">Jamindan</a></li>
-                                                    <li><a href="xmas_tapaz.html">Tapaz</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div class="page-header__sing-in"><a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i></a></div>
-                            <div class="page-header__btn-menu"><a href="#offcanvas" data-uk-toggle data-uk-icon="menu"></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <main class="page-main">
-            <div class="section-banner">
-                <div class="section-banner__bg" style="background-image: url(assets/img/paskwa/pilar2.jpg)">
-                    <div class="uk-container">
-                        <div class="section-banner__content">
-                            <div class="uk-grid uk-child-width-auto@m uk-flex-bottom" data-uk-grid>
-                                <div class="uk-width-expand@m">
-                                    <div class="section-banner__breadcrumb">
-                                    </div>
-                                    <div class="section-banner__title">Pilar Christmas Village<br>
-                                    <div class="section-banner__rating"> <span class="icon-star"></span><span>Capiz Christmas Festival 2024</span></div>
-                                    </div>
-                                </div>
-                                <div>
-
+    <body class="page-listing-post">
+        <div class="page-wrapper">
+            <header class="page-header">
+                <div class="page-header__scroll" data-uk-sticky>
+                    <div class="uk-container uk-container-xlarge">
+                        <div class="page-header__inner">
+                            <div class="page-header__left">
+                                <div class="page-header__logo logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-content">
-                <div class="uk-section-large uk-container">
-                    <div class="uk-grid uk-grid-medium" data-uk-grid>
-                        <div class="uk-width">
-                            <div class="section-city-place">
-                                <div class="uk-h3"><span class="icon-picture"></span>Photo Gallery</div>
-                                <div data-uk-slideshow="min-height: 300; max-height: 430">
-                                    <div class="uk-position-relative">
-                                        <ul class="uk-slideshow-items uk-child-width-1-1" data-uk-lightbox="animation: scale">
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/pilar/pilar1.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/pilar/pilar1.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/pilar/pilar2.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/pilar/pilar2.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/pilar/pilar3.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/pilar/pilar3.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/pilar/pilar4.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/pilar/pilar4.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/pilar/pilar5.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/pilar/pilar5.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                        </ul><a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a><a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
-                                    </div>
-                                    <div class="uk-margin-top" data-uk-slider>
-                                        <ul class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
-                                            <li data-uk-slideshow-item="0"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/pilar/pilar1.jpg" alt="img-gallery"></a></li>
-                                            <li data-uk-slideshow-item="1"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/pilar/pilar2.jpg" alt="img-gallery"></a></li>
-                                            <li data-uk-slideshow-item="2"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/pilar/pilar3.jpg" alt="img-gallery"></a></li>
-                                            <li data-uk-slideshow-item="3"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/pilar/pilar4.jpg" alt="img-gallery"></a></li>
-                                            <li data-uk-slideshow-item="4"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/pilar/pilar5.jpg" alt="img-gallery"></a></li>
+                            <div class="page-header__right">
+                                <div class="page-header__mainmenu">
+                                    <nav class="mainmenu" data-uk-navbar="">
+                                        <ul class="uk-navbar-nav">
+                                            <li>
+                                                <a href="">
+                                                    Home<span class="uk-icon" data-uk-icon="chevron-down"></span
+                                                ></a>
+                                                <div class="uk-navbar-dropdown">
+                                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                        <li><a href="index1.html">Tourist Map</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href=""
+                                                    >LGU<span class="uk-icon" data-uk-icon="chevron-down"></span
+                                                ></a>
+                                                <div class="uk-navbar-dropdown">
+                                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                        <li><a href="t-roxas.html">Roxas City</a></li>
+                                                        <li><a href="t-roxas.html">Panay</a></li>
+                                                        <li><a href="t-Pontevedra.html">Pontevedra</a></li>
+                                                        <li><a href="t-pres.html">Pres. Roxas</a></li>
+                                                        <li><a href="t-pilar.html">Pilar</a></li>
+                                                        <li><a href="t-panitan.html">Panitan</a></li>
+                                                        <li><a href="t-maayon.html">Maayon</a></li>
+                                                        <li><a href="t-cuartero.html">Cuartero</a></li>
+                                                        <li><a href="t-dao.html">Dao</a></li>
+                                                        <li><a href="t-sigma.html">Sigma</a></li>
+                                                        <li><a href="t-ivisan.html">Ivisan</a></li>
+                                                        <li><a href="t-sapian.html">Sapian</a></li>
+                                                        <li><a href="t-dumalag.html">Dumalag</a></li>
+                                                        <li><a href="t-dumarao.html">Dumarao</a></li>
+                                                        <li><a href="t-mambusao.html">Mambusao</a></li>
+                                                        <li><a href="t-jamindan.html">Jamindan</a></li>
+                                                        <li><a href="t-tapaz.html">Tapaz</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href=""
+                                                    >Paskwa sang Maragtas Christmas Village<span
+                                                        class="uk-icon"
+                                                        data-uk-icon="chevron-down"></span
+                                                ></a>
+                                                <div class="uk-navbar-dropdown">
+                                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                        <li><a href="xmas_roxas.html">Roxas City</a></li>
+                                                        <li><a href="xmas_roxas.html">Panay</a></li>
+                                                        <li><a href="xmas_Pontevedra.html">Pontevedra</a></li>
+                                                        <li><a href="xmas_pres.html">Pres. Roxas</a></li>
+                                                        <li><a href="xmas_pilar.html">Pilar</a></li>
+                                                        <li><a href="xmas_panitan.html">Panitan</a></li>
+                                                        <li><a href="xmas_maayon.html">Maayon</a></li>
+                                                        <li><a href="xmas_cuartero.html">Cuartero</a></li>
+                                                        <li><a href="xmas_dao.html">Dao</a></li>
+                                                        <li><a href="xmas_sigma.html">Sigma</a></li>
+                                                        <li><a href="xmas_ivisan.html">Ivisan</a></li>
+                                                        <li><a href="xmas_sapian.html">Sapian</a></li>
+                                                        <li><a href="xmas_dumalag.html">Dumalag</a></li>
+                                                        <li><a href="xmas_dumarao.html">Dumarao</a></li>
+                                                        <li><a href="xmas_mambusao.html">Mambusao</a></li>
+                                                        <li><a href="xmas_jamindan.html">Jamindan</a></li>
+                                                        <li><a href="xmas_tapaz.html">Tapaz</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
                                         </ul>
-                                        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
-                                    </div>
+                                    </nav>
+                                </div>
+                                <div class="page-header__sing-in">
+                                    <a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i></a>
+                                </div>
+                                <div class="page-header__btn-menu">
+                                    <a href="#offcanvas" data-uk-toggle data-uk-icon="menu"></a>
                                 </div>
                             </div>
-                            <hr class="uk-margin-large">
-                            <div class="section-city-place">
-                                <div class="uk-h3"><span class="icon-diamond"></span>Main Features</div>
-                                <div class="city-place-features">
-                                    <div class="uk-grid uk-grid-small uk-child-width-1-5@m uk-child-width-1-2 uk-grid-divider" data-uk-grid>
-                                        <div>
-                                            <div class="city-place-feature">
-                                                <div class="city-place-feature__item">
-                                                    
-                                                    <div class="city-place-feature__title">Cursam Forest Light Display</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="city-place-feature">
-                                                <div class="city-place-feature__item">
-                                                    
-                                                    <div class="city-place-feature__title">Barangay Parol Showcase</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="city-place-feature">
-                                                <div class="city-place-feature__item">
-                                                    
-                                                    <div class="city-place-feature__title">Grand Nativity Scene at Pilar Park</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="city-place-feature">
-                                                <div class="city-place-feature__item">
-                                                   
-                                                    <div class="city-place-feature__title">Municipal Hall Festivities</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="city-place-feature">
-                                                <div class="city-place-feature__item">
-                                                  
-                                                    <div class="city-place-feature__title">Community Collaboration</div>
-                                                </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="page-main">
+                <div class="section-banner">
+                    <div class="section-banner__bg" style="background-image: url(assets/img/paskwa/pilar2.jpg)">
+                        <div class="uk-container">
+                            <div class="section-banner__content">
+                                <div class="uk-grid uk-child-width-auto@m uk-flex-bottom" data-uk-grid>
+                                    <div class="uk-width-expand@m">
+                                        <div class="section-banner__breadcrumb"></div>
+                                        <div class="section-banner__title">
+                                            Pilar Christmas Village<br />
+                                            <div class="section-banner__rating">
+                                                <span class="icon-star"></span
+                                                ><span>Capiz Christmas Festival 2024</span>
                                             </div>
                                         </div>
                                     </div>
+                                    <div></div>
                                 </div>
                             </div>
-                            <hr class="uk-margin-large">
-                            <div class="section-city-place">
-                                <div class="uk-h3"><span class="icon-folder"></span>Brief Description</div>
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since its inception in 2005, the Maragtas sa Paskwa sang Pilar has become a shining beacon of joy and celebration, marking the birth of our Savior with light, unity, and community pride. This annual tradition brings life and vibrance to Pilar through dazzling displays of Christmas lights and decorations that brighten the Cursam Forest, homes, establishments, and streets extending throughout the town.
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="uk-section-large uk-container">
+                        <div class="uk-grid uk-grid-medium" data-uk-grid>
+                            <div class="uk-width">
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-picture"></span>Photo Gallery</div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/pilar/pilar1.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/pilar/pilar1.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/pilar/pilar2.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/pilar/pilar2.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/pilar/pilar3.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/pilar/pilar3.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/pilar/pilar4.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/pilar/pilar4.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/pilar/pilar5.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/pilar/pilar5.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/pilar/pilar1.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/pilar/pilar2.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/pilar/pilar3.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="3">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/pilar/pilar4.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="4">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/pilar/pilar5.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-diamond"></span>Main Features</div>
+                                    <div class="city-place-features">
+                                        <div
+                                            class="uk-grid uk-grid-small uk-child-width-1-5@m uk-child-width-1-2 uk-grid-divider"
+                                            data-uk-grid>
+                                            <div>
+                                                <div class="city-place-feature">
+                                                    <div class="city-place-feature__item">
+                                                        <div class="city-place-feature__title">
+                                                            Cursam Forest Light Display
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="city-place-feature">
+                                                    <div class="city-place-feature__item">
+                                                        <div class="city-place-feature__title">
+                                                            Barangay Parol Showcase
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="city-place-feature">
+                                                    <div class="city-place-feature__item">
+                                                        <div class="city-place-feature__title">
+                                                            Grand Nativity Scene at Pilar Park
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="city-place-feature">
+                                                    <div class="city-place-feature__item">
+                                                        <div class="city-place-feature__title">
+                                                            Municipal Hall Festivities
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="city-place-feature">
+                                                    <div class="city-place-feature__item">
+                                                        <div class="city-place-feature__title">
+                                                            Community Collaboration
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-folder"></span>Brief Description</div>
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The story of Christmas in PILAR began in 2005, bringing light to the celebration of the birth of our Almighty Savior. This occasion brought joy to many. The twinkling lights illuminated the trees in Cursam Park, homes, establishments, and streets in Poblacion, extending to its connecting roads. In the Municipality, everyone participated—families and barangay residents decorated large lanterns, Christmas trees, and Nativity displays. Competitions were also held to add excitement and showcase the skills of every Pilareño in expressing their creativity.
+
+                                    </p>
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The town continues this tradition of “Lights of Revival,” an enduring chapter that started last year under the Maragtas initiative, further strengthened in collaboration with the community, schools, and the Province of Capiz. To this day, the entire province unites in supporting this endeavor.
+
+                                    </p>
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The stunning spectacle begins along the roads of Barangays San Nicolas, Sta. Fe, San Esteban, San Blas, Natividad, Poblacion, Rosario, Cayus, San Fernando, and Dulangan. These barangays worked together to erect posts for the lanterns. The lanterns along the roads were carefully crafted by teachers and schools in Pilar.
+
+                                    </p>
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The lanterns, glowing in golden hues, symbolize enlightenment and hope for the mind and heart, guiding the way to the Holy Trinity Parish Church. In the town park, a large Nativity display symbolizes strong and perfect love for family, especially for this community. There are lights and decorated trees made possible by organizations, agencies, groups, and establishments in the town.
+
+                                    </p>
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Along Rizal Street, large lanterns made by barangays such as Sinamongan, San Pedro, San Antonio, Dayhagan, Balogo, Casanayan, San Ramon, Binaobawan, Monteflor, Blasco, Yating, Olalo, San Silvestre, and Tabun-acan create a festive atmosphere. The well-designed lights adorning the Municipal Hall exude the spirit of joy to the people and enhance the beauty of the surroundings for photography enthusiasts.
+
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Additionally, there are performances by groups from different barangay clusters to bring happiness to all. This activity symbolizes a “Merry Christmas and a Prosperous New Year!”
+                                    </p>
+                                </div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-control-play"></span>Intro Video</div>
+                                    <div class="video" data-uk-lightbox="video-autoplay:true; index: 1">
+                                        <a
+                                            href="https://www.youtube.com/watch?v=d6xByGw6PTs"
+                                            data-attrs="width: 1280; height: 720;"
+                                            data-caption="YouTube">
+                                            <img
+                                                class="uk-width-1-1"
+                                                src="assets/img/paskwa/pilar1.jpg"
+                                                alt="img-article"
+                                        /></a>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-map"></span>Location Map</div>
+                                    <div>
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1235.1737005075938!2d122.99702120465072!3d11.487020091016142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1733801977753!5m2!1sen!2sph"
+                                            class="uk-width-1-1 uk-height-large uk-border-rounded"></iframe>
+                                    </div>
+
+                                    <div class="map-navigation-button" style="text-align: center; margin-top: 20px">
+                                        <a
+                                            href="https://www.google.com/maps/dir/?api=1&origin=current+location&destination=11.486703, 122.997380"
+                                            target="_blank"
+                                            class="uk-button uk-button-danger">
+                                            Navigate in Google Maps
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <div class="page-footer__top">
+                    <div class="uk-container">
+                        <div class="uk-grid" data-uk-grid>
+                            <div class="uk-width-1-3@m uk-width-1-2@s">
+                                <div class="logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
+                                </div>
+                                <p>
+                                    <b>CAPIZ PROVINCIAL GOVERNMENT</b><br />
+                                    PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br />
+                                    <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i>
                                 </p>
-                                
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The whole municipality takes part in this festive endeavor, with households, barangays, and organizations contributing to the spectacle. Giant parols, Christmas trees, and nativity scenes are crafted with creativity and skill, showcasing the talent and ingenuity of the Pilarenyos. Competitions add to the excitement, encouraging participants to outshine one another while fostering a deeper sense of togetherness.</p>
-                                
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Themed “Kapawa sang Pag-Bangon,” this celebration symbolizes hope and resilience, especially in challenging times. Through the joint efforts of the community, schools, and the province, the event continues to evolve, becoming a cherished chapter in Pilar’s rich heritage.</p>
-                        
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From the streets of San Nicolas to Dulangan, each barangay contributes unique, vibrant parols to light up the roads, a task undertaken with dedication by teachers, students, and residents. These glowing yellow parols serve as guiding stars leading to the Santisima Trinidad Church, where faith and family are celebrated.</p>
-                                
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Pilar Park features a grand nativity scene symbolizing love and unity, surrounded by well-lit trees and decorations contributed by local organizations, agencies, and businesses. Along Rizal Street, the barangays create giant parols, each showcasing the creativity and solidarity of Pilar’s communities.</p>
-                                
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At the heart of it all is the Municipal Hall, beautifully adorned to embody the festive spirit of the season. It becomes a focal point for gatherings, performances, and photo opportunities, drawing locals and visitors alike to share in the celebration.</p>
-
-<p>The Maragtas sa Paskwa sang Pilar is more than just a visual treat—it’s a testament to the enduring spirit of the Pilarenyos, a celebration of their culture, unity, and faith.</p>
+                                <ul class="uk-list">
+                                    <li>
+                                        <span>Email: </span
+                                        ><a href="mailto:support@domain.com">capiz.tourism@gmail.com</a>
+                                    </li>
+                                    <li><span>Phone: </span><a href="tel:104023513690">(036) 621-2935</a></li>
+                                </ul>
                             </div>
-                            <hr class="uk-margin-large">
-                            <div class="section-city-place">
-                                <div class="uk-h3"><span class="icon-control-play"></span>Intro Video</div>
-                                <div class="video" data-uk-lightbox="video-autoplay:true; index: 1"><a href="https://www.youtube.com/watch?v=d6xByGw6PTs" data-attrs="width: 1280; height: 720;" data-caption="YouTube">
-                                    
-                                    
-                                    
-                                    
-                                    <img class="uk-width-1-1" src="assets/img/paskwa/pilar1.jpg" alt="img-article"></a></div>
+
+                            <div class="uk-width-2-5@m uk-width--2@s">
+                                <h3 class="uk-h3">Rate Us</h3>
+                                <p>
+                                    Your insights matter. Together, we can make Lagaw Capiz E-Guide the best travel
+                                    companion in Capiz.
+                                </p>
+                                <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                                    <div>
+                                        <a
+                                            href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"
+                                            ><img src="html/assets/img/rate.png" alt="PlayStore"
+                                        /></a>
+                                    </div>
+                                </div>
                             </div>
-                            <hr class="uk-margin-large">
-                            <div class="section-city-place">
-                                <div class="uk-h3"><span class="icon-map"></span>Location Map</div>
-                                <div><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1235.1737005075938!2d122.99702120465072!3d11.487020091016142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1733801977753!5m2!1sen!2sph" class="uk-width-1-1 uk-height-large uk-border-rounded"></iframe></div>
-                                
-                                <div class="map-navigation-button" style="text-align: center; margin-top: 20px;">
-    <a 
-        href="https://www.google.com/maps/dir/?api=1&origin=current+location&destination=11.486703, 122.997380" 
-        target="_blank" 
-        class="uk-button uk-button-danger">
-        Navigate in Google Maps
-    </a>
-</div>
-
+                            <div>
+                                <h3 class="uk-h3">Connect Socially</h3>
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://twitter.com/capturecapiz?lang=en"
+                                            ><i class="fab fa-twitter"></i><span>Twitter</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/"
+                                            ><i class="fab fa-facebook-f"></i><span>Facebook</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/@CaptureCapiz"
+                                            ><i class="fab fa-youtube"></i><span>YouTube</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/capturecapiz/?hl=en"
+                                            ><i class="fab fa-instagram"></i><span>Instagram</span></a
+                                        >
+                                    </li>
+                                </ul>
                             </div>
-                            <hr class="uk-margin-large">
-
-
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </main>
-        <footer class="page-footer">
-            <div class="page-footer__top">
-                <div class="uk-container">
-                    <div class="uk-grid" data-uk-grid>
-                        <div class="uk-width-1-3@m uk-width-1-2@s">
-                            <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
-                            <p><b>CAPIZ PROVINCIAL GOVERNMENT</b><br> PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br> <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i></p>
-                            <ul class="uk-list">
-                                <li> <span>Email: </span><a href="mailto:support@domain.com">support@domain.com</a></li>
-                                <li> <span>Phone: </span><a href="tel:104023513690">+1 (040) 2351 3690</a></li>
-                            </ul>
-                        </div>
 
-                                                <div class="uk-width-2-5@m uk-width--2@s">
-                            <h3 class="uk-h3">Download our AR app</h3>
-                            <p>Continue exploring the great places.</p>
-                            <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
-                                <div><a href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"><img src="html/assets/img/PlayStore.svg" alt="PlayStore" ></a></div>
-                            </div>
-                        </div>
+                <div class="page-footer__bottom">
+                    <div class="uk-container">
+                        <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span>
+                    </div>
+                    <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
+                </div>
+                <div id="offcanvas" data-uk-offcanvas="overlay: true">
+                    <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between">
+                        <button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
                         <div>
-                            <h3 class="uk-h3">Connect Socially</h3>
-                            <ul class="social">
-                                <li><a href="https://twitter.com/capturecapiz?lang=en"><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
-                                <li><a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
-                                <li><a href="https://www.youtube.com/@CaptureCapiz"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
-                                <li><a href="https://www.instagram.com/capturecapiz/?hl=en"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-footer__middle">
-                <div class="uk-container">
-                    <div class="uk-grid uk-child-width-1-2@s" data-uk-grid>
-                        <div>
-
-                            <div class="subscribe-form">
-                                <form>
-                                    <!-- Hidden Required Fields -->
-                                    <input type="hidden" name="project_name" value="Ecata - City Portal">
-                                    <input type="hidden" name="admin_email" value="chernyh.mihail@gmail.com">
-                                    <input type="hidden" name="form_subject" value="Form subscribe">
-                                    <!-- END Hidden Required Fields -->
-                                </form>
+                            <div class="uk-margin">
+                                <div class="logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
+                                </div>
+                            </div>
+                            <div class="uk-margin-medium">
+                                <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+                                    <li class="uk-parent">
+                                        <a href="#!">Home</a>
+                                        <ul class="uk-nav-sub">
+                                            <li><a href="index1.html">Tourist Map</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="uk-parent">
+                                        <a href="#!">LGU</a>
+                                        <ul class="uk-nav-sub">
+                                            <li><a href="t-roxas.html">Roxas City</a></li>
+                                            <li><a href="t-panay.html">Panay</a></li>
+                                            <li><a href="t-pontevedra.html">Pontevedra</a></li>
+                                            <li><a href="t-pres.html">Pres. Roxas</a></li>
+                                            <li><a href="t-pilar.html">Pilar</a></li>
+                                            <li><a href="t-panitan.html">Panitan</a></li>
+                                            <li><a href="t-maayon.html">Maayon</a></li>
+                                            <li><a href="t-cuartero.html">Cuartero</a></li>
+                                            <li><a href="t-dao.html">Dao</a></li>
+                                            <li><a href="t-sigma.html">Sigma</a></li>
+                                            <li><a href="t-ivisan.html">Ivisan</a></li>
+                                            <li><a href="t-sapian.html">Sapian</a></li>
+                                            <li><a href="t-dumalag.html">Dumalag</a></li>
+                                            <li><a href="t-dumarao.html">Dumarao</a></li>
+                                            <li><a href="t-mambusao.html">Mambusao</a></li>
+                                            <li><a href="t-jamindan.html">Jamindan</a></li>
+                                            <li><a href="t-tapaz.html">Tapaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="uk-parent">
+                                        <a href="#!">Paskwa sang Maragtas Christmas Village</a>
+                                        <ul class="uk-nav-sub">
+                                            <li><a href="xmas_roxas.html">Roxas City</a></li>
+                                            <li><a href="xmas_roxas.html">Panay</a></li>
+                                            <li><a href="xmas_pontevedra.html">Pontevedra</a></li>
+                                            <li><a href="xmas_pres.html">Pres. Roxas</a></li>
+                                            <li><a href="xmas_pilar.html">Pilar</a></li>
+                                            <li><a href="xmas_panitan.html">Panitan</a></li>
+                                            <li><a href="xmas_maayon.html">Maayon</a></li>
+                                            <li><a href="xmas_cuartero.html">Cuartero</a></li>
+                                            <li><a href="xmas_dao.html">Dao</a></li>
+                                            <li><a href="xmas_sigma.html">Sigma</a></li>
+                                            <li><a href="xmas_ivisan.html">Ivisan</a></li>
+                                            <li><a href="xmas_sapian.html">Sapian</a></li>
+                                            <li><a href="xmas_dumalag.html">Dumalag</a></li>
+                                            <li><a href="xmas_dumarao.html">Dumarao</a></li>
+                                            <li><a href="xmas_mambusao.html">Mambusao</a></li>
+                                            <li><a href="xmas_jamindan.html">Jamindan</a></li>
+                                            <li><a href="xmas_tapaz.html">Tapaz</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-
+                        <div></div>
                     </div>
                 </div>
-            </div>
-            <div class="page-footer__bottom">
-                <div class="uk-container"><span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span></div>
-                <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
-            </div>
-       <div id="offcanvas" data-uk-offcanvas="overlay: true">
-        <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between"><button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
-          <div>
-            <div class="uk-margin">
-              <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
-            </div>
-            <div class="uk-margin-medium">
-              <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
-                <li class="uk-parent"><a href="#!">Home</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="index1.html">Tourist Map</a></li>
-                  </ul>
-                </li>
-                <li class="uk-parent"><a href="#!">LGU</a>
-                  <ul class="uk-nav-sub">
-                                                    <li><a href="t-roxas.html">Roxas City</a></li>
-                                                    <li><a href="t-roxas.html">Panay</a></li>
-                                                    <li><a href="t-Pontevedra.html">Pontevedra</a></li>
-                                                    <li><a href="t-pres.html">Pres. Roxas</a></li>
-                                                    <li><a href="t-pilar.html">Pilar</a></li>
-                                                    <li><a href="t-panitan.html">Panitan</a></li>
-                                                    <li><a href="t-maayon.html">Maayon</a></li>
-                                                    <li><a href="t-cuartero.html">Cuartero</a></li>
-                                                    <li><a href="t-dao.html">Dao</a></li>
-                                                    <li><a href="t-sigma.html">Sigma</a></li>
-                                                    <li><a href="t-ivisan.html">Ivisan</a></li>
-                                                    <li><a href="t-sapian.html">Sapian</a></li>
-                                                    <li><a href="t-dumalag.html">Dumalag</a></li>
-                                                    <li><a href="t-dumarao.html">Dumarao</a></li>
-                                                    <li><a href="t-mambusao.html">Mambusao</a></li>
-                                                    <li><a href="t-jamindan.html">Jamindan</a></li>
-                                                    <li><a href="t-tapaz.html">Tapaz</a></li>
-                  </ul>
-                </li>
-                <li class="uk-parent"><a href="#!">Paskwa sang Maragtas Christmas Village</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="xmas_roxas.html">Roxas City</a></li>
-                                                    <li><a href="xmas_roxas.html">Panay</a></li>
-                                                    <li><a href="xmas_Pontevedra.html">Pontevedra</a></li>
-                                                    <li><a href="xmas_pres.html">Pres. Roxas</a></li>
-                                                    <li><a href="xmas_pilar.html">Pilar</a></li>
-                                                    <li><a href="xmas_panitan.html">Panitan</a></li>
-                                                    <li><a href="xmas_maayon.html">Maayon</a></li>
-                                                    <li><a href="xmas_cuartero.html">Cuartero</a></li>
-                                                    <li><a href="xmas_dao.html">Dao</a></li>
-                                                    <li><a href="xmas_sigma.html">Sigma</a></li>
-                                                    <li><a href="xmas_ivisan.html">Ivisan</a></li>
-                                                    <li><a href="xmas_sapian.html">Sapian</a></li>
-                                                    <li><a href="xmas_dumalag.html">Dumalag</a></li>
-                                                    <li><a href="xmas_dumarao.html">Dumarao</a></li>
-                                                    <li><a href="xmas_mambusao.html">Mambusao</a></li>
-                                                    <li><a href="xmas_jamindan.html">Jamindan</a></li>
-                                                    <li><a href="xmas_tapaz.html">Tapaz</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div>
-          </div>
+            </footer>
         </div>
-      </div>
-        </footer>
-    </div>
-    <script src="html/assets/js/jquery.min.js"></script>
-    <script src="html/assets/js/uikit.min.js"></script>
-    <script src="html/assets/js/uikit-icons.min.js"></script>
-    <script src="html/assets/js/main.js"></script>
-</body>
-
+        <script src="html/assets/js/jquery.min.js"></script>
+        <script src="html/assets/js/uikit.min.js"></script>
+        <script src="html/assets/js/uikit-icons.min.js"></script>
+        <script src="html/assets/js/main.js"></script>
+    </body>
 </html>

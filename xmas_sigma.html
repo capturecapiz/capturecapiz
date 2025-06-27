@@ -1,228 +1,334 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-
-<head>
-    <base href="/capturecapiz/" />
-    <meta charset="utf-8">
-    <title>City place</title>
-    <meta content="Chernyh Mihail" name="author">
-    <meta content="Ecata - City Portal" name="description">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="format-detection" content="telephone=no">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="html/assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="html/assets/img/favicon/favicon-16x16.png">
-    <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="html/assets/css/uikit.min.css">
-    <link rel="stylesheet" href="html/assets/css/all.min.css">
-    <link rel="stylesheet" href="html/assets/css/simple-line-icons.css">
-    <link rel="stylesheet" href="html/assets/css/main.css">
+    <head>
+        <meta charset="utf-8" />
+        <title>City place</title>
+        <meta content="Chernyh Mihail" name="author" />
+        <meta content="Ecata - City Portal" name="description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="html/assets/img/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="html/assets/img/favicon/favicon-16x16.png" />
+        <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#2b5797" />
+        <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="html/assets/css/uikit.min.css" />
+        <link rel="stylesheet" href="html/assets/css/all.min.css" />
+        <link rel="stylesheet" href="html/assets/css/simple-line-icons.css" />
+        <link rel="stylesheet" href="html/assets/css/main.css" />
         <style>
-    /* styles.css */
-.container {
-  background: white;
-  border: 1px solid #ddd;
-  width: 360px;
-  text-align: center;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: auto;
-}
+                /* styles.css */
+            .container {
+              background: white;
+              border: 1px solid #ddd;
+              width: 360px;
+              text-align: center;
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              margin: auto;
+            }
 
-.browser-bar {
-  display: flex;
-  padding: 8px 16px;
-  background: #f5f5f5;
-}
+            .browser-bar {
+              display: flex;
+              padding: 8px 16px;
+              background: #f5f5f5;
+            }
 
-.circle {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
+            .circle {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              margin-right: 8px;
+            }
 
-.red {
-  background: #ff5f57;
-}
+            .red {
+              background: #ff5f57;
+            }
 
-.yellow {
-  background: #ffbd2e;
-}
+            .yellow {
+              background: #ffbd2e;
+            }
 
-.green {
-  background: #28c840;
-}
+            .green {
+              background: #28c840;
+            }
 
-.content {
-  padding: 32px 16px;
-}
+            .content {
+              padding: 32px 16px;
+            }
 
-h1 {
-  font-size: 72px;
-  color: #2c3e50;
-  margin: 0;
-}
+            h1 {
+              font-size: 72px;
+              color: #2c3e50;
+              margin: 0;
+            }
 
-p {
-  margin: 16px 0 24px;
-  color: #7f8c8d;
-  font-size: 18px;
-}
+            p {
+              margin: 16px 0 24px;
+              color: #7f8c8d;
+              font-size: 18px;
+            }
 
-.sad-face {
-  font-size: 48px;
-  margin-top: 16px;
-  color: #3498db;
-  animation: shake 1.5s infinite ease-in-out;
-}
+            .sad-face {
+              font-size: 48px;
+              margin-top: 16px;
+              color: #3498db;
+              animation: shake 1.5s infinite ease-in-out;
+            }
 
-/* Animation for the sad face */
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-}
-</style>
-</head>
+            /* Animation for the sad face */
+            @keyframes shake {
+              0% { transform: translateX(0); }
+              25% { transform: translateX(-5px); }
+              50% { transform: translateX(5px); }
+              75% { transform: translateX(-5px); }
+              100% { transform: translateX(0); }
+            }
+            }
+        </style>
+    </head>
 
-<body class="page-listing-post">
-    <div class="page-wrapper">
-        <header class="page-header">
-            <div class="page-header__scroll" data-uk-sticky>
-                <div class="uk-container uk-container-xlarge">
-                    <div class="page-header__inner">
-                        <div class="page-header__left">
-                            <div class="page-header__logo logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
-                        </div>
-                   <div class="page-header__right">
-                            <div class="page-header__mainmenu">
-                                <nav class="mainmenu" data-uk-navbar="">
-                                    <ul class="uk-navbar-nav">
-                                        <li><a href=""> Home<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
-                                            <div class="uk-navbar-dropdown">
-                                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                    <li><a href="index1.html">Tourist Map</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="">LGU<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
-                                            <div class="uk-navbar-dropdown">
-                                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                    <li><a href="t-roxas.html">Roxas City</a></li>
-                                                    <li><a href="t-roxas.html">Panay</a></li>
-                                                    <li><a href="t-Pontevedra.html">Pontevedra</a></li>
-                                                    <li><a href="t-pres.html">Pres. Roxas</a></li>
-                                                    <li><a href="t-pilar.html">Pilar</a></li>
-                                                    <li><a href="t-panitan.html">Panitan</a></li>
-                                                    <li><a href="t-maayon.html">Maayon</a></li>
-                                                    <li><a href="t-cuartero.html">Cuartero</a></li>
-                                                    <li><a href="t-dao.html">Dao</a></li>
-                                                    <li><a href="t-sigma.html">Sigma</a></li>
-                                                    <li><a href="t-ivisan.html">Ivisan</a></li>
-                                                    <li><a href="t-sapian.html">Sapian</a></li>
-                                                    <li><a href="t-dumalag.html">Dumalag</a></li>
-                                                    <li><a href="t-dumarao.html">Dumarao</a></li>
-                                                    <li><a href="t-mambusao.html">Mambusao</a></li>
-                                                    <li><a href="t-jamindan.html">Jamindan</a></li>
-                                                    <li><a href="t-tapaz.html">Tapaz</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="">Paskwa sang Maragtas Christmas Village<span class="uk-icon" data-uk-icon="chevron-down"></span></a>
-                                            <div class="uk-navbar-dropdown">
-                                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                   <li><a href="xmas_roxas.html">Roxas City</a></li>
-                                                    <li><a href="xmas_roxas.html">Panay</a></li>
-                                                    <li><a href="xmas_Pontevedra.html">Pontevedra</a></li>
-                                                    <li><a href="xmas_pres.html">Pres. Roxas</a></li>
-                                                    <li><a href="xmas_pilar.html">Pilar</a></li>
-                                                    <li><a href="xmas_panitan.html">Panitan</a></li>
-                                                    <li><a href="xmas_maayon.html">Maayon</a></li>
-                                                    <li><a href="xmas_cuartero.html">Cuartero</a></li>
-                                                    <li><a href="xmas_dao.html">Dao</a></li>
-                                                    <li><a href="xmas_sigma.html">Sigma</a></li>
-                                                    <li><a href="xmas_ivisan.html">Ivisan</a></li>
-                                                    <li><a href="xmas_sapian.html">Sapian</a></li>
-                                                    <li><a href="xmas_dumalag.html">Dumalag</a></li>
-                                                    <li><a href="xmas_dumarao.html">Dumarao</a></li>
-                                                    <li><a href="xmas_mambusao.html">Mambusao</a></li>
-                                                    <li><a href="xmas_jamindan.html">Jamindan</a></li>
-                                                    <li><a href="xmas_tapaz.html">Tapaz</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div class="page-header__sing-in"><a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i></a></div>
-                            <div class="page-header__btn-menu"><a href="#offcanvas" data-uk-toggle data-uk-icon="menu"></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <main class="page-main">
-            <div class="section-banner">
-                <div class="section-banner__bg" style="background-image: url(assets/img/paskwa/sigma2.jpg)">
-                    <div class="uk-container">
-                        <div class="section-banner__content">
-                            <div class="uk-grid uk-child-width-auto@m uk-flex-bottom" data-uk-grid>
-                                <div class="uk-width-expand@m">
-                                    <div class="section-banner__breadcrumb">
-                                    </div>
-                                    <div class="section-banner__title">Sigma Christmas Village<br>
-                                    <div class="section-banner__rating"> <span class="icon-star"></span><span>Capiz Christmas Festival 2024</span></div>
-                                    </div>
-                                </div>
-                                <div>
-
+    <body class="page-listing-post">
+        <div class="page-wrapper">
+            <header class="page-header">
+                <div class="page-header__scroll" data-uk-sticky>
+                    <div class="uk-container uk-container-xlarge">
+                        <div class="page-header__inner">
+                            <div class="page-header__left">
+                                <div class="page-header__logo logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-content">
-                <div class="uk-section-large uk-container">
-                    <div class="uk-grid uk-grid-medium" data-uk-grid>
-                        <div class="uk-width">
-                            <div class="section-city-place">
-                                <div class="uk-h3"><span class="icon-picture"></span>Photo Gallery</div>
-                                <div data-uk-slideshow="min-height: 300; max-height: 430">
-                                    <div class="uk-position-relative">
-                                        <ul class="uk-slideshow-items uk-child-width-1-1" data-uk-lightbox="animation: scale">
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/sigma/sigma1.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/sigma/sigma1.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/sigma/sigma2.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/ssigma/sigma2.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/sigma/sigma3.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/sigma/sigma3.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/sigma/sigma4.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/sigma/sigma4.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                            <li class="uk-border-rounded"><a href="assets/img/paskwa/sigma/sigma5.jpg"><img class="uk-width-1-1" src="assets/img/paskwa/sigma/sigma5.jpg" alt="img-gallery" data-uk-cover></a></li>
-                                        </ul><a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a><a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
-                                    </div>
-                                    <div class="uk-margin-top" data-uk-slider>
-                                        <ul class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
-                                            <li data-uk-slideshow-item="0"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/sigma/sigma1.jpg" alt="img-gallery"></a></li>
-                                            <li data-uk-slideshow-item="1"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/sigma/sigma2.jpg" alt="img-gallery"></a></li>
-                                            <li data-uk-slideshow-item="2"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/sigma/sigma3.jpg" alt="img-gallery"></a></li>
-                                            <li data-uk-slideshow-item="3"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/sigma/sigma4.jpg" alt="img-gallery"></a></li>
-                                            <li data-uk-slideshow-item="4"><a href="#"><img class="uk-border-rounded" src="assets/img/paskwa/sigma/sigma5.jpg" alt="img-gallery"></a></li>
+                            <div class="page-header__right">
+                                <div class="page-header__mainmenu">
+                                    <nav class="mainmenu" data-uk-navbar="">
+                                        <ul class="uk-navbar-nav">
+                                            <li>
+                                                <a href="">
+                                                    Home<span class="uk-icon" data-uk-icon="chevron-down"></span
+                                                ></a>
+                                                <div class="uk-navbar-dropdown">
+                                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                        <li><a href="index1.html">Tourist Map</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href=""
+                                                    >LGU<span class="uk-icon" data-uk-icon="chevron-down"></span
+                                                ></a>
+                                                <div class="uk-navbar-dropdown">
+                                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                        <li><a href="t-roxas.html">Roxas City</a></li>
+                                                        <li><a href="t-roxas.html">Panay</a></li>
+                                                        <li><a href="t-Pontevedra.html">Pontevedra</a></li>
+                                                        <li><a href="t-pres.html">Pres. Roxas</a></li>
+                                                        <li><a href="t-pilar.html">Pilar</a></li>
+                                                        <li><a href="t-panitan.html">Panitan</a></li>
+                                                        <li><a href="t-maayon.html">Maayon</a></li>
+                                                        <li><a href="t-cuartero.html">Cuartero</a></li>
+                                                        <li><a href="t-dao.html">Dao</a></li>
+                                                        <li><a href="t-sigma.html">Sigma</a></li>
+                                                        <li><a href="t-ivisan.html">Ivisan</a></li>
+                                                        <li><a href="t-sapian.html">Sapian</a></li>
+                                                        <li><a href="t-dumalag.html">Dumalag</a></li>
+                                                        <li><a href="t-dumarao.html">Dumarao</a></li>
+                                                        <li><a href="t-mambusao.html">Mambusao</a></li>
+                                                        <li><a href="t-jamindan.html">Jamindan</a></li>
+                                                        <li><a href="t-tapaz.html">Tapaz</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href=""
+                                                    >Paskwa sang Maragtas Christmas Village<span
+                                                        class="uk-icon"
+                                                        data-uk-icon="chevron-down"></span
+                                                ></a>
+                                                <div class="uk-navbar-dropdown">
+                                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                        <li><a href="xmas_roxas.html">Roxas City</a></li>
+                                                        <li><a href="xmas_roxas.html">Panay</a></li>
+                                                        <li><a href="xmas_Pontevedra.html">Pontevedra</a></li>
+                                                        <li><a href="xmas_pres.html">Pres. Roxas</a></li>
+                                                        <li><a href="xmas_pilar.html">Pilar</a></li>
+                                                        <li><a href="xmas_panitan.html">Panitan</a></li>
+                                                        <li><a href="xmas_maayon.html">Maayon</a></li>
+                                                        <li><a href="xmas_cuartero.html">Cuartero</a></li>
+                                                        <li><a href="xmas_dao.html">Dao</a></li>
+                                                        <li><a href="xmas_sigma.html">Sigma</a></li>
+                                                        <li><a href="xmas_ivisan.html">Ivisan</a></li>
+                                                        <li><a href="xmas_sapian.html">Sapian</a></li>
+                                                        <li><a href="xmas_dumalag.html">Dumalag</a></li>
+                                                        <li><a href="xmas_dumarao.html">Dumarao</a></li>
+                                                        <li><a href="xmas_mambusao.html">Mambusao</a></li>
+                                                        <li><a href="xmas_jamindan.html">Jamindan</a></li>
+                                                        <li><a href="xmas_tapaz.html">Tapaz</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
                                         </ul>
-                                        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
-                                    </div>
+                                    </nav>
+                                </div>
+                                <div class="page-header__sing-in">
+                                    <a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i></a>
+                                </div>
+                                <div class="page-header__btn-menu">
+                                    <a href="#offcanvas" data-uk-toggle data-uk-icon="menu"></a>
                                 </div>
                             </div>
-                            <hr class="uk-margin-large">
-                            <div class="section-city-place">
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="page-main">
+                <div class="section-banner">
+                    <div class="section-banner__bg" style="background-image: url(assets/img/paskwa/sigma2.jpg)">
+                        <div class="uk-container">
+                            <div class="section-banner__content">
+                                <div class="uk-grid uk-child-width-auto@m uk-flex-bottom" data-uk-grid>
+                                    <div class="uk-width-expand@m">
+                                        <div class="section-banner__breadcrumb"></div>
+                                        <div class="section-banner__title">
+                                            Sigma Christmas Village<br />
+                                            <div class="section-banner__rating">
+                                                <span class="icon-star"></span
+                                                ><span>Capiz Christmas Festival 2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="uk-section-large uk-container">
+                        <div class="uk-grid uk-grid-medium" data-uk-grid>
+                            <div class="uk-width">
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-picture"></span>Photo Gallery</div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/sigma/sigma1.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/sigma/sigma1.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/sigma/sigma2.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/ssigma/sigma2.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/sigma/sigma3.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/sigma/sigma3.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/sigma/sigma4.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/sigma/sigma4.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="assets/img/paskwa/sigma/sigma5.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="assets/img/paskwa/sigma/sigma5.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/sigma/sigma1.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/sigma/sigma2.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/sigma/sigma3.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="3">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/sigma/sigma4.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="4">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="assets/img/paskwa/sigma/sigma5.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
+                                <!--  <div class="section-city-place">
                                 <div class="uk-h3"><span class="icon-diamond"></span>Main Features</div>
                                 <div class="city-place-features">
                                     <div class="uk-grid uk-grid-small uk-child-width-1-5@m uk-child-width-1-2 uk-grid-divider" data-uk-grid>
@@ -268,13 +374,12 @@ p {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <hr class="uk-margin-large">
-                         <div class="section-city-place">
-                            <div class="uk-h3"><span class="icon-folder"></span>Brief Description</div>
-                            
-                            
-                              <div class="container">
+                            </div>-->
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-folder"></span>Brief Description</div>
+
+                                    <!--  <div class="container">
     <div class="browser-bar">
       <div class="circle red"></div>
       <div class="circle yellow"></div>
@@ -289,179 +394,240 @@ p {
         😔
       </div>
     </div>
-  </div>
-                            
-                            <!--  
-                              
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Christmas season, the Maayon Christmas Village is set to enchant visitors with a festive celebration that captures the true spirit of Christmas. At its heart is the Nativity Scene, reminding everyone of the season's real reason—Jesus Christ.</p>
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With the theme <b>“Paskwa ni JuOne”</b>, the village blends timeless Christmas traditions with the unique charm of Maayon, Capiz. From sparkling Christmas trees and glowing stars to oversized, eye-catching displays of local products like corn, rice, sugarcane, coconut, and cacao, every corner celebrates the beauty of the town’s culture and resources.</p>
-                                
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centerpiece of it all is the Golden Charm Square, named after Maayon’s title as <b>“The Golden Charm of Capiz.”</b> This beautifully landscaped area features a grand fountain, vibrant lights, and carefully designed decorations that make it a must-see both during the day and at night. It’s the perfect spot for family photos and Instagram-worthy moments!</p>
-                        
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The festive vibe starts even before you enter the village. Imagine being greeted by colorful street lanterns, a landscaped highway island, and beautifully adorned welcome arcs as you approach the town. The cheerful atmosphere is impossible to miss!</p>
-                                
-                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Whether you’re exploring the twinkling lights, admiring the creative displays, or soaking in the joyful ambiance, you’ll feel the warmth of a Filipino Christmas. It’s a place where tradition meets creativity, and everyone is welcome to celebrate.</p>
-                                
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don’t miss the magic of Maayon Christmas Village 2024—a holiday experience that’s bright, beautiful, and uniquely Pinoy!</p>
-                             -->
+  </div>-->
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This Christmas season, the Maayon Christmas Village is set to enchant visitors
+                                        with a festive celebration that captures the true spirit of Christmas. At its
+                                        heart is the Nativity Scene, reminding everyone of the season's real
+                                        reason—Jesus Christ.
+                                    </p>
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Paskong Pinoy celebration will feature unique, native designs, including
+parols crafted with local materials that reflect our cultural identity. We will incorporate
+natural elements like bamboo, coconut leaves, and coconut fibers, lending an
+authentic touch to the festivities. The Christmas Village will also showcase traditional
+bahay kubo (nipa huts) adorned with colorful lights, parols, and festive decorations,
+accompanied by the joyful sounds of Christmas hymns that evoke the warmth of
+Filipino homes during the holiday season. This space will serve not only as a
+celebration venue but also as an opportunity for community bonding, reinforcing the
+Filipino values of togetherness and generosity.
+                                    </p>
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The PASKWA ni JUONE Capiz event will have a transformative impact on the
+town of Sigma, creating a powerful sense of identity and pride that resonates
+throughout the community. By celebrating Filipino Christmas traditions through the
+Maragtas Christmas Village Competition, Sigma becomes more than a venue, it
+becomes a cultural beacon that draws locals and visitors alike to experience the
+distinct beauty of Paskong Pinoy.
+                                    </p>
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This event will not only boost tourism, but it will also deepen community ties,
+uniting residents in a shared appreciation of heritage. Such a celebration underscores
+Sigma’s role as the "Heart of Capiz," reminding all who attend of the richness of
+Filipino traditions and the warmth of Filipino hospitality. Through this event, we aim to
+foster a strong sense of community, honor our cultural roots, and create a joyful
+space where families and friends can share unforgettable moments. The Paskong
+Pinoy Christmas Village will not only be a delightful experience but also a tribute to
+the enduring spirit of Filipino hospitality and resilience.
+                                    </p>
+
+                                    <p>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By celebrating the Christmas season, the Municipality of Sigma aspires to
+strengthen feelings of belonging and joy, connecting friends and family through
+cherished customs, beloved traditions, and the creation of new memories.
+                                    </p>
+
                                 </div>
-                            <hr class="uk-margin-large">
-                            <div class="section-city-place">
-                                <div class="uk-h3"><span class="icon-control-play"></span>Intro Video</div>
-                                <div class="video" data-uk-lightbox="video-autoplay:true; index: 1"><a href="https://www.youtube.com/watch?v=Iu664xWf6WI" data-attrs="width: 1280; height: 720;" data-caption="YouTube">
-                                    
-                                    
-                                    
-                                    
-                                    <img class="uk-width-1-1" src="assets/img/paskwa/sigma.jpg" alt="img-article"></a></div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-control-play"></span>Intro Video</div>
+                                    <div class="video" data-uk-lightbox="video-autoplay:true; index: 1">
+                                        <a
+                                            href="https://www.youtube.com/watch?v=Iu664xWf6WI"
+                                            data-attrs="width: 1280; height: 720;"
+                                            data-caption="YouTube">
+                                            <img
+                                                class="uk-width-1-1"
+                                                src="assets/img/paskwa/sigma.jpg"
+                                                alt="img-article"
+                                        /></a>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-map"></span>Location Map</div>
+                                    <div>
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d300.8358228703728!2d122.66535613252364!3d11.42213107228657!2m3!1f0!2f1.474975070894404!3f0!3m2!1i1024!2i768!4f50.50457884811823!3m3!1m2!1s0x33af6107168bfd09%3A0xdd8940b050ec304e!2sSigma%20Town%20Plaza%2C%20Ponsaran%20St.%2C%20Sigma%2C%205816%20Capiz!5e1!3m2!1sen!2sph"
+                                            class="uk-width-1-1 uk-height-large uk-border-rounded"></iframe>
+                                    </div>
+
+                                    <div class="map-navigation-button" style="text-align: center; margin-top: 20px">
+                                        <a
+                                            href="https://www.google.com/maps/dir/?api=1&origin=current+location&destination=11.422330, 122.665589"
+                                            target="_blank"
+                                            class="uk-button uk-button-danger">
+                                            Navigate in Google Maps
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
                             </div>
-                            <hr class="uk-margin-large">
-                            <div class="section-city-place">
-                                <div class="uk-h3"><span class="icon-map"></span>Location Map</div>
-                                <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d300.8358228703728!2d122.66535613252364!3d11.42213107228657!2m3!1f0!2f1.474975070894404!3f0!3m2!1i1024!2i768!4f50.50457884811823!3m3!1m2!1s0x33af6107168bfd09%3A0xdd8940b050ec304e!2sSigma%20Town%20Plaza%2C%20Ponsaran%20St.%2C%20Sigma%2C%205816%20Capiz!5e1!3m2!1sen!2sph" class="uk-width-1-1 uk-height-large uk-border-rounded"></iframe></div>
-                                
-                                <div class="map-navigation-button" style="text-align: center; margin-top: 20px;">
-    <a 
-        href="https://www.google.com/maps/dir/?api=1&origin=current+location&destination=11.422330, 122.665589" 
-        target="_blank" 
-        class="uk-button uk-button-danger">
-        Navigate in Google Maps
-    </a>
-</div>
-
-                            </div>
-                            <hr class="uk-margin-large">
-
-
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </main>
-        <footer class="page-footer">
-            <div class="page-footer__top">
-                <div class="uk-container">
-                    <div class="uk-grid" data-uk-grid>
-                        <div class="uk-width-1-3@m uk-width-1-2@s">
-                            <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
-                            <p><b>CAPIZ PROVINCIAL GOVERNMENT</b><br> PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br> <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i></p>
-                            <ul class="uk-list">
-                                <li> <span>Email: </span><a href="mailto:support@domain.com">support@domain.com</a></li>
-                                <li> <span>Phone: </span><a href="tel:104023513690">+1 (040) 2351 3690</a></li>
-                            </ul>
-                        </div>
+            </main>
+            <footer class="page-footer">
+                <div class="page-footer__top">
+                    <div class="uk-container">
+                        <div class="uk-grid" data-uk-grid>
+                            <div class="uk-width-1-3@m uk-width-1-2@s">
+                                <div class="logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
+                                </div>
+                                <p>
+                                    <b>CAPIZ PROVINCIAL GOVERNMENT</b><br />
+                                    PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br />
+                                    <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i>
+                                </p>
+                                <ul class="uk-list">
+                                    <li>
+                                        <span>Email: </span
+                                        ><a href="mailto:support@domain.com">capiz.tourism@gmail.com</a>
+                                    </li>
+                                    <li><span>Phone: </span><a href="tel:104023513690">(036) 621-2935</a></li>
+                                </ul>
+                            </div>
 
-                                                <div class="uk-width-2-5@m uk-width--2@s">
-                            <h3 class="uk-h3">Download our AR app</h3>
-                            <p>Continue exploring the great places.</p>
-                            <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
-                                <div><a href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"><img src="html/assets/img/PlayStore.svg" alt="PlayStore" ></a></div>
+                            <div class="uk-width-2-5@m uk-width--2@s">
+                                <h3 class="uk-h3">Rate Us</h3>
+                                <p>
+                                    Your insights matter. Together, we can make Lagaw Capiz E-Guide the best travel
+                                    companion in Capiz.
+                                </p>
+                                <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                                    <div>
+                                        <a
+                                            href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"
+                                            ><img src="html/assets/img/rate.png" alt="PlayStore"
+                                        /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="uk-h3">Connect Socially</h3>
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://twitter.com/capturecapiz?lang=en"
+                                            ><i class="fab fa-twitter"></i><span>Twitter</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/"
+                                            ><i class="fab fa-facebook-f"></i><span>Facebook</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/@CaptureCapiz"
+                                            ><i class="fab fa-youtube"></i><span>YouTube</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/capturecapiz/?hl=en"
+                                            ><i class="fab fa-instagram"></i><span>Instagram</span></a
+                                        >
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="page-footer__bottom">
+                    <div class="uk-container">
+                        <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span>
+                    </div>
+                    <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
+                </div>
+                <div id="offcanvas" data-uk-offcanvas="overlay: true">
+                    <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between">
+                        <button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
                         <div>
-                            <h3 class="uk-h3">Connect Socially</h3>
-                            <ul class="social">
-                                <li><a href="https://twitter.com/capturecapiz?lang=en"><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
-                                <li><a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
-                                <li><a href="https://www.youtube.com/@CaptureCapiz"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
-                                <li><a href="https://www.instagram.com/capturecapiz/?hl=en"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-footer__middle">
-                <div class="uk-container">
-                    <div class="uk-grid uk-child-width-1-2@s" data-uk-grid>
-                        <div>
-
-                            <div class="subscribe-form">
-                                <form>
-                                    <!-- Hidden Required Fields -->
-                                    <input type="hidden" name="project_name" value="Ecata - City Portal">
-                                    <input type="hidden" name="admin_email" value="chernyh.mihail@gmail.com">
-                                    <input type="hidden" name="form_subject" value="Form subscribe">
-                                    <!-- END Hidden Required Fields -->
-                                </form>
+                            <div class="uk-margin">
+                                <div class="logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
+                                </div>
+                            </div>
+                            <div class="uk-margin-medium">
+                                <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+                                    <li class="uk-parent">
+                                        <a href="#!">Home</a>
+                                        <ul class="uk-nav-sub">
+                                            <li><a href="index1.html">Tourist Map</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="uk-parent">
+                                        <a href="#!">LGU</a>
+                                        <ul class="uk-nav-sub">
+                                            <li><a href="t-roxas.html">Roxas City</a></li>
+                                            <li><a href="t-panay.html">Panay</a></li>
+                                            <li><a href="t-pontevedra.html">Pontevedra</a></li>
+                                            <li><a href="t-pres.html">Pres. Roxas</a></li>
+                                            <li><a href="t-pilar.html">Pilar</a></li>
+                                            <li><a href="t-panitan.html">Panitan</a></li>
+                                            <li><a href="t-maayon.html">Maayon</a></li>
+                                            <li><a href="t-cuartero.html">Cuartero</a></li>
+                                            <li><a href="t-dao.html">Dao</a></li>
+                                            <li><a href="t-sigma.html">Sigma</a></li>
+                                            <li><a href="t-ivisan.html">Ivisan</a></li>
+                                            <li><a href="t-sapian.html">Sapian</a></li>
+                                            <li><a href="t-dumalag.html">Dumalag</a></li>
+                                            <li><a href="t-dumarao.html">Dumarao</a></li>
+                                            <li><a href="t-mambusao.html">Mambusao</a></li>
+                                            <li><a href="t-jamindan.html">Jamindan</a></li>
+                                            <li><a href="t-tapaz.html">Tapaz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="uk-parent">
+                                        <a href="#!">Paskwa sang Maragtas Christmas Village</a>
+                                        <ul class="uk-nav-sub">
+                                            <li><a href="xmas_roxas.html">Roxas City</a></li>
+                                            <li><a href="xmas_roxas.html">Panay</a></li>
+                                            <li><a href="xmas_pontevedra.html">Pontevedra</a></li>
+                                            <li><a href="xmas_pres.html">Pres. Roxas</a></li>
+                                            <li><a href="xmas_pilar.html">Pilar</a></li>
+                                            <li><a href="xmas_panitan.html">Panitan</a></li>
+                                            <li><a href="xmas_maayon.html">Maayon</a></li>
+                                            <li><a href="xmas_cuartero.html">Cuartero</a></li>
+                                            <li><a href="xmas_dao.html">Dao</a></li>
+                                            <li><a href="xmas_sigma.html">Sigma</a></li>
+                                            <li><a href="xmas_ivisan.html">Ivisan</a></li>
+                                            <li><a href="xmas_sapian.html">Sapian</a></li>
+                                            <li><a href="xmas_dumalag.html">Dumalag</a></li>
+                                            <li><a href="xmas_dumarao.html">Dumarao</a></li>
+                                            <li><a href="xmas_mambusao.html">Mambusao</a></li>
+                                            <li><a href="xmas_jamindan.html">Jamindan</a></li>
+                                            <li><a href="xmas_tapaz.html">Tapaz</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-
+                        <div></div>
                     </div>
                 </div>
-            </div>
-            <div class="page-footer__bottom">
-                <div class="uk-container"><span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span></div>
-                <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
-            </div>
-       <div id="offcanvas" data-uk-offcanvas="overlay: true">
-        <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between"><button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
-          <div>
-            <div class="uk-margin">
-              <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"></a></div>
-            </div>
-            <div class="uk-margin-medium">
-              <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
-                <li class="uk-parent"><a href="#!">Home</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="index1.html">Tourist Map</a></li>
-                  </ul>
-                </li>
-                <li class="uk-parent"><a href="#!">LGU</a>
-                  <ul class="uk-nav-sub">
-                                                    <li><a href="t-roxas.html">Roxas City</a></li>
-                                                    <li><a href="t-roxas.html">Panay</a></li>
-                                                    <li><a href="t-Pontevedra.html">Pontevedra</a></li>
-                                                    <li><a href="t-pres.html">Pres. Roxas</a></li>
-                                                    <li><a href="t-pilar.html">Pilar</a></li>
-                                                    <li><a href="t-panitan.html">Panitan</a></li>
-                                                    <li><a href="t-maayon.html">Maayon</a></li>
-                                                    <li><a href="t-cuartero.html">Cuartero</a></li>
-                                                    <li><a href="t-dao.html">Dao</a></li>
-                                                    <li><a href="t-sigma.html">Sigma</a></li>
-                                                    <li><a href="t-ivisan.html">Ivisan</a></li>
-                                                    <li><a href="t-sapian.html">Sapian</a></li>
-                                                    <li><a href="t-dumalag.html">Dumalag</a></li>
-                                                    <li><a href="t-dumarao.html">Dumarao</a></li>
-                                                    <li><a href="t-mambusao.html">Mambusao</a></li>
-                                                    <li><a href="t-jamindan.html">Jamindan</a></li>
-                                                    <li><a href="t-tapaz.html">Tapaz</a></li>
-                  </ul>
-                </li>
-                <li class="uk-parent"><a href="#!">Paskwa sang Maragtas Christmas Village</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="xmas_roxas.html">Roxas City</a></li>
-                                                    <li><a href="xmas_roxas.html">Panay</a></li>
-                                                    <li><a href="xmas_Pontevedra.html">Pontevedra</a></li>
-                                                    <li><a href="xmas_pres.html">Pres. Roxas</a></li>
-                                                    <li><a href="xmas_pilar.html">Pilar</a></li>
-                                                    <li><a href="xmas_panitan.html">Panitan</a></li>
-                                                    <li><a href="xmas_maayon.html">Maayon</a></li>
-                                                    <li><a href="xmas_cuartero.html">Cuartero</a></li>
-                                                    <li><a href="xmas_dao.html">Dao</a></li>
-                                                    <li><a href="xmas_sigma.html">Sigma</a></li>
-                                                    <li><a href="xmas_ivisan.html">Ivisan</a></li>
-                                                    <li><a href="xmas_sapian.html">Sapian</a></li>
-                                                    <li><a href="xmas_dumalag.html">Dumalag</a></li>
-                                                    <li><a href="xmas_dumarao.html">Dumarao</a></li>
-                                                    <li><a href="xmas_mambusao.html">Mambusao</a></li>
-                                                    <li><a href="xmas_jamindan.html">Jamindan</a></li>
-                                                    <li><a href="xmas_tapaz.html">Tapaz</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div>
-          </div>
+            </footer>
         </div>
-      </div>
-        </footer>
-    </div>
-    <script src="html/assets/js/jquery.min.js"></script>
-    <script src="html/assets/js/uikit.min.js"></script>
-    <script src="html/assets/js/uikit-icons.min.js"></script>
-    <script src="html/assets/js/main.js"></script>
-</body>
-
+        <script src="html/assets/js/jquery.min.js"></script>
+        <script src="html/assets/js/uikit.min.js"></script>
+        <script src="html/assets/js/uikit-icons.min.js"></script>
+        <script src="html/assets/js/main.js"></script>
+    </body>
 </html>

@@ -47,20 +47,20 @@
             border-bottom: 1px solid var(--border-color);
         }
         .page-header__mainmenu .uk-button {
-             background-color: var(--primary-dining-color);
-             color: var(--white);
-             border-radius: 8px;
-             font-weight: 700;
-             text-transform: uppercase;
-             letter-spacing: 0.5px;
-             transition: all 0.3s ease;
-             padding: 10px 25px;
-             border: none;
+            background-color: var(--primary-dining-color);
+            color: var(--white);
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 10px 25px;
+            border: none;
         }
          .page-header__mainmenu .uk-button:hover {
-             background-color: var(--secondary-dining-color);
-             transform: translateY(-2px);
-             box-shadow: 0 6px 20px rgba(230, 126, 34, 0.3);
+            background-color: var(--secondary-dining-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.3);
         }
 
         /* --- Hero Banner --- */
@@ -74,7 +74,7 @@
             color: var(--white);
             background-size: cover;
             background-position: center;
-            background-image: url('https://images.unsplash.com/photo-1559847844-5315695d0e66?q=80&w=1925&auto=format&fit=crop');
+            background-image: url('html/assets/img/dinecover.jpg');
         }
         .section-banner::before {
             content: '';
@@ -101,24 +101,6 @@
             opacity: 0.95;
         }
         
-        /* Category Title */
-        .category-title {
-            font-family: 'Merriweather', serif;
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            color: var(--text-dark);
-        }
-        .category-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-dining-color);
-            margin: 15px auto 0;
-        }
-
         /* --- Restaurant Card --- */
         .dining-card {
             display: block; /* Make the whole card a block-level link */
@@ -200,21 +182,22 @@
                 </div>
             </div>
 
-            <!-- SEAFOOD SECTION -->
+            <!-- All Restaurants -->
             <div class="uk-section">
                 <div class="uk-container">
-                    <h2 class="category-title">Seafood Specialties</h2>
                     <div class="uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
+                        <!-- Coco Veranda -->
                         <div>
-                            <a href="est.html?name=Coco+Veranda" class="dining-card">
-                                <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/e67e22/ffffff?text=Seafood')"></div>
+                            <a href="dine_espacio.html" class="dining-card">
+                                <div class="dining-card__image" style="background-image: url('html/assets/img/espacio/Espacio Verde Resort Club House (13).jpg')"></div>
                                 <div class="dining-card__content">
-                                    <div class="dining-card__cuisine">Seafood Grill</div>
-                                    <h3 class="dining-card__title">Coco Veranda Bar and Restaurant</h3>
-                                    <p class="dining-card__description">A local favorite known for its relaxing beachfront ambiance and a wide array of fresh, grilled seafood dishes.</p>
+
+                                    <h3 class="dining-card__title">ESPACIO VERDE RESORT</h3>
+                                    <p class="dining-card__description">Espacio Verde Resort features two distinct dining venues: Abuelo Restaurant and Aquatico Restaurant...</p>
                                 </div>
                             </a>
                         </div>
+                        <!-- Baybay Seafoods -->
                         <div>
                            <a href="establishment_page.html?name=Baybay+Seafoods" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/e67e22/ffffff?text=Seafood')"></div>
@@ -225,6 +208,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Bitoy's -->
                          <div>
                             <a href="establishment_page.html?name=Bitoys" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/e67e22/ffffff?text=BBQ')"></div>
@@ -235,16 +219,8 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-             <!-- FILIPINO CUISINE SECTION -->
-            <div class="uk-section uk-section-muted">
-                <div class="uk-container">
-                    <h2 class="category-title">Filipino Cuisine</h2>
-                    <div class="uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
-                         <div>
+                        <!-- RML Manokan -->
+                        <div>
                             <a href="establishment_page.html?name=RML" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/34495e/ffffff?text=Filipino')"></div>
                                 <div class="dining-card__content">
@@ -254,6 +230,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Jacque's -->
                          <div>
                             <a href="establishment_page.html?name=Jacques" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/34495e/ffffff?text=Filipino')"></div>
@@ -264,6 +241,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Enting's -->
                         <div>
                             <a href="establishment_page.html?name=Entings" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/34495e/ffffff?text=Filipino')"></div>
@@ -274,6 +252,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Story Kitchen -->
                          <div>
                             <a href="establishment_page.html?name=Story+Kitchen" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/1abc9c/ffffff?text=Fusion')"></div>
@@ -284,6 +263,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Hukad -->
                         <div>
                             <a href="establishment_page.html?name=Hukad" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/34495e/ffffff?text=Filipino')"></div>
@@ -294,7 +274,8 @@
                                 </div>
                             </a>
                         </div>
-                         <div>
+                        <!-- Fiesta! Fiesta! -->
+                        <div>
                             <a href="establishment_page.html?name=Fiesta" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/34495e/ffffff?text=Filipino')"></div>
                                 <div class="dining-card__content">
@@ -304,15 +285,7 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-             <!-- INTERNATIONAL & FUSION SECTION -->
-            <div class="uk-section">
-                <div class="uk-container">
-                     <h2 class="category-title">International & Fusion Flavors</h2>
-                    <div class="uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
+                        <!-- Spanggo -->
                         <div>
                             <a href="establishment_page.html?name=Spanggo" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/9b59b6/ffffff?text=Fusion')"></div>
@@ -323,6 +296,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Acceso -->
                          <div>
                             <a href="establishment_page.html?name=Acceso" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/1abc9c/ffffff?text=Fusion')"></div>
@@ -333,6 +307,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Pyt Stop -->
                          <div>
                             <a href="establishment_page.html?name=PytStop" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/e74c3c/ffffff?text=Pizza')"></div>
@@ -343,6 +318,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Pizza Junction -->
                          <div>
                             <a href="establishment_page.html?name=PizzaJunction" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/e74c3c/ffffff?text=Pizza')"></div>
@@ -353,7 +329,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div>
+                        <!-- Tracy's -->
+                         <div>
                             <a href="establishment_page.html?name=Tracys" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/1abc9c/ffffff?text=Casual')"></div>
                                 <div class="dining-card__content">
@@ -363,6 +340,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Arashi's -->
                          <div>
                             <a href="establishment_page.html?name=Arashis" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/c0392b/ffffff?text=Japanese')"></div>
@@ -373,16 +351,8 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CAFES & BAKESHOPS SECTION -->
-            <div class="uk-section uk-section-muted">
-                <div class="uk-container">
-                    <h2 class="category-title">Cafes & Bakeshops</h2>
-                    <div class="uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
-                        <div>
+                        <!-- Cafe Terraza -->
+                         <div>
                             <a href="establishment_page.html?name=CafeTerraza" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/9b59b6/ffffff?text=Cafe')"></div>
                                 <div class="dining-card__content">
@@ -392,6 +362,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Panulce -->
                         <div>
                            <a href="establishment_page.html?name=Panulce" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/9b59b6/ffffff?text=Dessert')"></div>
@@ -402,6 +373,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Cafe 1947 -->
                         <div>
                             <a href="establishment_page.html?name=Cafe1947" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/9b59b6/ffffff?text=Cafe')"></div>
@@ -412,6 +384,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Amelia's -->
                          <div>
                             <a href="establishment_page.html?name=Amelias" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/9b59b6/ffffff?text=Cafe')"></div>
@@ -422,6 +395,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!-- Bread & Butter -->
                          <div>
                             <a href="establishment_page.html?name=BreadButter" class="dining-card">
                                 <div class="dining-card__image" style="background-image: url('https://placehold.co/600x400/f1c40f/ffffff?text=Bakeshop')"></div>

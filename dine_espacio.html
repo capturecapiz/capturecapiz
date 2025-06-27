@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <title>Establishment Name - Dining in Capiz</title>
+    <meta content="Capiz Provincial Government" name="author">
+    <meta content="Details about Establishment Name, a dining spot in Capiz." name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://placehold.co/180x180/e67e22/ffffff?text=C">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.co/32x32/e67e22/ffffff?text=C">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.co/16x16/e67e22/ffffff?text=C">
+    <meta name="theme-color" content="#d35400">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="html/assets/css/uikit.min.css">
+    <link rel="stylesheet" href="html/assets/css/all.min.css">
+    <link rel="stylesheet" href="html/assets/css/simple-line-icons.css">
+    <link rel="stylesheet" href="html/assets/css/main.css">
+    <style>
+        :root {
+            --primary-dining-color: #e67e22; /* Carrot */
+            --secondary-dining-color: #d35400; /* Pumpkin */
+            --text-dark: #3d3d3d;
+            --text-light: #7f8c8d;
+            --background-light: #fdfdfd;
+            --white: #ffffff;
+            --border-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        /* --- Header & Navigation --- */
+        .page-header__scroll {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-header__mainmenu .uk-button {
+            background-color: var(--primary-dining-color);
+            color: var(--white);
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 10px 25px;
+            border: none;
+        }
+         .page-header__mainmenu .uk-button:hover {
+            background-color: var(--secondary-dining-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        /* --- Establishment Hero --- */
+        .establishment-hero {
+            height: 55vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            color: var(--white);
+        }
+        .establishment-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+        }
+        .establishment-hero__content {
+            position: relative;
+            z-index: 1;
+        }
+        .establishment-hero__title {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin: 0;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+            color: var(--white);
+        }
+        .establishment-hero__cuisine {
+            display: inline-block;
+            background-color: var(--primary-dining-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* --- Main Content --- */
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--primary-dining-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .about-text p, .menu-list li, .info-list dt, .info-list dd {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .menu-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .menu-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .menu-list li::before {
+            content: "✓";
+            color: var(--primary-dining-color);
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .info-list {
+            font-size: 1.1rem;
+        }
+        .info-list dt {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        /* --- Map Container --- */
+        .map-container {
+            height: 350px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden; 
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Photo Gallery --- */
+        .gallery-grid .uk-inline-clip {
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .gallery-grid .uk-inline-clip:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        /* Rule to make gallery images square */
+        .gallery-grid img {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* Creates a 1:1 aspect ratio (a square) */
+            object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+            object-position: center; /* Centers the image within the frame */
+        }
+
+    </style>
+</head>
+
+<body class="page-establishment">
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="page-header__scroll" data-uk-sticky>
+                <div class="uk-container">
+                    <div class="uk-flex uk-flex-between uk-flex-middle" style="height: 70px;">
+                        <div class="page-header__left">
+                            <a class="uk-link-reset" href="index.html">
+                                <span class="uk-text-bold" style="color: var(--text-dark); font-family: 'Merriweather', serif;">CAPIZ EATS |  Where to Dine</span>
+                            </a>
+                        </div>
+                        <div class="page-header__right">
+                            <div class="page-header__mainmenu">
+                                <div><a class="uk-button" href="dining.html">Back to List</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <!-- Hero Section with Establishment Image -->
+            <div class="establishment-hero" style="background-image: url('html/assets/img/espacio/Espacio Verde Resort Club House (13).jpg');">
+                <div class="establishment-hero__content">
+                    <h1 class="establishment-hero__title">ESPACIO VERDE RESORT</h1>
+                </div>
+            </div>
+
+            <div class="uk-section">
+                <div class="uk-container">
+                    
+                    <div class="uk-margin-large-bottom about-text">
+                        <h2 class="section-title">About the Restaurant</h2>
+                        <p>Espacio Verde Resort offers two distinct dining experiences to cater to varied tastes: Abuelo Restaurant and Aquatico Restaurant.</p>
+                        <p>Abuelo Restaurant serves as the resort's in-house dining hub, primarily known for offering a delightful breakfast to guests. Beyond breakfast, Abuelo also presents a selection of scrumptious cuisines adapted for the Filipino palate. It provides a comfortable and inviting ambiance, perfect for a relaxed meal.</p>
+                        <p>Aquatico Restaurant offers a more vibrant, al-fresco poolside dining experience. Overlooking the resort's swimming pool and lush gardens, Aquatico specializes in serving classic Pinoy all-time favorite dishes. They also offer mini seafood surambaw on a per-reservation basis, allowing guests to enjoy this local specialty with advance booking. Additionally, Aquatico operates on a consumable rate basis, making it an ideal spot for enjoying a casual lunch or dinner with family and friends, complete with refreshing beverages from the poolside bar.</p>
+                    </div>
+
+                    <div class="uk-grid-large" uk-grid>
+                        <div class="uk-width-expand@m">
+
+                        </div>
+                        <div class="uk-width-expand@m">
+                             <div class="uk-margin-large-bottom">
+                                <h2 class="section-title">Location & Hours</h2>
+                                <dl class="uk-description-list info-list">
+                                    <dt>Address</dt>
+                                    <dd>Brgy. Dayao, Roxas City, Capiz</dd>
+                                    <dt>Hours</dt>
+                                    <dd>Open Daily, 09:30 AM - 09:00 PM</dd>
+                                    <dt>Contact</dt>
+                                    <dd>(036) 620-3734</dd>
+                                    <dt>E-mail Address</dt>
+                                    <dd>reservations.espacioverde@gmail.com</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uk-margin-large-top">
+                        <h2 class="section-title">Our Location</h2>
+                        <div class="map-container">
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5150.187906741374!2d122.72263531169295!3d11.591724488563454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a5f2c91494ee41%3A0x824451f1f6a6ef45!2sEspacio%20Verde%20Resort!5e1!3m2!1sen!2sph!4v1751011172592!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="uk-margin-large-top">
+                        <h2 class="section-title">Photo Gallery</h2>
+                        <div class="uk-grid-small uk-child-width-1-2 uk-child-width-1-3@m gallery-grid" uk-grid uk-lightbox="animation: slide">
+                            <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/1.jpg" data-caption="Abuelo Restaurant">
+                                    <img src="html/assets/img/espacio/resto/1.jpg" alt="Abuelo Restaurant">
+                                    <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/2.jpg" data-caption="Aquatico Restaurant">
+                                    <img src="html/assets/img/espacio/resto/2.jpg" alt="Aquatico Restaurant">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/3.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/3.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/4.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/4.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/5.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/5.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/6.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/6.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/7.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/7.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/8.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/8.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/9.png" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/9.png" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/10.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/10.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/11.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/11.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/12.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/12.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/13.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/13.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/14.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/14.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/15.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/15.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/16.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/16.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/17.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/17.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/18.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/18.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/19.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/19.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/20.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/20.jpg" alt="Poolside Dining">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                             <div>
+                                <a class="uk-inline-clip uk-transition-toggle" href="html/assets/img/espacio/resto/21.jpg" data-caption="Poolside Dining">
+                                    <img src="html/assets/img/espacio/resto/21.jpg ">
+                                     <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                        <span uk-icon="icon: plus; ratio: 2"></span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        
+<footer class="page-footer">
+                <div class="page-footer__top">
+                    <div class="uk-container">
+                        <div class="uk-grid" data-uk-grid>
+                            <div class="uk-width-1-3@m uk-width-1-2@s">
+                                <div class="logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
+                                </div>
+                                <p>
+                                    <b>CAPIZ PROVINCIAL GOVERNMENT</b><br />
+                                    PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br />
+                                    <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i>
+                                </p>
+                                <ul class="uk-list">
+                                    <li>
+                                        <span>Email: </span
+                                        ><a href="mailto:support@domain.com">capiz.tourism@gmail.com</a>
+                                    </li>
+                                    <li><span>Phone: </span><a href="tel:104023513690">(036) 621-2935</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="uk-width-2-5@m uk-width--2@s">
+                                <h3 class="uk-h3">Rate Us</h3>
+                                <p>
+                                    Your insights matter. Together, we can make Lagaw Capiz E-Guide the best travel
+                                    companion in Capiz.
+                                </p>
+                                <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                                    <div>
+                                        <a
+                                            href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"
+                                            ><img src="html/assets/img/rate.png" alt="PlayStore"
+                                        /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="uk-h3">Connect Socially</h3>
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://twitter.com/capturecapiz?lang=en"
+                                            ><i class="fab fa-twitter"></i><span>Twitter</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/"
+                                            ><i class="fab fa-facebook-f"></i><span>Facebook</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/@CaptureCapiz"
+                                            ><i class="fab fa-youtube"></i><span>YouTube</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/capturecapiz/?hl=en"
+                                            ><i class="fab fa-instagram"></i><span>Instagram</span></a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-footer__bottom">
+                    <div class="uk-container">
+                        <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span>
+                    </div>
+                    <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
+                </div>
+
+            </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.15.10/js/uikit-icons.min.js"></script>
+    
+</body>
+</html>
