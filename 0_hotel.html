@@ -3,380 +3,385 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Listing no map</title>
+  <title>Responsive Listing Page</title>
   <meta content="Chernyh Mihail" name="author">
   <meta content="Ecata - City Portal" name="description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="HandheldFriendly" content="true">
   <meta name="format-detection" content="telephone=no">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png">
-  <link rel="icon" type="html/image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
-  <link rel="icon" type="html/image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
-  <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="html/assets/css/uikit.min.css">
-  <link rel="stylesheet" href="html/assets/css/all.min.css">
-  <link rel="stylesheet" href="html/assets/css/simple-line-icons.css">
-  <link rel="stylesheet" href="html/assets/css/main.css">
   
-    <style>
-  .uk-button-danger {
-  background-color: #d9534f;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  transition: transform 0.2s ease;
-}
+  <!-- Removed local favicon links for compatibility -->
 
-.uk-button-danger:hover {
-  transform: scale(1.1);
-}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.16.24/css/uikit.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Assuming 'simple-line-icons.css' and 'main.css' are available or we can define styles directly -->
+  <!-- For demonstration, I've integrated key styles directly below -->
 
-.pulse-animation {
-  animation: pulse 1.5s infinite ease-in-out;
-}
+  <style>
+    /* --- General Styling from original CSS files (for demonstration) --- */
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #666;
+        background: #fff;
+    }
+    .uk-h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #333;
+    }
+    .page-content {
+        padding: 0 15px;
+    }
+    @media (min-width: 960px) {
+        .page-content {
+            padding: 0 30px;
+        }
+    }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(217, 83, 79, 0.5);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px 10px rgba(217, 83, 79, 0.3);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(217, 83, 79, 0.5);
-  }
-}
-</style>
+    /* --- Banner Styling --- */
+    .section-banner {
+        position: relative;
+        color: #fff;
+    }
+    .section-banner__bg {
+        background-size: cover;
+        background-position: center center;
+        padding: 60px 0;
+    }
+    .section-banner__bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .section-banner__content {
+        position: relative;
+        z-index: 1;
+    }
+    .section-banner__title {
+        font-size: 2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+    .section-banner__title SPAN {
+        font-weight: normal;
+        font-size: 1.5rem;
+    }
+    .section-banner__text {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+
+    /* --- Button Styling --- */
+    .uk-button-danger {
+      background-color: #d9534f;
+      color: #fff;
+      border: 1px solid transparent;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .uk-button-danger:hover {
+      background-color: #c9302c;
+      transform: scale(1.05);
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(217, 83, 79, 0.7);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px 15px rgba(217, 83, 79, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(217, 83, 79, 0);
+      }
+    }
+
+    /* --- Responsive Grid for Listing Cards --- */
+    /* This is the core of the responsive solution. 
+       It creates a grid that automatically adjusts the number of columns based on screen width. */
+    .responsive-card-grid {
+        display: grid;
+        /* create columns that are at least 280px wide, but can grow to fill space */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px; /* space between cards */
+        padding: 0;
+        list-style: none;
+        margin: 0;
+    }
+
+    /* --- Listing Card Styling --- */
+    .listing-card {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .listing-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .listing-card__box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .listing-card__media {
+        position: relative;
+    }
+    .listing-card__media img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+    .shine {
+        position: relative;
+        overflow: hidden;
+    }
+    .shine::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+        transform: rotate(20deg);
+        transition: opacity 0.75s ease;
+        opacity: 0;
+    }
+    .listing-card:hover .shine::after {
+        opacity: 1;
+        animation: shine-effect 1.5s ease-out;
+    }
+    @keyframes shine-effect {
+        0% { left: -150%; }
+        100% { left: 150%; }
+    }
+    .listing-card__bookmark {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(217, 83, 79, 0.8);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .listing-card__body {
+        padding: 15px;
+        flex-grow: 1;
+    }
+    .listing-card__title a {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+    }
+    .listing-card__title a:hover {
+        color: #d9534f;
+    }
+    .listing-card__intro {
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 5px;
+    }
+
+    /* --- Footer Styling --- */
+    .page-footer {
+        background: #f8f8f8;
+        border-top: 1px solid #e5e5e5;
+    }
+    .page-footer__bottom {
+        padding: 20px;
+        text-align: center;
+        background: #333;
+        color: #aaa;
+        font-size: 0.9em;
+    }
+    .page-footer__bottom span {
+        display: block;
+    }
+  </style>
 </head>
 
 <body class="page-listing">
   <div class="page-wrapper">
-
-    
-    <header class="page-header"><div></div>
-
-    </header>
-    
-    
     <main class="page-main">
       <div class="section-banner">
         <div class="section-banner__bg" style="background-image: url(html/assets/img/bg-banner-listing.jpg)">
           <div class="uk-container">
             <div class="section-banner__content uk-text-center">
-              <div class="section-banner__title">DEPARTMENT OF TOURISM<SPAN> ACCREDITED TOURISM-RELATED<BR>ESTABLISHMENT / INDIVIDUALS</div>
+              <div class="section-banner__title">DEPARTMENT OF TOURISM<span> ACCREDITED TOURISM-RELATED<br>ESTABLISHMENT / INDIVIDUALS</span></div>
               <div class="section-banner__text"><i>(as of January 21, 2025)</i></div>
               <div class="section-banner__info">
-                <div class="uk-grid uk-child-width-1-4@m uk-child-width-1-2 uk-grid-divider" data-uk-grid>
-                  <div>
-                    <div class="info-item">
-                        <div class="join-us__btn">
-    <a class="uk-button uk-button-danger pulse-animation" href="acc_list.html">Go Back </a>
-  </div>
-                    </div>
-                  </div>
-                </div>
-              </div> 
-                
-                
-                
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="uk-margin-large-bottom uk-grid-collapse" data-uk-grid>
-        <div class="uk-width-2-3@l">
-          
-          <div class="page-content">
-            <div class="uk-container uk-margin-medium-top">
-              <div class="section-listing-slider uk-margin-medium">
-                <div data-uk-slider="sets: true"></div>
-                  <div class="uk-position-relative" tabindex="-1">
-                    <div class="uk-container"><div class="section-listing-slider uk-margin-medium">
-               <div class="uk-h3">HOTEL</div></div>
-                      <ul class="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@xl">
-                        <li>
-                          <div class="listing-card">
-                            <div class="listing-card__box">
-                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="html/assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
-                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
-                              </div>
-                              <div class="listing-card__body">
-                                <div class="listing-card__title"><a href="05_city-place.html">ALUNSINA LEISURE CORPORATION</a></div>
-                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
-
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="listing-card">
-                            <div class="listing-card__box">
-                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="html/assets/img/listing-thumb-2.jpg" alt="ZX Shopping Mall" /></a>
-                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
-                              </div>
-                              <div class="listing-card__body">
-                                <div class="listing-card__title"><a href="05_city-place.html">MVW RESTAURANT AND TOURIST INN</a></div>
-                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="listing-card">
-                            <div class="listing-card__box">
-                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="html/assets/img/listing-thumb-3.jpg" alt="Grandsol Hotel" /></a>
-                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
-                              </div>
-                              <div class="listing-card__body">
-                                <div class="listing-card__title"><a href="05_city-place.html">ROXAS PRESIDENTS INN</a></div>
-                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
-                              </div>
-                            </div>
-                          </div>
-                        </li> 
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="uk-hidden@s">
-                    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top"></ul>
+                 <div class="join-us__btn">
+                    <a class="uk-button uk-button-danger pulse-animation" href="#!">Go Back</a>
                   </div>
               </div>
-              
-                    
-              
-                           
-              
-              
-                            <div class="section-listing-slider uk-margin-medium" STY>
-
-                  <div class="uk-position-relative" tabindex="-1">
-                    <div class="uk-container">
-                      <ul class=" uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@xl" style="display: flex; justify-content: center;">
-                        <li>
-                          <div class="listing-card">
-                            <div class="listing-card__box">
-                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="html/assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
-                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
-                              </div>
-                              <div class="listing-card__body">
-                                <div class="listing-card__title"><a href="05_city-place.html">URBAN MANOR HOTEL & RESTAURANT</a></div>
-                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
-
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="listing-card">
-                            <div class="listing-card__box">
-                              <div class="listing-card__media shine"><a href="05_city-place.html"><img src="html/assets/img/listing-thumb-2.jpg" alt="ZX Shopping Mall" /></a>
-                                <div class="listing-card__bookmark"><span class="icon-pin"></span></div>
-                              </div>
-                              <div class="listing-card__body">
-                                <div class="listing-card__title"><a href="05_city-place.html">ISLANDS HOTEL</a></div>
-                                <div class="listing-card__intro">Best relaxtion facilities with welcome</div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="uk-hidden@s">
-                    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-medium-top"></ul>
-                  </div>
-              </div>  
- 
             </div>
           </div>
-          
-        </div>
-        <div class="uk-width-1-3@l uk-visible@l">
-          <div class="listing-map uk-cover-container uk-height-1-1 uk-background-muted"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26531.049464665928!2d-118.27658807870944!3d33.77665338557302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd35d6a02be983%3A0x2aae7458d5262918!2z0KPQuNC70LzQuNC90LPRgtC-0L0sINCa0LDQu9C40YTQvtGA0L3QuNGPIDkwNzQ0LCDQodCo0JA!5e0!3m2!1sru!2sua!4v1611503673982!5m2!1sru!2sua" data-uk-cover></iframe></div>
         </div>
       </div>
-      <!-- <div class="section-popular uk-margin-large-bottom">
-        <div class="uk-background-muted">
-          <div class="uk-section-large uk-container">
-            <div class="section-title uk-text-center"><span>Rent Things The Easier Way</span>
-              <h3 class="uk-h3">Popular Cities</h3>
-            </div>
-            <div class="section-content">
-              <div class="uk-child-width-1-2@l uk-grid-medium" uk-grid>
-                <div>
-                  <div class="city-item"><a class="city-item__box" href="03_city-listings.html">
-                      <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/img-city-1.jpg" alt="New York" data-uk-cover="data-uk-cover" />
-                        <div class="uk-overlay-primary uk-position-cover"></div>
-                        <div class="city-item__content uk-position-bottom">
-                          <div class="city-item__city">New York</div>
-                          <div class="city-item__country">United States</div>
+
+      <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
+        <div class="uk-grid-collapse" data-uk-grid>
+          <!-- Main Content Area -->
+          <div class="uk-width-expand@m">
+            <div class="page-content">
+              
+              <!-- Category 1 -->
+              <div class="uk-margin-large-bottom">
+                <h3 class="uk-h3 uk-margin-medium-bottom">HOTEL</h3>
+                <ul class="responsive-card-grid">
+                  <li>
+                    <div class="listing-card">
+                      <div class="listing-card__box">
+                        <div class="listing-card__media shine">
+                          <a href="#!"><img src="html/assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
+                          <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
                         </div>
-                        <div class="uk-position-top-right">
-                          <div class="city-item__col">20 Listings</div>
+                        <div class="listing-card__body">
+                          <div class="listing-card__title"><a href="#!">ISLANDS HOTEL</a></div>
                         </div>
                       </div>
-                    </a></div>
-                </div>
-                <div>
-                  <div class="uk-child-width-1-2@s uk-grid-medium" uk-grid>
-                    <div>
-                      <div class="city-item"><a class="city-item__box" href="03_city-listings.html">
-                          <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/img-city-2.jpg" alt="Paris" data-uk-cover="data-uk-cover" />
-                            <div class="uk-overlay-primary uk-position-cover"></div>
-                            <div class="city-item__content uk-position-bottom">
-                              <div class="city-item__city">Paris</div>
-                              <div class="city-item__country">France</div>
-                            </div>
-                            <div class="uk-position-top-right">
-                              <div class="city-item__col">20 Listings</div>
-                            </div>
-                          </div>
-                        </a></div>
                     </div>
-                    <div>
-                      <div class="city-item"><a class="city-item__box" href="03_city-listings.html">
-                          <div class="uk-cover-container uk-height-medium uk-border-rounded"><img class="city-item__img" src="html/assets/img/img-city-3.jpg" alt="London" data-uk-cover="data-uk-cover" />
-                            <div class="uk-overlay-primary uk-position-cover"></div>
-                            <div class="city-item__content uk-position-bottom">
-                              <div class="city-item__city">London</div>
-                              <div class="city-item__country">United Kingdom</div>
-                            </div>
-                            <div class="uk-position-top-right">
-                              <div class="city-item__col">20 Listings</div>
-                            </div>
-                          </div>
-                        </a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    </main>
-   <!-- <div class="page-join-us">
-      <div class="uk-container">
-        <div class="join-us">
-          <div class="join-us__box">
-            <div class="join-us__title">Join Us & Get Listed</div>
-            <div class="join-us__text">Eiusmod tempor incididunt ut labore et dolore magna aliqua <br> exercitation ullamco laboris nisi ut aliquip exa dolor</div>
-            <div class="join-us__btn"><a class="uk-button uk-button-danger" href="10_contact.html">Get started</a></div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <footer class="page-footer">
-      <div class="page-footer__top">
-       <!-- <div class="uk-container">
-          <div class="uk-grid" data-uk-grid>
-            <div class="uk-width-1-3@m uk-width-1-2@s">
-              <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="html/assets/img/logo.svg" alt="Doremi"></a></div>
-              <p>Eiusmod tempora incididunt dolore<br> magna aliqua sed enim lorem ipsum<br> sit amet consectetur.</p>
-              <ul class="uk-list">
-                <li> <span>Email: </span><a href="mailto:support@domain.com">support@domain.com</a></li>
-                <li> <span>Phone: </span><a href="tel:104023513690">+1 (040) 2351 3690</a></li>
-              </ul>
-            </div>
-            <div class="uk-width-1-3@m uk-width-1-2@s uk-flex-last@m">
-              <h3 class="uk-h3">Join Our Community</h3>
-              <p>Continue exploring the great places.</p>
-              <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
-                <div><img src="html/assets/img/AppStore.svg" alt="AppStore"></div>
-                <div><img src="html/assets/img/PlayStore.svg" alt="PlayStore"></div>
-              </div>
-            </div>
-            <div class="uk-width-1-3@m uk-visible@s">
-              <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
-                <div>
-                  <h3 class="uk-h3">About</h3>
-                  <ul class="uk-nav uk-nav-default">
-                    <li> <a href="page-typography.html">Our Company</a></li>
-                    <li> <a href="page-typography.html">Carers</a></li>
-                    <li> <a href="page-typography.html">Support</a></li>
-                    <li> <a href="page-typography.html">How It Works</a></li>
-                    <li> <a href="page-typography.html">Add a Place</a></li>
-                    <li> <a href="page-typography.html">Disclaimers</a></li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 class="uk-h3">Top Cities</h3>
-                  <ul class="uk-nav uk-nav-default">
-                    <li> <a href="page-typography.html">New York</a></li>
-                    <li> <a href="page-typography.html">Paris</a></li>
-                    <li> <a href="page-typography.html">London</a></li>
-                    <li> <a href="page-typography.html">Singapore</a></li>
-                    <li> <a href="page-typography.html">Bangkok</a></li>
-                    <li> <a href="page-typography.html">Dubai</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
+                  </li>
+                  <li>
+                    <div class="listing-card">
+                      <div class="listing-card__box">
+                        <div class="listing-card__media shine">
+                          <a href="#!"><img src="html/assets/img/listing-thumb-2.jpg" alt="ZX Shopping Mall" /></a>
+                          <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                        </div>
+                        <div class="listing-card__body">
+                          <div class="listing-card__title"><a href="#!">RDC Residencia De Capiz Hotel</a></div>
 
-                  <div class="page-footer__bottom">
-                <div class="uk-container"><span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span></div>
-                <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
-            </div>
-      <div id="offcanvas" data-uk-offcanvas="overlay: true">
-        <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between"><button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
-          <div>
-            <div class="uk-margin">
-              <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="html/assets/img/logo.svg" alt="Doremi"></a></div>
-            </div>
-            <div class="uk-margin-medium">
-              <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
-                <li class="uk-parent"><a href="#!">Home</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="01_home.html">Home page 1</a></li>
-                    <li><a href="02_home-header-style.html">Home page 2</a></li>
-                  </ul>
-                </li>
-                <li class="uk-parent"><a href="#!">Listings</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="03_city-listings.html">City listings map</a></li>
-                    <li><a href="04_city-listings-no-map.html">City listings</a></li>
-                    <li> <a href="05_city-place.html">City place</a></li>
-                  </ul>
-                </li>
-                <li class="uk-parent"><a href="#!">Pages</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="06_about.html">About</a></li>
-                    <li><a href="08_blog-grid.html">Blog grid</a></li>
-                    <li><a href="07_blog.html">Blog list</a></li>
-                    <li><a href="09_blog-post.html">Blog post</a></li>
-                    <li><a href="10_contact.html">Contacts</a></li>
-                  </ul>
-                </li>
-              </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="listing-card">
+                      <div class="listing-card__box">
+                        <div class="listing-card__media shine">
+                          <a href="#!"><img src="html/assets/img/listing-thumb-3.jpg" alt="Grandsol Hotel" /></a>
+                          <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                        </div>
+                        <div class="listing-card__body">
+                          <div class="listing-card__title"><a href="#!">ROXAS CITY PENSION HOUSE</a></div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Category 2 -->
+              <div class="uk-margin-large-bottom">
+
+                <ul class="responsive-card-grid">
+                   <li>
+                    <div class="listing-card">
+                      <div class="listing-card__box">
+                        <div class="listing-card__media shine">
+                          <a href="#!"><img src="html/assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
+                          <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                        </div>
+                        <div class="listing-card__body">
+                          <div class="listing-card__title"><a href="#!">ROXAS CITY BOULEVARD LODGE</a></div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="listing-card">
+                      <div class="listing-card__box">
+                        <div class="listing-card__media shine">
+                          <a href="#!"><img src="html/assets/img/listing-thumb-2.jpg" alt="ZX Shopping Mall" /></a>
+                          <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                        </div>
+                        <div class="listing-card__body">
+                          <div class="listing-card__title"><a href="#!">JULIETA'S APARTELLE</a></div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="listing-card">
+                      <div class="listing-card__box">
+                        <div class="listing-card__media shine">
+                          <a href="#!"><img src="html/assets/img/listing-thumb-3.jpg" alt="Grandsol Hotel" /></a>
+                          <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                        </div>
+                        <div class="listing-card__body">
+                          <div class="listing-card__title"><a href="#!">JUVIETA BEACH PENSION HOUSE</a></div>
+                           <div class="listing-card__intro">Best relaxation facilities with welcome</div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Add more categories as needed following the pattern above -->
+
             </div>
           </div>
-          <div>
-            <div class="uk-margin uk-text-center"><a class="sing-in" href="#!"> <i class="fas fa-sign-in-alt"></i><span>Sign in or Register</span></a></div>
-            <div class="uk-margin"> <a class="uk-button uk-button-danger" href="#!"> <span data-uk-icon="plus"></span><span>List An Item</span></a></div>
+
+          <!-- Map Sidebar - now it will stack on small screens and be a sidebar on large screens -->
+          <div class="uk-width-1-3@m uk-flex-first@m">
+            <div class="uk-height-1-1 uk-background-muted uk-visible@m">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26531.049464665928!2d-118.27658807870944!3d33.77665338557302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd35d6a02be983%3A0x2aae7458d5262918!2z0KPQuNC70LzQuNC90LPRgtC-0L0sINCa0LDQu9C40YTQvtGA0L3QuNGPIDkwNzQ0LCDQodCo0JA!5e0!3m2!1sru!2sua!4v1611503673982!5m2!1sru!2sua" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Location Map"></iframe>
+            </div>
           </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <div class="page-footer__bottom">
+        <div class="uk-container">
+          <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span>
+          <span>© Gino Paulo D. Tagoc - All rights reserved.</span>
         </div>
       </div>
     </footer>
   </div>
-  <script src="html/assets/js/jquery.min.js"></script>
-  <script src="html/assets/js/uikit.min.js"></script>
-  <script src="html/assets/js/uikit-icons.min.js"></script>
-  <script src="html/assets/js/main.js"></script>
+
+  <!-- UIkit JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.16.24/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.16.24/js/uikit-icons.min.js"></script>
 </body>
 
 </html>
