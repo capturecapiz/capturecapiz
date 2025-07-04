@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District Information</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the active tab */
+        .tab-active {
+            background-color: #4F46E5; /* Indigo 600 */
+            color: white;
+        }
+        /* Style for inactive tabs */
+        .tab-inactive {
+            background-color: transparent;
+            color: #D1D5DB; /* Gray 300 */
+        }
+        /* Add stroke and drop shadow to text */
+        .text-outlined {
+            text-shadow: 
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000,
+                 4px 4px 5px rgba(0,0,0,0.5);
+        }
+        /* Style for the radial gradient overlay */
+        .radial-gradient-overlay {
+            background-image: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 90%);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('html/assets/img/index/index.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+    <!-- Page Header -->
+    <header class="relative h-60 flex items-center justify-center text-center p-4" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('html/assets/img/index/index1.jpg'); background-size: cover; background-position: center;">
+        <div>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white text-outlined">Capiz Festivals</h1>
+            <p class="text-xl text-gray-200 mt-4 max-w-2xl mx-auto">Experience the vibrant culture and colorful celebrations of Capiz through its spectacular festivals.</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 max-w-2xl">
+        
+        <!-- Province-wide Festival Card -->
+        <div class="mb-8">
+            <a href="#" data-location="Capiztahan" class="block">
+                <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                    <img src="html/assets/img/index/sinadya.jpg" alt="Capiztahan" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                        <h2 class="text-2xl font-semibold text-outlined">Capiztahan</h2>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex justify-center items-center p-4 mb-8">
+            <nav class="flex space-x-2 bg-gray-900 bg-opacity-70 p-2 rounded-full shadow-lg">
+                <button id="tab1" class="tab-button px-6 py-2 rounded-full text-base font-semibold transition-all duration-300 transform hover:scale-105">1st District</button>
+                <button id="tab2" class="tab-button px-6 py-2 rounded-full text-base font-semibold transition-all duration-300 transform hover:scale-105">2nd District</button>
+            </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <main>
+            <!-- 1st District Content -->
+            <div id="content1" class="space-y-4">
+                <!-- Card Item: Add links by replacing href="#" -->
+                <a href="#" data-location="Roxas City" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/sinadya.jpg" alt="Roxas City" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Roxas City</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Panay" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/panay.jpg" alt="Panay" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Panay</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Pontevedra" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/guyum.jpg" alt="Pontevedra" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Pontevedra</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="President Roxas" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/sinaot.jpg" alt="President Roxas" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">President Roxas</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Pilar" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/tagbuan.jpg" alt="Pilar" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Pilar</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Maayon" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/hil-o.jpg" alt="Maayon" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Maayon</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Panitan" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/panitan.jpg" alt="Panitan" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Panitan</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 2nd District Content (Initially Hidden) -->
+            <div id="content2" class="space-y-4 hidden">
+                <!-- Card Item: Add links by replacing href="#" -->
+                <a href="#" data-location="Ivisan" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/buyloganay.jpg" alt="Ivisan" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Ivisan</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Sigma" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/sigma.jpg" alt="Sigma" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Sigma</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Dao" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/dao.jpg" alt="Dao" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Dao</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Dumarao" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/dumarao.jpg" alt="Dumarao" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Dumarao</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Dumalag" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/dinagsa.jpg" alt="Dumalag" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Dumalag</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Cuartero" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/agdahanay.jpg" alt="Cuartero" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Cuartero</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Sapian" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/tilibyugan.jpg" alt="Sapian" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Sapian</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Mambusao" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/inilusn.jpg" alt="Mambusao" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Mambusao</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Tapaz" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/patabang.jpg" alt="Tapaz" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Tapaz</h2>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" data-location="Jamindan" class="block">
+                    <div class="relative h-32 rounded-xl overflow-hidden group shadow-lg">
+                        <img src="html/assets/img/index/binuligay.jpg" alt="Jamindan" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 flex items-end p-5 radial-gradient-overlay transition-all duration-300 group-hover:bg-opacity-40">
+                            <h2 class="text-2xl font-semibold text-outlined">Jamindan</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </main>
+        
+        <!-- Page Footer -->
+        <footer class="text-center p-4 mt-8">
+            <p class="text-sm text-gray-300">© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</p>
+            <p class="text-sm text-gray-300">© Gino Paulo D. Tagoc - All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Get the tab buttons and content divs
+        const tab1 = document.getElementById('tab1');
+        const tab2 = document.getElementById('tab2');
+        const content1 = document.getElementById('content1');
+        const content2 = document.getElementById('content2');
+
+        // Function to switch tabs
+        function switchTab(activeTab, inactiveTab, activeContent, inactiveContent) {
+            // Style active tab
+            activeTab.classList.remove('tab-inactive');
+            activeTab.classList.add('tab-active');
+
+            // Style inactive tab
+            inactiveTab.classList.remove('tab-active');
+            inactiveTab.classList.add('tab-inactive');
+
+            // Show active content and hide inactive content
+            activeContent.classList.remove('hidden');
+            inactiveContent.classList.add('hidden');
+        }
+
+        // Set the initial state on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab(tab1, tab2, content1, content2);
+        });
+
+        // Add click event listeners to the tabs
+        tab1.addEventListener('click', () => {
+            switchTab(tab1, tab2, content1, content2);
+        });
+
+        tab2.addEventListener('click', () => {
+            switchTab(tab2, tab1, content2, content1);
+        });
+
+        // Example of how to handle clicks on the LGU cards
+        document.querySelectorAll('a[data-location]').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior for now
+                const location = event.currentTarget.dataset.location;
+                console.log(`Clicked on ${location}. You can navigate to another page here.`);
+                // Example navigation:
+                // window.location.href = `/${location.toLowerCase().replace(/ /g, '-')}.html`;
+            });
+        });
+    </script>
+
+</body>
+</html>
