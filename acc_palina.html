@@ -1,0 +1,1335 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <!-- <base href="/capturecapiz/" /> -->
+        <meta charset="utf-8" />
+        <title>City place</title>
+        <meta content="Chernyh Mihail" name="author" />
+        <meta content="Ecata - City Portal" name="description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="html/assets/img/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="html/assets/img/favicon/favicon-16x16.png" />
+        <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#2b5797" />
+        <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="html/assets/css/uikit.min.css" />
+        <link rel="stylesheet" href="html/assets/css/all.min.css" />
+        <link rel="stylesheet" href="html/assets/css/simple-line-icons.css" />
+        <link rel="stylesheet" href="html/assets/css/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+        <!-- Styles for UI responsiveness in WebView -->
+        <style>
+            /* Prevents text resizing on iOS devices and ensures long text wraps properly. */
+            body {
+                -webkit-text-size-adjust: 100%;
+                word-wrap: break-word;
+            }
+
+            /* Ensures images, videos, and iframes scale with their container. */
+            img,
+            video,
+            iframe {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Specifically targets the Google Map iframe for responsive behavior. */
+            .section-city-place iframe {
+                width: 100%;
+                height: 400px; /* A fixed height for maps on mobile is often better. */
+            }
+
+            /* Creates a responsive grid for the room details section. */
+            .section-city-place1 {
+                display: grid;
+                gap: 10px 20px; /* Vertical and horizontal gap. */
+                grid-template-columns: 1fr 1fr; /* Default to two columns */
+            }
+
+            /* On screens narrower than 600px, switch to a single column layout. */
+            @media (max-width: 600px) {
+                .section-city-place1 {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* Utility class to make a grid item span across both columns */
+            .grid-span-2 {
+                grid-column: 1 / -1;
+            }
+
+            /* Paragraphs will have a consistent text indent instead of non-breaking spaces. */
+            .section-city-place > p {
+                text-indent: 2em;
+            }
+
+            /* Increased base font size for better readability. */
+            p,
+            .uk1-h3,
+            .contact-item__value,
+            .page-footer p,
+            .page-footer li {
+                font-size: 1.25rem;
+                line-height: 1.6;
+            }
+
+            .section-city-place .uk-h3,
+            .section-banner__1 {
+                font-size: 2rem; /* Adjusts heading sizes. */
+            }
+
+            /* Responsive styles for tablets and smaller devices (up to 768px wide). */
+            @media (max-width: 768px) {
+                .section-banner__title {
+                    font-size: 2.8rem; /* Adjusts banner title size for better fit. */
+                    line-height: 1.2;
+                }
+
+                .section-city-place .uk-h3,
+                .section-banner__1 {
+                    font-size: 1.8rem; /* Adjusts heading sizes. */
+                }
+
+                p,
+                .uk1-h3,
+                .contact-item__value,
+                .page-footer p,
+                .page-footer li {
+                    font-size: 1.15rem; /* Standardizes paragraph and list font sizes. */
+                    line-height: 1.6;
+                }
+
+                .uk-section-large {
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                }
+
+                hr.uk-margin-large {
+                    margin-top: 30px !important;
+                    margin-bottom: 30px !important;
+                }
+
+                /* Footer columns will stack vertically on smaller screens. */
+                .page-footer__top .uk-grid > * {
+                    width: 100% !important;
+                    margin-bottom: 25px;
+                    text-align: center;
+                }
+
+                .page-footer__top .logo {
+                    margin: 0 auto 15px auto;
+                }
+
+                .social {
+                    justify-content: center;
+                }
+            }
+
+            /* Additional adjustments for very small screens (up to 480px wide). */
+            @media (max-width: 480px) {
+                .section-banner__title {
+                    font-size: 2.2rem;
+                }
+
+                .section-city-place .uk-h3,
+                .section-banner__1 {
+                    font-size: 1.6rem;
+                }
+
+                p,
+                .uk1-h3 {
+                    font-size: 1.05rem; /* Maintain readable size on small screens. */
+                }
+
+                .uk-section-large {
+                    padding: 20px 15px;
+                }
+
+                /* Reduces padding on slideshow thumbnails. */
+                .uk-thumbnav > * {
+                    padding-left: 5px;
+                }
+            }
+        </style>
+
+        <style>
+                /* styles.css */
+            .container {
+              background: white;
+              border: 1px solid #ddd;
+              width: 360px;
+              text-align: center;
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              margin: auto;
+            }
+
+            .browser-bar {
+              display: flex;
+              padding: 8px 16px;
+              background: #f5f5f5;
+            }
+
+            .circle {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              margin-right: 8px;
+            }
+
+            .red {
+              background: #ff5f57;
+            }
+
+            .yellow {
+              background: #ffbd2e;
+            }
+
+            .green {
+              background: #28c840;
+            }
+
+            .content {
+              padding: 32px 16px;
+            }
+
+            h1 {
+              font-size: 72px;
+              color: #2c3e50;
+              margin: 0;
+            }
+
+            p {
+              margin: 16px 0 24px;
+              color: #7f8c8d;
+              font-size: 18px;
+            }
+
+            .sad-face {
+              font-size: 48px;
+              margin-top: 16px;
+              color: #3498db;
+              animation: shake 1.5s infinite ease-in-out;
+            }
+
+            /* Animation for the sad face */
+            @keyframes shake {
+              0% { transform: translateX(0); }
+              25% { transform: translateX(-5px); }
+              50% { transform: translateX(5px); }
+              75% { transform: translateX(-5px); }
+              100% { transform: translateX(0); }
+            }
+            }
+        </style>
+    </head>
+
+    <body class="page-listing-post">
+        <div class="page-wrapper">
+            <header class="page-header">
+                <!-- Header content is commented out in the original file -->
+            </header>
+            <main class="page-main">
+                <div class="section-banner">
+                    <div class="section-banner__bg" style="background-image: url(html/assets/img/palina.jpg)">
+                        <div class="uk-container">
+                            <div class="section-banner__content">
+                                <div class="uk-grid uk-child-width-auto@m uk-flex-bottom" data-uk-grid>
+                                    <div class="uk-width-expand@m">
+                                        <div class="section-banner__breadcrumb"></div>
+                                        <div class="section-banner__title">PALINA GREENBELT ECOPARK	
+		
+</div>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="uk-section-large uk-container">
+                        <div class="uk-grid uk-grid-medium" data-uk-grid>
+                            <div class="uk-width-1-1">
+                                <div class="section-city-place">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                                                 <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-earphones-alt"></span>Contact Information</div>
+                                    <ul class="contact-list">
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-location-pin"></div>
+                                                <div class="contact-item__value">
+SITIO CABLATAN, BRGY. CAGAY, ROXAS CITY, CAPIZ
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-call-in"></div>
+                                                <div class="contact-item__value">09393987071
+
+
+</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-envelope-open"></div>
+                                                <div class="contact-item__value">paridatours@yahoo.com
+
+
+</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>   
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <!--    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(5)%20-%20Copy.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(5)%20-%20Copy.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(15).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(15).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(4).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(4).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(5).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(5).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(8).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(8).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(9).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(9).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Espacio%20Verde%20Lobby%20(11).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Lobby%20(11).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(5)%20-%20Copy.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(15).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(4).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="3">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(5).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="4">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(8).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="5">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Espacio%20Verde%20Garden%20Villas%20(9).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>-->
+                                </div>
+                                <!--<hr class="uk-margin-large" />
+
+                                <div class="section-city-place">
+                                    <p>
+                                        Espacio Verde Resort in Roxas City perfectly blends natural beauty with
+                                        comprehensive amenities, ensuring a relaxing and enjoyable stay. You'll find 23
+                                        well-appointed suites, including Garden View and Lagoon View options, each
+                                        offering modern comforts like air conditioning, private bathrooms, and
+                                        complimentary Wi-Fi, with terraces for serene views.
+                                    </p>
+
+                                    <p>
+                                        For dining, Abuelo serves delightful breakfast options alongside selected
+                                        scrumptious cuisines, while Aquatico provides an al-fresco, poolside experience
+                                        with classic Pinoy all-time favorite dishes for lunch and dinner, complemented
+                                        by a poolside bar.
+                                    </p>
+
+                                    <p>
+                                        The resort features an outdoor swimming pool with waterslides, providing
+                                        recreational fun. Guests can also enjoy activities like kayaking in the lagoon
+                                        or leisurely strolls through the lush gardens.
+                                    </p>
+
+                                    <p>
+                                        Beyond leisure, the resort is a popular venue for various events, offering
+                                        dedicated banquet halls (El Comedor and Cabida) and outdoor spaces suitable for
+                                        seminars, birthdays, and weddings, all supported by comprehensive food catering
+                                        services. For your convenience, the resort also provides complimentary airport
+                                        and bus station shuttle services. Ultimately, Espacio Verde Resort's most
+                                        defining feature is its tranquil and verdant environment, characterized by
+                                        beautifully landscaped gardens, a picturesque lagoon, and a peaceful ambiance
+                                        that truly allows guests to live closer to nature.
+                                    </p>
+                                </div>-->
+                                <!--<hr class="uk-margin-large" />-->
+
+                                <!-- <hr class="uk-margin-large" />-->
+                                <!-- <div class="section-banner__1">Facilities and Amenities</div>-->
+                                <!-- <hr class="uk-margin-large" />-->
+                                <!--  <div class="section-city-place">
+                                    <div class="uk-h3">
+                                        <span class="icon-picture"></span>ROOM ACCOMODATION | Bridal Suite
+                                    </div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Bridal%20Suite%20(1).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Bridal%20Suite%20(1).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Bridal%20Suite%20(13).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Bridal%20Suite%20(13).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Bridal%20Suite%20(3).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Bridal%20Suite%20(3).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Bridal%20Suite%20(1).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Bridal%20Suite%20(13).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Bridal%20Suite%20(3).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="section-city-place">
+                                        <br />
+                                        <p>
+                                            Rooms at Espacio Verde Resort are designed for comfort and convenience ,
+                                            featuring air conditioning, a private bathroom with a shower and compliment
+                                            ary toiletries (some with bidets or bathtubs), an in-room safe, and free
+                                            Wi-Fi. Many rooms also boast a terrace or balcony with garden or lagoon
+                                            views. Additional amenities include hypoallergenic bedding, free bottled
+                                            water, a desk, and daily housekeepin g for a consistently pleasant stay.
+                                            Bathtub on bathroom. Size is 55.1 square meters.
+                                            <br /><br /><span class="icon icon-bed"></span>Bed Type: 1 King Size
+                                        </p>
+                                    </div>
+                                </div>-->
+                                <!-- <hr class="uk-margin-large" />-->
+                                <!--<div class="section-city-place">
+                                    <div class="uk-h3">
+                                        <span class="icon-picture"></span>ROOM ACCOMODATION | Executive Suite
+                                    </div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Executive%20Suite%20(10).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Executive%20Suite%20(10).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Executive%20Suite%20(4).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Executive%20Suite%20(4).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Executive%20Suite%20(7).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Executive%20Suite%20(7).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Executive%20Suite%20(10).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Executive%20Suite%20(4).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Executive%20Suite%20(7).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="section-city-place">
+                                        <br />
+                                        <p>
+                                            Rooms at Espacio Verde Resort are designed for comfort and convenience ,
+                                            featuring air conditioning, a private bathroom with a shower and compliment
+                                            ary toiletries (some with bidets or bathtubs), an in-room safe, and free
+                                            Wi-Fi. Many rooms also boast a terrace or balcony with garden or lagoon
+                                            views. Additional amenities include hypoallergenic bedding, free bottled
+                                            water, a desk, and daily housekeepin g for a consistently pleasant stay.
+                                            Bathtub on bathroom. Size is 55.1 square meters.
+                                            <br /><br /><span class="icon icon-bed"></span>Bed Type: 1 King Size
+                                        </p>
+                                    </div>
+                                </div>-->
+                                <!-- <hr class="uk-margin-large" />-->
+                                <!--    <div class="section-city-place">
+                                    <div class="uk-h3">
+                                        <span class="icon-picture"></span>ROOM ACCOMODATION | Lagoon View Suite
+                                    </div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Lagoon%20View%20Suite%20(10).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Lagoon%20View%20Suite%20(10).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Lagoon%20View%20Suite%20(4).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Lagoon%20View%20Suite%20(4).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Lagoon%20View%20Suite%20(6).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Lagoon%20View%20Suite%20(6).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Lagoon%20View%20Suite%20(10).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Lagoon%20View%20Suite%20(4).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Lagoon%20View%20Suite%20(6).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="section-city-place">
+                                        <br />
+                                        <p>
+                                            Rooms at Espacio Verde Resort are designed for comfort and convenience ,
+                                            featuring air conditioning, a private bathroom with a shower and compliment
+                                            ary toiletries (some with bidets or bathtubs), an in-room safe, and free
+                                            Wi-Fi. Many rooms also boast a terrace or balcony with garden or lagoon
+                                            views. Additional amenities include hypoallergenic bedding, free bottled
+                                            water, a desk, and daily housekeepin g for a consistently pleasant stay.
+                                            Bathtub on bathroom. Size is 55.1 square meters.
+                                            <br /><br /><span class="icon icon-bed"></span>Bed Type: 1 King Size
+                                        </p>
+                                    </div>
+                                </div>-->
+
+                                <!--     <hr class="uk-margin-large" />-->
+                                <!--  <div class="section-city-place">
+                                    <div class="uk-h3">
+                                        <span class="icon-picture"></span>ROOM ACCOMODATION | Garden View Suite (2 Queen
+                                        Beds)
+                                    </div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(2).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(2).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(4).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(4).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(7).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(7).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(2).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(4).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(2%20Queen%20Beds)%20(7).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="section-city-place">
+                                        <br />
+                                        <p>
+                                            Rooms at Espacio Verde Resort are designed for comfort and convenience ,
+                                            featuring air conditioning, a private bathroom with a shower and compliment
+                                            ary toiletries (some with bidets or bathtubs), an in-room safe, and free
+                                            Wi-Fi. Many rooms also boast a terrace or balcony with garden or lagoon
+                                            views. Additional amenities include hypoallergenic bedding, free bottled
+                                            water, a desk, and daily housekeepin g for a consistently pleasant stay.
+                                            Size is 35.8 square meters.
+                                            <br /><br /><span class="icon icon-bed"></span>Bed Type: 2 Queen Size
+                                        </p>
+                                    </div>
+                                </div>-->
+
+                                <!--  <hr class="uk-margin-large" />-->
+                                <!-- <div class="section-city-place">
+                                    <div class="uk-h3">
+                                        <span class="icon-picture"></span>ROOM ACCOMODATION | Garden View Suite (1 King
+                                        Bed)
+                                    </div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(1).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(1).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(3).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(3).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(5).JPG"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(5).JPG"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(1).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(3).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Garden%20Suite%20(1%20King%20Bed)%20(5).JPG"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="section-city-place">
+                                        <br />
+                                        <p>
+                                            Rooms at Espacio Verde Resort are designed for comfort and convenience ,
+                                            featuring air conditioning, a private bathroom with a shower and compliment
+                                            ary toiletries (some with bidets or bathtubs), an in-room safe, and free
+                                            Wi-Fi. Many rooms also boast a terrace or balcony with garden or lagoon
+                                            views. Additional amenities include hypoallergenic bedding, free bottled
+                                            water, a desk, and daily housekeepin g for a consistently pleasant stay.
+                                            Size is 35.8 square meters.
+
+                                            <br /><br /><span class="icon icon-bed"></span>Bed Type: 1 King Size
+                                        </p>
+                                    </div>
+                                </div>-->
+                                <!--   <hr class="uk-margin-large" />-->
+                                <!--    <div class="section-banner__1">CONFERENCE ROOM</div>-->
+                                <!--  <hr class="uk-margin-large" />-->
+                                <!--  <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-picture"></span>El Comedor Hall</div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/El%20Comedor%20(2).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/El%20Comedor%20(2).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/El%20Comedor%20(3).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/El%20Comedor%20(3).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/El%20Comedor%20(5).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/El%20Comedor%20(5).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/El%20Comedor%20(2).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/El%20Comedor%20(3).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/El%20Comedor%20(5).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                    <p class="uk1-h3">
+                                        The El Comedor Hall provides enough space indoors to accommodate 150                                        persons which is perfect for big events.
+                                    </p>
+                                </div>
+
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-picture"></span>Primavera Hall</div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Primavera%20Hall%20(1).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Primavera%20Hall%20(1).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Primavera%20Hall%20(2).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Primavera%20Hall%20(2).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Primavera%20Hall%20(3).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Primavera%20Hall%20(3).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Primavera%20Hall%20(1).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Primavera%20Hall%20(2).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Primavera%20Hall%20(3).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                    <p class="uk1-h3">
+                                        The Primavera Hall could accommodate up to 100 guests.
+                                    </p>
+                                </div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-picture"></span>Cabida Hall </div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Cabida%20Hall%20(1).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Cabida%20Hall%20(1).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Cabida%20Hall%20(2).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Cabida%20Hall%20(2).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Cabida%20Hall%20(2)_4507.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Cabida%20Hall%20(2)_4507.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/espacio/Cabida%20Hall%20(3).jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/espacio/Cabida%20Hall%20(3).jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                        <div class="uk-margin-top" data-uk-slider>
+                                            <ul
+                                                class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+                                                <li data-uk-slideshow-item="0">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Cabida%20Hall%20(1).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="1">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Cabida%20Hall%20(2).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="2">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Cabida%20Hall%20(2)_4507.jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                                <li data-uk-slideshow-item="3">
+                                                    <a href="#"
+                                                        ><img
+                                                            class="uk-border-rounded"
+                                                            src="html/assets/img/espacio/Cabida%20Hall%20(3).jpg"
+                                                            alt="img-gallery"
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
+                                        </div>
+                                    </div>
+                                    <p class="uk1-h3">
+                                        The Cabida Hall  has enough space for up to 50 persons.
+                                    </p>
+                                </div>-->
+                                <hr class="uk-margin-large" />
+
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-map"></span>Location Map</div>
+                                    <div>
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.668317987822!2d122.71056481169289!3d11.575610188578521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a58cd5fabc90af%3A0xcfe21514ed09b02f!2sPalina%20Greenbelt%20Ecopark!5e0!3m2!1sen!2sph!4v1751967813496!5m2!1sen!2sph"
+                                            style="border: 0"
+                                            allowfullscreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+
+                                <hr class="uk-margin-large" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <div class="page-footer__top">
+                    <div class="uk-container">
+                        <div class="uk-grid" data-uk-grid>
+                            <div class="uk-width-1-3@m uk-width-1-2@s">
+                                <div class="logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
+                                </div>
+                                <p>
+                                    <b>CAPIZ PROVINCIAL GOVERNMENT</b><br />
+                                    PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br />
+                                    <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i>
+                                </p>
+                                <ul class="uk-list">
+                                    <li>
+                                        <span>Email: </span
+                                        ><a href="mailto:support@domain.com">capiz.tourism@gmail.com</a>
+                                    </li>
+                                    <li><span>Phone: </span><a href="tel:104023513690">(036) 621-2935</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="uk-width-2-5@m uk-width--2@s">
+                                <h3 class="uk-h3">Rate Us</h3>
+                                <p>
+                                    Your insights matter. Together, we can make Lagaw Capiz E-Guide the best travel
+                                    companion in Capiz.
+                                </p>
+                                <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                                    <div>
+                                        <a
+                                            href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"
+                                            ><img src="html/assets/img/rate.png" alt="PlayStore"
+                                        /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="uk-h3">Connect Socially</h3>
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://twitter.com/capturecapiz?lang=en"
+                                            ><i class="fab fa-twitter"></i><span>Twitter</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/"
+                                            ><i class="fab fa-facebook-f"></i><span>Facebook</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/@CaptureCapiz"
+                                            ><i class="fab fa-youtube"></i><span>YouTube</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/capturecapiz/?hl=en"
+                                            ><i class="fab fa-instagram"></i><span>Instagram</span></a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-footer__bottom">
+                    <div class="uk-container">
+                        <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span>
+                    </div>
+                    <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
+                </div>
+            </footer>
+        </div>
+        <script src="html/assets/js/jquery.min.js"></script>
+        <script src="html/assets/js/uikit.min.js"></script>
+        <script src="html/assets/js/uikit-icons.min.js"></script>
+        <script src="html/assets/js/main.js"></script>
+    </body>
+</html>
