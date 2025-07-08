@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <!-- <base href="/capturecapiz/" /> -->
+        <meta charset="utf-8" />
+        <title>City place</title>
+        <meta content="Chernyh Mihail" name="author" />
+        <meta content="Ecata - City Portal" name="description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <link rel="apple-touch-icon" sizes="60x60" href="html/assets/img/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="html/assets/img/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="html/assets/img/favicon/favicon-16x16.png" />
+        <link rel="mask-icon" href="html/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="shortcut icon" href="html/assets/img/favicon/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#2b5797" />
+        <meta name="msapplication-config" content="html/assets/img/favicon/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="html/assets/css/uikit.min.css" />
+        <link rel="stylesheet" href="html/assets/css/all.min.css" />
+        <link rel="stylesheet" href="html/assets/css/simple-line-icons.css" />
+        <link rel="stylesheet" href="html/assets/css/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+        <!-- Styles for UI responsiveness in WebView -->
+        <style>
+            /* Prevents text resizing on iOS devices and ensures long text wraps properly. */
+            body {
+                -webkit-text-size-adjust: 100%;
+                word-wrap: break-word;
+            }
+
+            /* Ensures images, videos, and iframes scale with their container. */
+            img,
+            video,
+            iframe {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Specifically targets the Google Map iframe for responsive behavior. */
+            .section-city-place iframe {
+                width: 100%;
+                height: 400px; /* A fixed height for maps on mobile is often better. */
+            }
+
+            /* Creates a responsive grid for the room details section. */
+            .section-city-place1 {
+                display: grid;
+                gap: 10px 20px; /* Vertical and horizontal gap. */
+                grid-template-columns: 1fr 1fr; /* Default to two columns */
+            }
+
+            /* On screens narrower than 600px, switch to a single column layout. */
+            @media (max-width: 600px) {
+                .section-city-place1 {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* Utility class to make a grid item span across both columns */
+            .grid-span-2 {
+                grid-column: 1 / -1;
+            }
+
+            /* Paragraphs will have a consistent text indent instead of non-breaking spaces. */
+            .section-city-place > p {
+                text-indent: 2em;
+            }
+
+            /* Increased base font size for better readability. */
+            p,
+            .uk1-h3,
+            .contact-item__value,
+            .page-footer p,
+            .page-footer li {
+                font-size: 1.25rem;
+                line-height: 1.6;
+            }
+
+            .section-city-place .uk-h3,
+            .section-banner__1 {
+                font-size: 2rem; /* Adjusts heading sizes. */
+            }
+
+            /* Responsive styles for tablets and smaller devices (up to 768px wide). */
+            @media (max-width: 768px) {
+                .section-banner__title {
+                    font-size: 2.8rem; /* Adjusts banner title size for better fit. */
+                    line-height: 1.2;
+                }
+
+                .section-city-place .uk-h3,
+                .section-banner__1 {
+                    font-size: 1.8rem; /* Adjusts heading sizes. */
+                }
+
+                p,
+                .uk1-h3,
+                .contact-item__value,
+                .page-footer p,
+                .page-footer li {
+                    font-size: 1.15rem; /* Standardizes paragraph and list font sizes. */
+                    line-height: 1.6;
+                }
+
+                .uk-section-large {
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                }
+
+                hr.uk-margin-large {
+                    margin-top: 30px !important;
+                    margin-bottom: 30px !important;
+                }
+
+                /* Footer columns will stack vertically on smaller screens. */
+                .page-footer__top .uk-grid > * {
+                    width: 100% !important;
+                    margin-bottom: 25px;
+                    text-align: center;
+                }
+
+                .page-footer__top .logo {
+                    margin: 0 auto 15px auto;
+                }
+
+                .social {
+                    justify-content: center;
+                }
+            }
+
+            /* Additional adjustments for very small screens (up to 480px wide). */
+            @media (max-width: 480px) {
+                .section-banner__title {
+                    font-size: 2.2rem;
+                }
+
+                .section-city-place .uk-h3,
+                .section-banner__1 {
+                    font-size: 1.6rem;
+                }
+
+                p,
+                .uk1-h3 {
+                    font-size: 1.05rem; /* Maintain readable size on small screens. */
+                }
+
+                .uk-section-large {
+                    padding: 20px 15px;
+                }
+
+                /* Reduces padding on slideshow thumbnails. */
+                .uk-thumbnav > * {
+                    padding-left: 5px;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="page-listing-post">
+        <div class="page-wrapper">
+            <header class="page-header">
+                <!-- Header content is commented out in the original file -->
+            </header>
+            <main class="page-main">
+                <div class="section-banner">
+                    <div class="section-banner__bg" style="background-image: url(html/assets/img/urban/2.jpg)">
+                        <div class="uk-container">
+                            <div class="section-banner__content">
+                                <div class="uk-grid uk-child-width-auto@m uk-flex-bottom" data-uk-grid>
+                                    <div class="uk-width-expand@m">
+                                        <div class="section-banner__breadcrumb"></div>
+                                        <div class="section-banner__title"> Urban Manor Hotel</div>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="uk-section-large uk-container">
+                        <div class="uk-grid uk-grid-medium" data-uk-grid>
+                            <div class="uk-width-1-1">
+                                <div class="section-city-place">
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/urban/1.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/urban/1.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
+
+                                <div class="section-city-place">
+                                    <p>
+                                     Urban Manor Hotel is a charming, two-story boutique hotel that stands as one of the first establishment's structure within Pueblo de Panay Township. This boutique hotel is known for it's unique wall painting and picture sceneries of capiz along the lobby. Urban Manor Hotel is the place for You! Stress-free with our rooms that have it all. A comfy Bed, spacious interiors and everything in between.
+                                    </p>
+                                </div>
+                                <hr class="uk-margin-large" />
+
+                                <hr class="uk-margin-large" />
+                                <div class="section-banner__1">Facilities and Amenities</div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3">
+                                        <span class="icon-picture"></span>ROOM ACCOMODATION
+                                    </div>
+                                    <div data-uk-slideshow="min-height: 300; max-height: 430">
+                                        <div class="uk-position-relative">
+                                            <ul
+                                                class="uk-slideshow-items uk-child-width-1-1"
+                                                data-uk-lightbox="animation: scale">
+                                                <li class="uk-border-rounded">
+                                                    <a href="html/assets/img/urban/3.jpg"
+                                                        ><img
+                                                            class="uk-width-1-1"
+                                                            src="html/assets/img/urban/3.jpg"
+                                                            alt="img-gallery"
+                                                            data-uk-cover
+                                                    /></a>
+                                                </li>
+                                            </ul>
+                                            <a
+                                                class="uk-position-center-left uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-previous
+                                                data-uk-slideshow-item="previous"></a
+                                            ><a
+                                                class="uk-position-center-right uk-position-small uk-hidden-hover"
+                                                href="#"
+                                                data-uk-slidenav-next
+                                                data-uk-slideshow-item="next"></a>
+                                        </div>
+                                    </div>
+                                    <div class="section-city-place">
+                                        <br />
+                                        <p>
+                                          Urban Manor Hotel offers a comfortable and diverse selection of accommodations to suit every type of traveler. Guests can enjoy the modern elegance of our Urban Suites (2 rooms available) and the cozy sophistication of our Junior Suites (2 rooms). Families will appreciate the spacious comfort of our Family Rooms, with 5 units designed for relaxation and togetherness. For couples or solo travelers, we offer 4 Superior Matrimonial Rooms with plush beds and refined decor. Additionally, we have 8 Superior Twin Rooms, perfect for guests who prefer separate sleeping arrangements without compromising style or comfort.
+
+                                        </p>
+                                    </div>
+                                </div>
+                                
+
+                                <hr class="uk-margin-large" />
+ 
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-map"></span>Location Map</div>
+                                    <div>
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.248982317641!2d122.73391451176914!3d11.605590288550589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a5f29700000001%3A0x2385fb279ae7ef53!2sRoxas%20City%20Pension%20House!5e0!3m2!1sen!2sph!4v1751858113184!5m2!1sen!2sph"
+                                            style="border: 0"
+                                            allowfullscreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                                <hr class="uk-margin-large" />
+                                <div class="section-city-place">
+                                    <div class="uk-h3"><span class="icon-earphones-alt"></span>Contact Information</div>
+                                    <ul class="contact-list">
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-location-pin"></div>
+                                                <div class="contact-item__value">
+                                                Sacred Heart of Jesus Avenue, Peublo de Panay, Lawaan, Roxas City, Capiz, Phlippines 5800
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-call-in"></div>
+                                                <div class="contact-item__value">0917-3257-368 / (036) 522-4018</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-item">
+                                                <div class="contact-item__icon icon-envelope-open"></div>
+                                                <div class="contact-item__value">urban.manor@yahoo.com</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <hr class="uk-margin-large" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <div class="page-footer__top">
+                    <div class="uk-container">
+                        <div class="uk-grid" data-uk-grid>
+                            <div class="uk-width-1-3@m uk-width-1-2@s">
+                                <div class="logo">
+                                    <a class="logo__link" href="index.html"
+                                        ><img class="logo__img" src="assets/img/placeholders/80x80a.png" alt="Doremi"
+                                    /></a>
+                                </div>
+                                <p>
+                                    <b>CAPIZ PROVINCIAL GOVERNMENT</b><br />
+                                    PROVINCIAL TOURISM AND CULTURAL AFFAIRS OFFICE<br />
+                                    <i>2nd Floor, Provincial Capitol, Roxas City, Capiz, Philippines 5800</i>
+                                </p>
+                                <ul class="uk-list">
+                                    <li>
+                                        <span>Email: </span
+                                        ><a href="mailto:support@domain.com">capiz.tourism@gmail.com</a>
+                                    </li>
+                                    <li><span>Phone: </span><a href="tel:104023513690">(036) 621-2935</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="uk-width-2-5@m uk-width--2@s">
+                                <h3 class="uk-h3">Rate Us</h3>
+                                <p>
+                                    Your insights matter. Together, we can make Lagaw Capiz E-Guide the best travel
+                                    companion in Capiz.
+                                </p>
+                                <div class="uk-grid uk-grid-small uk-child-width-1-1" data-uk-grid>
+                                    <div>
+                                        <a
+                                            href="https://play.google.com/store/apps/details?id=com.ptcao_ar.EGuide&hl=en&pli=1"
+                                            ><img src="html/assets/img/rate.png" alt="PlayStore"
+                                        /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="uk-h3">Connect Socially</h3>
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://twitter.com/capturecapiz?lang=en"
+                                            ><i class="fab fa-twitter"></i><span>Twitter</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/CapizTourismAndCulturalAffairs/"
+                                            ><i class="fab fa-facebook-f"></i><span>Facebook</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/@CaptureCapiz"
+                                            ><i class="fab fa-youtube"></i><span>YouTube</span></a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/capturecapiz/?hl=en"
+                                            ><i class="fab fa-instagram"></i><span>Instagram</span></a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-footer__bottom">
+                    <div class="uk-container">
+                        <span>© 2024 Provincial Tourism and Cultural Affairs Office - All rights reserved.</span>
+                    </div>
+                    <div class="uk-container"><span>© Gino Paulo D. Tagoc - All rights reserved.</span></div>
+                </div>
+            </footer>
+        </div>
+        <script src="html/assets/js/jquery.min.js"></script>
+        <script src="html/assets/js/uikit.min.js"></script>
+        <script src="html/assets/js/uikit-icons.min.js"></script>
+        <script src="html/assets/js/main.js"></script>
+    </body>
+</html>
