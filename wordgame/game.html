@@ -90,26 +90,6 @@
 
     <script src="./../wordgame/game.js"></script>
     
-          <script>
-let inactivityTime = 1 * 60 * 1000; 
-let timer;
 
-function resetTimer() {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-        console.log("Redirecting due to inactivity..."); // Debugging log
-        window.location.href = "../index.html"; // Redirect to index.html after inactivity
-    }, inactivityTime);
-}
-
-// Reset timer on user activity
-document.addEventListener("mousemove", resetTimer);
-document.addEventListener("keypress", resetTimer);
-document.addEventListener("touchstart", resetTimer);
-document.addEventListener("scroll", resetTimer);
-
-// Start the timer when the page loads
-resetTimer();
-</script>
   </body>
 </html>

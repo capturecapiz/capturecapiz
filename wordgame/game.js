@@ -1,3 +1,4 @@
+let modalCanBeClosed = true;
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
@@ -548,6 +549,9 @@ const handleTimeOut = () => {
 };
 
 const showModalFeedback = (classToApply) => {
+  modalCanBeClosed = false; // Add this line to lock the modal
+  
+  
   isModalOpen = true; // Modal is now open
   
   // Debugging: Log image source
@@ -577,9 +581,17 @@ const showModalFeedback = (classToApply) => {
       explanationAudio.play();
     }
   };
+  
+    // Add this timeout to unlock the modal after 500ms
+  setTimeout(() => {
+    modalCanBeClosed = true;
+  }, 500); 
 };
 
 const closeModalHandler = () => {
+   if (!modalCanBeClosed) return; // Add this line to check if closing is allowed
+  
+  clearInterval(timer); // Add this line
   feedbackModal.style.display = "none";
   isModalOpen = false; // Modal is now closed
   if (currentExplanationAudio) {
@@ -634,7 +646,7 @@ function resetInactivityTimer() {
     clearTimeout(inactivityTimer);
     inactivityTimer = setTimeout(() => {
         console.log("Redirecting due to inactivity..."); // Debugging log
-        window.location.href = "../index.html"; // Redirect to index.html after inactivity
+        window.location.href = "../index_1.html"; // Redirect to index.html after inactivity
     }, inactivityTime);
 }
 
