@@ -132,57 +132,458 @@
 
     <script>
         // --- GAME DATA ---
+        // IMPORTANT: Replace these local paths with your actual image file paths.
         const gameLevels = [
-            { images: ["https://placehold.co/200x200/3498db/ffffff?text=Provincial+Seal", "https://placehold.co/200x200/2ecc71/ffffff?text=Seafood+Platter", "https://placehold.co/200x200/e74c3c/ffffff?text=Capiz+Shell+Window", "https://placehold.co/200x200/f1c40f/ffffff?text=Map+of+Capiz"], answer: "CAPIZ" },
-            { images: ["https://placehold.co/200x200/9b59b6/ffffff?text=Pres.+Manuel+Roxas", "https://placehold.co/200x200/34495e/ffffff?text=Roxas+City+Seal", "https://placehold.co/200x200/1abc9c/ffffff?text=Capiz+Bridge", "https://placehold.co/200x200/e67e22/ffffff?text=Roxas+City+Plaza"], answer: "ROXAS" },
-            { images: ["https://placehold.co/200x200/16a085/ffffff?text=Grilled+Fish", "https://placehold.co/200x200/27ae60/ffffff?text=Crabs+(Alimango)", "https://placehold.co/200x200/2980b9/ffffff?text=Oysters+(Talaba)", "https://placehold.co/200x200/8e44ad/ffffff?text=Shrimp"], answer: "SEAFOOD" },
-            { images: ["https://placehold.co/200x200/f39c12/ffffff?text=Sta.+Monica+Church", "https://placehold.co/200x200/d35400/ffffff?text=Large+Church+Bell", "https://placehold.co/200x200/c0392b/ffffff?text=Immaculate+Conception", "https://placehold.co/200x200/7f8c8d/ffffff?text=Old+Stone+Church"], answer: "CHURCH" },
-            { images: ["https://placehold.co/200x200/2c3e50/ffffff?text=Street+Dancers", "https://placehold.co/200x200/3498db/ffffff?text=Colorful+Costumes", "https://placehold.co/200x200/e74c3c/ffffff?text=Town+Fiesta+Parade", "https://placehold.co/200x200/9b59b6/ffffff?text=Capiztahan+Event"], answer: "FESTIVAL" },
-            { images: ["https://placehold.co/200x200/1abc9c/ffffff?text=Suhot+Cave", "https://placehold.co/200x200/2ecc71/ffffff?text=Cave+Entrance", "https://placehold.co/200x200/f1c40f/ffffff?text=Stalactites", "https://placehold.co/200x200/34495e/ffffff?text=Kipot+Cave+System"], answer: "CAVE" },
-            { images: ["https://placehold.co/200x200/3498db/ffffff?text=Baybay+Beach", "https://placehold.co/200x200/9b59b6/ffffff?text=Olotayan+Island", "https://placehold.co/200x200/e67e22/ffffff?text=Gugma+Beach", "https://placehold.co/200x200/2ecc71/ffffff?text=White+Sand+Shore"], answer: "BEACH" },
-            { images: ["https://placehold.co/200x200/c0392b/ffffff?text=Panay+Island+Map", "https://placehold.co/200x200/2980b9/ffffff?text=Panay+River", "https://placehold.co/200x200/d35400/ffffff?text=Sta.+Monica+Bell", "https://placehold.co/200x200/8e44ad/ffffff?text=Town+of+Pan-ay"], answer: "PANAY" },
-            { images: ["https://placehold.co/200x200/e74c3c/ffffff?text=St.+Martin+of+Tours", "https://placehold.co/200x200/f1c40f/ffffff?text=Yellow+Sandstone", "https://placehold.co/200x200/3498db/ffffff?text=Suhot+Cave+Location", "https://placehold.co/200x200/2ecc71/ffffff?text=Dinagsa+Festival"], answer: "DUMALAG" },
-            { images: ["https://placehold.co/200x200/9b59b6/ffffff?text=Basiao+Beach", "https://placehold.co/200x200/34495e/ffffff?text=Agustin+Navarra+Park", "https://placehold.co/200x200/1abc9c/ffffff?text=Buyloganay+Festival", "https://placehold.co/200x200/e67e22/ffffff?text=Small+'Ibis'+Fish"], answer: "IVISAN" },
-            { images: ["https://placehold.co/200x200/16a085/ffffff?text=Hamindang+Tree", "https://placehold.co/200x200/27ae60/ffffff?text=Camp+Peralta", "https://placehold.co/200x200/2980b9/ffffff?text=Pangahaw+Festival", "https://placehold.co/200x200/8e44ad/ffffff?text=San+Sebastian+Parish"], answer: "JAMINDAN" },
-            { images: ["https://placehold.co/200x200/f39c12/ffffff?text=Washing+'Cayos'+Roots", "https://placehold.co/200x200/d35400/ffffff?text=Kipot+Cave", "https://placehold.co/200x200/c0392b/ffffff?text=Inilusan+Festival", "https://placehold.co/200x200/7f8c8d/ffffff?text=St.+Catherine+Church"], answer: "MAMBUSAO" },
-            { images: ["https://placehold.co/200x200/2c3e50/ffffff?text='Maayo+Man'+Harvest", "https://placehold.co/200x200/3498db/ffffff?text=Igang+Cave", "https://placehold.co/200x200/e74c3c/ffffff?text=Hil-o+Hil-o+Festival", "https://placehold.co/200x200/9b59b6/ffffff?text=Holy+Child+Parish"], answer: "MAAYON" },
-            { images: ["https://placehold.co/200x200/1abc9c/ffffff?text=Peeling+Tree+Bark", "https://placehold.co/200x200/2ecc71/ffffff?text=Pagpasidungog+Fest", "https://placehold.co/200x200/f1c40f/ffffff?text=St.+Lawrence+Church", "https://placehold.co/200x200/34495e/ffffff?text='Apnit'+Fish"], answer: "PANITAN" },
-            { images: ["https://placehold.co/200x200/e67e22/ffffff?text=Balisong+Hill", "https://placehold.co/200x200/16a085/ffffff?text=Agtalin+Shrine", "https://placehold.co/200x200/27ae60/ffffff?text=Tagbuan+Festival", "https://placehold.co/200x200/2980b9/ffffff?text=Hinulugan+Falls"], answer: "PILAR" },
-            { images: ["https://placehold.co/200x200/8e44ad/ffffff?text='Caguyuman'+Ant+Hill", "https://placehold.co/200x200/f39c12/ffffff?text=Guyum-Guyuman+Fest", "https://placehold.co/200x200/d35400/ffffff?text=St.+Isidore+Parish", "https://placehold.co/200x200/c0392b/ffffff?text=Agbalo+River"], answer: "PONTEVEDRA" },
-            { images: ["https://placehold.co/200x200/7f8c8d/ffffff?text=Datu+Bankaya", "https://placehold.co/200x200/2c3e50/ffffff?text=Tilibyugan+Festival", "https://placehold.co/200x200/3498db/ffffff?text=Gugma+Beach", "https://placehold.co/200x200/e74c3c/ffffff?text=St.+Anne+Parish"], answer: "SAPIAN" },
-            { images: ["https://placehold.co/200x200/9b59b6/ffffff?text=Datu+'Sikma'+Legend", "https://placehold.co/200x200/1abc9c/ffffff?text=Hil-o-hanay+Festival", "https://placehold.co/200x200/2ecc71/ffffff?text=St.+John+the+Baptist", "https://placehold.co/200x200/f1c40f/ffffff?text=Eaststar+Hometel"], answer: "SIGMA" },
-            { images: ["https://placehold.co/200x200/34495e/ffffff?text='Naga+Tapaz'+Legend", "https://placehold.co/200x200/e67e22/ffffff?text=Marugo+Lake", "https://placehold.co/200x200/16a085/ffffff?text=Patabang+Festival", "https://placehold.co/200x200/27ae60/ffffff?text=Pangilatan+Falls"], answer: "TAPAZ" },
-            { images: ["https://placehold.co/200x200/2980b9/ffffff?text=Agdahanay+Festival", "https://placehold.co/200x200/8e44ad/ffffff?text=San+Antonio+de+Padua", "https://placehold.co/200x200/f39c12/ffffff?text=Capiz+Eco-Park", "https://placehold.co/200x200/d35400/ffffff?text=Mapanag+Creek"], answer: "CUARTERO" },
-            { images: ["https://placehold.co/200x200/c0392b/ffffff?text=Tall+Dao+Tree", "https://placehold.co/200x200/7f8c8d/ffffff?text=Sto.+Tomas+de+Villanueva", "https://placehold.co/200x200/2c3e50/ffffff?text=Balucuan+Bridge", "https://placehold.co/200x200/3498db/ffffff?text=Pasalamat+Festival"], answer: "DAO" },
-            { images: ["https://placehold.co/200x200/e74c3c/ffffff?text='Dum-Araw'+Legend", "https://placehold.co/200x200/9b59b6/ffffff?text=Padagyaw+Festival", "https://placehold.co/200x200/1abc9c/ffffff?text=Mt.+Tag-ao", "https://placehold.co/200x200/2ecc71/ffffff?text=Our+Lady+of+Snows"], answer: "DUMARAO" },
-            { images: ["https://placehold.co/200x200/f1c40f/ffffff?text=Black+Sand", "https://placehold.co/200x200/34495e/ffffff?text=Roxas+City+Coastline", "https://placehold.co/200x200/e67e22/ffffff?text=Seafood+Restaurants", "https://placehold.co/200x200/16a085/ffffff?text=Skimboarding+Spot"], answer: "BAYBAY" },
-            { images: ["https://placehold.co/200x200/27ae60/ffffff?text=Palina+Ecopark", "https://placehold.co/200x200/2980b9/ffffff?text=Culajao+Ecopark", "https://placehold.co/200x200/8e44ad/ffffff?text=Coastal+Trees", "https://placehold.co/200x200/f39c12/ffffff?text=Fish+Nursery"], answer: "MANGROVE" },
-            { images: ["https://placehold.co/200x200/d35400/ffffff?text=Sta.+Monica+Church", "https://placehold.co/200x200/c0392b/ffffff?text=Largest+in+Asia", "https://placehold.co/200x200/7f8c8d/ffffff?text=70+Sacks+of+Coins", "https://placehold.co/200x200/2c3e50/ffffff?text=Panay+Town+Treasure"], answer: "BELL" },
-            { images: ["https://placehold.co/200x200/3498db/ffffff?text='Kapis'+Mollusk", "https://placehold.co/200x200/e74c3c/ffffff?text=Window+Panes", "https://placehold.co/200x200/9b59b6/ffffff?text=Decorative+Items", "https://placehold.co/200x200/1abc9c/ffffff?text=Oyster+Shell"], answer: "SHELL" },
-            { images: ["https://placehold.co/200x200/2ecc71/ffffff?text=Old+Capiz+Bridge", "https://placehold.co/200x200/f1c40f/ffffff?text=Balucuan+Bridge", "https://placehold.co/200x200/34495e/ffffff?text=Tadiao+Bridge", "https://placehold.co/200x200/e67e22/ffffff?text=River+Crossing"], answer: "BRIDGE" },
-            { images: ["https://placehold.co/200x200/16a085/ffffff?text=Ang+Panublion", "https://placehold.co/200x200/27ae60/ffffff?text=Old+Water+Tank", "https://placehold.co/200x200/2980b9/ffffff?text=Historical+Artifacts", "https://placehold.co/200x200/8e44ad/ffffff?text=Roxas+City+Culture"], answer: "MUSEUM" },
-            { images: ["https://placehold.co/200x200/f39c12/ffffff?text=Old+Churches", "https://placehold.co/200x200/d35400/ffffff?text=Miguel+Lopez+de+Legazpi", "https://placehold.co/200x200/c0392b/ffffff?text=Colonial+Rule", "https://placehold.co/200x200/7f8c8d/ffffff?text=Galleon+Ship"], answer: "SPANISH" },
-            { images: ["https://placehold.co/200x200/2c3e50/ffffff?text=San+Antonio+Beach", "https://placehold.co/200x200/3498db/ffffff?text=Espacio+Verde", "https://placehold.co/200x200/e74c3c/ffffff?text=Villa+Consorcia", "https://placehold.co/200x200/9b59b6/ffffff?text=Tourist+Accommodation"], answer: "RESORT" },
-            { images: ["https://placehold.co/200x200/1abc9c/ffffff?text=Panay+Waterway", "https://placehold.co/200x200/2ecc71/ffffff?text=Cadimahan+Tour", "https://placehold.co/200x200/f1c40f/ffffff?text=Agbalo+Waterway", "https://placehold.co/200x200/34495e/ffffff?text=Flowing+Water"], answer: "RIVER" },
-            { images: ["https://placehold.co/200x200/e67e22/ffffff?text=Hotel+Veronica", "https://placehold.co/200x200/16a085/ffffff?text=Islands+Hotel", "https://placehold.co/200x200/27ae60/ffffff?text=Kapis+Mansions", "https://placehold.co/200x200/2980b9/ffffff?text=Tourist+Lodging"], answer: "HOTEL" },
-            { images: ["https://placehold.co/200x200/8e44ad/ffffff?text=Olotayan", "https://placehold.co/200x200/f39c12/ffffff?text=Mantalinga", "https://placehold.co/200x200/d35400/ffffff?text=Marukol+Dako", "https://placehold.co/200x200/c0392b/ffffff?text=Land+in+the+Sea"], answer: "ISLAND" },
-            { images: ["https://placehold.co/200x200/7f8c8d/ffffff?text=Hinulugan", "https://placehold.co/200x200/2c3e50/ffffff?text=Liktinon", "https://placehold.co/200x200/3498db/ffffff?text=Pangilatan", "https://placehold.co/200x200/e74c3c/ffffff?text=Cascading+Water"], answer: "WATERFALL" },
-            { images: ["https://placehold.co/200x200/9b59b6/ffffff?text=Hiligaynon+for+'Joy'", "https://placehold.co/200x200/1abc9c/ffffff?text=Roxas+City+Festival", "https://placehold.co/200x200/2ecc71/ffffff?text=December+Celebration", "https://placehold.co/200x200/f1c40f/ffffff?text=Immaculate+Concepcion"], answer: "SINADYA" },
-            { images: ["https://placehold.co/200x200/34495e/ffffff?text=Province+Anniversary", "https://placehold.co/200x200/e67e22/ffffff?text=April+Festival", "https://placehold.co/200x200/16a085/ffffff?text=Street+Dancing", "https://placehold.co/200x200/27ae60/ffffff?text=Seafood+Showcase"], answer: "CAPIZTAHAN" },
-            { images: ["https://placehold.co/200x200/2980b9/ffffff?text=Traveler+with+Map", "https://placehold.co/200x200/8e44ad/ffffff?text=Beaches+and+Caves", "https://placehold.co/200x200/f39c12/ffffff?text=Festivals+and+Food", "https://placehold.co/200x200/d35400/ffffff?text=Visiting+Attractions"], answer: "TOURISM" },
-            { images: ["https://placehold.co/200x200/c0392b/ffffff?text=Coastal+Towns", "https://placehold.co/200x200/7f8c8d/ffffff?text=Bangus", "https://placehold.co/200x200/2c3e50/ffffff?text=Prawns", "https://placehold.co/200x200/3498db/ffffff?text=Seafood+Capital+Industry"], answer: "FISHING" },
-            { images: ["https://placehold.co/200x200/e74c3c/ffffff?text=TATC", "https://placehold.co/200x200/9b59b6/ffffff?text=Public+Stalls", "https://placehold.co/200x200/1abc9c/ffffff?text=Talipapa", "https://placehold.co/200x200/2ecc71/ffffff?text=Buying+and+Selling"], answer: "MARKET" },
-            { images: ["https://placehold.co/200x200/f1c40f/ffffff?text=Governor", "https://placehold.co/200x200/34495e/ffffff?text=16+Municipalities", "https://placehold.co/200x200/e67e22/ffffff?text=1+City", "https://placehold.co/200x200/16a085/ffffff?text=Western+Visayas+Area"], answer: "PROVINCE" },
-            { images: ["https://placehold.co/200x200/27ae60/ffffff?text=Origin+Story", "https://placehold.co/200x200/2980b9/ffffff?text=Datu+Bankaya", "https://placehold.co/200x200/8e44ad/ffffff?text='Kapid'+Twins", "https://placehold.co/200x200/f39c12/ffffff?text=Mythical+Tale"], answer: "LEGEND" },
-            { images: ["https://placehold.co/200x200/d35400/ffffff?text=Ceres+Bus", "https://placehold.co/200x200/c0392b/ffffff?text=2GO+Ferry", "https://placehold.co/200x200/7f8c8d/ffffff?text=Airplane", "https://placehold.co/200x200/2c3e50/ffffff?text=Van+Terminal"], answer: "TRAVEL" },
-            { images: ["https://placehold.co/200x200/3498db/ffffff?text=Cathedral", "https://placehold.co/200x200/e74c3c/ffffff?text=Parish", "https://placehold.co/200x200/9b59b6/ffffff?text=Chapel", "https://placehold.co/200x200/1abc9c/ffffff?text=Place+of+Worship"], answer: "CHURCH" },
-            { images: ["https://placehold.co/200x200/2ecc71/ffffff?text=Crabs+and+Shrimp", "https://placehold.co/200x200/f1c40f/ffffff?text=Batchoy+Noodles", "https://placehold.co/200x200/34495e/ffffff?text=Lechon+Belly", "https://placehold.co/200x200/e67e22/ffffff?text=Local+Cuisine"], answer: "FOOD" },
-            { images: ["https://placehold.co/200x200/16a085/ffffff?text=Spanish+Era", "https://placehold.co/200x200/27ae60/ffffff?text=American+Regime", "https://placehold.co/200x200/2980b9/ffffff?text=World+War+II", "https://placehold.co/200x200/8e44ad/ffffff?text=Pre-colonial+Times"], answer: "HISTORY" },
-            { images: ["https://placehold.co/200x200/f39c12/ffffff?text=Indigenous+People", "https://placehold.co/200x200/d35400/ffffff?text=Panay+Bukidnon", "https://placehold.co/200x200/c0392b/ffffff?text=Ati+Tribe", "https://placehold.co/200x200/7f8c8d/ffffff?text=Local+Inhabitant"], answer: "NATIVE" },
-            { images: ["https://placehold.co/200x200/2c3e50/ffffff?text=Manuel+A.+Roxas", "https://placehold.co/200x200/3498db/ffffff?text=First+Republic+Leader", "https://placehold.co/200x200/e74c3c/ffffff?text=Roxas+City+Namesake", "https://placehold.co/200x200/9b59b6/ffffff?text=Historical+Figure"], answer: "PRESIDENT" },
-            { images: ["https://placehold.co/200x200/1abc9c/ffffff?text=Rice+Paddies", "https://placehold.co/200x200/2ecc71/ffffff?text=Sugarcane+Plantation", "https://placehold.co/200x200/f1c40f/ffffff?text=Coconut+Trees", "https://placehold.co/200x200/34495e/ffffff?text=Agriculture"], answer: "FARMING" },
-            { images: ["https://placehold.co/200x200/e67e22/ffffff?text=Sugpo", "https://placehold.co/200x200/16a085/ffffff?text=Aquaculture", "https://placehold.co/200x200/27ae60/ffffff?text=Seafood+Export", "https://placehold.co/200x200/2980b9/ffffff?text=Farmed+Shrimp"], answer: "PRAWN" },
-            { images: ["https://placehold.co/200x200/8e44ad/ffffff?text='Talaba'", "https://placehold.co/200x200/f39c12/ffffff?text=Seafood+Delicacy", "https://placehold.co/200x200/d35400/ffffff?text=Farmed+in+Bays", "https://placehold.co/200x200/c0392b/ffffff?text=Bivalve+Mollusk"], answer: "OYSTER" }
+            {
+                images: [
+                    "html/assets/img/4pic/capizmap.png",
+                    "html/assets/img/4pic/logo.png",
+                    "html/assets/img/4pic/seafood.png",
+                    "html/assets/img/4pic/capizshell.jpg"
+                ],
+                answer: "CAPIZ"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/manuel.jpg",
+                     "html/assets/img/4pic/roxascity.png",
+                     "html/assets/img/4pic/bridge.jpg",
+                    "html/assets/img/4pic/bandstand.jpg"
+                ],
+                answer: "ROXAS"
+            },
+            {
+                images: [
+                     "html/assets/img/4pic/bangus.jpg",
+                     "html/assets/img/4pic/alimango.jpg",
+                     "html/assets/img/4pic/talaba.jpg",
+                     "html/assets/img/4pic/hipon.jpg"
+                ],
+                answer: "SEAFOOD"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/stamonica.jpg",
+                   "html/assets/img/4pic/hipon.jpg",
+                    "html/assets/img/4pic/bell.jpg",
+                    "html/assets/img/4pic/stone.jpg"
+                ],
+                answer: "CHURCH"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/dance.jpg",
+                    "html/assets/img/4pic/colorful.jpg",
+                    "html/assets/img/4pic/colorful1.jpg",
+                    "html/assets/img/4pic/colorful2.jpg"
+                ],
+                answer: "FESTIVAL"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/cave.jpg",
+                    "html/assets/img/4pic/cave1.jpg",
+                     "html/assets/img/4pic/cave2.jpg",
+                     "html/assets/img/4pic/cave3.jpg"
+                ],
+                answer: "CAVE"
+            },
+            {
+                images: [
+                     "html/assets/img/4pic/beach1.jpg",
+                    "html/assets/img/4pic/beach2.jpg",
+                    "html/assets/img/4pic/beach3.jpg",
+                    "html/assets/img/4pic/beach4.jpg"
+                ],
+                answer: "BEACH"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/panay.jpg",
+                    "html/assets/img/4pic/panay1.jpg",
+                    "html/assets/img/4pic/bell.jpg",
+                    "html/assets/img/4pic/panay2.jpg"
+                ],
+                answer: "PANAY"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/dumalag.jpg",
+                    "html/assets/img/4pic/dumalag1.jpg",
+                    "html/assets/img/4pic/dumalag2.jpg",
+                    "html/assets/img/4pic/dumalag3.jpg"
+                ],
+                answer: "DUMALAG"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/ivisan.jpg",
+                    "html/assets/img/4pic/ivisan1.jpg",
+                    "html/assets/img/4pic/ivisan2.jpg",
+                    "html/assets/img/4pic/ivisan3.jpg"
+                ],
+                answer: "IVISAN"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/jamindan.jpg",
+                     "html/assets/img/4pic/jamindan1.jpg",
+                     "html/assets/img/4pic/jamindan2.jpg",
+                     "html/assets/img/4pic/jamindan3.jpg"
+                ],
+                answer: "JAMINDAN"
+            },
+            {
+                images: [
+                     "html/assets/img/4pic/mambusao.jpg",
+                    "html/assets/img/4pic/mambusao1.jpg",
+                    "html/assets/img/4pic/mambusao2.jpg",
+                    "html/assets/img/4pic/mambusao3.jpg"
+                ],
+                answer: "MAMBUSAO"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/maayon.jpg",
+                    "html/assets/img/4pic/maayon1.jpg",
+                    "html/assets/img/4pic/maayon2.jpg",
+                    "html/assets/img/4pic/maayon3.jpg"
+                ],
+                answer: "MAAYON"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/panitan.jpg",
+                    "html/assets/img/4pic/panitan1.jpg",
+                    "html/assets/img/4pic/panitan2.jpg",
+                    "html/assets/img/4pic/panitan3.jpg"
+                ],
+                answer: "PANITAN"
+            },
+            {
+                images: [
+                    "html/assets/img/4pic/pilar.jpg",
+                    "html/assets/img/4pic/pilar1.jpg",
+                    "html/assets/img/4pic/pilar2.jpg",
+                    "html/assets/img/4pic/pilar3.jpg"
+                ],
+                answer: "PILAR"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/8e44ad/ffffff?text='Caguyuman'+Ant+Hill",
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Guyum-Guyuman+Fest",
+                    "https://placehold.co/200x200/d35400/ffffff?text=St.+Isidore+Parish",
+                    "https://placehold.co/200x200/c0392b/ffffff?text=Agbalo+River"
+                ],
+                answer: "PONTEVEDRA"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/7f8c8d/ffffff?text=Datu+Bankaya",
+                    "https://placehold.co/200x200/2c3e50/ffffff?text=Tilibyugan+Festival",
+                    "https://placehold.co/200x200/3498db/ffffff?text=Gugma+Beach",
+                    "https://placehold.co/200x200/e74c3c/ffffff?text=St.+Anne+Parish"
+                ],
+                answer: "SAPIAN"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/9b59b6/ffffff?text=Datu+'Sikma'+Legend",
+                    "https://placehold.co/200x200/1abc9c/ffffff?text=Hil-o-hanay+Festival",
+                    "https://placehold.co/200x200/2ecc71/ffffff?text=St.+John+the+Baptist",
+                    "https://placehold.co/200x200/f1c40f/ffffff?text=Eaststar+Hometel"
+                ],
+                answer: "SIGMA"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/34495e/ffffff?text='Naga+Tapaz'+Legend",
+                    "https://placehold.co/200x200/e67e22/ffffff?text=Marugo+Lake",
+                    "https://placehold.co/200x200/16a085/ffffff?text=Patabang+Festival",
+                    "https://placehold.co/200x200/27ae60/ffffff?text=Pangilatan+Falls"
+                ],
+                answer: "TAPAZ"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/2980b9/ffffff?text=Agdahanay+Festival",
+                    "https://placehold.co/200x200/8e44ad/ffffff?text=San+Antonio+de+Padua",
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Capiz+Eco-Park",
+                    "https://placehold.co/200x200/d35400/ffffff?text=Mapanag+Creek"
+                ],
+                answer: "CUARTERO"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/c0392b/ffffff?text=Tall+Dao+Tree",
+                    "https://placehold.co/200x200/7f8c8d/ffffff?text=Sto.+Tomas+de+Villanueva",
+                    "https://placehold.co/200x200/2c3e50/ffffff?text=Balucuan+Bridge",
+                    "https://placehold.co/200x200/3498db/ffffff?text=Pasalamat+Festival"
+                ],
+                answer: "DAO"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/e74c3c/ffffff?text='Dum-Araw'+Legend",
+                    "https://placehold.co/200x200/9b59b6/ffffff?text=Padagyaw+Festival",
+                    "https://placehold.co/200x200/1abc9c/ffffff?text=Mt.+Tag-ao",
+                    "https://placehold.co/200x200/2ecc71/ffffff?text=Our+Lady+of+Snows"
+                ],
+                answer: "DUMARAO"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/f1c40f/ffffff?text=Black+Sand",
+                    "https://placehold.co/200x200/34495e/ffffff?text=Roxas+City+Coastline",
+                    "https://placehold.co/200x200/e67e22/ffffff?text=Seafood+Restaurants",
+                    "https://placehold.co/200x200/16a085/ffffff?text=Skimboarding+Spot"
+                ],
+                answer: "BAYBAY"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/27ae60/ffffff?text=Palina+Ecopark",
+                    "https://placehold.co/200x200/2980b9/ffffff?text=Culajao+Ecopark",
+                    "https://placehold.co/200x200/8e44ad/ffffff?text=Coastal+Trees",
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Fish+Nursery"
+                ],
+                answer: "MANGROVE"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/d35400/ffffff?text=Sta.+Monica+Church",
+                    "https://placehold.co/200x200/c0392b/ffffff?text=Largest+in+Asia",
+                    "https://placehold.co/200x200/7f8c8d/ffffff?text=70+Sacks+of+Coins",
+                    "https://placehold.co/200x200/2c3e50/ffffff?text=Panay+Town+Treasure"
+                ],
+                answer: "BELL"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/3498db/ffffff?text='Kapis'+Mollusk",
+                    "https://placehold.co/200x200/e74c3c/ffffff?text=Window+Panes",
+                    "https://placehold.co/200x200/9b59b6/ffffff?text=Decorative+Items",
+                    "https://placehold.co/200x200/1abc9c/ffffff?text=Oyster+Shell"
+                ],
+                answer: "SHELL"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/2ecc71/ffffff?text=Old+Capiz+Bridge",
+                    "https://placehold.co/200x200/f1c40f/ffffff?text=Balucuan+Bridge",
+                    "https://placehold.co/200x200/34495e/ffffff?text=Tadiao+Bridge",
+                    "https://placehold.co/200x200/e67e22/ffffff?text=River+Crossing"
+                ],
+                answer: "BRIDGE"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/16a085/ffffff?text=Ang+Panublion",
+                    "https://placehold.co/200x200/27ae60/ffffff?text=Old+Water+Tank",
+                    "https://placehold.co/200x200/2980b9/ffffff?text=Historical+Artifacts",
+                    "https://placehold.co/200x200/8e44ad/ffffff?text=Roxas+City+Culture"
+                ],
+                answer: "MUSEUM"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Old+Churches",
+                    "https://placehold.co/200x200/d35400/ffffff?text=Miguel+Lopez+de+Legazpi",
+                    "https://placehold.co/200x200/c0392b/ffffff?text=Colonial+Rule",
+                    "https://placehold.co/200x200/7f8c8d/ffffff?text=Galleon+Ship"
+                ],
+                answer: "SPANISH"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/2c3e50/ffffff?text=San+Antonio+Beach",
+                    "https://placehold.co/200x200/3498db/ffffff?text=Espacio+Verde",
+                    "https://placehold.co/200x200/e74c3c/ffffff?text=Villa+Consorcia",
+                    "https://placehold.co/200x200/9b59b6/ffffff?text=Tourist+Accommodation"
+                ],
+                answer: "RESORT"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/1abc9c/ffffff?text=Panay+Waterway",
+                    "https://placehold.co/200x200/2ecc71/ffffff?text=Cadimahan+Tour",
+                    "https://placehold.co/200x200/f1c40f/ffffff?text=Agbalo+Waterway",
+                    "https://placehold.co/200x200/34495e/ffffff?text=Flowing+Water"
+                ],
+                answer: "RIVER"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/e67e22/ffffff?text=Hotel+Veronica",
+                    "https://placehold.co/200x200/16a085/ffffff?text=Islands+Hotel",
+                    "https://placehold.co/200x200/27ae60/ffffff?text=Kapis+Mansions",
+                    "https://placehold.co/200x200/2980b9/ffffff?text=Tourist+Lodging"
+                ],
+                answer: "HOTEL"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/8e44ad/ffffff?text=Olotayan",
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Mantalinga",
+                    "https://placehold.co/200x200/d35400/ffffff?text=Marukol+Dako",
+                    "https://placehold.co/200x200/c0392b/ffffff?text=Land+in+the+Sea"
+                ],
+                answer: "ISLAND"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/7f8c8d/ffffff?text=Hinulugan",
+                    "https://placehold.co/200x200/2c3e50/ffffff?text=Liktinon",
+                    "https://placehold.co/200x200/3498db/ffffff?text=Pangilatan",
+                    "https://placehold.co/200x200/e74c3c/ffffff?text=Cascading+Water"
+                ],
+                answer: "WATERFALL"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/9b59b6/ffffff?text=Hiligaynon+for+'Joy'",
+                    "https://placehold.co/200x200/1abc9c/ffffff?text=Roxas+City+Festival",
+                    "https://placehold.co/200x200/2ecc71/ffffff?text=December+Celebration",
+                    "https://placehold.co/200x200/f1c40f/ffffff?text=Immaculate+Concepcion"
+                ],
+                answer: "SINADYA"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/34495e/ffffff?text=Province+Anniversary",
+                    "https://placehold.co/200x200/e67e22/ffffff?text=April+Festival",
+                    "https://placehold.co/200x200/16a085/ffffff?text=Street+Dancing",
+                    "https://placehold.co/200x200/27ae60/ffffff?text=Seafood+Showcase"
+                ],
+                answer: "CAPIZTAHAN"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/2980b9/ffffff?text=Traveler+with+Map",
+                    "https://placehold.co/200x200/8e44ad/ffffff?text=Beaches+and+Caves",
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Festivals+and+Food",
+                    "https://placehold.co/200x200/d35400/ffffff?text=Visiting+Attractions"
+                ],
+                answer: "TOURISM"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/c0392b/ffffff?text=Coastal+Towns",
+                    "https://placehold.co/200x200/7f8c8d/ffffff?text=Bangus",
+                    "https://placehold.co/200x200/2c3e50/ffffff?text=Prawns",
+                    "https://placehold.co/200x200/3498db/ffffff?text=Seafood+Capital+Industry"
+                ],
+                answer: "FISHING"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/e74c3c/ffffff?text=TATC",
+                    "https://placehold.co/200x200/9b59b6/ffffff?text=Public+Stalls",
+                    "https://placehold.co/200x200/1abc9c/ffffff?text=Talipapa",
+                    "https://placehold.co/200x200/2ecc71/ffffff?text=Buying+and+Selling"
+                ],
+                answer: "MARKET"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/f1c40f/ffffff?text=Governor",
+                    "https://placehold.co/200x200/34495e/ffffff?text=16+Municipalities",
+                    "https://placehold.co/200x200/e67e22/ffffff?text=1+City",
+                    "https://placehold.co/200x200/16a085/ffffff?text=Western+Visayas+Area"
+                ],
+                answer: "PROVINCE"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/27ae60/ffffff?text=Origin+Story",
+                    "https://placehold.co/200x200/2980b9/ffffff?text=Datu+Bankaya",
+                    "https://placehold.co/200x200/8e44ad/ffffff?text='Kapid'+Twins",
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Mythical+Tale"
+                ],
+                answer: "LEGEND"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/d35400/ffffff?text=Ceres+Bus",
+                    "https://placehold.co/200x200/c0392b/ffffff?text=2GO+Ferry",
+                    "https://placehold.co/200x200/7f8c8d/ffffff?text=Airplane",
+                    "https://placehold.co/200x200/2c3e50/ffffff?text=Van+Terminal"
+                ],
+                answer: "TRAVEL"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/3498db/ffffff?text=Cathedral",
+                    "https://placehold.co/200x200/e74c3c/ffffff?text=Parish",
+                    "https://placehold.co/200x200/9b59b6/ffffff?text=Chapel",
+                    "https://placehold.co/200x200/1abc9c/ffffff?text=Place+of+Worship"
+                ],
+                answer: "CHURCH"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/2ecc71/ffffff?text=Crabs+and+Shrimp",
+                    "https://placehold.co/200x200/f1c40f/ffffff?text=Batchoy+Noodles",
+                    "https://placehold.co/200x200/34495e/ffffff?text=Lechon+Belly",
+                    "https://placehold.co/200x200/e67e22/ffffff?text=Local+Cuisine"
+                ],
+                answer: "FOOD"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/16a085/ffffff?text=Spanish+Era",
+                    "https://placehold.co/200x200/27ae60/ffffff?text=American+Regime",
+                    "https://placehold.co/200x200/2980b9/ffffff?text=World+War+II",
+                    "https://placehold.co/200x200/8e44ad/ffffff?text=Pre-colonial+Times"
+                ],
+                answer: "HISTORY"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Indigenous+People",
+                    "https://placehold.co/200x200/d35400/ffffff?text=Panay+Bukidnon",
+                    "https://placehold.co/200x200/c0392b/ffffff?text=Ati+Tribe",
+                    "https://placehold.co/200x200/7f8c8d/ffffff?text=Local+Inhabitant"
+                ],
+                answer: "NATIVE"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/2c3e50/ffffff?text=Manuel+A.+Roxas",
+                    "https://placehold.co/200x200/3498db/ffffff?text=First+Republic+Leader",
+                    "https://placehold.co/200x200/e74c3c/ffffff?text=Roxas+City+Namesake",
+                    "https://placehold.co/200x200/9b59b6/ffffff?text=Historical+Figure"
+                ],
+                answer: "PRESIDENT"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/1abc9c/ffffff?text=Rice+Paddies",
+                    "https://placehold.co/200x200/2ecc71/ffffff?text=Sugarcane+Plantation",
+                    "https://placehold.co/200x200/f1c40f/ffffff?text=Coconut+Trees",
+                    "https://placehold.co/200x200/34495e/ffffff?text=Agriculture"
+                ],
+                answer: "FARMING"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/e67e22/ffffff?text=Sugpo",
+                    "https://placehold.co/200x200/16a085/ffffff?text=Aquaculture",
+                    "https://placehold.co/200x200/27ae60/ffffff?text=Seafood+Export",
+                    "https://placehold.co/200x200/2980b9/ffffff?text=Farmed+Shrimp"
+                ],
+                answer: "PRAWN"
+            },
+            {
+                images: [
+                    "https://placehold.co/200x200/8e44ad/ffffff?text='Talaba'",
+                    "https://placehold.co/200x200/f39c12/ffffff?text=Seafood+Delicacy",
+                    "https://placehold.co/200x200/d35400/ffffff?text=Farmed+in+Bays",
+                    "https://placehold.co/200x200/c0392b/ffffff?text=Bivalve+Mollusk"
+                ],
+                answer: "OYSTER"
+            }
         ];
 
         // --- GAME STATE ---
@@ -253,7 +654,17 @@
                 const imgContainer = document.createElement('div');
                 imgContainer.className = 'aspect-square image-placeholder rounded-md';
                 imgContainer.style.backgroundImage = `url(${src})`;
-                imgContainer.textContent = src.split('text=')[1].replace(/\+/g, ' ');
+                // This part is for display if images fail to load, it extracts the keyword from the URL
+                try {
+                    const url = new URL(src);
+                    const params = new URLSearchParams(url.search);
+                    if (params.has('text')) {
+                        imgContainer.textContent = params.get('text').replace(/\+/g, ' ');
+                    }
+                } catch (e) {
+                    // It's a local path, so we can't parse it as a URL. We can show a generic text.
+                    imgContainer.textContent = " ";
+                }
                 imageGrid.appendChild(imgContainer);
             });
 
