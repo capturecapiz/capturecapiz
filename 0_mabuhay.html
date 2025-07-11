@@ -118,13 +118,10 @@
       }
 
       /* --- Responsive Grid for Listing Cards --- */
-      /* This is the core of the responsive solution. 
-       It creates a grid that automatically adjusts the number of columns based on screen width. */
       .responsive-card-grid {
         display: grid;
-        /* create columns that are at least 280px wide, but can grow to fill space */
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px; /* space between cards */
+        gap: 20px;
         padding: 0;
         list-style: none;
         margin: 0;
@@ -143,7 +140,8 @@
         flex-direction: column;
         height: 100%;
       }
-      .listing-card:hover {
+      /* The wrapping <a> tag makes the whole card hoverable */
+      li > a:hover .listing-card {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
       }
@@ -182,7 +180,7 @@
         transition: opacity 0.75s ease;
         opacity: 0;
       }
-      .listing-card:hover .shine::after {
+      li > a:hover .shine::after {
         opacity: 1;
         animation: shine-effect 1.5s ease-out;
       }
@@ -211,13 +209,15 @@
         padding: 15px;
         flex-grow: 1;
       }
-      .listing-card__title a {
+      /* FIX: Style the title div directly as it's no longer a link itself */
+      .listing-card__title {
         font-size: 1.1rem;
         font-weight: bold;
         color: #333;
         text-decoration: none;
       }
-      .listing-card__title a:hover {
+      /* FIX: Apply hover effect to the title when the parent link is hovered */
+      li > a:hover .listing-card__title {
         color: #d9534f;
       }
       .listing-card__intro {
@@ -252,7 +252,7 @@
             <div class="uk-container">
               <div class="section-banner__content uk-text-center">
                 <div class="section-banner__title">
-                  DEPARTMENT OF TOURISM<span> ACCREDITED TOURISM-RELATED<br />ESTABLISHMENT / INDIVIDUALS</span>
+                  DEPARTMENT OF TOURISM<span><BR> ACCREDITED TOURISM-RELATEDESTABLISHMENT / INDIVIDUALS</span>
                 </div>
                 <div class="section-banner__text"><i>(as of July 01, 2025)</i></div>
               </div>
@@ -269,44 +269,51 @@
                 <div class="uk-margin-large-bottom">
                   <h3 class="uk-h3 uk-margin-medium-bottom">MABUHAY ACCOMMODATION</h3>
                   <ul class="responsive-card-grid">
+                    <!-- FIX: Each card is now wrapped in an anchor tag to make the whole area clickable -->
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_novo.html"><img src="html/assets/img/novo/2.jpg" alt="Planet Museum" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_novo.html">ASIA NOVO BOUTIQUE HOTEL INC.</a></div>
+                      <a href="acc_novo.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/novo/2.jpg" alt="Planet Museum" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">ASIA NOVO BOUTIQUE HOTEL INC.</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_capizlodge.html"><img src="html/assets/img/capizlodge/1.jpg" alt="ZX Shopping Mall" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_capizlodge.html">CAPIZ LODGE </a></div>
+                      <a href="acc_capizlodge.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/capizlodge/1.jpg" alt="ZX Shopping Mall" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">CAPIZ LODGE</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_casita.html"><img src="html/assets/img/casita/1.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_casita.html">CASITA JUAN</a></div>
+                      <a href="acc_casita.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/casita/1.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">CASITA JUAN</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -315,286 +322,294 @@
                 <div class="uk-margin-large-bottom">
                   <ul class="responsive-card-grid">
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_cliffside.html"><img src="html/assets/img/listing-thumb-1.jpg" alt="Planet Museum" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_cliffside.html">CLIFFSIDE VIEW RESORT</a></div>
+                      <a href="acc_cliffside.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/noimage.png" alt="Planet Museum" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">CLIFFSIDE VIEW RESORT</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_decimo.html"><img src="html/assets/img/decimo.jpg" alt="ZX Shopping Mall" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_decimo.html"> DECIMO INN </a></div>
+                      <a href="acc_decimo.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/decimo.jpg" alt="ZX Shopping Mall" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">DECIMO INN</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_halaran.html"><img src="html/assets/img/halaran.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_halaran.html">HALARAN PLAZA HOTEL & COFFEE SHOP</a></div>
+                      <a href="acc_halaran.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/halaran.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">HALARAN PLAZA HOTEL & COFFEE SHOP</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_happyheart.html"><img src="html/assets/img/happyheart.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_happyheart.html"> HAPPY HEARTS DRIVE-IN HOTEL </a></div>
+                      <a href="acc_happyheart.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/happyheart.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">HAPPY HEARTS DRIVE-IN HOTEL</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_hemingway.html"><img src="html/assets/img/hemingway.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_hemingway.html">HEMINGWAY HOTEL </a></div>
+                      <a href="acc_hemingway.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/hemingway.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">HEMINGWAY HOTEL</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="#!"><img src="html/assets/img/julieta/2.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href=""> JULIETA'S APARTELLE </a></div>
+                      <a href="acc_blvd.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/julieta/2.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">JULIETA'S APARTELLE</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_juvieta.html"><img src="html/assets/img/juvieta.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_juvieta.html">JUVIETA BEACH PENSION HOUSE </a></div>
+                      <a href="acc_juvieta.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/juvieta.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">JUVIETA BEACH PENSION HOUSE</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_kamalig.html"><img src="html/assets/img/kamalig.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_kamalig.html">KAMALIG D' TIROL BEACH RESORT </a></div>
+                      <a href="acc_kamalig.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/kamalig.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">KAMALIG D' TIROL BEACH RESORT</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_la.html"><img src="html/assets/img/la.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_la.html">L.A BEACH RESORT</a></div>
+                      <a href="acc_la.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/la.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">L.A BEACH RESORT</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_legacy.html"><img src="html/assets/img/legacy/1.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_legacy.html"> LEGACY LODGING HOUSE</a></div>
+                      <a href="acc_legacy.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/legacy/1.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">LEGACY LODGING HOUSE</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_olive.htmlb"><img src="html/assets/img/olive/facade.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_olive.html">OLIVE HOSTEL</a></div>
+                      <a href="acc_olive.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/olive/facade.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">OLIVE HOSTEL</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_palmcoast.html"><img src="html/assets/img/palm/1.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_palmcoast.html"> PALM COAST BEACH RESORT </a></div>
+                      <a href="acc_palmcoast.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/palm/1.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">PALM COAST BEACH RESORT</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_pete.html"><img src="html/assets/img/pete.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_pete.html">PETE'S INN </a></div>
+                      <a href="acc_pete.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/pete.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">PETE'S INN</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_premiere.html"><img src="html/assets/img/noimage.png" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_premiere.html">PREMIERE INN </a></div>
+                      <a href="acc_premiere.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/noimage.png" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">PREMIERE INN</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_rbm.html"><img src="html/assets/img/rbm.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_rbm.html"> RBM VIRGIN BEACH RESORT </a></div>
+                      <a href="acc_rbm.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/rbm.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">RBM VIRGIN BEACH RESORT</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_rdc.html"><img src="html/assets/img/rdc/2.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_rdc.html">RDC RESIDENCIA DE CAPIZ </a></div>
+                      <a href="acc_rdc.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/rdc/2.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">RDC RESIDENCIA DE CAPIZ</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_blvd.html"><img src="html/assets/img/blvd/1.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_blvd.html"> ROXAS CITY BOULEVARD LODGE </a></div>
+                      <a href="acc_blvd.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/blvd/1.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">ROXAS CITY BOULEVARD LODGE</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_pension.html"><img src="html/assets/img/pension/1.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_pension.html"> ROXAS CITY PENSION HOUSE </a></div>
+                      <a href="acc_pension.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/pension/1.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">ROXAS CITY PENSION HOUSE</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
-
                     <li>
-                      <div class="listing-card">
-                        <div class="listing-card__box">
-                          <div class="listing-card__media shine">
-                            <a href="acc_wallabies.html"><img src="html/assets/img/wallabies/1.jpg" alt="Grandsol Hotel" /></a>
-                            <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
-                          </div>
-                          <div class="listing-card__body">
-                            <div class="listing-card__title"><a href="acc_wallabies.html">WALLABIES HOTEL </a></div>
+                      <a href="acc_wallabies.html" style="text-decoration: none; color: inherit;">
+                        <div class="listing-card">
+                          <div class="listing-card__box">
+                            <div class="listing-card__media shine">
+                              <img src="html/assets/img/wallabies/1.jpg" alt="Grandsol Hotel" />
+                              <div class="listing-card__bookmark"><i class="fa-solid fa-map-pin"></i></div>
+                            </div>
+                            <div class="listing-card__body">
+                              <div class="listing-card__title">WALLABIES HOTEL</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </li>
                   </ul>
                 </div>
 
                 <!-- Add more categories as needed following the pattern above -->
-              </div>
-            </div>
-
-            <!-- Map Sidebar - now it will stack on small screens and be a sidebar on large screens -->
-            <div class="uk-width-1-3@m uk-flex-first@m">
-              <div class="uk-height-1-1 uk-background-muted uk-visible@m">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26531.049464665928!2d-118.27658807870944!3d33.77665338557302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd35d6a02be983%3A0x2aae7458d5262918!2z0KPQuNC70LzQuNC90LPRgtC-0L0sINCa0LDQu9C40YTQvtGA0L3QuNGPIDkwNzQ0LCDQodCo0JA!5e0!3m2!1sru!2sua!4v1611503673982!5m2!1sru!2sua"
-                  width="100%"
-                  height="100%"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                  title="Location Map"></iframe>
               </div>
             </div>
           </div>
