@@ -95,9 +95,9 @@
 <body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
 
     <!-- Audio Elements -->
-    <audio id="background-audio" src="html/assets/img/4pic.mp3" loop autoplay></audio>
-    <audio id="correct-answer-audio" src="html/assets/img/4pic_winner.mp3"></audio>
-    <audio id="game-over-audio" src="html/assets/img/4pic_over.mp3"></audio>
+    <audio id="background-audio" src="https://storage.googleapis.com/gemini-beta-prod-us-west1-assets/4pic.mp3" loop autoplay></audio>
+    <audio id="correct-answer-audio" src="https://storage.googleapis.com/gemini-beta-prod-us-west1-assets/4pic_winner.mp3"></audio>
+    <audio id="game-over-audio" src="https://storage.googleapis.com/gemini-beta-prod-us-west1-assets/4pic_over.mp3"></audio>
 
     <div id="game-container" class="w-full max-w-md mx-auto bg-white rounded-2xl shadow-xl p-6">
         <header class="text-center mb-4">
@@ -136,9 +136,12 @@
         <div class="modal-content w-11/12 max-w-sm">
             <h2 class="text-3xl font-bold text-red-600 mb-4">Game Over!</h2>
             <p class="text-slate-700 text-lg mb-2">Time's up!</p>
+            <p class="text-slate-700 text-lg mb-4">
+                The correct answer was: <span id="correct-answer-display" class="font-bold text-indigo-600"></span>
+            </p>
             <p class="text-slate-700 text-lg">Your Final Score: <span id="final-score" class="font-bold">0</span></p>
-            <button id="close-modal-btn" class="mt-6 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-md">
-                Close
+            <button id="restart-btn" class="mt-6 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-md">
+                Play Again
             </button>
         </div>
     </div>
@@ -146,56 +149,56 @@
     <script>
         // --- GAME DATA ---
         const gameLevels = [
-            { images: ["html/assets/img/4pic/capizmap.png", "html/assets/img/4pic/logo.png", "html/assets/img/4pic/seafood.png", "html/assets/img/4pic/capizshell.jpg"], answer: "CAPIZ" },
-            { images: ["html/assets/img/4pic/manuel.jpg", "html/assets/img/4pic/roxascity.png", "html/assets/img/4pic/bridge.jpg", "html/assets/img/4pic/bandstand.jpg"], answer: "ROXAS" },
-            { images: ["html/assets/img/4pic/bangus.jpg", "html/assets/img/4pic/alimango.jpg", "html/assets/img/4pic/talaba.jpg", "html/assets/img/4pic/hipon.jpg"], answer: "SEAFOOD" },
-            { images: ["html/assets/img/4pic/stamonica.jpg", "html/assets/img/4pic/hipon.jpg", "html/assets/img/4pic/bell.jpg", "html/assets/img/4pic/stone.jpg"], answer: "CHURCH" },
-            { images: ["html/assets/img/4pic/dance.jpg", "html/assets/img/4pic/colorful.jpg", "html/assets/img/4pic/colorful1.jpg", "html/assets/img/4pic/colorful2.jpg"], answer: "FESTIVAL" },
-            { images: ["html/assets/img/4pic/cave.jpg", "html/assets/img/4pic/cave1.jpg", "html/assets/img/4pic/cave2.jpg", "html/assets/img/4pic/cave3.jpg"], answer: "CAVE" },
-            { images: ["html/assets/img/4pic/beach1.jpg", "html/assets/img/4pic/beach2.jpg", "html/assets/img/4pic/beach3.jpg", "html/assets/img/4pic/beach4.jpg"], answer: "BEACH" },
-            { images: ["html/assets/img/4pic/panay.jpg", "html/assets/img/4pic/panay1.jpg", "html/assets/img/4pic/bell.jpg", "html/assets/img/4pic/panay2.jpg"], answer: "PANAY" },
-            { images: ["html/assets/img/4pic/dumalag.jpg", "html/assets/img/4pic/dumalag1.jpg", "html/assets/img/4pic/dumalag2.jpg", "html/assets/img/4pic/dumalag3.jpg"], answer: "DUMALAG" },
-            { images: ["html/assets/img/4pic/ivisan.jpg", "html/assets/img/4pic/ivisan1.jpg", "html/assets/img/4pic/ivisan2.jpg", "html/assets/img/4pic/ivisan3.jpg"], answer: "IVISAN" },
-            { images: ["html/assets/img/4pic/jamindan.jpg", "html/assets/img/4pic/jamindan1.jpg", "html/assets/img/4pic/jamindan2.jpg", "html/assets/img/4pic/jamindan3.jpg"], answer: "JAMINDAN" },
-            { images: ["html/assets/img/4pic/mambusao.jpg", "html/assets/img/4pic/mambusao1.jpg", "html/assets/img/4pic/mambusao2.jpg", "html/assets/img/4pic/mambusao3.jpg"], answer: "MAMBUSAO" },
-            { images: ["html/assets/img/4pic/maayon.jpg", "html/assets/img/4pic/maayon1.jpg", "html/assets/img/4pic/maayon2.jpg", "html/assets/img/4pic/maayon3.jpg"], answer: "MAAYON" },
-            { images: ["html/assets/img/4pic/panitan.jpg", "html/assets/img/4pic/panitan1.jpg", "html/assets/img/4pic/panitan2.jpg", "html/assets/img/4pic/panitan3.jpg"], answer: "PANITAN" },
-            { images: ["html/assets/img/4pic/pilar.jpg", "html/assets/img/4pic/pilar1.jpg", "html/assets/img/4pic/pilar2.jpg", "html/assets/img/4pic/pilar3.jpg"], answer: "PILAR" },
-            { images: ["https://placehold.co/200x200/8e44ad/ffffff?text='Caguyuman'+Ant+Hill", "https://placehold.co/200x200/f39c12/ffffff?text=Guyum-Guyuman+Fest", "https://placehold.co/200x200/d35400/ffffff?text=St.+Isidore+Parish", "https://placehold.co/200x200/c0392b/ffffff?text=Agbalo+River"], answer: "PONTEVEDRA" },
-            { images: ["https://placehold.co/200x200/7f8c8d/ffffff?text=Datu+Bankaya", "https://placehold.co/200x200/2c3e50/ffffff?text=Tilibyugan+Festival", "https://placehold.co/200x200/3498db/ffffff?text=Gugma+Beach", "https://placehold.co/200x200/e74c3c/ffffff?text=St.+Anne+Parish"], answer: "SAPIAN" },
-            { images: ["https://placehold.co/200x200/9b59b6/ffffff?text=Datu+'Sikma'+Legend", "https://placehold.co/200x200/1abc9c/ffffff?text=Hil-o-hanay+Festival", "https://placehold.co/200x200/2ecc71/ffffff?text=St.+John+the+Baptist", "https://placehold.co/200x200/f1c40f/ffffff?text=Eaststar+Hometel"], answer: "SIGMA" },
-            { images: ["https://placehold.co/200x200/34495e/ffffff?text='Naga+Tapaz'+Legend", "https://placehold.co/200x200/e67e22/ffffff?text=Marugo+Lake", "https://placehold.co/200x200/16a085/ffffff?text=Patabang+Festival", "https://placehold.co/200x200/27ae60/ffffff?text=Pangilatan+Falls"], answer: "TAPAZ" },
-            { images: ["https://placehold.co/200x200/2980b9/ffffff?text=Agdahanay+Festival", "https://placehold.co/200x200/8e44ad/ffffff?text=San+Antonio+de+Padua", "https://placehold.co/200x200/f39c12/ffffff?text=Capiz+Eco-Park", "https://placehold.co/200x200/d35400/ffffff?text=Mapanag+Creek"], answer: "CUARTERO" },
-            { images: ["https://placehold.co/200x200/c0392b/ffffff?text=Tall+Dao+Tree", "https://placehold.co/200x200/7f8c8d/ffffff?text=Sto.+Tomas+de+Villanueva", "https://placehold.co/200x200/2c3e50/ffffff?text=Balucuan+Bridge", "https://placehold.co/200x200/3498db/ffffff?text=Pasalamat+Festival"], answer: "DAO" },
-            { images: ["https://placehold.co/200x200/e74c3c/ffffff?text='Dum-Araw'+Legend", "https://placehold.co/200x200/9b59b6/ffffff?text=Padagyaw+Festival", "https://placehold.co/200x200/1abc9c/ffffff?text=Mt.+Tag-ao", "https://placehold.co/200x200/2ecc71/ffffff?text=Our+Lady+of+Snows"], answer: "DUMARAO" },
-            { images: ["https://placehold.co/200x200/f1c40f/ffffff?text=Black+Sand", "https://placehold.co/200x200/34495e/ffffff?text=Roxas+City+Coastline", "https://placehold.co/200x200/e67e22/ffffff?text=Seafood+Restaurants", "https://placehold.co/200x200/16a085/ffffff?text=Skimboarding+Spot"], answer: "BAYBAY" },
-            { images: ["https://placehold.co/200x200/27ae60/ffffff?text=Palina+Ecopark", "https://placehold.co/200x200/2980b9/ffffff?text=Culajao+Ecopark", "https://placehold.co/200x200/8e44ad/ffffff?text=Coastal+Trees", "https://placehold.co/200x200/f39c12/ffffff?text=Fish+Nursery"], answer: "MANGROVE" },
-            { images: ["https://placehold.co/200x200/d35400/ffffff?text=Sta.+Monica+Church", "https://placehold.co/200x200/c0392b/ffffff?text=Largest+in+Asia", "https://placehold.co/200x200/7f8c8d/ffffff?text=70+Sacks+of+Coins", "https://placehold.co/200x200/2c3e50/ffffff?text=Panay+Town+Treasure"], answer: "BELL" },
-            { images: ["https://placehold.co/200x200/3498db/ffffff?text='Kapis'+Mollusk", "https://placehold.co/200x200/e74c3c/ffffff?text=Window+Panes", "https://placehold.co/200x200/9b59b6/ffffff?text=Decorative+Items", "https://placehold.co/200x200/1abc9c/ffffff?text=Oyster+Shell"], answer: "SHELL" },
-            { images: ["https://placehold.co/200x200/2ecc71/ffffff?text=Old+Capiz+Bridge", "https://placehold.co/200x200/f1c40f/ffffff?text=Balucuan+Bridge", "https://placehold.co/200x200/34495e/ffffff?text=Tadiao+Bridge", "https://placehold.co/200x200/e67e22/ffffff?text=River+Crossing"], answer: "BRIDGE" },
-            { images: ["https://placehold.co/200x200/16a085/ffffff?text=Ang+Panublion", "https://placehold.co/200x200/27ae60/ffffff?text=Old+Water+Tank", "https://placehold.co/200x200/2980b9/ffffff?text=Historical+Artifacts", "https://placehold.co/200x200/8e44ad/ffffff?text=Roxas+City+Culture"], answer: "MUSEUM" },
-            { images: ["https://placehold.co/200x200/f39c12/ffffff?text=Old+Churches", "https://placehold.co/200x200/d35400/ffffff?text=Miguel+Lopez+de+Legazpi", "https://placehold.co/200x200/c0392b/ffffff?text=Colonial+Rule", "https://placehold.co/200x200/7f8c8d/ffffff?text=Galleon+Ship"], answer: "SPANISH" },
-            { images: ["https://placehold.co/200x200/2c3e50/ffffff?text=San+Antonio+Beach", "https://placehold.co/200x200/3498db/ffffff?text=Espacio+Verde", "https://placehold.co/200x200/e74c3c/ffffff?text=Villa+Consorcia", "https://placehold.co/200x200/9b59b6/ffffff?text=Tourist+Accommodation"], answer: "RESORT" },
-            { images: ["https://placehold.co/200x200/1abc9c/ffffff?text=Panay+Waterway", "https://placehold.co/200x200/2ecc71/ffffff?text=Cadimahan+Tour", "https://placehold.co/200x200/f1c40f/ffffff?text=Agbalo+Waterway", "https://placehold.co/200x200/34495e/ffffff?text=Flowing+Water"], answer: "RIVER" },
-            { images: ["https://placehold.co/200x200/e67e22/ffffff?text=Hotel+Veronica", "https://placehold.co/200x200/16a085/ffffff?text=Islands+Hotel", "https://placehold.co/200x200/27ae60/ffffff?text=Kapis+Mansions", "https://placehold.co/200x200/2980b9/ffffff?text=Tourist+Lodging"], answer: "HOTEL" },
-            { images: ["https://placehold.co/200x200/8e44ad/ffffff?text=Olotayan", "https://placehold.co/200x200/f39c12/ffffff?text=Mantalinga", "https://placehold.co/200x200/d35400/ffffff?text=Marukol+Dako", "https://placehold.co/200x200/c0392b/ffffff?text=Land+in+the+Sea"], answer: "ISLAND" },
-            { images: ["https://placehold.co/200x200/7f8c8d/ffffff?text=Hinulugan", "https://placehold.co/200x200/2c3e50/ffffff?text=Liktinon", "https://placehold.co/200x200/3498db/ffffff?text=Pangilatan", "https://placehold.co/200x200/e74c3c/ffffff?text=Cascading+Water"], answer: "WATERFALL" },
-            { images: ["https://placehold.co/200x200/9b59b6/ffffff?text=Hiligaynon+for+'Joy'", "https://placehold.co/200x200/1abc9c/ffffff?text=Roxas+City+Festival", "https://placehold.co/200x200/2ecc71/ffffff?text=December+Celebration", "https://placehold.co/200x200/f1c40f/ffffff?text=Immaculate+Concepcion"], answer: "SINADYA" },
-            { images: ["https://placehold.co/200x200/34495e/ffffff?text=Province+Anniversary", "https://placehold.co/200x200/e67e22/ffffff?text=April+Festival", "https://placehold.co/200x200/16a085/ffffff?text=Street+Dancing", "https://placehold.co/200x200/27ae60/ffffff?text=Seafood+Showcase"], answer: "CAPIZTAHAN" },
-            { images: ["https://placehold.co/200x200/2980b9/ffffff?text=Traveler+with+Map", "https://placehold.co/200x200/8e44ad/ffffff?text=Beaches+and+Caves", "https://placehold.co/200x200/f39c12/ffffff?text=Festivals+and+Food", "https://placehold.co/200x200/d35400/ffffff?text=Visiting+Attractions"], answer: "TOURISM" },
-            { images: ["https://placehold.co/200x200/c0392b/ffffff?text=Coastal+Towns", "https://placehold.co/200x200/7f8c8d/ffffff?text=Bangus", "https://placehold.co/200x200/2c3e50/ffffff?text=Prawns", "https://placehold.co/200x200/3498db/ffffff?text=Seafood+Capital+Industry"], answer: "FISHING" },
-            { images: ["https://placehold.co/200x200/e74c3c/ffffff?text=TATC", "https://placehold.co/200x200/9b59b6/ffffff?text=Public+Stalls", "https://placehold.co/200x200/1abc9c/ffffff?text=Talipapa", "https://placehold.co/200x200/2ecc71/ffffff?text=Buying+and+Selling"], answer: "MARKET" },
-            { images: ["https://placehold.co/200x200/f1c40f/ffffff?text=Governor", "https://placehold.co/200x200/34495e/ffffff?text=16+Municipalities", "https://placehold.co/200x200/e67e22/ffffff?text=1+City", "https://placehold.co/200x200/16a085/ffffff?text=Western+Visayas+Area"], answer: "PROVINCE" },
-            { images: ["https://placehold.co/200x200/27ae60/ffffff?text=Origin+Story", "https://placehold.co/200x200/2980b9/ffffff?text=Datu+Bankaya", "https://placehold.co/200x200/8e44ad/ffffff?text='Kapid'+Twins", "https://placehold.co/200x200/f39c12/ffffff?text=Mythical+Tale"], answer: "LEGEND" },
-            { images: ["https://placehold.co/200x200/d35400/ffffff?text=Ceres+Bus", "https://placehold.co/200x200/c0392b/ffffff?text=2GO+Ferry", "https://placehold.co/200x200/7f8c8d/ffffff?text=Airplane", "https://placehold.co/200x200/2c3e50/ffffff?text=Van+Terminal"], answer: "TRAVEL" },
-            { images: ["https://placehold.co/200x200/3498db/ffffff?text=Cathedral", "https://placehold.co/200x200/e74c3c/ffffff?text=Parish", "https://placehold.co/200x200/9b59b6/ffffff?text=Chapel", "https://placehold.co/200x200/1abc9c/ffffff?text=Place+of+Worship"], answer: "CHURCH" },
-            { images: ["https://placehold.co/200x200/2ecc71/ffffff?text=Crabs+and+Shrimp", "https://placehold.co/200x200/f1c40f/ffffff?text=Batchoy+Noodles", "https://placehold.co/200x200/34495e/ffffff?text=Lechon+Belly", "https://placehold.co/200x200/e67e22/ffffff?text=Local+Cuisine"], answer: "FOOD" },
-            { images: ["https://placehold.co/200x200/16a085/ffffff?text=Spanish+Era", "https://placehold.co/200x200/27ae60/ffffff?text=American+Regime", "https://placehold.co/200x200/2980b9/ffffff?text=World+War+II", "https://placehold.co/200x200/8e44ad/ffffff?text=Pre-colonial+Times"], answer: "HISTORY" },
-            { images: ["https://placehold.co/200x200/f39c12/ffffff?text=Indigenous+People", "https://placehold.co/200x200/d35400/ffffff?text=Panay+Bukidnon", "https://placehold.co/200x200/c0392b/ffffff?text=Ati+Tribe", "https://placehold.co/200x200/7f8c8d/ffffff?text=Local+Inhabitant"], answer: "NATIVE" },
-            { images: ["https://placehold.co/200x200/2c3e50/ffffff?text=Manuel+A.+Roxas", "https://placehold.co/200x200/3498db/ffffff?text=First+Republic+Leader", "https://placehold.co/200x200/e74c3c/ffffff?text=Roxas+City+Namesake", "https://placehold.co/200x200/9b59b6/ffffff?text=Historical+Figure"], answer: "PRESIDENT" },
-            { images: ["https://placehold.co/200x200/1abc9c/ffffff?text=Rice+Paddies", "https://placehold.co/200x200/2ecc71/ffffff?text=Sugarcane+Plantation", "https://placehold.co/200x200/f1c40f/ffffff?text=Coconut+Trees", "https://placehold.co/200x200/34495e/ffffff?text=Agriculture"], answer: "FARMING" },
-            { images: ["https://placehold.co/200x200/e67e22/ffffff?text=Sugpo", "https://placehold.co/200x200/16a085/ffffff?text=Aquaculture", "https://placehold.co/200x200/27ae60/ffffff?text=Seafood+Export", "https://placehold.co/200x200/2980b9/ffffff?text=Farmed+Shrimp"], answer: "PRAWN" },
-            { images: ["https://placehold.co/200x200/8e44ad/ffffff?text='Talaba'", "https://placehold.co/200x200/f39c12/ffffff?text=Seafood+Delicacy", "https://placehold.co/200x200/d35400/ffffff?text=Farmed+in+Bays", "https://placehold.co/200x200/c0392b/ffffff?text=Bivalve+Mollusk"], answer: "OYSTER" }
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/capizmap.png", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/logo.png", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/seafood.png", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/capizshell.jpg"], answer: "CAPIZ" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/manuel.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/roxascity.png", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bridge.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bandstand.jpg"], answer: "ROXAS" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bangus.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/alimango.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/talaba.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/hipon.jpg"], answer: "SEAFOOD" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/stamonica.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/hipon.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bell.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/stone.jpg"], answer: "CHURCH" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dance.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/colorful.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/colorful1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/colorful2.jpg"], answer: "FESTIVAL" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/cave.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/cave1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/cave2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/cave3.jpg"], answer: "CAVE" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/beach1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/beach2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/beach3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/beach4.jpg"], answer: "BEACH" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/panay.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/panay1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bell.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/panay2.jpg"], answer: "PANAY" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dumalag.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dumalag1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dumalag2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dumalag3.jpg"], answer: "DUMALAG" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/ivisan.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/ivisan1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/ivisan2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/ivisan3.jpg"], answer: "IVISAN" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/jamindan.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/jamindan1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/jamindan2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/jamindan3.jpg"], answer: "JAMINDAN" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/mambusao.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/mambusao1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/mambusao2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/mambusao3.jpg"], answer: "MAMBUSAO" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/maayon.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/maayon1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/maayon2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/maayon3.jpg"], answer: "MAAYON" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/panitan.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/panitan1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/panitan2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/panitan3.jpg"], answer: "PANITAN" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/pilar.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/pilar1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/pilar2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/pilar3.jpg"], answer: "PILAR" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/ponte.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/ponte2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/ponte3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/ponte4.jpg"], answer: "PONTEVEDRA" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sapian.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sapian2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sapian3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sapian4.jpg"], answer: "SAPIAN" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sigma.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sigma2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sigma3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sigma4.jpg"], answer: "SIGMA" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/tapaz.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/tapaz2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/tapaz3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/tapaz4.jpg"], answer: "TAPAZ" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/cuartero.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/cuartero1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/cuartero2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/cuartero3.jpg"], answer: "CUARTERO" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dao.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dao1.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dao2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dao3.jpg"], answer: "DAO" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dumarao.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dumarao2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dumarao3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/dumarao4.jpg"], answer: "DUMARAO" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/baybay.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/baybay2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/baybay3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/baybay4.jpg"], answer: "BAYBAY" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/mangrove.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/mangrove2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/mangrove3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/mangrove4.jpg"], answer: "MANGROVE" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bella.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bell2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bell3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bell4.jpg"], answer: "BELL" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/kapis.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/kapis2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/kapis3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/kapis4.jpg"], answer: "SHELL" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bridgea.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bridgea2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bridgea3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bridgea4.jpg"], answer: "BRIDGE" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/museum.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/museum2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/museum3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/museum4.jpg"], answer: "MUSEUM" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/spanish.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/spanish2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/spanish3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/spanish4.jpg"], answer: "SPANISH" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/resort.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/resort2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/resort3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/resort4.jpg"], answer: "RESORT" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/river.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/river2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/river3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/river4.jpg"], answer: "RIVER" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/hotel.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/hotel2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/hotel3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/hotel4.jpg"], answer: "HOTEL" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/island.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/island2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/island3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/island4.jpg"], answer: "ISLAND" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/falls.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/falls2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/falls3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/falls4.jpg"], answer: "WATERFALL" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sinadya.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sinadya2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sinadya3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sinadya4.jpg"], answer: "SINADYA" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/capiztahan.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/capiztahan2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/capiztahan3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/capiztahan4.jpg"], answer: "CAPIZTAHAN" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/tourism.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/tourism2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/tourism3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/tourism4.jpg"], answer: "TOURISM" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bangus.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bangus2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bangus3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/bangus4.jpg"], answer: "FISHING" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/market.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/market2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/market3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/market4.jpg"], answer: "MARKET" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/province.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/province2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/province3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/province4.jpg"], answer: "PROVINCE" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/legend.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/legend2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/legend3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/legend4.jpg"], answer: "LEGEND" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/travel.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/travel2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/travel3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/travel4.jpg"], answer: "TRAVEL" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/church.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/church2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/church3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/church4.jpg"], answer: "CHURCH" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/food.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/food2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/food3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/food4.jpg"], answer: "FOOD" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/history.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/history2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/history3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/history4.jpg"], answer: "HISTORY" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/native.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/native2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/native3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/native4.jpg"], answer: "NATIVE" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/pres.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/pres2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/pres3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/pres4.jpg"], answer: "PRESIDENT" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/farm.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/farm2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/farm3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/farm4.jpg"], answer: "FARMING" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sugpo.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sugpo2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sugpo3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/sugpo4.jpg"], answer: "PRAWN" },
+            { images: ["https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/talabaa.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/talabaa2.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/talabaa3.jpg", "https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic/talabaa4.jpg"], answer: "OYSTER" }
         ];
 
         // --- GAME STATE ---
@@ -219,8 +222,9 @@
         const hintCountDisplay = document.getElementById('hint-count-display');
         const gameContainer = document.getElementById('game-container');
         const gameOverModal = document.getElementById('game-over-modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
+        const restartBtn = document.getElementById('restart-btn');
         const finalScoreDisplay = document.getElementById('final-score');
+        const correctAnswerDisplay = document.getElementById('correct-answer-display');
         const backgroundAudio = document.getElementById('background-audio');
         const correctAnswerAudio = document.getElementById('correct-answer-audio');
         const gameOverAudio = document.getElementById('game-over-audio');
@@ -232,6 +236,25 @@
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
             }
+        }
+        
+        function startNewGame() {
+            // Reset game state
+            currentLevelIndex = 0;
+            score = 0;
+            hintCount = 1;
+
+            // Hide modal and show game container
+            gameOverModal.classList.add('hidden');
+
+            // Re-shuffle levels and load the first one
+            shuffledLevels = [...gameLevels];
+            shuffleArray(shuffledLevels);
+            loadLevel();
+
+            // Restart background music
+            backgroundAudio.currentTime = 0;
+            backgroundAudio.play().catch(e => console.log("Autoplay blocked by browser."));
         }
 
         function startNewTimer() {
@@ -260,7 +283,7 @@
                         <h2 class="text-3xl font-bold text-green-600 mb-4">Congratulations!</h2>
                         <p class="text-slate-700 text-lg mb-2">You have completed all 50 levels.</p>
                         <p class="text-slate-700 text-lg">Final Score: <span class="font-bold">${score}</span></p>
-                        <button onclick="window.location.href = 'index.html'" class="mt-6 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-md">Play Again</button>
+                        <button onclick="startNewGame()" class="mt-6 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-md">Play Again</button>
                     </div>
                 `;
                 return;
@@ -270,7 +293,7 @@
             updateHintDisplay();
 
             const levelData = shuffledLevels[currentLevelIndex];
-            levelDisplay.textContent = currentLevelIndex + 1;
+            levelDisplay.textContent = `${currentLevelIndex + 1} / ${gameLevels.length}`;
             scoreDisplay.textContent = score;
             messageArea.textContent = '';
             nextLevelBtn.classList.add('hidden');
@@ -280,6 +303,9 @@
                 const imgContainer = document.createElement('div');
                 imgContainer.className = 'aspect-square image-placeholder rounded-md';
                 imgContainer.style.backgroundImage = `url(${src})`;
+                imgContainer.onerror = function() {
+                    this.style.backgroundImage = `url('https://placehold.co/200x200/e2e8f0/4a5568?text=Image+Error')`;
+                };
                 imageGrid.appendChild(imgContainer);
             });
 
@@ -426,7 +452,7 @@
                 selectLetter(buttonToPress);
                 targetBox.classList.add('hint-revealed');
             }
-            checkAnswer(); // Check if the hint completed the word
+            checkAnswer();
         }
 
         function updateTimer() {
@@ -442,6 +468,7 @@
             backgroundAudio.pause();
             gameOverAudio.play();
             finalScoreDisplay.textContent = score;
+            correctAnswerDisplay.textContent = shuffledLevels[currentLevelIndex].answer;
             gameOverModal.classList.remove('hidden');
         }
 
@@ -453,16 +480,16 @@
 
         hintBtn.addEventListener('click', giveHint);
 
-        closeModalBtn.addEventListener('click', () => {
-            window.location.href = 'index.html';
-        });
+        restartBtn.addEventListener('click', startNewGame);
 
         // --- INITIALIZE GAME ---
-        backgroundAudio.play().catch(e => console.log("Autoplay blocked by browser."));
-        
-        shuffledLevels = [...gameLevels];
-        shuffleArray(shuffledLevels);
-        loadLevel();
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.addEventListener('click', () => {
+                backgroundAudio.play().catch(e => console.log("Autoplay blocked. Waiting for user interaction."));
+            }, { once: true });
+            
+            startNewGame();
+        });
 
     </script>
 </body>
