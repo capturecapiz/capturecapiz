@@ -369,7 +369,8 @@ video {
 <div class="section-banner__form">
   <br> <br> <br>
   <div class="join-us__btn">
-    <a class="uk-button uk-button-danger pulse-animation" href="index1.html">Get Started</a>
+    <a class="uk-button uk-button-danger pulse-animation" href="#fb-video-modal" uk-toggle>Play Now!</a>
+
   </div>
 </div>
 
@@ -1455,6 +1456,25 @@ document.addEventListener('DOMContentLoaded', () => {
   <script src="html/assets/js/uikit.min.js"></script>
   <script src="html/assets/js/uikit-icons.min.js"></script>
   <script src="html/assets/js/main.js"></script>
+
+
+<!-- Facebook Video Modal -->
+<div id="fb-video-modal" class="uk-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="max-width: 900px; padding:0;">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="video-container" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+      <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FCapizTourismAndCulturalAffairs%2Fvideos%2F1654906485903007%2F&show_text=false&width=560&t=0"
+        width="100%" height="100%"
+        style="position:absolute; top:0; left:0; border:none; overflow:hidden;"
+        scrolling="no" frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+  
 </body>
 
 </html>
