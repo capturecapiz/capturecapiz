@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4 Pics 1 Word - Capiz Edition</title>
+    <title>4 Pics 1 Word - Capiz Edition (15 Rounds)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,7 +94,6 @@
 </head>
 <body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
 
-    <!-- Audio Elements -->
     <audio id="background-audio" src="https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic.mp3" loop autoplay></audio>
     <audio id="correct-answer-audio" src="https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic_winner.mp3"></audio>
     <audio id="game-over-audio" src="https://raw.githubusercontent.com/capturecapiz/capturecapiz/main/html/assets/img/4pic_over.mp3"></audio>
@@ -131,7 +130,6 @@
         </main>
     </div>
 
-    <!-- Game Over Modal -->
     <div id="game-over-modal" class="modal-overlay hidden">
         <div class="modal-content w-11/12 max-w-sm">
             <h2 class="text-3xl font-bold text-red-600 mb-4">Game Over!</h2>
@@ -250,10 +248,16 @@
 
             // Hide modal and show game container
             gameOverModal.classList.add('hidden');
+            
+            // --- MODIFIED CODE START ---
+            // Create a temporary shuffled copy of the full list
+            const allLevelsShuffled = [...gameLevels];
+            shuffleArray(allLevelsShuffled);
 
-            // Re-shuffle levels and load the first one
-            shuffledLevels = [...gameLevels];
-            shuffleArray(shuffledLevels);
+            // Take the first 15 to be this game's levels
+            shuffledLevels = allLevelsShuffled.slice(0, 15);
+            // --- MODIFIED CODE END ---
+
             loadLevel();
 
             // Restart background music
@@ -285,7 +289,7 @@
                 gameContainer.innerHTML = `
                     <div class="text-center">
                         <h2 class="text-3xl font-bold text-green-600 mb-4">Congratulations!</h2>
-                        <p class="text-slate-700 text-lg mb-2">You have completed all 50 levels.</p>
+                        <p class="text-slate-700 text-lg mb-2">You have completed all 15 levels.</p>
                         <p class="text-slate-700 text-lg">Final Score: <span class="font-bold">${score}</span></p>
                         <button onclick="startNewGame()" class="mt-6 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-md">Play Again</button>
                     </div>
@@ -297,7 +301,8 @@
             updateHintDisplay();
 
             const levelData = shuffledLevels[currentLevelIndex];
-            levelDisplay.textContent = `${currentLevelIndex + 1} / ${gameLevels.length}`;
+            // --- MODIFIED: Changed gameLevels.length to shuffledLevels.length ---
+            levelDisplay.textContent = `${currentLevelIndex + 1} / ${shuffledLevels.length}`;
             scoreDisplay.textContent = score;
             messageArea.textContent = '';
             nextLevelBtn.classList.add('hidden');
