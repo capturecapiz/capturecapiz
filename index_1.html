@@ -1498,15 +1498,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   
 <div id="pdf-modal" class="uk-flex-top" uk-modal>
-  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="width: 90vw; height: 85vh; max-width: 1200px; padding: 0; border-radius: 8px; overflow: hidden;">
-    <button class="uk-modal-close-default" type="button" uk-close style="background: white; border-radius: 50%; padding: 5px; margin: 10px;"></button>
+  <div class="uk-modal-dialog uk-margin-auto-vertical uk-flex uk-flex-column" style="width: 90vw; height: 85vh; max-width: 1200px; padding: 0; border-radius: 8px; overflow: hidden;">
     
-    <iframe 
-      src="https://drive.google.com/file/d/1FAgC7SPghfUxlhVCEjSZij8qrYzhRqkN/preview" 
-      width="100%" 
-      height="100%" 
-      style="border: none;">
-    </iframe>
+    <div class="uk-modal-header" style="background: #f8f8f8; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd;">
+      <h2 class="uk-modal-title" style="margin: 0; font-size: 1.25rem; font-weight: bold; color: #333;">
+        CITIZEN’S CHARTER 2026 (9th Edition)
+      </h2>
+      <button class="uk-modal-close" type="button" uk-close style="color: #666; transition: color 0.2s ease;"></button>
+    </div>
+    
+    <div class="uk-modal-body" style="padding: 0; flex-grow: 1;">
+      <iframe 
+        src="https://drive.google.com/file/d/1FAgC7SPghfUxlhVCEjSZij8qrYzhRqkN/preview" 
+        width="100%" 
+        height="100%" 
+        style="border: none;">
+      </iframe>
+    </div>
+    
   </div>
 </div>
 
